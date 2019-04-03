@@ -9,12 +9,15 @@ defaults write -g InitialKeyRepeat 15
 defaults write -g KeyRepeat 2
 
 # Dock
-defaults write com.apple.dock autohide 1
-defaults write com.apple.dock magnification 1
-defaults write com.apple.dock titlesize 27
-defaults write com.apple.dock largesize 91
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock tilesize -float 32
+defaults write com.apple.dock largesize -float 92
 defaults write com.apple.dock orientation right
 defaults write com.apple.dock mineffect genie
+defaults write com.apple.dock minimize-to-application 1
+defaults write com.apple.dock persistent-apps " "
+defaults write com.apple.dock show-recents -bool false
 
 # Siri
 defaults write com.apple.Siri StatusMenuVisible 0
