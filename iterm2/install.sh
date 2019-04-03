@@ -5,4 +5,4 @@ echo "Deleting iterm2 settings"
 defaults delete com.googlecode.iterm2
 
 echo "Replacing with checked in iterm2 settings"
-cp com.googlecode.iterm2.plist /Library/Preferences/
+sudo cp iterm2/com.googlecode.iterm2.plist /Library/Preferences/
