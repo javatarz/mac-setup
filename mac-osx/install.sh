@@ -16,6 +16,11 @@ defaults write com.apple.dock largesize 91
 defaults write com.apple.dock orientation right
 defaults write com.apple.dock mineffect genie
 
+# Siri
+defaults write com.apple.Siri StatusMenuVisible 0
+defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" 0
+
 # Global defaults writes require a logout
 # osascript -e 'tell app "System Events" to log out'
 killall Dock
+killall -KILL SystemUIServer
