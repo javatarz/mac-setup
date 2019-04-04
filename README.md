@@ -1,6 +1,7 @@
 # Setting up your machine
 
 Download the codebase and execute `install.sh`
+Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
 
 # Updating the codebase over time
 
@@ -36,3 +37,4 @@ Make changes via the iterm2 UI and commit the file.
 * Git
     * Default configuration
     * Signed commits
+* Automate alfred config setup
