@@ -33,3 +33,6 @@ Make changes via the iterm2 UI and commit the file.
     * Setting up your zshrc
 * iStat Menus - Menu configurations
 * Bootstrap script - Single line execution on a clean machine
+* Git
+    * Default configuration
+    * Signed commits
