@@ -28,9 +28,10 @@ Make changes via the iterm2 UI and commit the file.
 
 # Pending items
 
+* OSX
+    * Spotlight on the status bar
+    * Spotlight shortcut
 * Shell
-    * Installing prezto
-    * Making zsh your default shell
     * Setting up your zshrc
 * iStat Menus - Menu configurations
 * Bootstrap script - Single line execution on a clean machine

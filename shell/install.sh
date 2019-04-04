@@ -1,8 +1,26 @@
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+echo
+echo "> Setting up shell"
 
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+presto_dir="${ZDOTDIR:-$HOME}/.zprezto"
 
-chsh -s /bin/zsh
+if [ -d "$presto_dir" ]; then
+  echo ">> Updating prezto"
+  git -C $presto_dir pull
+  git -C $presto_dir submodule update --init --recursive
+else
+  echo ">> Setting up prezto"
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$presto_dir"
+  
+  for rcpath in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/*; do
+    rcfile=`basename $rcpath`
+    if [ "$rcfile" != "README.md" ]; then
+      ln -s "$rcpath" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    fi
+  done
+fi
+
+finger karun | grep -q "Shell: /bin/zsh"
+if [ $? != 0 ] ;then
+  echo ">> Current default shell is $shell_name. Changing to zsh."
+  chsh -s /bin/zsh
+fi
