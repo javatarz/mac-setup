@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 6,
+      "subtext" : {
+        "size" : 11,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "Helvetica Neue Light",
+        "color" : "#FFFFFF7F"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#FFFFFF4C",
+        "font" : "Helvetica Neue Light",
+        "color" : "#FFFFFF4C"
+      },
+      "backgroundSelected" : "#135AF2FF",
+      "text" : {
+        "size" : 20,
+        "colorSelected" : "#FFFFFFFF",
+        "font" : "Helvetica Neue Light",
+        "color" : "#FFFFFFFF"
+      },
+      "iconPaddingHorizontal" : 5,
+      "paddingVertical" : 6,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 2,
+      "background" : "#00000000",
+      "spacing" : 10,
+      "text" : {
+        "size" : 36,
+        "colorSelected" : "#000000FF",
+        "font" : "Helvetica Neue Light",
+        "color" : "#FFFFFFFF"
+      },
+      "backgroundSelected" : "#B2D7FFFF"
+    },
+    "window" : {
+      "color" : "#0000003F",
+      "paddingHorizontal" : 10,
+      "width" : 560,
+      "borderPadding" : 10,
+      "borderColor" : "#00000000",
+      "blur" : 9,
+      "roundness" : 3,
+      "paddingVertical" : 10
+    },
+    "credit" : "Kristof Verbeken",
+    "separator" : {
+      "color" : "#00000000",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#FFFFFF4C",
+      "thickness" : 2
+    },
+    "name" : "OS X Yosemite Dark Transparent (v2)"
+  }
+}
