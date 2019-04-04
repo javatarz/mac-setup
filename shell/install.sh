@@ -21,6 +21,11 @@ fi
 
 finger karun | grep -q "Shell: /bin/zsh"
 if [ $? != 0 ] ;then
-  echo ">> Current default shell is $shell_name. Changing to zsh."
+  echo ">> Changing default shell to zsh."
   chsh -s /bin/zsh
 fi
+
+echo ">> Remove symlink to current .zshrc file"
+rm -f "${ZDOTDIR:-$HOME}/.zshrc"
+echo ">> Replace with symlink to in-project .zshrc file. Open a new shell for scripts to take effect."
+ln -s $PWD/shell/zshrc "${ZDOTDIR:-$HOME}/.zshrc"
