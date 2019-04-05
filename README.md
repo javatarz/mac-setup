@@ -1,15 +1,15 @@
 # Setting up your machine
 
 1. Download the codebase and execute `install.sh`
-2. Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
-3. Load the `git` module in ~/.zprestorc
+2. Open Iterm2 and ask it to read settings from `/Users/karun/projects/personal/mac-setup/iterm2`
+3. Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
+4. Load the `git` module in ~/.zprestorc
 
 # Updating the codebase over time
 
 ## Brew packages
 ```bash
-cd brew
-brew bundle dump
+rm -f brew/Brewfile && brew bundle dump --file=brew/Brewfile
 ```
 
 ## OSX settings (or any other plist)
