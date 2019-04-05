@@ -37,4 +37,5 @@ Make changes via the iterm2 UI and commit the file.
     * Default configuration
     * Signed commits
 * Automate alfred config setup
-* Spectacle
+* Automate iTerm2 config setup
+* Automate .zpreztorc update
