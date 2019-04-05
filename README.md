@@ -37,3 +37,4 @@ Make changes via the iterm2 UI and commit the file.
     * Default configuration
     * Signed commits
 * Automate alfred config setup
+* Spectacle
