@@ -2,7 +2,7 @@
 
 1. Download the codebase and execute `install.sh`
 2. Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
-3. Load the `git` module in ~/zprestorc
+3. Load the `git` module in ~/.zprestorc
 
 # Updating the codebase over time
 
