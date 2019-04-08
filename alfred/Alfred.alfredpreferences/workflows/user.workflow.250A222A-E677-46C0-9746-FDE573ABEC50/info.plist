@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>acb.cleardownloads</string>
+	<key>connections</key>
+	<dict>
+		<key>0F674DCD-9AA3-4E20-827D-4F8EB7FB7AB9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>877AB5CA-B95D-42DB-87FC-22D47948809B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>53AFB0C4-A1B1-4D7C-93A3-C22334F57B40</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>877AB5CA-B95D-42DB-87FC-22D47948809B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>877AB5CA-B95D-42DB-87FC-22D47948809B</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Andrew Curtis-Black</string>
+	<key>description</key>
+	<string>Trashes the contents of the Downloads folder</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Clear downloads</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>mv ~/Downloads/* ~/.Trash</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>877AB5CA-B95D-42DB-87FC-22D47948809B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>clear</string>
+				<key>subtext</key>
+				<string>Trash the contents of the Downloads folder</string>
+				<key>text</key>
+				<string>Clear downloads</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>53AFB0C4-A1B1-4D7C-93A3-C22334F57B40</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>throw</string>
+				<key>subtext</key>
+				<string>Trash the contents of the Downloads folder</string>
+				<key>text</key>
+				<string>Clear downloads</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0F674DCD-9AA3-4E20-827D-4F8EB7FB7AB9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0F674DCD-9AA3-4E20-827D-4F8EB7FB7AB9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>140</integer>
+		</dict>
+		<key>53AFB0C4-A1B1-4D7C-93A3-C22334F57B40</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>877AB5CA-B95D-42DB-87FC-22D47948809B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
