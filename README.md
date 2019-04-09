@@ -16,11 +16,10 @@ rm -f brew/Brewfile && brew bundle dump --file=brew/Brewfile
 Setup the aliases
 ```bash
 alias bef="rm -f before after && defaults read > before"
-alias aft="defaults read > after && diff before after"
+alias aft="defaults read > after && code --diff before after"
 ```
 
 In a directory with write privileges, run `bef`, make the changes you wish to record and then run `aft`. The console will output the differences.
-Running `code --diff before after` will showcase the full diff of the files in Visual Studio code
 
 ## Iterm2
 Settings are automatically saved to `/Users/karun/projects/personal/mac-setup/iterm2` if the directory exists.
@@ -31,7 +30,6 @@ Make changes via the iterm2 UI and commit the file.
 
 * OSX
     * Spotlight shortcut
-* iStat Menus - Menu configurations
 * Bootstrap script - Single line execution on a clean machine
 * Git
     * Default configuration
@@ -39,3 +37,4 @@ Make changes via the iterm2 UI and commit the file.
 * Automate alfred config setup
 * Automate iTerm2 config setup
 * Automate .zpreztorc update
+* iStat Menus - Menu configurations
