@@ -1,5 +1,6 @@
 # Setting up your machine
 
+1. Ensure your machine is running (at least) OSX Mojave
 1. Download the codebase and execute `install.sh`
 2. Open Iterm2 and ask it to read settings from `/Users/karun/projects/personal/mac-setup/iterm2`
 3. Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
