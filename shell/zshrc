@@ -41,8 +41,8 @@ alias vi="vim"
 
 alias json="cat $1 | jq ."
 alias dc="docker-compose"
-alias aft="defaults read > after && diff before after"
 alias bef="rm -f before after && defaults read > before"
+alias aft="defaults read > after && code --diff before after"
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
