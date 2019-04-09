@@ -16,6 +16,12 @@ killall Dock
 echo ">> Hiding Siri"
 defaults write com.apple.Siri StatusMenuVisible 0
 defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" 0
+
+# Battery and time on the menu
+defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.battery"
+defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.clock"
+defaults delete com.apple.systemuiserver menuExtras
+
 echo ">> Restarting SystemUIServer"
 killall -KILL SystemUIServer
 
