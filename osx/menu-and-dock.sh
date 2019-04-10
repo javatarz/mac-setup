@@ -22,6 +22,9 @@ defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuext
 defaults delete com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.clock"
 defaults delete com.apple.systemuiserver menuExtras
 
+# Airplay
+defaults write com.apple.airplay showInMenuBarIfPresent false
+
 echo ">> Restarting SystemUIServer"
 killall -KILL SystemUIServer
 
