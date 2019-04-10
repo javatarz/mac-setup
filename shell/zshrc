@@ -11,6 +11,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh-secrets" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh-secrets"
+fi
+
 # Exported variables
 export HISTCONTROL=$HISTCONTROL:ignorespace
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -19,8 +23,8 @@ export PATH="$PATH:$HOME/.go/bin"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export HOMEBREW_GITHUB_API_TOKEN="1b4ebac3c6a9178cc62b389a5e25078d8ff5cb54"
 
 # Profile Editing aliases
 alias epro="vi ~/.zshrc && . ~/.zshrc"
