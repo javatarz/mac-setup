@@ -27,6 +27,10 @@ delete_if_available com.apple.systemuiserver menuExtras
 # Airplay
 defaults write com.apple.airplay showInMenuBarIfPresent false
 
+# Time machine
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" true
+defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
+
 echo ">> Restarting SystemUIServer"
 killall -KILL SystemUIServer
 
