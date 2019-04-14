@@ -47,6 +47,7 @@ alias json="cat $1 | jq ."
 alias dc="docker-compose"
 alias bef="rm -f before after && defaults read > before"
 alias aft="defaults read > after && code --diff before after"
+alias brewfile="rm -f ~/projects/personal/mac-setup/brew/Brewfile && brew bundle dump --file=~/projects/personal/mac-setup/brew/Brewfile"
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
