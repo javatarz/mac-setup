@@ -59,3 +59,4 @@ eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # added by travis gem
 [ -f /Users/karun/.travis/travis.sh ] && source /Users/karun/.travis/travis.sh
+
