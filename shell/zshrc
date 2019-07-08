@@ -15,6 +15,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-secrets" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh-secrets"
 fi
 
+source /usr/local/bin/virtualenvwrapper.sh
+
 # Exported variables
 export HISTCONTROL=$HISTCONTROL:ignorespace
 export JAVA_HOME=$(/usr/libexec/java_home)
@@ -25,6 +27,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # Profile Editing aliases
 alias epro="vi ~/.zshrc && . ~/.zshrc"
@@ -48,6 +52,8 @@ alias dc="docker-compose"
 alias bef="rm -f before after && defaults read > before"
 alias aft="defaults read > after && code --diff before after"
 alias brewfile="rm -f ~/projects/personal/mac-setup/brew/Brewfile && brew bundle dump --file=~/projects/personal/mac-setup/brew/Brewfile"
+alias signpersonal="git config user.signingkey 88A4C761 && git config user.email \"karun@japhet.in\""
+alias signwork="git config user.signingkey 704CA986 && git config user.email \"karunj@sahajsoft.com\""
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -59,4 +65,3 @@ eval $(thefuck --alias --enable-experimental-instant-mode)
 
 # added by travis gem
 [ -f /Users/karun/.travis/travis.sh ] && source /Users/karun/.travis/travis.sh
-
