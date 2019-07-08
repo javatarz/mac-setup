@@ -61,12 +61,13 @@ alias brewfile="rm -f ~/projects/personal/mac-setup/brew/Brewfile && brew bundle
 alias signpersonal="git config user.signingkey $GPG_KEY_PERSONAL && git config user.email \"$GPG_MAIL_PERSONAL\""
 alias signwork="git config user.signingkey $GPG_KEY_WORK && git config user.email \"$GPG_MAIL_WORK\""
 
-alias rentv="filebot -rename $DIR_INPUT_TV --output $DIR_OUTPUT_TV --db TheTvDB --non-strict --format \"{n}/Season {s.pad(2)/{n} - {s00e00} - {t}\""
-alias subtv="filebot -script fn:suball $DIR_OUTPUT_TV --non-strict --def maxAgeDays=7"
+alias rentv="filebot -rename $DIR_INPUT_TV --output $DIR_OUTPUT_TV --db TheTvDB -non-strict --format \"{n}/Season {s.pad(2)}/{n} - {s00e00} - {t}\""
+alias subtv="filebot -script fn:suball $DIR_OUTPUT_TV -non-strict --def maxAgeDays=7"
 alias tv='rentv && subtv'
-alias renmov="filebot -rename $DIR_INPUT_MOVIES --output $DIR_OUTPUT_MOVIES --db TheMovieDB --non-strict --format \"{y} = {n}/{n} ({y})\""
-alias submov="filebot -script fn:suball $DIR_OUTPUT_MOVIES --non-strict --def maxAgeDays=7"
+alias renmov="filebot -rename $DIR_INPUT_MOVIES --output $DIR_OUTPUT_MOVIES --db TheMovieDB -non-strict --format \"{y} = {n}/{n} ({y})\""
+alias submov="filebot -script fn:suball $DIR_OUTPUT_MOVIES -non-strict --def maxAgeDays=7"
 alias mov='renmov && submov'
+alias subs='filebot -get-subtitles'
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
