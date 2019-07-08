@@ -15,7 +15,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-secrets" ]]; then
   source "${ZDOTDIR:-$HOME}/.zsh-secrets"
 fi
 
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -s "/usr/local/bin/virtualenvwrapper.sh" ]]; then
+  source "/usr/local/bin/virtualenvwrapper.sh"
+fi
+
+if [[ -s "$HOME/.zsh-secrets" ]]; then
+  source "$HOME/.zsh-secrets"
+fi
 
 # Exported variables
 export HISTCONTROL=$HISTCONTROL:ignorespace
@@ -52,8 +58,15 @@ alias dc="docker-compose"
 alias bef="rm -f before after && defaults read > before"
 alias aft="defaults read > after && code --diff before after"
 alias brewfile="rm -f ~/projects/personal/mac-setup/brew/Brewfile && brew bundle dump --file=~/projects/personal/mac-setup/brew/Brewfile"
-alias signpersonal="git config user.signingkey 88A4C761 && git config user.email \"karun@japhet.in\""
-alias signwork="git config user.signingkey 704CA986 && git config user.email \"karunj@sahajsoft.com\""
+alias signpersonal="git config user.signingkey $GPG_KEY_PERSONAL && git config user.email \"$GPG_MAIL_PERSONAL\""
+alias signwork="git config user.signingkey $GPG_KEY_WORK && git config user.email \"$GPG_MAIL_WORK\""
+
+alias rentv="filebot -rename $DIR_INPUT_TV --output $DIR_OUTPUT_TV --db TheTvDB --non-strict --format \"{n}/Season {s.pad(2)/{n} - {s00e00} - {t}\""
+alias subtv="filebot -script fn:suball $DIR_OUTPUT_TV --non-strict --def maxAgeDays=7"
+alias tv='rentv && subtv'
+alias renmov="filebot -rename $DIR_INPUT_MOVIES --output $DIR_OUTPUT_MOVIES --db TheMovieDB --non-strict --format \"{y} = {n}/{n} ({y})\""
+alias submov="filebot -script fn:suball $DIR_OUTPUT_MOVIES --non-strict --def maxAgeDays=7"
+alias mov='renmov && submov'
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
