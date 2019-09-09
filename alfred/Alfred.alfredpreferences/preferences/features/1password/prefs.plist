@@ -4,5 +4,7 @@
 <dict>
 	<key>nokeyword</key>
 	<true/>
+	<key>onlylogins</key>
+	<true/>
 </dict>
 </plist>

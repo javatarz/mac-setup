@@ -32,8 +32,10 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export PATH="$HOME/.jenv/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export aws_profile="dev"
 eval "$(jenv init -)"
 
 # Profile Editing aliases
@@ -61,13 +63,30 @@ alias brewfile="rm -f ~/projects/personal/mac-setup/brew/Brewfile && brew bundle
 alias signpersonal="git config user.signingkey $GPG_KEY_PERSONAL && git config user.email \"$GPG_MAIL_PERSONAL\""
 alias signwork="git config user.signingkey $GPG_KEY_WORK && git config user.email \"$GPG_MAIL_WORK\""
 
-alias rentv="filebot -rename $DIR_INPUT_TV --output $DIR_OUTPUT_TV --db TheTvDB -non-strict --format \"{n}/Season {s.pad(2)}/{n} - {s00e00} - {t}\""
+alias rentv="filebot -r -rename $DIR_INPUT_TV --output $DIR_OUTPUT_TV --db TheTvDB -non-strict --format \"{n}/Season {s.pad(2)}/{n} {s00e00} - {t}\""
 alias subtv="filebot -script fn:suball $DIR_OUTPUT_TV -non-strict --def maxAgeDays=7"
 alias tv='rentv && subtv'
-alias renmov="filebot -rename $DIR_INPUT_MOVIES --output $DIR_OUTPUT_MOVIES --db TheMovieDB -non-strict --format \"{y} = {n}/{n} ({y})\""
+alias renmov="filebot -r -rename $DIR_INPUT_MOVIES --output $DIR_OUTPUT_MOVIES --db TheMovieDB -non-strict --format \"{y} - {n}/{n} ({y})\""
 alias submov="filebot -script fn:suball $DIR_OUTPUT_MOVIES -non-strict --def maxAgeDays=7"
 alias mov='renmov && submov'
 alias subs='filebot -get-subtitles'
+
+weather() {
+  curl "http://v2.wttr.in/$1"
+}
+
+tnlonly() {
+  sshuttle -vr $1 $(ssh -G $1 | awk '/^hostname / { print $2 }' | sed 's/\.[0-9]*\.[0-9]*$/.0.0\/16/');
+}
+
+ec2() {
+  if [ -n "$2" ]; then
+    local aws_profile=$2
+  elif [ -z "$aws_profile" ]; then
+    local aws_profile="default"
+  fi
+  aws ec2 describe-instances --profile $aws_profile --filters "Name=tag:Name,Values=$1*" --query "Reservations[*].Instances[*].{Name: Tags[?Key=='Name'] | [0].Value, Environment: Tags[?Key=='Environment'] | [0].Value, PublicIP: PublicIpAddress, PrivateIP: PrivateIpAddress, StartTime: LaunchTime, State: State.Name}[] | sort_by(@, &Environment)" --output table
+}
 
 # Auto jump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
