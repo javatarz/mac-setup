@@ -76,7 +76,14 @@ weather() {
 }
 
 tnlonly() {
-  sshuttle -vr $1 $(ssh -G $1 | awk '/^hostname / { print $2 }' | sed 's/\.[0-9]*\.[0-9]*$/.0.0\/16/');
+  netmask=$2
+  if [ -z $netmask ]; then
+    netmask=$(ssh -G $1 | awk '/^hostname / { print $2 }' | sed 's/\.[0-9]*\.[0-9]*$/.0.0\/16/')
+  fi
+
+  echo "Tunneling to $1 through netmask $netmask"
+  echo
+  sshuttle -Hvr $1 $netmask;
 }
 
 ec2() {
