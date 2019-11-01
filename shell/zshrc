@@ -66,6 +66,9 @@ alias submov="filebot -script fn:suball $DIR_OUTPUT_MOVIES -non-strict --def max
 alias mov='renmov && submov'
 alias subs='filebot -get-subtitles'
 
+alias awsv='aws-vault'
+alias pylint='CI_PROJECT_NAME=$(basename $(pwd)) CI_COMMIT_REF_NAME=feature ./quality-check.sh'
+
 weather() {
   curl "http://v2.wttr.in/$1"
 }
@@ -88,7 +91,7 @@ ec2() {
     local aws_profile="default"
   fi
 
-  aws ec2 describe-instances --profile $aws_profile --filters "Name=tag:Name,Values=$1*" --query "Reservations[*].Instances[*].{Name: Tags[?Key=='Name'] | [0].Value, Environment: Tags[?Key=='Environment'] | [0].Value, PublicIP: PublicIpAddress, PrivateIP: PrivateIpAddress, StartTime: LaunchTime, State: State.Name}[] | sort_by(@, &Environment)" --output table
+  aws-vault exec $aws_profile | aws ec2 describe-instances --filters "Name=tag:Name,Values=$1*" --query "Reservations[*].Instances[*].{Name: Tags[?Key=='Name'] | [0].Value, Environment: Tags[?Key=='Environment'] | [0].Value, PublicIP: PublicIpAddress, PrivateIP: PrivateIpAddress, StartTime: LaunchTime, State: State.Name}[] | sort_by(@, &Environment)" --output table
 }
 
 # Auto jump
