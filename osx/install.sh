@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo
 echo "> osx/install.sh"
 sh osx/ui.sh

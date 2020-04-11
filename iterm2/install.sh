@@ -1,3 +1,5 @@
+#!/bin/sh
+
 source common/functions.sh
 
 # `default writes` are not used because the iterm2 data structure is painful to setup

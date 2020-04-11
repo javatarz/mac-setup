@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Trackpad
 echo ">> Setup trackpad speed parameters"
 defaults write -g com.apple.trackpad.scaling 5.0
