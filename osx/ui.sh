@@ -1,3 +1,4 @@
+#!/bin/sh
 result=$(defaults read -g AppleInterfaceStyle 2>/dev/null)
 
 if [ "$result" != "Dark" ]; then

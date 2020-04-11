@@ -1,3 +1,5 @@
+#!/bin/sh
+
 defaults write com.apple.controlstrip FullCustomized -array \
   "com.apple.system.group.brightness" \
   "com.apple.system.mission-control" \
