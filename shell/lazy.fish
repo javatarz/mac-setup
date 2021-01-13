@@ -11,7 +11,7 @@ function dc
 end
 
 function weather
-    curl "http://v2.wttr.in/$argv[1]"
+    curl "http://wttr.in/$argv[1]"
 end
 
 function coffee
@@ -20,7 +20,7 @@ function coffee
     brew outdated --cask | cut -f 1 -d " " | xargs brew cask reinstall
     brew cleanup
     mas upgrade
-    softwareupdate --all --install --force
+    # softwareupdate --all --install --force
 end
 
 function notebook
