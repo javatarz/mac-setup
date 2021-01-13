@@ -19,7 +19,7 @@ function pull
 end
 
 function push
-    git push
+    git push -u origin (git rev-parse --abbrev-ref HEAD)
 end
 
 function reset
