@@ -1,10 +1,7 @@
 # Setting up your machine
 
 1. Ensure your machine is running (at least) OSX Mojave
-1. Download the codebase and execute `install.sh`
-2. Open Iterm2 and ask it to read settings from `/Users/karun/projects/personal/mac-setup/iterm2`
-3. Open Alfred > Preferences > Advanced > Syncing > Set Preferences folder and set it to the `alfred` directory in this project
-4. Load the `git` module in ~/.zprestorc
+1. Run `bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/main/bootstrap.sh)`
 
 # Updating the codebase over time
 
@@ -12,6 +9,8 @@
 ```bash
 rm -f brew/Brewfile && brew bundle dump --file=brew/Brewfile
 ```
+
+Once you have fish setup, the function `brewfile` will do the above command for you.
 
 ## OSX settings (or any other plist)
 Setup the aliases
@@ -26,6 +25,11 @@ In a directory with write privileges, run `bef`, make the changes you wish to re
 Settings are automatically saved to `/Users/karun/projects/personal/mac-setup/iterm2` if the directory exists.
 
 Make changes via the iterm2 UI and commit the file.
+
+# Manual items
+
+1. ~/.ssh
+1. ~/.gnupg
 
 # Pending items
 
