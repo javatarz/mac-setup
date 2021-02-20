@@ -36,10 +36,6 @@ Make changes via the iterm2 UI and commit the file.
 * OSX
     * Spotlight shortcut
 * Bootstrap script - Single line execution on a clean machine
-* Git
-    * Default configuration
-    * Signed commits
 * Automate alfred config setup
 * Automate iTerm2 config setup
-* Automate .zpreztorc update
 * iStat Menus - Menu configurations
