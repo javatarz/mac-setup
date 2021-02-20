@@ -25,6 +25,7 @@ defaults write com.apple.systemuiserver "NSStatusItem Visible Siri" 0
 delete_if_available com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.battery"
 delete_if_available com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.clock"
 delete_if_available com.apple.systemuiserver menuExtras
+delete_if_available com.apple.systemuiserver "NSStatusItem Visible DoNotDisturb"
 
 # Airplay
 defaults write com.apple.airplay showInMenuBarIfPresent false
