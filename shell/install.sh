@@ -15,7 +15,7 @@ echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell
 ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
 
 echo ">> Add fzf bindings"
-/usr/local/opt/fzf/install
+/usr/local/opt/fzf/install --all
 
 echo ">> Reload key bindings"
 fzf_key_bindings
