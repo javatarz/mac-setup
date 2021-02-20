@@ -2,7 +2,7 @@
 
 # Trackpad
 echo ">> Setup trackpad speed parameters"
-defaults write -g com.apple.trackpad.scaling 5.0
+defaults write -g com.apple.trackpad.scaling 3
 
 # Keyboard
 echo ">> Setup keyboard speed parameters"
