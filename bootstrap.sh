@@ -9,8 +9,9 @@ echo ">> Download latest code from $branch to $zip_file"
 curl -o $zip_file -Li https://github.com/javatarz/mac-setup/archive/$branch.zip
 
 echo ">> Extract $zip_file to $extract_dir"
+set +e
 unzip $zip_file -d $extract_dir
-# unzip ~/Downloads/mac-setup.zip -d ~/Downloads/mac-setup
+set -e
 
 echo ">> Open $extract_dir/mac-setup-main"
 cd "$extract_dir/mac-setup-main"
