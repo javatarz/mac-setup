@@ -5,7 +5,7 @@ set +x
 set -e
 
 curl -o $zip_file -Li https://github.com/javatarz/mac-setup/archive/main.zip
-unzip mac-setup.zip -d $extract_dir
+unzip mac-setup -d $extract_dir
 
 cd $extract_dir/mac-setup-main
 sh install.sh
