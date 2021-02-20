@@ -18,5 +18,5 @@ cd "$extract_dir/mac-setup-main"
 echo ">> Run install"
 sh install.sh
 
-eco ">> Remove $extract_dir and $zip_file"
+echo ">> Remove $extract_dir and $zip_file"
 rm -rf $extract_dir $zip_file
