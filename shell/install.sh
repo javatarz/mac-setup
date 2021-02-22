@@ -17,5 +17,3 @@ ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
 echo ">> Add fzf bindings"
 /usr/local/opt/fzf/install --all
 
-echo ">> Reload key bindings"
-fzf_key_bindings
