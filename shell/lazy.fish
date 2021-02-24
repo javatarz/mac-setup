@@ -17,7 +17,7 @@ end
 function coffee
     brew update
     brew upgrade
-    brew outdated --cask | cut -f 1 -d " " | xargs brew cask reinstall
+    brew outdated --cask | cut -f 1 -d " " | xargs brew reinstall
     brew cleanup
     mas upgrade
     # softwareupdate --all --install --force
