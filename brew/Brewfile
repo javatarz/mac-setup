@@ -29,7 +29,7 @@ brew "libidn2"
 brew "docker", link: false
 brew "docker-compose", link: false
 brew "docker-credential-helper-ecr", link: false
-brew "docker-machine"
+brew "docker-machine", link: false
 brew "docker-machine-completion"
 brew "docker-machine-driver-xhyve"
 brew "icu4c"
@@ -69,6 +69,7 @@ brew "lz4"
 brew "mas"
 brew "maven"
 brew "nvm"
+brew "openjdk@8"
 brew "openvpn"
 brew "p7zip"
 brew "pandoc"
