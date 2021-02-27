@@ -5,6 +5,7 @@ echo "> Setting up shell"
 finger karun | grep -q "Shell: /usr/local/bin/fish"
 if [ $? != 0 ]; then
   echo ">> Changing default shell to fish."
+  sudo sh -c 'echo /usr/local/bin/fish >> /etc/shells'
   chsh -s /usr/local/bin/fish
 fi
 
