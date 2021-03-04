@@ -139,6 +139,7 @@ cask "vlc"
 cask "whatsapp"
 cask "zoom"
 mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
