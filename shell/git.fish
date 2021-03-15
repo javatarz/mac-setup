@@ -34,6 +34,14 @@ function pop
     git stash pop $argv
 end
 
+function main
+    git checkout main
+end
+
+function remove_all_branches
+    git branch | grep -v main | xargs git branch -D
+end
+
 function signpersonal
     git config user.signingkey $GPG_KEY_PERSONAL
     git config user.email "$GPG_MAIL_PERSONAL"
