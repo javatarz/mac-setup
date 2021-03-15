@@ -21,6 +21,7 @@ function coffee
     brew cleanup
     mas upgrade
     # softwareupdate --all --install --force
+    omf update
 end
 
 function notebook
