@@ -15,6 +15,15 @@ ls -l ~/.config/fish/conf.d/ | grep mac-setup/shell | cut -d ' ' -f 13 | xargs p
 echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell for scripts to take effect."
 ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
 
+echo ">> Install OMF"
+curl -L https://get.oh-my.fish | fish
+source $HOME/.config/fish/conf.d/omf.fish
+
+echo ">>> Installing bobthefish theme"
+omf install bobthefish
+omf theme bobthefish
+set -g theme_powerline_fonts no
+set -g theme_nerd_fonts yes
+
 echo ">> Add fzf bindings"
 /usr/local/opt/fzf/install --all
-
