@@ -21,6 +21,9 @@ source $HOME/.config/fish/conf.d/omf.fish
 
 echo ">>> Installing bobthefish theme"
 omf install bobthefish
+
+# setup default before bobthefish so you get an interesting mix of the two shells which I love
+omf theme default
 omf theme bobthefish
 set -g theme_powerline_fonts no
 set -g theme_nerd_fonts yes
