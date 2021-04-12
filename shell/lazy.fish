@@ -32,14 +32,18 @@ function notebook
 
     if test "$command" = "start"
         echo "mapping work to $notebook_root"
-        docker run -p 8888:8888 -d -P --name notebook -v $notebook_root:/home/jovyan/work jupyter/datascience-notebook
+        docker run -p 8888:8888 -p 4000:4000 --rm -e JUPYTER_ENABLE_LAB=yes -d -P --name notebook -v $notebook_root:/home/jovyan/work jupyter/all-spark-notebook
         docker logs notebook
     else if test "$command" = "stop"
         docker stop notebook
-        docker rm notebook
     else if test "$command" = "logs" || test "$command" = "log"
         docker logs notebook
     else
         echo "Invalid command: '$command'"
     end
+end
+
+function 1p
+    set -q OP_SESSION_japhet; or eval (op signin japhet | head -n 1 | sed 's/export /set -g /' | sed 's/=/ /')
+    OP_SESSION_japhet=$OP_SESSION_japhet op $argv
 end
