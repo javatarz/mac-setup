@@ -7,7 +7,7 @@ function json
 end
 
 function dc
-    docker-compose $argv
+    docker compose $argv
 end
 
 function weather
