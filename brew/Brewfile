@@ -31,6 +31,7 @@ brew "openldap"
 brew "curl"
 brew "docker"
 brew "docker-compose"
+brew "docker-credential-helper-ecr"
 brew "docker-machine", restart_service: true
 brew "icu4c"
 brew "dotnet"
