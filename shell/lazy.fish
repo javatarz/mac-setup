@@ -6,10 +6,6 @@ function json
     cat $argv[1] | jq .
 end
 
-function dc
-    docker compose $argv
-end
-
 function weather
     curl "http://wttr.in/$argv[1]"
 end
