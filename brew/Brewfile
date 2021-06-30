@@ -4,6 +4,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "homebrew/services"
 tap "rbenv/tap"
 tap "warrensbox/tap"
 brew "ack"
@@ -28,12 +29,9 @@ brew "cscope"
 brew "libidn2"
 brew "openldap"
 brew "curl"
-brew "docker", link: false
-brew "docker-compose", link: false
-brew "docker-credential-helper-ecr", link: false
-brew "docker-machine", link: false
-brew "docker-machine-completion"
-brew "docker-machine-driver-xhyve"
+brew "docker"
+brew "docker-compose"
+brew "docker-machine", restart_service: true
 brew "icu4c"
 brew "dotnet"
 brew "fish"
@@ -126,6 +124,7 @@ cask "firefox"
 cask "flutter"
 cask "flux"
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 cask "font-open-sans"
 cask "font-powerline-symbols"
 cask "font-source-code-pro"
@@ -148,11 +147,11 @@ cask "telegram"
 cask "textual"
 cask "toggl-track"
 cask "vagrant"
+cask "virtualbox"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoom"
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
