@@ -26,5 +26,9 @@ omf install bobthefish
 omf theme default
 omf theme bobthefish
 
+# NVM specific setup
+omf install https://github.com/fabioantunes/fish-nvm
+omf install https://github.com/edc/bass
+
 echo ">> Add fzf bindings"
 /usr/local/opt/fzf/install --all
