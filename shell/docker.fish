@@ -20,6 +20,11 @@ function dh
     echo ">> Stopping docker machine"
     docker-machine stop
 
+  else if test "$command" = "update"
+    echo ">> Updating docker host IP in hosts file"
+    set host_ip (docker-machine ip default)
+    echo "$host_ip docker" | sudo tee -a /etc/hosts
+
   else
     echo "Unknown command: $command"
   end
