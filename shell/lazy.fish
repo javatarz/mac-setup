@@ -11,13 +11,26 @@ function weather
 end
 
 function coffee
+    echo "> Update brew formulae"
     brew update
+    echo "> Upgrade brew apps"
     brew upgrade
+    echo "> Upgrade brew cask apps"
     brew outdated --cask | cut -f 1 -d " " | xargs brew reinstall
+    echo "> Cleanup brew downloads"
     brew cleanup
+    echo "> Update all apps from the Mac App store"
     mas upgrade
+    # echo "> Run system upgdates"
     # softwareupdate --all --install --force
+    echo "> Update all omf installations"
     omf update
+
+    echo "> Creating Brewfile and pushing it to git"
+    brewfile
+    git -C ~/projects/personal/mac-setup/ add brew/Brewfile
+    git -C ~/projects/personal/mac-setup/ commit -m "Updated brewfile"
+    git -C ~/projects/personal/mac-setup/ push
 end
 
 function notebook
