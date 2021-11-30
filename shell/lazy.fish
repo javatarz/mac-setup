@@ -39,9 +39,4 @@ function notebook
     end
 end
 
-function 1p
-    set -q OP_SESSION_japhet; or eval (op signin japhet | head -n 1 | sed 's/export /set -g /' | sed 's/=/ /')
-    OP_SESSION_japhet=$OP_SESSION_japhet op $argv
-end
-
 set -g theme_powerline_fonts no
