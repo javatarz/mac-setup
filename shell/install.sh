@@ -16,8 +16,13 @@ echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell
 ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
 
 echo ">> Install OMF"
-curl -L https://get.oh-my.fish | fish
-source $HOME/.config/fish/conf.d/omf.fish
+(functions | grep omf) >/dev/null
+if $status; then
+  echo ">>> OMF is already installed, skipping step"
+else
+  curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+  source $HOME/.config/fish/conf.d/omf.fish
+fi
 
 echo ">>> Installing bobthefish theme"
 omf install bobthefish
