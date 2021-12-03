@@ -35,7 +35,7 @@ Make changes via the iterm2 UI and commit the file.
 # Pending items
 
 * OSX
-    * Spotlight shortcut
+    * Spotlight shortcut (currently done by Bartender)
 * Secrets management
 * Automate alfred config setup
 * iStat Menus - Menu configurations
