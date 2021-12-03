@@ -37,3 +37,7 @@ omf install https://github.com/edc/bass
 
 echo ">> Add fzf bindings"
 /usr/local/opt/fzf/install --all
+
+echo ">> Update git config"
+git config --global commit.gpgsign true
+git config --global core.editor vim
