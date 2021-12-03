@@ -36,7 +36,6 @@ Make changes via the iterm2 UI and commit the file.
 
 * OSX
     * Spotlight shortcut
-    * Keyboard/mouse configuration (no longer works on Catalina)
 * Secrets management
 * Automate alfred config setup
 * iStat Menus - Menu configurations
