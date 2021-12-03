@@ -30,12 +30,13 @@ Make changes via the iterm2 UI and commit the file.
 
 1. ~/.ssh
 1. ~/.gnupg
+1. ~/.config/fish/conf.d/secrets.fish
 
 # Pending items
 
 * OSX
     * Spotlight shortcut
-* Bootstrap script - Single line execution on a clean machine
+    * Keyboard/mouse configuration (no longer works on Catalina)
+* Secrets management
 * Automate alfred config setup
-* Automate iTerm2 config setup
 * iStat Menus - Menu configurations
