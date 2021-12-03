@@ -24,7 +24,4 @@ fish ./shell/omf/dependencies.fish
 echo ">> Add fzf bindings"
 /usr/local/opt/fzf/install --all
 
-echo ">> Update git config"
-git config --global commit.gpgsign true
-git config --global core.editor vim
-git config --global init.defaultBranch main
+sh ./shell/git/config.sh
