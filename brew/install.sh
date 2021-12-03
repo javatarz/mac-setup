@@ -2,8 +2,13 @@
 
 echo
 echo "> brew/install.sh"
-echo ">> Installing homebrew"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+which brew >/dev/null
+if test $? -ne 0; then
+  echo ">> Installing homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+  echo ">> Brew already installed"
+fi
 
 echo ">> Switching off analytics"
 brew analytics off
