@@ -2,14 +2,14 @@
 
 # Trackpad
 echo ">> Setup trackpad speed parameters"
-defaults write -g com.apple.trackpad.scaling 3
+defaults write NSGlobalDomain com.apple.trackpad.scaling -int 3
 
 # Mouse
 echo ">> Setup mouse speed parameters"
-defaults write -g com.apple.mouse.scaling 3
-defaults write -g com.apple.scrollwheel.scaling 1
+defaults write NSGlobalDomain com.apple.mouse.scaling -int 3
+defaults write NSGlobalDomain com.apple.scrollwheel.scaling -int 1
 
 # Keyboard
 echo ">> Setup keyboard speed parameters"
-defaults write -g InitialKeyRepeat 15
-defaults write -g KeyRepeat 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2
