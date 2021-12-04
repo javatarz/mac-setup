@@ -18,3 +18,6 @@ brew bundle cleanup --file=brew/Brewfile --force
 
 echo ">> Installing brew and cask apps"
 brew bundle --file=brew/Brewfile
+
+echo ">> Setting up JDK paths"
+sh brew/jdk.sh
