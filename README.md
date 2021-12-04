@@ -43,11 +43,11 @@ Update the menu structure as required
 1. ~/.ssh
 1. ~/.gnupg
 1. ~/.config/fish/conf.d/secrets.fish
+1. iStat Menus - Menu configurations import
 
 # Pending items
 
 * OSX
     * Spotlight shortcut (currently done by Bartender)
 * Secrets management
-* iStat Menus - Menu configurations
 * Automate mac-setup checkout process
