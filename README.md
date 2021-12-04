@@ -20,8 +20,7 @@ Once you have fish setup, the function `brewfile` will do the above command for 
 ## OSX settings (or any other plist)
 Setup the aliases
 ```bash
-alias bef="rm -f before after && defaults read > before"
-alias aft="defaults read > after && code --diff before after"
+alias bef="rm -f before after && defaults read > before" && alias aft="defaults read > after && code --diff before after"
 ```
 
 In a directory with write privileges, run `bef`, make the changes you wish to record and then run `aft`. The console will output the differences.
@@ -50,6 +49,5 @@ Update the menu structure as required
 * OSX
     * Spotlight shortcut (currently done by Bartender)
 * Secrets management
-* Automate telling Alfred to save config to mac-setup directory
 * iStat Menus - Menu configurations
 * Automate mac-setup checkout process
