@@ -51,6 +51,5 @@ Update the menu structure as required
     * Spotlight shortcut (currently done by Bartender)
 * Secrets management
 * Automate telling Alfred to save config to mac-setup directory
-* Automate telling iterm2 to save config to mac-setup directory
 * iStat Menus - Menu configurations
 * Automate mac-setup checkout process
