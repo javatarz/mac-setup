@@ -26,10 +26,18 @@ alias aft="defaults read > after && code --diff before after"
 
 In a directory with write privileges, run `bef`, make the changes you wish to record and then run `aft`. The console will output the differences.
 
-## Iterm2
-Settings are automatically saved to `/Users/karun/projects/personal/mac-setup/iterm2` if the directory exists.
+## iTerm2
+Open `Preferences > General > Preferences` and set the config path to `<base-path>/mac-setup/iterm2`
 
 Make changes via the iterm2 UI and commit the file.
+
+## Alfred
+Open `Preferences > Advanced > Set Preferences Folder` and set the config path to `<base-path>/mac-setup/alfred`
+
+Make changes via the Alfred UI and commit the file.
+
+## iStat Menus
+Update the menu structure as required
 
 # Manual items
 
@@ -42,6 +50,7 @@ Make changes via the iterm2 UI and commit the file.
 * OSX
     * Spotlight shortcut (currently done by Bartender)
 * Secrets management
-* Automate alfred config setup
+* Automate telling Alfred to save config to mac-setup directory
+* Automate telling iterm2 to save config to mac-setup directory
 * iStat Menus - Menu configurations
 * Automate mac-setup checkout process
