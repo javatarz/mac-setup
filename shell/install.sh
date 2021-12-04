@@ -15,6 +15,10 @@ ls -ld ~/.config/fish/conf.d/* | grep mac-setup/shell | grep -o '/Users/.*/\.con
 echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell for scripts to take effect."
 ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
 
+echo ">> Install NVM"
+# The brew version no longer works
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
 echo ">> Install OMF"
 fish ./shell/omf/install.fish
 
