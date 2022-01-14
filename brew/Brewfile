@@ -17,9 +17,11 @@ brew "autoconf"
 brew "autojump"
 brew "automake"
 brew "autossh"
+brew "python@3.9"
 brew "awscli"
 brew "bash"
 brew "bfg"
+brew "glib"
 brew "lzo"
 brew "cairo"
 brew "chruby"
@@ -51,6 +53,7 @@ brew "gobject-introspection"
 brew "gradle"
 brew "graphite2"
 brew "harfbuzz"
+brew "pango"
 brew "librsvg"
 brew "graphviz"
 brew "grep"
@@ -77,7 +80,6 @@ brew "pinentry-mac"
 brew "pth"
 brew "pyenv"
 brew "pyenv-virtualenv"
-brew "ruby"
 brew "rust"
 brew "s3cmd"
 brew "sbt"
@@ -150,11 +152,10 @@ cask "vlc"
 cask "webex"
 cask "whatsapp"
 cask "zoom"
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
 mas "JSONPlistBuddy", id: 1574947481
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
+mas "Xcode", id: 497799835
