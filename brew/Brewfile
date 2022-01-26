@@ -32,7 +32,7 @@ brew "cscope"
 brew "libidn2"
 brew "openldap"
 brew "curl"
-brew "docker-credential-helper-ecr"
+brew "docker-credential-helper-ecr", link: false
 brew "icu4c"
 brew "dotnet"
 brew "fish"
