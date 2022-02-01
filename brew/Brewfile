@@ -17,6 +17,11 @@ brew "autoconf"
 brew "autojump"
 brew "automake"
 brew "autossh"
+<<<<<<< HEAD
+=======
+brew "aws-vault", link: false
+brew "python@3.9"
+>>>>>>> f938d43 (Updated brewfile)
 brew "awscli"
 brew "bash"
 brew "bfg"
@@ -45,7 +50,7 @@ brew "git-lfs"
 brew "git-secrets"
 brew "gnu-getopt"
 brew "libtool"
-brew "gnutls"
+brew "gnutls", link: false
 brew "gnupg"
 brew "go"
 brew "gobject-introspection"
