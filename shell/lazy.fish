@@ -14,9 +14,7 @@ function coffee
     echo "> Update brew formulae"
     brew update
     echo "> Upgrade brew apps"
-    brew upgrade
-    echo "> Upgrade brew cask apps"
-    brew outdated --cask | cut -f 1 -d " " | xargs brew reinstall
+    brew upgrade --greedy
     echo "> Cleanup brew downloads"
     brew cleanup
     echo "> Update all apps from the Mac App store"
