@@ -14,7 +14,7 @@ function coffee
     echo "> Update brew formulae"
     brew update
     echo "> Upgrade brew apps"
-    brew upgrade --greedy
+    brew upgrade
     echo "> Cleanup brew downloads"
     brew cleanup
     echo "> Update all apps from the Mac App store"
