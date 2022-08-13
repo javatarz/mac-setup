@@ -153,3 +153,9 @@ cask "vlc"
 cask "webex"
 cask "whatsapp"
 cask "zoom"
+mas "Keynote", id: 409183694
+mas "Meeter", id: 1510445899
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
+mas "Xcode", id: 497799835
