@@ -47,8 +47,8 @@ brew "git-lfs"
 brew "git-secrets"
 brew "gnu-getopt"
 brew "libtool"
-brew "gnutls", link: false
-brew "gnupg", link: false
+brew "gnutls"
+brew "gnupg"
 brew "go"
 brew "gobject-introspection"
 brew "gradle"
