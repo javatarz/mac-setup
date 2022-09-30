@@ -51,3 +51,7 @@ function notebook
 end
 
 set -g theme_powerline_fonts no
+
+alias cat=bat
+alias find=fi
+alias watch=viddy
