@@ -50,7 +50,7 @@ brew "git-lfs"
 brew "git-secrets"
 brew "git-sizer"
 brew "gnu-getopt"
-brew "gnutls", link: false
+brew "gnutls"
 brew "gnupg"
 brew "go"
 brew "gobject-introspection"
