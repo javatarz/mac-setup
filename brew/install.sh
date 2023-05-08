@@ -6,6 +6,8 @@ which brew >/dev/null
 if test $? -ne 0; then
   echo ">> Installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   echo ">> Brew already installed"
 fi
