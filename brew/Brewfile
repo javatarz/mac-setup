@@ -12,6 +12,7 @@ brew "adns"
 brew "lz4"
 brew "glib"
 brew "lzo"
+brew "openssl@3", link: false
 brew "cairo"
 brew "graphite2"
 brew "harfbuzz"
@@ -77,11 +78,12 @@ brew "libxml2"
 brew "luajit"
 brew "mas"
 brew "maven"
+brew "mkcert"
 brew "node"
 brew "newman"
+brew "nss"
 brew "openjdk@11"
 brew "openjdk@8"
-brew "openssl@3"
 brew "p7zip"
 brew "pandoc"
 brew "perl"
@@ -175,6 +177,7 @@ mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
+mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
 vscode "DotJoshJohnson.xml"
 vscode "eamodio.gitlens"
