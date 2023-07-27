@@ -156,7 +156,6 @@ cask "spotify"
 cask "tableplus"
 cask "telegram"
 cask "textual"
-cask "toggl-track"
 cask "vagrant"
 cask "visual-studio-code"
 cask "vlc"
@@ -170,6 +169,7 @@ mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
+mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "DotJoshJohnson.xml"
 vscode "eamodio.gitlens"
