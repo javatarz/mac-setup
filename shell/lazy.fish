@@ -54,3 +54,28 @@ set -g theme_powerline_fonts no
 
 alias cat=bat
 alias watch=viddy
+
+function deploy_slides
+  set hugo_source_path "/Users/karun/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
+  set slides_source_path "$hugo_source_path/public"
+
+  echo "> generating latest slides from $hugo_source_path"
+  hugo --source "$hugo_source_path"
+
+  echo "> adding current files from $slides_source_path to git"
+  git -C $slides_source_path add .
+
+  set commit_message "Latest slides at $(date)"
+  echo "> committing with message $commit_message"
+  git -C $slides_source_path commit -m $commit_message
+
+  echo "> pushing to remote"
+  git -C $slides_source_path push
+
+  echo "> done"
+end
+
+function run_slides
+  set hugo_source_path "/Users/karun/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
+  hugo --source "$hugo_source_path" server
+end
