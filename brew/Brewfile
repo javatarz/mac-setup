@@ -161,6 +161,7 @@ cask "webex"
 cask "whatsapp"
 cask "zoom"
 mas "iMovie", id: 408981434
+mas "In Your Face", id: 1476964367
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
