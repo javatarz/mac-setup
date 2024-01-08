@@ -3,3 +3,7 @@ fish_add_path /usr/local/sbin
 fish_add_path /usr/local/opt/ansible@2.9/bin
 
 set LANG english
+
+if command -v ngrok &>/dev/null;
+  eval "$(ngrok completion)"
+end
