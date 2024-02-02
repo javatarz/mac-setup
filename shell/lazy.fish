@@ -27,7 +27,7 @@ function coffee
     echo "> Creating Brewfile and pushing it to git"
     brewfile
     git -C ~/projects/personal/mac-setup/ add brew/Brewfile
-    git -C ~/projects/personal/mac-setup/ commit -m "Updated brewfile"
+    git -C ~/projects/personal/mac-setup/ commit -m "Updated brewfile on $hostname"
     git -C ~/projects/personal/mac-setup/ push
 end
 
