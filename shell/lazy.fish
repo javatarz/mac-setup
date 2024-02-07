@@ -45,6 +45,8 @@ function notebook
         docker stop notebook
     else if test "$command" = "logs" || test "$command" = "log"
         docker logs notebook
+    else if test "$command" = "open"
+        open (docker logs notebook 2>&1 | tr -d "[:blank:]" | grep "^http://127.0.0.1")
     else
         echo "Invalid command: '$command'"
     end
