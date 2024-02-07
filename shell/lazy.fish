@@ -39,7 +39,7 @@ function notebook
 
     if test "$command" = "start"
         echo "mapping work to $notebook_root"
-        docker run -p 8888:8888 -p 4000:4000 --rm -e JUPYTER_ENABLE_LAB=yes -d -P --name notebook -v $notebook_root:/home/jovyan/work jupyter/all-spark-notebook
+        docker run -p 8888:8888 -p 4000:4000 --rm -d -P --name notebook -v $notebook_root:/home/jovyan/work quay.io/jupyter/all-spark-notebook:latest
         docker logs notebook
     else if test "$command" = "stop"
         docker stop notebook
