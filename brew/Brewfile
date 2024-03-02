@@ -1,5 +1,9 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+<<<<<<< HEAD
+=======
+tap "homebrew/cask-drivers"
+>>>>>>> 1613f24 (Updated brewfile on Beerus.local)
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
@@ -149,7 +153,10 @@ cask "omnigraffle"
 cask "openvpn-connect"
 cask "pop"
 cask "postman"
+<<<<<<< HEAD
 cask "powershell"
+=======
+>>>>>>> 1613f24 (Updated brewfile on Beerus.local)
 cask "rectangle"
 cask "robo-3t"
 cask "shortcutdetective"
@@ -174,16 +181,11 @@ mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
-vscode "dotjoshjohnson.xml"
-vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
-vscode "elmtooling.elm-ls-vscode"
 vscode "github.copilot"
 vscode "github.copilot-chat"
-vscode "gitlab.gitlab-workflow"
-vscode "hashicorp.terraform"
-vscode "hbenl.vscode-test-explorer"
-vscode "jock.svg"
+vscode "haskell.haskell"
+vscode "justusadam.language-haskell"
 vscode "k--kato.intellij-idea-keybindings"
 vscode "mechatroner.rainbow-csv"
 vscode "mikestead.dotenv"
