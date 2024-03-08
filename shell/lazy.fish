@@ -7,7 +7,7 @@ function json
 end
 
 function weather
-    curl "http://wttr.in/$argv[1]"
+  echo $argv | jq -sRr @uri | xargs -I {} curl "http://wttr.in/{}"
 end
 
 function coffee
