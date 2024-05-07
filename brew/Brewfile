@@ -1,7 +1,6 @@
 tap "alajmo/mani"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "rbenv/tap"
 tap "warrensbox/tap"
