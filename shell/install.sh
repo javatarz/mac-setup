@@ -9,6 +9,9 @@ if [ $? != 0 ]; then
   chsh -s /usr/local/bin/fish
 fi
 
+echo ">> Add brew to fish paths"
+set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
+
 echo ">> Remove symlink to current fish scripts"
 mkdir -p ~/.config/fish/conf.d
 ls -ld ~/.config/fish/conf.d/* | grep mac-setup/shell | grep -o '/Users/.*/\.config/.* -' | cut -d ' ' -f 1 | xargs rm
@@ -21,7 +24,7 @@ fish ./shell/omf/install.fish
 echo ">> Install OMF dependencies"
 fish ./shell/omf/dependencies.fish
 
-echo ">> Add fzf bindings"
-/usr/local/opt/fzf/install --all
+# echo ">> Add fzf bindings"
+# /usr/local/opt/fzf/install --all
 
 sh ./shell/git/config.sh
