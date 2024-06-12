@@ -19,6 +19,7 @@ function pull
 end
 
 function push
+    set AWS_PROFILE "dev"
     git push -u origin (git rev-parse --abbrev-ref HEAD)
 end
 
