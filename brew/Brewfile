@@ -142,6 +142,7 @@ cask "kindle"
 cask "librewolf"
 cask "obsidian"
 cask "omnigraffle"
+cask "openvpn-connect"
 cask "pop"
 cask "postman"
 cask "rectangle"
@@ -161,15 +162,11 @@ cask "whatsapp"
 cask "zoom"
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
-mas "JSONPlistBuddy", id: 1574947481
 mas "Keynote", id: 409183694
-mas "Luminar AI", id: 1541310539
 mas "Meeter", id: 1510445899
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
-mas "The Unarchiver", id: 425424353
-mas "Xcode", id: 497799835
 vscode "editorconfig.editorconfig"
 vscode "github.copilot"
 vscode "github.copilot-chat"
