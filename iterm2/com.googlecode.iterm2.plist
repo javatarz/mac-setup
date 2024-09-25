@@ -4,6 +4,8 @@
 <dict>
 	<key>Default Bookmark Guid</key>
 	<string>DBC4E8E5-D93C-4DB0-93D3-6FDB4BA38F42</string>
+	<key>EnableAPIServer</key>
+	<true/>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -662,7 +664,7 @@
 			<key>Custom Directory</key>
 			<string>No</string>
 			<key>Custom Locale</key>
-			<string>en_US</string>
+			<string>en_GB.UTF-8</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
