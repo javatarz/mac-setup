@@ -42,8 +42,22 @@ brew "gnutls"
 brew "pango"
 brew "ffmpeg"
 brew "fish"
+is_fish_installed = !`which fish`.chomp.empty?
+if is_fish_installed 
+  File.open("#{Dir.home}/.config/fish/conf.d/brew-shellenv.fish", mode:'w') do |f|
+    f.write(`brew shellenv fish`)
+  end
+end
 brew "libtool"
 brew "fzf"
+is_fzf_installed = !`which fzf`.chomp.empty?
+if is_fish_installed && is_fzf_installed 
+  File.open("#{Dir.home}/.config/fish/conf.d/fzf-activate.fish", mode:'w') do |f|
+    f.write("status is-interactive; or exit 0\n\n")
+    f.write(`fzf --fish`)
+    f.write("\n\nbind --erase \cr")
+  end
+end
 brew "gcc"
 brew "gd"
 brew "gdk-pixbuf"
@@ -77,7 +91,13 @@ brew "libxml2"
 brew "luajit"
 brew "mas"
 brew "maven"
-brew "node"
+is_mise_installed = !`which mise`.chomp.empty?
+if is_fish_installed && is_mise_installed 
+  File.open("#{Dir.home}/.config/fish/conf.d/mise-activate.fish", mode:'w') do |f|
+    f.write("status is-interactive; or exit 0\n\n")
+    f.write(`mise activate fish`)
+  end
+end
 brew "openjdk@11"
 brew "openjdk@8"
 brew "openldap"
