@@ -11,6 +11,8 @@ function weather
 end
 
 function coffee
+    echo "> Check and generate pre-files"
+    brew bundle check --file=~/projects/personal/mac-setup/brew/Brewfile
     echo "> Update brew formulae"
     brew update
     echo "> Upgrade brew apps"
