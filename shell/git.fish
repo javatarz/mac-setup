@@ -36,7 +36,11 @@ function pop
 end
 
 function main
+  if git branch | grep -q main
     git checkout main
+  else
+    git checkout master
+  end
 end
 
 function remove_all_branches
