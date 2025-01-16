@@ -11,13 +11,6 @@ end
 omf theme default
 omf theme bobthefish
 
-omf list | grep fish-nvm >/dev/null
-if test $status -ne 0
-  omf install https://github.com/fabioantunes/fish-nvm
-else
-  echo ">>> fish-nvm already installed"
-end
-
 omf list | grep bass >/dev/null
 if test $status -ne 0
   omf install https://github.com/edc/bass
