@@ -1,6 +1,6 @@
 zip_file=~/Downloads/mac-setup.zip
 extract_dir=~/Downloads/mac-setup
-branch=main
+branch=apple-silicon
 
 set -x
 set -e
@@ -13,8 +13,8 @@ set +e
 unzip $zip_file -d $extract_dir
 set -e
 
-echo ">> Open $extract_dir/mac-setup-main"
-cd "$extract_dir/mac-setup-main"
+echo ">> Open $extract_dir/mac-setup-$branch"
+cd "$extract_dir/mac-setup-$branch"
 echo ">> Run install"
 sh install.sh
 
