@@ -73,28 +73,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array>
-					<string>com.apple.application-bundle</string>
-					<string>com.apple.disk-image-udif</string>
-					<string>com.apple.installer-package-archive</string>
-					<string>public.zip-archive</string>
-				</array>
-				<key>name</key>
-				<string>Install App</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>A39FD7B7-4926-4447-A979-40C17B7E199A</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -146,6 +124,28 @@ sh ./script.sh "$SEARCHDIR" "$QUERY"</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>filetypes</key>
+				<array>
+					<string>com.apple.application-bundle</string>
+					<string>com.apple.disk-image-udif</string>
+					<string>com.apple.installer-package-archive</string>
+					<string>public.zip-archive</string>
+				</array>
+				<key>name</key>
+				<string>Install App</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>A39FD7B7-4926-4447-A979-40C17B7E199A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Inspired by [Franz Greiling’s](https://github.com/laerador/dmginstall) workflow but written completely from scratch using only Shell Script.</string>
@@ -173,6 +173,12 @@ sh ./script.sh "$SEARCHDIR" "$QUERY"</string>
 			<real>10</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.3.37</string>
 	<key>webaddress</key>
 	<string>imagazine.pl</string>
 </dict>
