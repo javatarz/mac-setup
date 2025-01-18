@@ -2,11 +2,11 @@
 echo
 echo "> Setting up shell"
 
-finger karun | grep -q "Shell: /usr/local/bin/fish"
+finger karun | grep -q "Shell: /opt/homebrew/bin/fish"
 if [ $? != 0 ]; then
   echo ">> Changing default shell to fish."
-  sudo sh -c 'echo /usr/local/bin/fish >> /etc/shells'
-  chsh -s /usr/local/bin/fish
+  sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
+  chsh -s /opt/homebrew/bin/fish
 fi
 
 echo ">> Add brew to fish paths"
@@ -25,6 +25,6 @@ echo ">> Install OMF dependencies"
 fish ./shell/omf/dependencies.fish
 
 # echo ">> Add fzf bindings"
-# /usr/local/opt/fzf/install --all
+# /opt/homebrew/opt/fzf/install --all
 
 sh ./shell/git/config.sh
