@@ -34,6 +34,9 @@ defaults write com.apple.airplay showInMenuBarIfPresent false
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" true
 defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/TimeMachine.menu"
 
+# Menu bar
+defaults write com.apple.menuextra.clock IsAnalog -bool true
+
 echo ">> Restarting SystemUIServer"
 killall -KILL SystemUIServer
 
