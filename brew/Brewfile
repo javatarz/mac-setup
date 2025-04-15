@@ -92,6 +92,7 @@ brew "pandoc"
 brew "perl"
 brew "php"
 brew "pinentry-mac"
+brew "postgresql@12"
 brew "pre-commit"
 brew "pth"
 brew "pyenv"
@@ -107,6 +108,7 @@ brew "shared-mime-info"
 brew "socat"
 brew "spatialindex"
 brew "sshuttle"
+brew "step"
 brew "subversion"
 brew "tcl-tk"
 brew "telnet"
@@ -132,6 +134,8 @@ cask "android-file-transfer"
 cask "arc"
 cask "aws-vault"
 cask "caffeine"
+cask "chromium"
+cask "claude"
 cask "cursor"
 cask "daisydisk"
 cask "discord"
@@ -167,11 +171,14 @@ cask "webex"
 cask "whatsapp"
 cask "zoom"
 mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
+mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
+vscode "docker.docker"
 vscode "dotjoshjohnson.xml"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
