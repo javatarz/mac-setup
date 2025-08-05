@@ -84,6 +84,8 @@ brew "libomp"
 brew "libpq", link: true
 brew "libusb-compat"
 brew "libxml2"
+brew "qemu"
+brew "lima-additional-guestagents"
 brew "luajit"
 brew "mas"
 brew "maven"
@@ -103,7 +105,6 @@ brew "pth"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python@3.11"
-brew "qemu"
 brew "ripgrep"
 brew "rust"
 brew "s3cmd"
@@ -188,4 +189,6 @@ mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
+vscode "github.copilot"
+vscode "github.copilot-chat"
 vscode "k--kato.intellij-idea-keybindings"
