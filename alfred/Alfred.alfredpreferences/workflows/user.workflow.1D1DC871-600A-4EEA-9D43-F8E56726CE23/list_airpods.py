@@ -100,7 +100,7 @@ def main():
                 item = {
                     "title": f"{ap_name} {'✅️' if is_connected else '🚫'}",
                     "subtitle": f"{con_str}",
-                    "arg": f"{adr};{con_switch}",
+                    "arg": f"{adr};{con_switch};{ap_name}",
                     "icon": {
                         "path": ico,
                         "type": "image"
