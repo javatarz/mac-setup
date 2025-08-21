@@ -2,12 +2,20 @@
 
 echo
 echo "> brew/install.sh"
+
+# Detect architecture and set Homebrew prefix
+if [ "$(uname -m)" = "arm64" ]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  HOMEBREW_PREFIX="/usr/local"
+fi
+
 which brew >/dev/null
 if test $? -ne 0; then
   echo ">> Installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  (echo; echo "eval \"$(${HOMEBREW_PREFIX}/bin/brew shellenv)\"") >> ~/.zprofile
+  eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 else
   echo ">> Brew already installed"
 fi
@@ -23,3 +31,4 @@ brew bundle --file=brew/Brewfile
 
 echo ">> Setting up JDK paths"
 sh brew/jdk.sh
+
