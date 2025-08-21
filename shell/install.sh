@@ -1,13 +1,13 @@
 #!/bin/sh
+
+# Source common functions
+. "$(dirname "$0")"/../common/functions.sh"
+
 echo
 echo "> Setting up shell"
 
 # Detect architecture and set Homebrew prefix
-if [ "$(uname -m)" = "arm64" ]; then
-  HOMEBREW_PREFIX="/opt/homebrew"
-else
-  HOMEBREW_PREFIX="/usr/local"
-fi
+detect_homebrew_prefix
 
 # Set fish shell path based on architecture
 FISH_PATH="${HOMEBREW_PREFIX}/bin/fish"
@@ -20,18 +20,18 @@ if [ $? != 0 ]; then
 fi
 
 # Add brew to fish paths (only if not already there)
-if ! grep -q "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin" ~/.config/fish/config.fish 2>/dev/null;
+if ! grep -q "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin" ~/\.config/fish/config.fish 2>/dev/null; then
   echo ">> Add brew to fish paths"
   # This needs to be added to a fish config file, not directly executed in bash
   # We'll add a line to a fish config file that will be sourced later
-  echo "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin \$fish_user_paths" >> ~/.config/fish/conf.d/brew_paths.fish
+  echo "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin \$fish_user_paths" >> ~/\.config/fish/conf.d/brew_paths.fish
 fi
 
 echo ">> Remove symlink to current fish scripts"
-mkdir -p ~/.config/fish/conf.d
-ls -ld ~/.config/fish/conf.d/* | grep mac-setup/shell | grep -o '/Users/.*/\.config/.* -' | cut -d ' ' -f 1 | xargs rm
+mkdir -p ~/\.config/fish/conf.d
+ls -ld ~/\.config/fish/conf.d/* | grep mac-setup/shell | grep -o '/Users/.*/\.config/.* -' | cut -d ' ' -f 1 | xargs rm
 echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell for scripts to take effect."
-ln -s `pwd`/shell/*.fish ~/.config/fish/conf.d
+ln -s `pwd`/shell/*.fish ~/\.config/fish/conf.d
 
 echo ">> Install OMF"
 fish ./shell/omf/install.fish
@@ -46,3 +46,4 @@ if [ -d "${HOMEBREW_PREFIX}/opt/fzf" ]; then
 fi
 
 sh ./shell/git/config.sh
+

@@ -1,14 +1,13 @@
 #!/bin/sh
 
+# Source common functions
+. "$(dirname "$0")"/../common/functions.sh
+
 echo
 echo "> brew/install.sh"
 
 # Detect architecture and set Homebrew prefix
-if [ "$(uname -m)" = "arm64" ]; then
-  HOMEBREW_PREFIX="/opt/homebrew"
-else
-  HOMEBREW_PREFIX="/usr/local"
-fi
+detect_homebrew_prefix
 
 which brew >/dev/null
 if test $? -ne 0; then
@@ -31,4 +30,5 @@ brew bundle --file=brew/Brewfile
 
 echo ">> Setting up JDK paths"
 sh brew/jdk.sh
+
 
