@@ -4,7 +4,18 @@
 1. Run `bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/apple-silicon/bootstrap.sh)`
 1. Log out and back in to apply OSX changes (can be done at the end)
 1. Login to the App Store in the background (before mac apps get installed)
-1. Restore the list of Manual Items (below)
+1. Securely transfer sensitive files:
+    *   **On your NEW machine (receiver):**
+        Run the setup script and follow the prompts. It will start a temporary server and display a URL and password.
+        ```bash
+        sh scripts/transfer/transfer.sh
+        ```
+    *   **On your OLD machine (sender):**
+        Run the sender script. When prompted, enter the URL and password displayed on the NEW machine.
+        ```bash
+        sh scripts/transfer/transfer.sh
+        ```
+    *   The script will transfer `~/.ssh`, `~/.gnupg`, and `~/.config/fish/conf.d/secrets.fish`.
 1. Run `mkdir -p ~/projects/personal && cd ~/projects/personal && git clone git@github.com:javatarz/mac-setup.git && cd mac-setup && git checkout apple-silicon && ./install.sh` to move shell configurations to a more permanent path. Restart shell to apply changes
 1. Log out and back in to apply OSX changes (can be ignored if it hasn't been already done)
 
