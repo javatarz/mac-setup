@@ -2,6 +2,8 @@
 
 echo "--- Running Setup Verification ---"
 
+STATUS=0 # Initialize status to success
+
 # Function to check if a command exists
 command_exists () {
   type "$1" &> /dev/null ;
@@ -14,9 +16,11 @@ if command_exists xcode-select; then
     echo "  ✅ Xcode Command Line Tools are installed."
   else
     echo "  ❌ Xcode Command Line Tools are NOT installed. Run: xcode-select --install"
+    STATUS=1
   fi
 else
   echo "  ❌ xcode-select command not found. Xcode Command Line Tools are NOT installed."
+  STATUS=1
 fi
 
 # 2. Homebrew Installation
@@ -32,7 +36,7 @@ if command_exists brew; then
     INSTALLED_FORMULAS=$(brew list --formula 2>/dev/null)
     INSTALLED_CASKS=$(brew list --cask 2>/dev/null)
 
-    # Extract brew and cask entries
+    # Extract brew and cask entries, getting only the base name
     BREW_PACKAGES=$(grep "^brew " "$BREWFILE_PATH" | awk '{print $2}' | sed 's/"//g' | sed 's/,//g' | awk -F'/' '{print $NF}')
     CASK_PACKAGES=$(grep "^cask " "$BREWFILE_PATH" | awk '{print $2}' | sed 's/"//g' | sed 's/,//g' | awk -F'/' '{print $NF}')
 
@@ -41,6 +45,7 @@ if command_exists brew; then
         echo "    ✅ Brew formula: $pkg is installed."
       else
         echo "    ❌ Brew formula: $pkg is NOT installed."
+        STATUS=1
       fi
     done
 
@@ -49,15 +54,19 @@ if command_exists brew; then
         echo "    ✅ Brew cask: $pkg is installed."
       else
         echo "    ❌ Brew cask: $pkg is NOT installed."
+        STATUS=1
       fi
     done
   else
     echo "  ❌ Brewfile not found at $BREWFILE_PATH. Cannot verify packages."
+    STATUS=1
   fi
 
 else
   echo "  ❌ Homebrew is NOT installed. Cannot verify packages."
+  STATUS=1
 fi
+
 
 # 3. Fish Shell Installation
 echo -e "\nChecking Fish Shell installation..."
@@ -65,6 +74,7 @@ if command_exists fish; then
   echo "  ✅ Fish Shell is installed."
 else
   echo "  ❌ Fish Shell is NOT installed."
+  STATUS=1
 fi
 
 # 4. Presence of Securely Transferred Files
@@ -76,7 +86,10 @@ for file_path in "${FILES_TO_CHECK[@]}"; do
     echo "  ✅ $file_path exists."
   else
     echo "  ❌ $file_path does NOT exist."
+    STATUS=1
   fi
 done
 
 echo -e "\n--- Verification Complete ---"
+
+exit $STATUS
