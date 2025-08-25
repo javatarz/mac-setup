@@ -1,14 +1,11 @@
 #!/bin/bash
 
+source "$(dirname "$0")/common/functions.sh"
+
 echo "--- Running Setup Verification ---"
 
 STATUS=0 # Initialize status to success (0 = success, 1 = failure)
 FAILURES=() # Array to store failure messages
-
-# Function to check if a command exists
-command_exists () {
-  type "$1" &> /dev/null ;
-}
 
 # Function to report success
 report_success() {
@@ -87,9 +84,16 @@ echo -e "\n--- Checking Fish Shell installation ---"
 if command_exists fish;
   then
     report_success "Fish Shell is installed."
+    # Check if fish is the default shell
+    if [ "$SHELL" = "/usr/local/bin/fish" ] || [ "$SHELL" = "/opt/homebrew/bin/fish" ]; then
+      report_success "Fish is the default shell."
+    else
+      report_failure "Fish is NOT the default shell. Run: chsh -s $(which fish)"
+    fi
   else
     report_failure "Fish Shell is NOT installed."
 fi
+
 
 # 4. Presence of Securely Transferred Files
 echo -e "\n--- Checking for securely transferred files ---"
@@ -116,4 +120,3 @@ if [ $STATUS -eq 0 ];
 fi
 
 exit $STATUS
-
