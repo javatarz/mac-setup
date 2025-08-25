@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Source common functions
-. "$(dirname "$0")"/../common/functions.sh"
+pos=$(dirname "$0")
+source "$pos/../common/functions.sh"
 
 echo
 echo "> Setting up shell"
