@@ -1,64 +1,100 @@
-# Setting up your machine
+# mac-setup: Your Automated macOS Setup Framework
 
-1. Ensure your machine is running (at least) OSX Catalina
-1. Run `bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/apple-silicon/bootstrap.sh)`
-1. Log out and back in to apply OSX changes (can be done at the end)
-1. Login to the App Store in the background (before mac apps get installed)
-1. Securely transfer sensitive files:
-    *   **On your NEW machine (receiver):**
-        Run the setup script and follow the prompts. It will start a temporary server and display a URL and password.
-        ```bash
-        sh scripts/transfer/transfer.sh
-        ```
-    *   **On your OLD machine (sender):**
-        Run the sender script. When prompted, enter the URL and password displayed on the NEW machine.
-        ```bash
-        sh scripts/transfer/transfer.sh
-        ```
-    *   The script will transfer `~/.ssh`, `~/.gnupg`, and `~/.config/fish/conf.d/secrets.fish`.
-1. Run `mkdir -p ~/projects/personal && cd ~/projects/personal && git clone git@github.com:javatarz/mac-setup.git && cd mac-setup && git checkout apple-silicon && ./install.sh` to move shell configurations to a more permanent path. Restart shell to apply changes
-1. Log out and back in to apply OSX changes (can be ignored if it hasn't been already done)
+Welcome to `mac-setup`! This project provides a robust and easily customizable framework to automate the setup of your macOS machine. Our goal is to make setting up a new Mac, or maintaining an existing one, consistent, efficient, and hassle-free.
 
-# Updating the codebase over time
+## ✨ Features
 
-## Brew packages
+*   **Automated Installation:** Installs essential tools, Homebrew packages, and configures your shell.
+*   **Customizable:** Easily tailor installations and settings to your preferences.
+*   **Secure File Transfer:** A simple, local network mechanism to transfer sensitive files between machines.
+*   **Verification:** A script to confirm your setup is correctly applied.
+
+## 🚀 Getting Started
+
+Follow these steps to set up your macOS machine using `mac-setup`.
+
+### Prerequisites
+
+Before you begin, ensure you have:
+
+*   A macOS machine running (at least) OSX Catalina.
+*   An active internet connection.
+*   Administrator privileges on your machine.
+*   Basic familiarity with using the macOS Terminal.
+
+### Installation Steps
+
+1.  **Initial Bootstrap:**
+    This command downloads and prepares the `mac-setup` repository on your machine.
+
+    ```bash
+    bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/apple-silicon/bootstrap.sh)
+    ```
+
+
+
+3.  **Run the Main Installation:**
+    This command clones the `mac-setup` repository to a permanent location and runs the main installation script.
+
+    ```bash
+    mkdir -p ~/projects/personal && \
+    cd ~/projects/personal && \
+    git clone https://github.com/javatarz/mac-setup.git && \
+    cd mac-setup && \
+    git checkout main && \
+    ./install.sh
+    ```
+
+4.  **Finalize Setup:**
+    *   Log out and back in to apply all macOS and shell changes.
+    *   Log in to the App Store in the background (if you haven't already).
+
+## ⚙️ Customizing Your Setup
+
+`mac-setup` is designed to be easily customizable. Here's how you can tailor it to your needs:
+
+*   **Homebrew Packages (`brew/Brewfile`):**
+    Edit `brew/Brewfile` to add or remove Homebrew formulae (`brew`), Casks (`cask`), or Mac App Store apps (`mas`).
+    Example: `brew "my-new-cli-tool"` or `cask "my-new-app"`.
+*   **Shell Configurations (`shell/`):**
+    Modify the `.fish` files in the `shell/` directory to add custom aliases, functions, or environment variables for your Fish shell.
+*   **macOS Settings (`osx/`):**
+    The scripts in `osx/` apply various macOS system preferences. You can edit these `.sh` files to enable/disable specific settings or add new ones.
+    *   **Tip:** To discover new `defaults write` commands, you can use the `bef` and `aft` aliases (defined in `shell/git.fish` after setup) to compare `defaults read` output before and after making a change via the macOS UI.
+*   **Application Configurations (Alfred, iTerm2, iStat Menus):**
+    For applications like Alfred, iTerm2, and iStat Menus, their configurations are stored directly within their respective directories (`alfred/`, `iterm2/`, `istatmenus/`). Make changes via the application's UI, and then commit the updated files to this repository.
+
+## 🔄 Updating Your Setup
+
+To keep your machine's setup up-to-date with changes in this repository:
+
+1.  **Pull Latest Changes:**
+    ```bash
+    cd ~/projects/personal/mac-setup
+    git pull origin main
+    ```
+2.  **Re-run Installation:**
+    ```bash
+    ./install.sh
+    ```
+    This will apply any new or updated configurations.
+
+## ✅ Verify Your Setup
+
+After running the installation, you can verify that everything is set up correctly by running the `verify.sh` script:
+
 ```bash
-rm -f brew/Brewfile && brew bundle dump --file=brew/Brewfile
+./verify.sh
 ```
 
-Once you have fish setup, the function `brewfile` will do the above command for you.
+This script will check for installed tools, shell configurations, and the presence of your transferred files. It will report any discrepancies.
 
-## OSX settings (or any other plist)
-Setup the aliases
-```bash
-alias bef="rm -f before after && defaults read > before" && alias aft="defaults read > after && code --diff before after"
-```
+## 🤝 Contributing
 
-In a directory with write privileges, run `bef`, make the changes you wish to record and then run `aft`. The console will output the differences.
+We welcome contributions! Please see our `CONTRIBUTING.md` file for guidelines on how to contribute to this project.
 
-## iTerm2
-Open `Preferences > General > Preferences` and set the config path to `<base-path>/mac-setup/iterm2`
+## ❓ Troubleshooting
 
-Make changes via the iterm2 UI and commit the file.
-
-## Alfred
-Open `Preferences > Advanced > Set Preferences Folder` and set the config path to `<base-path>/mac-setup/alfred`
-
-Make changes via the Alfred UI and commit the file.
-
-## iStat Menus
-Update the menu structure as required
-
-# Manual items
-
-1. ~/.ssh
-1. ~/.gnupg
-1. ~/.config/fish/conf.d/secrets.fish
-1. iStat Menus - Menu configurations import
-
-# Pending items
-
-* OSX
-    * Spotlight shortcut (currently done by Bartender)
-* Secrets management
-* Automate mac-setup checkout process
+*   **`command not found` errors:** Ensure your shell is restarted after installation.
+*   **Homebrew issues:** Run `brew doctor` for diagnostics.
+*   **Script failures:** Check the output for specific error messages. The `verify.sh` script can help pinpoint issues.
