@@ -15,3 +15,7 @@ detect_homebrew_prefix() {
   fi
   export HOMEBREW_PREFIX # Export the variable so it's available in sourced scripts
 }
+
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
