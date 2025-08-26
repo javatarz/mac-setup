@@ -95,9 +95,9 @@ if command_exists fish;
 fi
 
 
-# 4. Presence of Securely Transferred Files
-echo -e "\n--- Checking for securely transferred files ---"
-FILES_TO_CHECK=("~/.ssh" "~/.gnupg" "~/.config/fish/conf.d/secrets.fish")
+# 4. Secrets Verification
+echo -e "\n--- Checking for secrets ---"
+FILES_TO_CHECK=("~/.ssh/config" "~/.ssh/emr_dev" "~/.config/fish/conf.d/secrets.fish")
 for file_path in "${FILES_TO_CHECK[@]}"; do
   expanded_path=$(eval echo "$file_path")
   if [ -e "$expanded_path" ];
@@ -107,6 +107,24 @@ for file_path in "${FILES_TO_CHECK[@]}"; do
       report_failure "$file_path does NOT exist."
   fi
 done
+
+DIRECTORIES_TO_CHECK=("~/.ssh/keys" "~/.ssh/envs")
+for dir_path in "${DIRECTORIES_TO_CHECK[@]}"; do
+  expanded_path=$(eval echo "$dir_path")
+  if [ -d "$expanded_path" ];
+    then
+      report_success "$dir_path exists."
+      if [ -z "$(ls -A $expanded_path)" ]; then
+        report_failure "$dir_path is empty."
+      else
+        report_success "$dir_path is not empty."
+      fi
+    else
+      report_failure "$dir_path does NOT exist."
+  fi
+done
+
+
 
 echo -e "\n--- Verification Summary ---"
 if [ $STATUS -eq 0 ];
