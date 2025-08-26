@@ -6,7 +6,6 @@ Welcome to `mac-setup`! This project provides a robust and easily customizable f
 
 *   **Automated Installation:** Installs essential tools, Homebrew packages, and configures your shell.
 *   **Customizable:** Easily tailor installations and settings to your preferences.
-*   **Secure File Transfer:** A simple, local network mechanism to transfer sensitive files between machines.
 *   **Verification:** A script to confirm your setup is correctly applied.
 
 ## 🚀 Getting Started

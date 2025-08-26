@@ -32,10 +32,6 @@ The repository is organized into several key directories:
     *   `git/`: Git-related shell configurations.
     *   `*.fish`: Fish shell configuration files.
 *   **`spectacle/`**: Spectacle application settings.
-*   **`scripts/transfer/`**: Scripts for secure manual file transfer.
-    *   `transfer.sh`: Orchestrates the transfer process.
-    *   `transfer_receiver.py`: Python script for the receiving machine.
-    *   `transfer_sender.py`: Python script for the sending machine.
 *   **`xcode/`**: Xcode-related installation scripts.
 *   **`bootstrap.sh`**: Initial script to download and prepare the repository.
 *   **`install.sh`**: Main installation orchestrator script.
