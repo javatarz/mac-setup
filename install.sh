@@ -12,6 +12,7 @@ if ! echo "$PATH" | grep -q "$(brew --prefix)/bin"; then
 fi
 
 sh shell/install.sh
+sh shell/1password.sh
 sh scripts/transfer/transfer.sh
 sh iterm2/install.sh
 sh spectacle/install.sh

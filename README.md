@@ -36,6 +36,9 @@ Before you begin, ensure you have:
 3.  **Run the Main Installation:**
     This command clones the `mac-setup` repository to a permanent location and runs the main installation script.
 
+    2.  Run the Main Installation:
+    This command clones the `mac-setup` repository to a permanent location and runs the main installation script.
+
     ```bash
     mkdir -p ~/projects/personal && \
     cd ~/projects/personal && \
