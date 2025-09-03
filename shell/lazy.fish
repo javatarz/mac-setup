@@ -55,6 +55,7 @@ function notebook
 end
 
 set -g theme_powerline_fonts no
+set -x LANG en_US.UTF-8
 
 alias cat=bat
 alias watch=viddy
