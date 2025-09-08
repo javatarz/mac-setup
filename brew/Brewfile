@@ -93,7 +93,7 @@ brew "mas"
 brew "maven"
 brew "mise"
 brew "mysql"
-brew "ollama", restart_service: :changed
+brew "ollama"
 brew "openjdk@11"
 brew "openldap"
 brew "p7zip"
