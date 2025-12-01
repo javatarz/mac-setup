@@ -35,13 +35,12 @@ set -l transcript_path (echo $json | string match -r '"transcript_path":\s*"([^"
 set -l tokens "0k"
 set -l max_tokens "200k"
 
-# Get model context window
+# Context windows:
+# - Opus 4.5: 315k
+# - Opus 4, Sonnet 4.5, Sonnet 4, Sonnet 3.7: 200k (some have 1M beta)
+# - Haiku 4.5, Haiku 3.5: 200k
 if string match -q "*opus*" $model_short
-    set max_tokens "200k"
-else if string match -q "*sonnet*" $model_short
-    set max_tokens "200k"
-else if string match -q "*haiku*" $model_short
-    set max_tokens "200k"
+    set max_tokens "315k"
 end
 
 # Estimate tokens from transcript file size (rough: ~4 chars per token)
