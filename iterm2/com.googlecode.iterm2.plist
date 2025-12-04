@@ -32,6 +32,8 @@
 	<string>Nirman Dev</string>
 	<key>Default Bookmark Guid</key>
 	<string>DBC4E8E5-D93C-4DB0-93D3-6FDB4BA38F42</string>
+	<key>Default Browser Profile Guid</key>
+	<string>EB71FE6E-EE4C-4594-A7B8-93D9DD27C38C</string>
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>EscapeShellCharsWithBackslash</key>
@@ -1309,6 +1311,8 @@
 	<false/>
 	<key>Window Arrangements</key>
 	<dict/>
+	<key>com.apple.WebPrivacy.ResourceMonitorURLsVersion</key>
+	<string>qrsAAAGXnXBrwGxMO6s=</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
