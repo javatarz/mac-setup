@@ -184,6 +184,7 @@ cask "webex"
 cask "whatsapp"
 cask "zen"
 cask "zoom"
+mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
@@ -194,6 +195,7 @@ mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "github.copilot"
 vscode "github.copilot-chat"
+vscode "github.vscode-pull-request-github"
 vscode "k--kato.intellij-idea-keybindings"
 vscode "ms-azuretools.vscode-containers"
 vscode "ms-python.debugpy"
