@@ -30,61 +30,114 @@ if test -d "$cwd/.git"; or git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1
     end
 end
 
-# Token counting - read from transcript if available
-set -l transcript_path (echo $json | string match -r '"transcript_path":\s*"([^"]+)"' | tail -1)
-set -l tokens "0k"
-set -l max_tokens "200k"
+# Context window - use actual values from Claude Code
+set -l context_size (echo $json | string match -r '"context_window_size":\s*([0-9]+)' | tail -1)
+set -l input_tokens (echo $json | string match -r '"input_tokens":\s*([0-9]+)' | tail -1)
+set -l cache_creation (echo $json | string match -r '"cache_creation_input_tokens":\s*([0-9]+)' | tail -1)
+set -l cache_read (echo $json | string match -r '"cache_read_input_tokens":\s*([0-9]+)' | tail -1)
 
-# Context windows:
-# - Opus 4.5: 450k
-# - Opus 4, Sonnet 4.5, Sonnet 4, Sonnet 3.7: 200k (some have 1M beta)
-# - Haiku 4.5, Haiku 3.5: 200k
-if string match -q "*opus*" $model_short
-    set max_tokens "450k"
+# Default values if not present
+test -z "$context_size"; and set context_size 200000
+test -z "$input_tokens"; and set input_tokens 0
+test -z "$cache_creation"; and set cache_creation 0
+test -z "$cache_read"; and set cache_read 0
+
+# Calculate usage
+set -l total_tokens (math "$input_tokens + $cache_creation + $cache_read")
+set -l context_pct (math "round($total_tokens * 100 / $context_size)")
+
+# Format for display
+set -l max_tokens (math "round($context_size / 1000)")"k"
+set -l tokens
+if test $total_tokens -ge 1000000
+    set tokens (printf "%.1fM" (math "$total_tokens / 1000000"))
+else if test $total_tokens -ge 1000
+    set tokens (math "round($total_tokens / 1000)")"k"
+else
+    set tokens $total_tokens
 end
 
-# Estimate tokens from transcript file size (rough: ~4 chars per token)
-if test -n "$transcript_path"; and test -f "$transcript_path"
-    set -l file_size (wc -c < "$transcript_path" 2>/dev/null | string trim)
-    if test -n "$file_size"
-        set -l token_count (math "round($file_size / 4 / 100) / 10")
-        if test $token_count -ge 1000
-            set tokens (math "round($token_count / 100) / 10")"k"
-        else if test $token_count -ge 1
-            set tokens $token_count"k"
-        else
-            set tokens "0.1k"
-        end
+# Session duration
+set -l duration_ms (echo $json | string match -r '"total_duration_ms":\s*([0-9]+)' | tail -1)
+set -l duration_str ""
+if test -n "$duration_ms"; and test "$duration_ms" -gt 0
+    set -l duration_sec (math "round($duration_ms / 1000)")
+    if test $duration_sec -ge 3600
+        set duration_str (math "floor($duration_sec / 3600)")"h"(math "floor($duration_sec % 3600 / 60)")"m"
+    else if test $duration_sec -ge 60
+        set duration_str (math "floor($duration_sec / 60)")"m"(math "$duration_sec % 60")"s"
+    else
+        set duration_str $duration_sec"s"
     end
 end
 
-# Powerline characters
-set -l sep ""      # \ue0b0
-set -l branch_icon "" # \ue0a0
+# Code churn (lines added/removed)
+set -l lines_added (echo $json | string match -r '"total_lines_added":\s*([0-9]+)' | tail -1)
+set -l lines_removed (echo $json | string match -r '"total_lines_removed":\s*([0-9]+)' | tail -1)
+test -z "$lines_added"; and set lines_added 0
+test -z "$lines_removed"; and set lines_removed 0
 
-# ANSI colors (works in most terminals)
+# Cache efficiency (percentage of tokens from cache)
+set -l cache_pct 0
+if test $total_tokens -gt 0
+    set cache_pct (math "round($cache_read * 100 / $total_tokens)")
+end
+
+# Separators
+set -l sep "│"
+set -l branch_icon ""
+
+# Bright colors for dark terminals (90-97 range)
 set -l reset "\033[0m"
 set -l bold "\033[1m"
 set -l dim "\033[2m"
 
-# Build status line
+set -l white "\033[97m"
+set -l gray "\033[90m"
+set -l red "\033[91m"
+set -l green "\033[92m"
+set -l yellow "\033[93m"
+set -l blue "\033[94m"
+set -l magenta "\033[95m"
+set -l cyan "\033[96m"
+
+# Build status line - clean text-based design
 set -l status_line ""
 
-# Model segment
-set status_line $status_line$bold$model_short$reset
+# Model (magenta)
+set status_line $status_line$magenta$bold"🤖 $model_short"$reset
 
-# Git segment (if available)
+# Git branch (cyan)
 if test -n "$git_info"
-    set status_line $status_line" $dim$sep$reset $branch_icon$git_info"
+    set status_line $status_line" $gray$sep$reset $cyan$branch_icon$git_info"$reset
 end
 
-# Directory segment
-set status_line $status_line" $dim$sep$reset $cwd_short"
+# Directory (blue)
+set status_line $status_line" $gray$sep$reset $blue📁 $cwd_short"$reset
 
-# Tokens segment
-set status_line $status_line" $dim$sep$reset $tokens/$max_tokens"
+# Context with colored percentage
+set -l pct_color $green
+if test $context_pct -ge 80
+    set pct_color $red
+else if test $context_pct -ge 50
+    set pct_color $yellow
+end
+set status_line $status_line" $gray$sep$reset $white📊 $tokens/$max_tokens "$pct_color"($context_pct%)"$reset
 
-# Cost segment
-set status_line $status_line" $dim$sep$reset \$$cost"
+# Cache (cyan)
+set status_line $status_line" $gray$sep$reset $cyan⚡$cache_pct%"$reset
+
+# Code churn (if any)
+if test $lines_added -gt 0; or test $lines_removed -gt 0
+    set status_line $status_line" $gray$sep$reset $green+$lines_added"$reset"/"$red"-$lines_removed"$reset
+end
+
+# Cost (white)
+set status_line $status_line" $gray$sep$reset $white💵 \$$cost"$reset
+
+# Duration (if available)
+if test -n "$duration_str"
+    set status_line $status_line" $gray$sep$reset $white⏱️ $duration_str"$reset
+end
 
 echo -e $status_line
