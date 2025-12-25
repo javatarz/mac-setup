@@ -13,7 +13,6 @@ We envision a plugin-based architecture where users can easily add or modify set
 The repository is organized into several key directories:
 
 *   **`.git/`**: Git version control data.
-*   **`.taskmaster/`**: Local task management data for `task-master.dev`.
 *   **`alfred/`**: Contains Alfred preferences and workflows.
 *   **`brew/`**: Homebrew-related scripts and `Brewfile`.
     *   `Brewfile`: Lists Homebrew formulae and casks to be installed.

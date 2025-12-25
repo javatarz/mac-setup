@@ -35,10 +35,4 @@ The primary goal of this repository is to ensure consistency between machines, f
 
 ## Backlog & Future Vision
 
-A backlog of improvements is being maintained to track the future direction of this repository. Key areas for improvement include:
-
-*   **Framework Vision:** Defining a clear path to evolve this repository into a user-friendly framework.
-*   **Secrets Management:** Implementing a more robust and secure way to manage secrets and sensitive files.
-*   **Automation:** Further automating the setup of applications like Alfred and iTerm2.
-*   **Testing & Verification:** Adding scripts to verify that the setup has been completed successfully.
-*   **Documentation:** Improving the overall documentation to make the repository easier to understand and maintain.
+The backlog is tracked in GitHub Issues. Key areas for improvement include framework vision, secrets management, and improved testing/verification.
