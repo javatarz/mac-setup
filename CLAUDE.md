@@ -71,6 +71,8 @@ Use `bef` and `aft` aliases (after setup) to capture `defaults read` output befo
 
 **Claude Code (`claude/`):** Symlinked to `~/.claude/` during install. All custom skills, commands, and configs go here to ensure consistent Claude Code experience across machines.
 
+**Fish shell:** Chosen for speed and low maintenance. Bash and zsh have been problematic over time.
+
 **Machine-specific variations:** Not currently handled. All machines get identical setup.
 
 **Testing:** No automated testing strategy yet. `verify.sh` catches some issues. OSX `defaults` can be flaky across macOS versions.

@@ -1,3 +1,8 @@
+# Colima Docker socket
+if test -S "$HOME/.colima/default/docker.sock"
+    set -gx DOCKER_HOST "unix://$HOME/.colima/default/docker.sock"
+end
+
 function dc
     docker-compose $argv
 end
