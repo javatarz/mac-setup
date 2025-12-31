@@ -22,6 +22,8 @@ Review the provided content against my writing style and suggest improvements.
 
 ## Review Process
 
+**All sections below are mandatory.** Do not skim - treat each section with the same thoroughness as a standalone review. Complete each section fully before moving to the next.
+
 ### 1. Tone & Voice Review
 Flag anything: too marketing-y, self-important, vague, dramatic, buzzword-heavy, wordy, or academic.
 
