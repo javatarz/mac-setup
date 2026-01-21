@@ -2,6 +2,7 @@ tap "alajmo/mani"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "rbenv/tap"
+tap "steveyegge/beads"
 tap "warrensbox/tap"
 brew "ack"
 brew "gmp"
@@ -94,6 +95,7 @@ brew "luajit"
 brew "mas"
 brew "maven"
 brew "mise"
+brew "mupdf-tools"
 brew "mysql"
 brew "ollama"
 brew "openjdk@11"
@@ -143,6 +145,7 @@ brew "yamllint"
 brew "yarn"
 brew "alajmo/mani/mani"
 brew "rbenv/tap/openssl@1.0"
+brew "steveyegge/beads/bd"
 cask "1password"
 cask "1password-cli"
 cask "alfred"
@@ -196,9 +199,7 @@ cask "zen"
 cask "zoom"
 mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
-mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
