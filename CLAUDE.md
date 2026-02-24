@@ -16,7 +16,7 @@ This is a macOS dotfiles/setup automation repository that configures a new Mac w
 ./verify.sh
 
 # Bootstrap on a fresh machine (downloads and runs install)
-bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/apple-silicon/bootstrap.sh)
+bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/main/bootstrap.sh)
 ```
 
 ## Architecture

@@ -27,7 +27,7 @@ Before you begin, ensure you have:
     This command downloads and prepares the `mac-setup` repository on your machine.
 
     ```bash
-    bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/apple-silicon/bootstrap.sh)
+    bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/main/bootstrap.sh)
     ```
 
 
