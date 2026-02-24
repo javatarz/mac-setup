@@ -1,9 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
+source "$(dirname "$0")/../common/defaults.sh"
+
 echo ">> Setting ~/$USER as the finder home"
-defaults write com.apple.finder NewWindowTarget "PfHm"
-defaults write com.apple.finder NewWindowTargetPath "file:///Users/$USER/"
+for entry in "${FINDER_DEFAULTS[@]}"; do
+  apply_default_entry "$entry"
+done
 
 echo ">> Restarting Finder"
 killall Finder

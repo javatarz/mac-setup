@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-source "$(dirname "$0")/../common/functions.sh"
+source "$(dirname "$0")/../common/defaults.sh"
 
 # `default writes` are not used because the iterm2 data structure is painful to setup
 # Hopefully this changes in the future. The approach below is currently iterm2's recommended setup procedure
@@ -14,9 +14,7 @@ echo ">> Replacing with checked in iterm2 settings"
 sudo cp iterm2/com.googlecode.iterm2.plist /Library/Preferences/
 
 echo ">> Setup iterm2 config backup settings"
-defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
+for entry in "${ITERM2_DEFAULTS[@]}"; do
+  apply_default_entry "$entry"
+done
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "`pwd`/iterm2/"
-# Suppress "settings changed externally" dialog on quit and auto-select "Copy" (selection 0)
-# to save local changes back to the custom folder. See iTermRemotePreferences.m for dialog definition.
-defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -int 1
-defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -int 0

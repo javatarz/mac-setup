@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$(dirname "$0")/common/functions.sh"
+source "$(dirname "$0")/common/defaults.sh"
 
 echo "--- Running Setup Verification ---"
 
@@ -19,29 +19,6 @@ report_failure() {
   FAILURES+=("$1")
 }
 
-# Helper to verify macOS defaults
-verify_default() {
-  local domain="$1" key="$2" expected="$3" label="$4"
-  local actual
-  actual=$(defaults read "$domain" "$key" 2>/dev/null)
-  if [ "$actual" = "$expected" ]; then
-    report_success "$label"
-  else
-    report_failure "$label (expected: $expected, got: $actual)"
-  fi
-}
-
-# Helper to verify git global config
-verify_git_config() {
-  local key="$1" expected="$2"
-  local actual
-  actual=$(git config --global --get "$key" 2>/dev/null)
-  if [ "$actual" = "$expected" ]; then
-    report_success "git $key = $expected"
-  else
-    report_failure "git $key (expected: $expected, got: $actual)"
-  fi
-}
 
 # 1. Xcode Command Line Tools
 echo -e "\n--- Checking Xcode Command Line Tools ---"
@@ -193,30 +170,31 @@ fi
 
 # 7. Git Global Config
 echo -e "\n--- Checking Git Global Config ---"
-verify_git_config "commit.gpgsign" "true"
-verify_git_config "core.editor" "vim"
-verify_git_config "init.defaultBranch" "main"
-verify_git_config "diff.external" "difft"
+for entry in "${GIT_CONFIGS[@]}"; do
+  verify_git_config_entry "$entry"
+done
 
 # 8. macOS Defaults
 echo -e "\n--- Checking macOS Defaults ---"
-verify_default "com.apple.dock" "autohide" "1" "Dock autohide"
-verify_default "com.apple.dock" "orientation" "right" "Dock orientation"
-verify_default "com.apple.dock" "tilesize" "32" "Dock tile size"
-verify_default "com.apple.dock" "largesize" "92" "Dock large size"
-verify_default "com.apple.dock" "magnification" "1" "Dock magnification"
-verify_default "com.apple.dock" "mineffect" "genie" "Dock minimize effect"
-verify_default "com.apple.dock" "minimize-to-application" "true" "Dock minimize to application"
-verify_default "com.apple.dock" "show-recents" "0" "Dock hide recent apps"
-verify_default "NSGlobalDomain" "AppleInterfaceStyle" "Dark" "Dark mode"
-verify_default "NSGlobalDomain" "KeyRepeat" "2" "Key repeat rate"
-verify_default "NSGlobalDomain" "InitialKeyRepeat" "15" "Initial key repeat delay"
-verify_default "NSGlobalDomain" "com.apple.trackpad.scaling" "3" "Trackpad speed"
-verify_default "NSGlobalDomain" "com.apple.mouse.scaling" "3" "Mouse speed"
-verify_default "NSGlobalDomain" "com.apple.scrollwheel.scaling" "1" "Scroll wheel speed"
-verify_default "com.apple.finder" "NewWindowTarget" "PfHm" "Finder new window target"
-verify_default "com.apple.screencapture" "type" "JPG" "Screenshot format"
-verify_default "com.apple.AdLib" "forceLimitAdTracking" "true" "Limit ad tracking"
+for entry in "${DOCK_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+for entry in "${MENU_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+for entry in "${INPUT_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+for entry in "${FINDER_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+for entry in "${SCREENCAPTURE_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+for entry in "${PRIVACY_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
+verify_default_entry "NSGlobalDomain|AppleInterfaceStyle|none|Dark|Dark mode"
 
 # 9. Claude Code
 echo -e "\n--- Checking Claude Code ---"
@@ -240,7 +218,9 @@ fi
 
 # 10. iTerm2
 echo -e "\n--- Checking iTerm2 ---"
-verify_default "com.googlecode.iterm2" "LoadPrefsFromCustomFolder" "1" "iTerm2 loads prefs from custom folder"
+for entry in "${ITERM2_DEFAULTS[@]}"; do
+  verify_default_entry "$entry"
+done
 ITERM2_EXPECTED_FOLDER="$SCRIPT_DIR/iterm2/"
 ITERM2_ACTUAL_FOLDER=$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)
 if [ "$ITERM2_ACTUAL_FOLDER" = "$ITERM2_EXPECTED_FOLDER" ]; then
@@ -248,8 +228,6 @@ if [ "$ITERM2_ACTUAL_FOLDER" = "$ITERM2_EXPECTED_FOLDER" ]; then
 else
   report_failure "iTerm2 PrefsCustomFolder (expected: $ITERM2_EXPECTED_FOLDER, got: $ITERM2_ACTUAL_FOLDER)"
 fi
-verify_default "com.googlecode.iterm2" "NoSyncNeverRemindPrefsChangesLostForFile" "1" "iTerm2 suppress prefs change reminder"
-verify_default "com.googlecode.iterm2" "NoSyncNeverRemindPrefsChangesLostForFile_selection" "2" "iTerm2 prefs change reminder selection"
 
 # 11. Alfred
 echo -e "\n--- Checking Alfred ---"
