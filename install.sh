@@ -14,7 +14,6 @@ fi
 sh shell/install.sh
 sh shell/fetch_secrets.sh
 sh iterm2/install.sh
-sh spectacle/install.sh
 sh alfred/install.sh
 sh osx/install.sh
 sh verify.sh
