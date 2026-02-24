@@ -16,5 +16,7 @@ sudo cp iterm2/com.googlecode.iterm2.plist /Library/Preferences/
 echo ">> Setup iterm2 config backup settings"
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "`pwd`/iterm2/"
+# Suppress "settings changed externally" dialog on quit and auto-select "Copy" (selection 0)
+# to save local changes back to the custom folder. See iTermRemotePreferences.m for dialog definition.
 defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -int 1
-defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -int 2
+defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -int 0
