@@ -1,4 +1,4 @@
-#!/usr/local/bin/fish
+#!/usr/bin/env fish
 
 omf list | grep bobthefish >/dev/null
 if test $status -ne 0
