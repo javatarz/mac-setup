@@ -91,6 +91,16 @@ GIT_CONFIGS=(
   "diff.external|difft"
 )
 
+# --- Git signing identities ---
+# Each entry: identity-name|gitdir-path|op-section
+# The first entry is also used as the global default identity.
+GIT_IDENTITIES=(
+  "personal|~/projects/personal/|personal"
+  "work|~/projects/sahaj/|work"
+  "client|~/projects/talon/|client"
+)
+GIT_SIGNING_ITEM="git-signing"  # 1Password item name
+
 # --- Helper functions ---
 
 # Convert write-time type+value to the value returned by `defaults read`.
