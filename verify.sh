@@ -36,8 +36,6 @@ fi
 # 2. Homebrew Installation
 echo -e "\n--- Checking Homebrew installation ---"
 if command_exists brew; then
-  report_failure "Homebrew is NOT installed. Cannot verify packages."
-else
   report_success "Homebrew is installed."
 
   # 2.1. Verify Brew Packages
@@ -75,6 +73,8 @@ else
     else
       report_failure "Brewfile not found at $BREWFILE_PATH. Cannot verify packages."
   fi
+else
+  report_failure "Homebrew is NOT installed. Cannot verify packages."
 fi
 
 
