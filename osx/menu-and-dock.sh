@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-source common/functions.sh
+source "$(dirname "$0")/../common/functions.sh"
 
 # Dock
 echo ">> Setup dock parameters"

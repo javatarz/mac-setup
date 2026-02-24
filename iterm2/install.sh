@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-source common/functions.sh
+source "$(dirname "$0")/../common/functions.sh"
 
 # `default writes` are not used because the iterm2 data structure is painful to setup
 # Hopefully this changes in the future. The approach below is currently iterm2's recommended setup procedure
