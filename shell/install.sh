@@ -27,11 +27,13 @@ if ! grep -q "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin" ~/\.config/fish/con
   echo "set -U fish_user_paths ${HOMEBREW_PREFIX}/bin \$fish_user_paths" >> ~/\.config/fish/conf.d/brew_paths.fish
 fi
 
-echo ">> Remove symlink to current fish scripts"
-mkdir -p ~/\.config/fish/conf.d
-ls -ld ~/\.config/fish/conf.d/* | grep mac-setup/shell | grep -o '/Users/.*/\.config/.* -' | cut -d ' ' -f 1 | xargs rm
-echo ">> Replace with symlink to in-project .fish scripts file. Open a new shell for scripts to take effect."
-ln -s `pwd`/shell/*.fish ~/\.config/fish/conf.d
+echo ">> Remove existing symlinks to this repo's fish scripts"
+mkdir -p ~/.config/fish/conf.d
+find ~/.config/fish/conf.d -maxdepth 1 -lname '*mac-setup/shell*' -delete
+echo ">> Replace with symlinks to in-project .fish scripts. Open a new shell for scripts to take effect."
+for f in "$(pwd)"/shell/*.fish; do
+  ln -sf "$f" ~/.config/fish/conf.d/
+done
 
 echo ">> Install OMF"
 fish ./shell/omf/install.fish
