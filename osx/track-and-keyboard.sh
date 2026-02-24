@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # Trackpad
 echo ">> Setup trackpad speed parameters"
