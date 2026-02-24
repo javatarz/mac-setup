@@ -1,10 +1,14 @@
 #!/bin/sh
+set -e
 
 # Get absolute path to this script's directory
 pos="$(cd "$(dirname "$0")" && pwd)"
 
 echo
 echo "> Setting up Claude Code"
+
+echo ">> Installing Claude Code"
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Create ~/.claude directory if it doesn't exist
 mkdir -p ~/.claude
