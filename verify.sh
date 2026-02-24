@@ -19,6 +19,30 @@ report_failure() {
   FAILURES+=("$1")
 }
 
+# Helper to verify macOS defaults
+verify_default() {
+  local domain="$1" key="$2" expected="$3" label="$4"
+  local actual
+  actual=$(defaults read "$domain" "$key" 2>/dev/null)
+  if [ "$actual" = "$expected" ]; then
+    report_success "$label"
+  else
+    report_failure "$label (expected: $expected, got: $actual)"
+  fi
+}
+
+# Helper to verify git global config
+verify_git_config() {
+  local key="$1" expected="$2"
+  local actual
+  actual=$(git config --global --get "$key" 2>/dev/null)
+  if [ "$actual" = "$expected" ]; then
+    report_success "git $key = $expected"
+  else
+    report_failure "git $key (expected: $expected, got: $actual)"
+  fi
+}
+
 # 1. Xcode Command Line Tools
 echo -e "\n--- Checking Xcode Command Line Tools ---"
 if command_exists xcode-select;
@@ -124,6 +148,91 @@ for dir_path in "${DIRECTORIES_TO_CHECK[@]}"; do
   fi
 done
 
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# 5. Shell Config Symlinks
+echo -e "\n--- Checking Shell Config Symlinks ---"
+FISH_CONF_DIR="$HOME/.config/fish/conf.d"
+SHELL_CONFIGS=("dir.fish" "setup_helper.fish" "autojump.fish" "fzf.fish" "git.fish" "docker.fish" "lazy.fish" "import.fish")
+for config in "${SHELL_CONFIGS[@]}"; do
+  link_path="$FISH_CONF_DIR/$config"
+  expected_target="$SCRIPT_DIR/shell/$config"
+  if [ -L "$link_path" ]; then
+    actual_target=$(readlink "$link_path")
+    if [ "$actual_target" = "$expected_target" ]; then
+      report_success "$config symlinked correctly."
+    else
+      report_failure "$config symlink points to $actual_target (expected: $expected_target)"
+    fi
+  else
+    report_failure "$config is not symlinked in $FISH_CONF_DIR"
+  fi
+done
+
+# 6. Oh My Fish
+echo -e "\n--- Checking Oh My Fish ---"
+if [ -d "$HOME/.local/share/omf" ]; then
+  report_success "Oh My Fish is installed."
+else
+  report_failure "Oh My Fish is NOT installed (~/.local/share/omf missing)."
+fi
+
+if [ -d "$HOME/.local/share/omf/themes/bobthefish" ]; then
+  report_success "bobthefish theme is installed."
+else
+  report_failure "bobthefish theme is NOT installed."
+fi
+
+# 7. Git Global Config
+echo -e "\n--- Checking Git Global Config ---"
+verify_git_config "commit.gpgsign" "true"
+verify_git_config "core.editor" "vim"
+verify_git_config "init.defaultBranch" "main"
+verify_git_config "diff.external" "difft"
+
+# 8. macOS Defaults
+echo -e "\n--- Checking macOS Defaults ---"
+verify_default "com.apple.dock" "autohide" "1" "Dock autohide"
+verify_default "com.apple.dock" "orientation" "right" "Dock orientation"
+verify_default "NSGlobalDomain" "AppleInterfaceStyle" "Dark" "Dark mode"
+verify_default "NSGlobalDomain" "KeyRepeat" "2" "Key repeat rate"
+verify_default "com.apple.finder" "NewWindowTarget" "PfHm" "Finder new window target"
+verify_default "com.apple.screencapture" "type" "JPG" "Screenshot format"
+verify_default "com.apple.AdLib" "forceLimitAdTracking" "1" "Limit ad tracking"
+
+# 9. Claude Code
+echo -e "\n--- Checking Claude Code ---"
+if command_exists claude; then
+  report_success "claude command exists."
+else
+  report_failure "claude command NOT found."
+fi
+
+if [ -L "$HOME/.claude/statusline.fish" ]; then
+  report_success "~/.claude/statusline.fish is a symlink."
+else
+  report_failure "~/.claude/statusline.fish is NOT a symlink."
+fi
+
+if [ -L "$HOME/.claude/commands" ]; then
+  report_success "~/.claude/commands is a symlink."
+else
+  report_failure "~/.claude/commands is NOT a symlink."
+fi
+
+# 10. iTerm2
+echo -e "\n--- Checking iTerm2 ---"
+verify_default "com.googlecode.iterm2" "LoadPrefsFromCustomFolder" "1" "iTerm2 loads prefs from custom folder"
+
+# 11. Alfred
+echo -e "\n--- Checking Alfred ---"
+ALFRED_SYNC=$(defaults read com.runningwithcrayons.Alfred-Preferences syncfolder 2>/dev/null)
+if echo "$ALFRED_SYNC" | grep -q "alfred"; then
+  report_success "Alfred sync folder is configured."
+else
+  report_failure "Alfred sync folder not configured (got: $ALFRED_SYNC)"
+fi
 
 
 echo -e "\n--- Verification Summary ---"
