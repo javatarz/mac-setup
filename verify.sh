@@ -114,6 +114,13 @@ if command_exists fish;
     else
       report_failure "Fish is NOT the default shell. Run: chsh -s $(which fish)"
     fi
+    # Check if Homebrew bin is in fish_user_paths
+    detect_homebrew_prefix
+    if fish -c "echo \$fish_user_paths" 2>/dev/null | grep -q "$HOMEBREW_PREFIX/bin"; then
+      report_success "Homebrew bin is in fish_user_paths."
+    else
+      report_failure "Homebrew bin ($HOMEBREW_PREFIX/bin) is NOT in fish_user_paths."
+    fi
   else
     report_failure "Fish Shell is NOT installed."
 fi
@@ -195,8 +202,15 @@ verify_git_config "diff.external" "difft"
 echo -e "\n--- Checking macOS Defaults ---"
 verify_default "com.apple.dock" "autohide" "1" "Dock autohide"
 verify_default "com.apple.dock" "orientation" "right" "Dock orientation"
+verify_default "com.apple.dock" "tilesize" "32" "Dock tile size"
+verify_default "com.apple.dock" "largesize" "92" "Dock large size"
+verify_default "com.apple.dock" "magnification" "1" "Dock magnification"
 verify_default "NSGlobalDomain" "AppleInterfaceStyle" "Dark" "Dark mode"
 verify_default "NSGlobalDomain" "KeyRepeat" "2" "Key repeat rate"
+verify_default "NSGlobalDomain" "InitialKeyRepeat" "15" "Initial key repeat delay"
+verify_default "NSGlobalDomain" "com.apple.trackpad.scaling" "3" "Trackpad speed"
+verify_default "NSGlobalDomain" "com.apple.mouse.scaling" "3" "Mouse speed"
+verify_default "NSGlobalDomain" "com.apple.scrollwheel.scaling" "1" "Scroll wheel speed"
 verify_default "com.apple.finder" "NewWindowTarget" "PfHm" "Finder new window target"
 verify_default "com.apple.screencapture" "type" "JPG" "Screenshot format"
 verify_default "com.apple.AdLib" "forceLimitAdTracking" "true" "Limit ad tracking"
@@ -224,6 +238,15 @@ fi
 # 10. iTerm2
 echo -e "\n--- Checking iTerm2 ---"
 verify_default "com.googlecode.iterm2" "LoadPrefsFromCustomFolder" "1" "iTerm2 loads prefs from custom folder"
+ITERM2_EXPECTED_FOLDER="$SCRIPT_DIR/iterm2/"
+ITERM2_ACTUAL_FOLDER=$(defaults read com.googlecode.iterm2 PrefsCustomFolder 2>/dev/null)
+if [ "$ITERM2_ACTUAL_FOLDER" = "$ITERM2_EXPECTED_FOLDER" ]; then
+  report_success "iTerm2 PrefsCustomFolder points to repo."
+else
+  report_failure "iTerm2 PrefsCustomFolder (expected: $ITERM2_EXPECTED_FOLDER, got: $ITERM2_ACTUAL_FOLDER)"
+fi
+verify_default "com.googlecode.iterm2" "NoSyncNeverRemindPrefsChangesLostForFile" "1" "iTerm2 suppress prefs change reminder"
+verify_default "com.googlecode.iterm2" "NoSyncNeverRemindPrefsChangesLostForFile_selection" "2" "iTerm2 prefs change reminder selection"
 
 # 11. Alfred
 echo -e "\n--- Checking Alfred ---"

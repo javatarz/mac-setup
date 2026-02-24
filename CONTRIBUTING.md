@@ -30,7 +30,6 @@ The repository is organized into several key directories:
     *   `omf/`: Oh My Fish installation and dependency scripts.
     *   `git/`: Git-related shell configurations.
     *   `*.fish`: Fish shell configuration files.
-*   **`spectacle/`**: Spectacle application settings.
 *   **`xcode/`**: Xcode-related installation scripts.
 *   **`bootstrap.sh`**: Initial script to download and prepare the repository.
 *   **`install.sh`**: Main installation orchestrator script.
