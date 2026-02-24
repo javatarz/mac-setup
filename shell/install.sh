@@ -12,8 +12,7 @@ detect_homebrew_prefix
 # Set fish shell path based on architecture
 FISH_PATH="${HOMEBREW_PREFIX}/bin/fish"
 
-finger karun | grep -q "Shell: ${FISH_PATH}"
-if [ $? != 0 ]; then
+if [ "$SHELL" != "${FISH_PATH}" ]; then
   echo ">> Changing default shell to fish."
   sudo sh -c "echo ${FISH_PATH} >> /etc/shells"
   chsh -s "${FISH_PATH}"
