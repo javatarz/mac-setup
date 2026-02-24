@@ -174,6 +174,31 @@ for entry in "${GIT_CONFIGS[@]}"; do
   verify_git_config_entry "$entry"
 done
 
+# 7.1 Git Signing Identities
+echo -e "\n--- Checking Git Signing Identities ---"
+for entry in "${GIT_IDENTITIES[@]}"; do
+  IFS='|' read -r name gitdir section <<< "$entry"
+  config_file="$HOME/.gitconfig-$name"
+
+  if [ -f "$config_file" ]; then
+    report_success "Git identity file exists: ~/.gitconfig-$name"
+    if grep -q "email" "$config_file" && grep -q "signingkey" "$config_file"; then
+      report_success "~/.gitconfig-$name contains email and signingkey"
+    else
+      report_failure "~/.gitconfig-$name is missing email or signingkey"
+    fi
+  else
+    report_failure "Git identity file missing: ~/.gitconfig-$name"
+  fi
+
+  include_path=$(git config --global --get "includeIf.gitdir:$gitdir.path" 2>/dev/null)
+  if [ "$include_path" = "$config_file" ]; then
+    report_success "includeIf for $gitdir points to ~/.gitconfig-$name"
+  else
+    report_failure "includeIf for $gitdir (expected: $config_file, got: $include_path)"
+  fi
+done
+
 # 8. macOS Defaults
 echo -e "\n--- Checking macOS Defaults ---"
 for entry in "${DOCK_DEFAULTS[@]}"; do

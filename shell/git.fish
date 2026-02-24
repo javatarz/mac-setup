@@ -47,21 +47,6 @@ function remove_all_branches
     git branch | grep -v main | xargs git branch -D
 end
 
-function sign_personal
-    git config user.signingkey $GPG_KEY_PERSONAL
-    git config user.email "$GPG_MAIL_PERSONAL"
-end
-
-function sign_client
-    git config user.signingkey $GPG_KEY_CLIENT
-    git config user.email "$GPG_MAIL_CLIENT"
-end
-
-function sign_work
-    git config user.signingkey $GPG_KEY_WORK
-    git config user.email "$GPG_MAIL_WORK"
-end
-
 function fuck_it
     set commit_message (curl -s http://whatthecommit.com/index.txt)
     git commit -m "$commit_message"
