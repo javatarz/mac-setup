@@ -199,7 +199,7 @@ verify_default "NSGlobalDomain" "AppleInterfaceStyle" "Dark" "Dark mode"
 verify_default "NSGlobalDomain" "KeyRepeat" "2" "Key repeat rate"
 verify_default "com.apple.finder" "NewWindowTarget" "PfHm" "Finder new window target"
 verify_default "com.apple.screencapture" "type" "JPG" "Screenshot format"
-verify_default "com.apple.AdLib" "forceLimitAdTracking" "1" "Limit ad tracking"
+verify_default "com.apple.AdLib" "forceLimitAdTracking" "true" "Limit ad tracking"
 
 # 9. Claude Code
 echo -e "\n--- Checking Claude Code ---"
