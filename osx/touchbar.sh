@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 defaults write com.apple.controlstrip FullCustomized -array \
   "com.apple.system.group.brightness" \
