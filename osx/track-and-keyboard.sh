@@ -1,16 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-# Trackpad
-echo ">> Setup trackpad speed parameters"
-defaults write NSGlobalDomain com.apple.trackpad.scaling -int 3
+source "$(dirname "$0")/../common/defaults.sh"
 
-# Mouse
-echo ">> Setup mouse speed parameters"
-defaults write NSGlobalDomain com.apple.mouse.scaling -int 3
-defaults write NSGlobalDomain com.apple.scrollwheel.scaling -int 1
-
-# Keyboard
-echo ">> Setup keyboard speed parameters"
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
-defaults write NSGlobalDomain KeyRepeat -int 2
+echo ">> Setup trackpad, mouse, and keyboard parameters"
+for entry in "${INPUT_DEFAULTS[@]}"; do
+  apply_default_entry "$entry"
+done

@@ -1,7 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+
+source "$(dirname "$0")/../../common/defaults.sh"
 
 echo ">> Update git config"
-git config --global commit.gpgsign true
-git config --global core.editor vim
-git config --global init.defaultBranch main
-git config --global diff.external difft
+for entry in "${GIT_CONFIGS[@]}"; do
+  apply_git_config_entry "$entry"
+done

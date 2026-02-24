@@ -13,7 +13,7 @@ fi
 
 sh shell/install.sh
 sh shell/fetch_secrets.sh
-sh iterm2/install.sh
+bash iterm2/install.sh
 sh alfred/install.sh
 sh claude/install.sh
 sh osx/install.sh

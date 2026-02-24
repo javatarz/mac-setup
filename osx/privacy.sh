@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
+source "$(dirname "$0")/../common/defaults.sh"
+
 echo ">> Limiting ad tracking"
-defaults write com.apple.AdLib AD_DEVICE_IDFA "00000000-0000-0000-0000-000000000000"
-defaults write com.apple.AdLib forceLimitAdTracking true
+for entry in "${PRIVACY_DEFAULTS[@]}"; do
+  apply_default_entry "$entry"
+done

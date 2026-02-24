@@ -46,5 +46,5 @@ if [ -d "${HOMEBREW_PREFIX}/opt/fzf" ]; then
   "${HOMEBREW_PREFIX}/opt/fzf/install" --all
 fi
 
-sh ./shell/git/config.sh
+bash ./shell/git/config.sh
 
