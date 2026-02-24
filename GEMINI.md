@@ -31,7 +31,7 @@ The primary goal of this repository is to ensure consistency between machines, f
     *   `install.sh`: Executes all the `.sh` files in this directory.
     *   `*.sh`: Individual scripts that modify specific macOS settings using the `defaults` command.
 
-*   **`alfred/`**, **`iterm2/`**, **`istatmenus/`**, **`spectacle/`**: These directories contain the configuration files for their respective applications. The setup for these is currently a manual process.
+*   **`alfred/`**, **`iterm2/`**, **`istatmenus/`**: These directories contain the configuration files for their respective applications. The setup for these is currently a manual process.
 
 ## Backlog & Future Vision
 

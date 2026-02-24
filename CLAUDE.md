@@ -29,8 +29,8 @@ bash <(curl -s https://raw.githubusercontent.com/javatarz/mac-setup/main/bootstr
 3. `shell/install.sh` - Fish shell, Oh My Fish, and shell configs
 4. `shell/fetch_secrets.sh` - Private secrets from external source
 5. `iterm2/install.sh` - iTerm2 preferences
-6. `spectacle/install.sh` - Window management
-7. `alfred/install.sh` - Alfred preferences and workflows
+6. `alfred/install.sh` - Alfred preferences and workflows
+7. `claude/install.sh` - Claude Code configuration
 8. `osx/install.sh` - macOS system preferences via `defaults write`
 9. `verify.sh` - Validates installation
 
