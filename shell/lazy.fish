@@ -61,7 +61,7 @@ alias cat=bat
 alias watch=viddy
 
 function deploy_slides
-  set hugo_source_path "/Users/karun/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
+  set hugo_source_path "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
   set slides_source_path "$hugo_source_path/public"
 
   echo "> generating latest slides from $hugo_source_path"
@@ -81,7 +81,7 @@ function deploy_slides
 end
 
 function run_slides
-  set hugo_source_path "/Users/karun/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
+  set hugo_source_path "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/slides"
   hugo --source "$hugo_source_path" server
 end
 
