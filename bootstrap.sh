@@ -1,22 +1,35 @@
-zip_file=~/Downloads/mac-setup.zip
-extract_dir=~/Downloads/mac-setup
-branch=main
-
-set -x
+#!/bin/bash
 set -e
 
-echo ">> Download latest code from $branch to $zip_file"
-curl -o $zip_file -Li https://github.com/javatarz/mac-setup/archive/$branch.zip
+REPO_URL="https://github.com/javatarz/mac-setup.git"
+TARGET_DIR="$HOME/projects/personal/mac-setup"
 
-echo ">> Extract $zip_file to $extract_dir (ignoring overwrite errors)"
-set +e
-unzip $zip_file -d $extract_dir
-set -e
+# --- Xcode Command Line Tools ---
+echo ">> Checking Xcode Command Line Tools..."
+if xcode-select -p &>/dev/null; then
+  echo ">> Xcode Command Line Tools already installed."
+else
+  echo ">> Installing Xcode Command Line Tools..."
+  xcode-select --install
 
-echo ">> Open $extract_dir/mac-setup-$branch"
-cd "$extract_dir/mac-setup-$branch"
-echo ">> Run install"
-sh install.sh
+  echo ">> Waiting for Xcode Command Line Tools installation to complete..."
+  until xcode-select -p &>/dev/null; do
+    sleep 5
+  done
+  echo ">> Xcode Command Line Tools installed."
+fi
 
-echo ">> Remove $extract_dir and $zip_file"
-rm -rf $extract_dir $zip_file
+# --- Clone or update repo ---
+if [ -d "$TARGET_DIR/.git" ]; then
+  echo ">> Repository already exists at $TARGET_DIR. Pulling latest..."
+  git -C "$TARGET_DIR" pull
+else
+  echo ">> Cloning repository to $TARGET_DIR..."
+  mkdir -p "$(dirname "$TARGET_DIR")"
+  git clone "$REPO_URL" "$TARGET_DIR"
+fi
+
+# --- Run install ---
+echo ">> Running install from $TARGET_DIR..."
+cd "$TARGET_DIR"
+./install.sh
