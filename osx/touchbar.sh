@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+echo ">> Configuring Touch Bar"
 defaults write com.apple.controlstrip FullCustomized -array \
   "com.apple.system.group.brightness" \
   "com.apple.system.mission-control" \
@@ -17,4 +18,5 @@ defaults write com.apple.controlstrip MiniCustomized -array \
   "com.apple.system.mute" \
   "com.apple.system.screen-lock"
 
+echo ">> Restarting ControlStrip"
 killall ControlStrip

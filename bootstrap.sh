@@ -8,7 +8,7 @@ set -e
 echo ">> Download latest code from $branch to $zip_file"
 curl -o $zip_file -Li https://github.com/javatarz/mac-setup/archive/$branch.zip
 
-echo ">> Extract $zip_file to $extract_dir"
+echo ">> Extract $zip_file to $extract_dir (ignoring overwrite errors)"
 set +e
 unzip $zip_file -d $extract_dir
 set -e
