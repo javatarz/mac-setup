@@ -1,6 +1,6 @@
 zip_file=~/Downloads/mac-setup.zip
 extract_dir=~/Downloads/mac-setup
-branch=apple-silicon
+branch=main
 
 set -x
 set -e
