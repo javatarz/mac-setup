@@ -28,6 +28,8 @@ brew "autossh"
 brew "awscli"
 brew "bash"
 brew "bat"
+brew "dolt"
+brew "beads"
 brew "icu4c@76"
 brew "bfg"
 brew "blueutil"
@@ -45,7 +47,6 @@ brew "docker"
 brew "docker-buildx"
 brew "docker-compose"
 brew "docker-credential-helper-ecr"
-brew "dolt"
 brew "fd"
 brew "ffmpeg"
 brew "fish"
@@ -147,7 +148,6 @@ brew "yamllint"
 brew "yarn"
 brew "alajmo/mani/mani"
 brew "rbenv/tap/openssl@1.0"
-brew "steveyegge/beads/bd"
 cask "1password"
 cask "1password-cli"
 cask "alfred"
@@ -199,8 +199,8 @@ mas "Keynote", id: 361285480
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 361304891
-mas "Pages", id: 361309726
 mas "Pages", id: 409201541
+mas "Pages", id: 361309726
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
