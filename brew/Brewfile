@@ -117,6 +117,7 @@ brew "pyenv"
 brew "pyenv-virtualenv"
 brew "python@3.11"
 brew "ripgrep"
+brew "rtk"
 brew "rust"
 brew "s3cmd"
 brew "sbt"
@@ -199,12 +200,13 @@ mas "Keynote", id: 361285480
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 361304891
-mas "Pages", id: 409201541
 mas "Pages", id: 361309726
+mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "asciidoctor.asciidoctor-vscode"
+vscode "github.copilot-chat"
 vscode "k--kato.intellij-idea-keybindings"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
@@ -213,4 +215,5 @@ vscode "tintinweb.graphviz-interactive-preview"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
+uv "bodha"
 uv "claude-monitor"
