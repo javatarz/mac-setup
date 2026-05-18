@@ -1,6 +1,9 @@
 ---
-description: Review writing for tone, clarity, and authenticity against my personal style
-argument-hint: "@path/to/file.md"
+name: review-writing
+description: >
+  Review writing for tone, clarity, and authenticity against my personal style.
+  Use when asked to review, edit, or give feedback on writing — blog posts,
+  articles, LinkedIn posts, or any written content.
 ---
 
 Review the provided content against my writing style and suggest improvements.
