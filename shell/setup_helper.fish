@@ -1,3 +1,3 @@
 function brewfile
-  brew bundle dump --file=~/projects/personal/mac-setup/brew/Brewfile --cleanup --force
+  brew bundle dump --file=~/projects/personal/mac-setup/brew/Brewfile --force
 end
