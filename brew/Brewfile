@@ -208,6 +208,7 @@ mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "asciidoctor.asciidoctor-vscode"
+vscode "github.copilot-chat"
 vscode "k--kato.intellij-idea-keybindings"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
@@ -219,3 +220,6 @@ go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
 uv "bodha"
 uv "claude-monitor"
+npm "@mariozechner/pi-coding-agent"
+npm "corepack"
+npm "pnpm"
