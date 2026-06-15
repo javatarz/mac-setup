@@ -1,167 +1,322 @@
 tap "alajmo/mani"
+tap "gastownhall/beads"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "rbenv/tap"
-tap "steveyegge/beads"
 tap "warrensbox/tap"
+# Search tool like grep, but optimized for programmers
 brew "ack"
+# GNU multiple precision arithmetic library
 brew "gmp"
+# Static checker for GitHub Actions workflow files
 brew "actionlint"
+# C/C++ resolver library and DNS resolver utilities
 brew "adns"
+# Extremely Fast Compression algorithm
 brew "lz4"
+# GNU compiler collection
 brew "gcc"
+# LLVM's OpenMP runtime library
 brew "libomp"
+# Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# AI pair programming in your terminal
 brew "aider"
+# Core application library for C
 brew "glib"
+# Real-time data compression library
 brew "lzo"
+# Vector graphics library with cross-device output support
 brew "cairo"
+# Smart font renderer for non-Roman scripts
 brew "graphite2"
+# OpenType text shaping engine
 brew "harfbuzz"
+# Engine for large-scale data processing
 brew "apache-spark"
-brew "ruby"
+# Powerful, clean, object-oriented scripting language
+brew "ruby", link: false
+# Text processor and publishing toolchain for AsciiDoc
 brew "asciidoctor"
+# Automatic configure script builder
 brew "autoconf"
+# Shell extension to jump to frequently used directories
 brew "autojump"
+# Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Automatically restart SSH sessions and tunnels
 brew "autossh"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Git for Data
 brew "dolt"
+# Memory upgrade for your coding agent
 brew "beads"
+# C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@76"
+# Remove large files or passwords from Git history like git-filter-branch
 brew "bfg"
+# Get/set bluetooth power and discoverable state
 brew "blueutil"
+# Mixed integer linear programming solver
 brew "cbc"
+# Ruby environment tool
 brew "chruby"
+# Dependency manager for Cocoa projects
 brew "cocoapods"
+# Linux virtual machines
 brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
+# Tool for browsing source code
 brew "cscope"
+# Suite of command-line tools for converting to and working with CSV
 brew "csvkit"
+# Diff that understands syntax
 brew "difftastic"
+# Load/unload environment variables based on $PWD
 brew "direnv"
-brew "docker"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Docker Credential Helper for Amazon ECR
 brew "docker-credential-helper-ecr"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Generic library support script
 brew "libtool"
+# Implementation of the Unicode BiDi algorithm
 brew "fribidi"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Graphics library to dynamically manipulate images
 brew "gd"
+# Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
+# Interact with Google Gemini AI models from the command-line
 brew "gemini-cli"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
 brew "git-filter-repo"
+# Git extension for versioning large files
 brew "git-lfs"
+# Simple and efficient way to access statistics in git
 brew "git-quick-stats"
+# Prevents you from committing sensitive information to a git repo
 brew "git-secrets"
+# Compute various size metrics for a Git repository
 brew "git-sizer"
+# Audit git repos for secrets
 brew "gitleaks"
+# Open-source GitLab command-line tool
 brew "glab"
+# Command-line option parsing utility
 brew "gnu-getopt"
+# International domain name library (IDNA2008, Punycode and TR46)
 brew "libidn2"
+# GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Passphrase entry dialog utilizing the Assuan protocol
 brew "pinentry"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Package compiler and linker metadata toolkit
 brew "pkgconf"
+# Generate introspection data for GObject libraries
 brew "gobject-introspection"
+# Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# Library to render SVG files using Cairo
 brew "librsvg"
+# Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# GNU grep, egrep and fgrep
 brew "grep"
+# Java-based scripting language
 brew "groovy"
+# Improved top (interactive process viewer)
 brew "htop"
+# Add GitHub support to git on the command-line
 brew "hub"
+# Configurable static site generator
 brew "hugo"
+# Manage your Java environment
 brew "jenv"
+# Interactive JSON filter using jq
 brew "jnv"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
 brew "just"
+# Kubernetes command-line interface
 brew "kubernetes-cli"
+# Lazier way to manage everything docker
 brew "lazydocker"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Build tool for Clojure
 brew "leiningen"
+# CSS parsing and manipulation toolkit for GNOME
 brew "libcroco"
+# Postgres C API library
 brew "libpq", link: true
+# Library for USB device access
 brew "libusb-compat"
+# GNOME XML library
 brew "libxml2"
+# Generic machine emulator and virtualizer
 brew "qemu"
+# Additional guest agents for Lima
 brew "lima-additional-guestagents"
+# Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
+# Mac App Store command-line interface
 brew "mas"
+# Java-based project management
 brew "maven"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Lightweight PDF and XPS viewer
 brew "mupdf-tools"
+# Open source relational database management system
 brew "mysql"
+# Create, run, and share large language models (LLMs)
 brew "ollama"
+# Development kit for the Java programming language
 brew "openjdk@11"
+# Open source suite of directory software
 brew "openldap"
+# 7-Zip (high compression file archiver) implementation
 brew "p7zip"
+# Swiss-army knife of markup format conversion
 brew "pandoc"
+# Highly capable, feature-rich programming language
 brew "perl"
+# General-purpose scripting language
 brew "php"
+# Pinentry for GPG on Mac
 brew "pinentry-mac"
+# PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Object-relational database system
 brew "postgresql@12"
+# Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# GNU Portable THreads
 brew "pth"
+# Python version management
 brew "pyenv"
+# Pyenv plugin to manage virtualenv
 brew "pyenv-virtualenv"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI proxy to minimize LLM token consumption
 brew "rtk"
+# Safe, concurrent, practical language
 brew "rust"
+# Command-line tool for the Amazon S3 service
 brew "s3cmd"
+# Build tool for Scala projects
 brew "sbt"
+# JVM-based programming language
 brew "scala"
+# Database of common MIME types
 brew "shared-mime-info"
+# Scans and monitors projects for security vulnerabilities
 brew "snyk-cli"
+# SOcket CAT: netcat on steroids
 brew "socat"
+# General framework for developing spatial indices
 brew "spatialindex"
+# Proxy server that works as a poor man's VPN
 brew "sshuttle"
+# Crypto and x509 Swiss-Army-Knife
 brew "step"
+# Version control system designed to be a better CVS
 brew "subversion"
+# Change macOS audio source from the command-line
 brew "switchaudio-osx"
+# Tool Command Language
 brew "tcl-tk"
+# User interface to the TELNET protocol
 brew "telnet"
+# Send macOS User Notifications from the command-line
 brew "terminal-notifier"
+# Linter for Terraform files
 brew "tflint"
+# Programmatically correct mistyped console commands
 brew "thefuck"
+# Simplified and community-driven man pages
 brew "tldr"
+# Command-line client for Travis CI
 brew "travis"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Syntax-aware linter for prose
 brew "vale"
+# Modern watch command
 brew "viddy"
+# Vi 'workalike' with many additional features
 brew "vim"
+# Terminal spreadsheet multitool for discovering and arranging data
 brew "visidata"
+# Internet file retriever
 brew "wget"
+# Fast CSV toolkit written in Rust
 brew "xsv"
+# Linter for YAML files
 brew "yamllint"
+# JavaScript package manager
 brew "yarn"
-brew "alajmo/mani/mani"
-brew "rbenv/tap/openssl@1.0"
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line interface for 1Password
 cask "1password-cli"
+# Application launcher and productivity software
 cask "alfred"
+# Transfer files from and to an Android smartphone
 cask "android-file-transfer"
+# Chromium based browser
 cask "arc"
+# Securely stores and accesses AWS credentials in a development environment
 cask "aws-vault-binary"
+# Utility that prevents the system from going to sleep
 cask "caffeine"
+# Free and open-source web browser
 cask "chromium"
+# Brings the power of Copilot coding agent directly to your terminal
 cask "copilot-cli"
+# Write, edit, and chat about your code with AI
 cask "cursor"
+# Disk space visualiser
 cask "daisydisk"
+# Voice and text chat software
 cask "discord"
+# Web browser
 cask "firefox"
+# Screen colour temperature controller
 cask "flux-app"
 cask "font-alegreya"
 cask "font-alegreya-sans"
@@ -171,41 +326,60 @@ cask "font-fira-code"
 cask "font-open-sans"
 cask "font-powerline-symbols"
 cask "font-source-code-pro"
+# Web browser
 cask "google-chrome"
+# System monitoring app
 cask "istat-menus"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# JetBrains tools manager
 cask "jetbrains-toolbox"
+# Free cross-platform office suite, fresh version
 cask "libreoffice"
+# Software for Logitech devices
 cask "logitech-options"
+# Provides updates to various Microsoft products
 cask "microsoft-auto-update"
+# Meet, chat, call, and collaborate in just one place
 cask "microsoft-teams"
+# Interactive tool for analyzing MongoDB data
 cask "mongodb-compass"
+# Open-source software for live streaming and screen recording
 cask "obs"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Remote pair programming
 cask "pop-app"
+# Catalogue of hi-res music for streaming and download
 cask "qobuz"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Detects which app receives a keyboard shortcut (hotkey)
 cask "shortcutdetective"
+# Team communication and collaboration software
 cask "slack"
+# Native GUI tool for relational databases
 cask "tableplus"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Application for interacting with Internet Relay Chat (IRC) chatrooms
 cask "textual"
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
+# Video communication and virtual meeting platform
 cask "webex"
+# Native desktop client for WhatsApp
 cask "whatsapp"
+# Gecko based web browser
 cask "zen"
+# Video communication and virtual meeting platform
 cask "zoom"
 mas "Dato 2", id: 1470584107
-mas "iMovie", id: 408981434
-mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
-mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
-mas "Numbers", id: 361304891
 mas "Numbers", id: 409203825
-mas "Pages", id: 361309726
-mas "Pages", id: 409201541
-mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "asciidoctor.asciidoctor-vscode"
@@ -220,7 +394,7 @@ go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
 uv "bodha"
 uv "claude-monitor"
-npm "@mariozechner/pi-coding-agent"
+npm "@earendil-works/pi-coding-agent"
 npm "corepack"
 npm "pnpm"
 npm "pptxgenjs"
