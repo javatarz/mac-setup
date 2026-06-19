@@ -1,5 +1,5 @@
 tap "alajmo/mani"
-tap "gastownhall/beads"
+tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "rbenv/tap"
@@ -83,7 +83,7 @@ brew "difftastic"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Pack, ship and run any application as a lightweight container
-brew "docker", link: false
+brew "docker"
 # Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
 # Isolated development environments using Docker
@@ -308,8 +308,6 @@ cask "caffeine"
 cask "chromium"
 # Brings the power of Copilot coding agent directly to your terminal
 cask "copilot-cli"
-# Write, edit, and chat about your code with AI
-cask "cursor"
 # Disk space visualiser
 cask "daisydisk"
 # Voice and text chat software
@@ -377,9 +375,16 @@ cask "zen"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Dato 2", id: 1470584107
+mas "iMovie", id: 408981434
+mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
+mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
+mas "Numbers", id: 361304891
 mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pages", id: 361309726
+mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
 vscode "asciidoctor.asciidoctor-vscode"
@@ -394,7 +399,7 @@ go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
 uv "bodha"
 uv "claude-monitor"
+npm "@browsermcp/mcp"
 npm "@earendil-works/pi-coding-agent"
-npm "corepack"
-npm "pnpm"
-npm "pptxgenjs"
+npm "@gsong/ccmcp"
+npm "ajv-formats"
