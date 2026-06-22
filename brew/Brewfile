@@ -352,8 +352,6 @@ cask "pop-app"
 cask "qobuz"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Detects which app receives a keyboard shortcut (hotkey)
-cask "shortcutdetective"
 # Team communication and collaboration software
 cask "slack"
 # Native GUI tool for relational databases
@@ -382,8 +380,8 @@ mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 361304891
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Pages", id: 361309726
+mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
@@ -399,7 +397,7 @@ go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
 uv "bodha"
 uv "claude-monitor"
-npm "@browsermcp/mcp"
 npm "@earendil-works/pi-coding-agent"
-npm "@gsong/ccmcp"
-npm "ajv-formats"
+npm "corepack"
+npm "pnpm"
+npm "pptxgenjs"
