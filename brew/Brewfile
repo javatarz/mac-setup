@@ -142,6 +142,8 @@ brew "go"
 brew "pkgconf"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
+# CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+brew "googleworkspace-cli"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # Library to render SVG files using Cairo
@@ -324,6 +326,8 @@ cask "font-fira-code"
 cask "font-open-sans"
 cask "font-powerline-symbols"
 cask "font-source-code-pro"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "gcloud-cli"
 # Web browser
 cask "google-chrome"
 # System monitoring app
@@ -398,6 +402,7 @@ uv "aider-chat"
 uv "bodha"
 uv "claude-monitor"
 npm "@earendil-works/pi-coding-agent"
+npm "@googleworkspace/cli"
 npm "corepack"
 npm "pnpm"
 npm "pptxgenjs"
