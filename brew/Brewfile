@@ -1,9 +1,9 @@
 tap "alajmo/mani"
-tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git"
+tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git", trusted: { formulae: ["beads"] }
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "rbenv/tap"
-tap "warrensbox/tap"
+tap "warrensbox/tap", trusted: { casks: ["tfswitch"] }
 # Search tool like grep, but optimized for programmers
 brew "ack"
 # GNU multiple precision arithmetic library
@@ -292,6 +292,10 @@ brew "xsv"
 brew "yamllint"
 # JavaScript package manager
 brew "yarn"
+# CLI tool to help you manage multiple repositories
+brew "alajmo/mani/mani", trusted: true
+# SSL/TLS cryptography library
+brew "rbenv/tap/openssl@1.0", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
