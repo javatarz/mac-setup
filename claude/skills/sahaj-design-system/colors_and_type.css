@@ -1,0 +1,328 @@
+/* ============================================================
+   Sahaj Design System — Colors & Typography
+   Source: uploads/sahaj.png (official brand guide) + sahaj.ai
+   ============================================================ */
+
+/* ---- Fonts -------------------------------------------------
+   Mulish + Zilla Slab: bundled as TTFs in fonts/ (official)
+   ------------------------------------------------------------ */
+
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-Light.ttf')        format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-LightItalic.ttf')   format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-Regular.ttf')      format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-Italic.ttf')        format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-Medium.ttf')       format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-MediumItalic.ttf')  format('truetype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-SemiBold.ttf')     format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-SemiBoldItalic.ttf')format('truetype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-Bold.ttf')         format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Zilla Slab'; src: url('fonts/ZillaSlab-BoldItalic.ttf')    format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-ExtraLight.ttf')      format('truetype'); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-ExtraLightItalic.ttf') format('truetype'); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Light.ttf')           format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-LightItalic.ttf')      format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Regular.ttf')         format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Italic.ttf')           format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Medium.ttf')          format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-MediumItalic.ttf')     format('truetype'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-SemiBold.ttf')        format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-SemiBoldItalic.ttf')   format('truetype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Bold.ttf')            format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-BoldItalic.ttf')       format('truetype'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-ExtraBold.ttf')       format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-ExtraBoldItalic.ttf')  format('truetype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-Black.ttf')           format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mulish'; src: url('fonts/Mulish-BlackItalic.ttf')      format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
+
+:root {
+  /* ---------------------------------------------------------
+     PRIMARY PALETTE — brand blues. Use for backgrounds,
+     graphics, elements and text. Do not use them to direct
+     logos or when contrast between background and element
+     is not strong enough.
+     --------------------------------------------------------- */
+  --sahaj-indigo:      #33357D;  /* Indigo Blue — PRIMARY brand (FIRST CHOICE) */
+  --sahaj-navy:        #27235A;  /* Navy Blue — PRIMARY brand (SECOND CHOICE) */
+
+  /* ---------------------------------------------------------
+     SECONDARY PALETTE — values of Curiosity & Craftsmanship.
+     Use for accents, highlights, illustration fills.
+     From brand guidelines: Shapes/Patterns color system.
+     --------------------------------------------------------- */
+  --sahaj-orange:      #D26F5D;  /* Burnt Orange / Coral Red */
+  --sahaj-mustard:     #E0AA55;  /* Mustard Yellow */
+  --sahaj-eggplant:    #715397;  /* Eggplant Purple */
+  --sahaj-teal:        #79B8CC;  /* Teal Blue */
+
+  /* ---------------------------------------------------------
+     SHAPES/PATTERNS PALETTE — dedicated color system for
+     abstract graphic elements. Can be combined with brand colors
+     or used independently for collateral, backgrounds, patterns.
+     CMYK values provided for print applications.
+     --------------------------------------------------------- */
+  --shapes-navy:       #27235A;  /* C-97 M-96 Y-14 K-4 */
+  --shapes-indigo:     #33357D;  /* C-100 M-100 Y-31 K-25 */
+  --shapes-teal:       #79B8CC;  /* C-58 M-8 Y-15 K-0 */
+  --shapes-orange:     #D26F5D;  /* C-7 M-73 Y-66 K-0 */
+  --shapes-coral:      #E1594D;  /* C-0 M-67 Y-67 K-0 (alt) */
+  --shapes-purple:     #715397;  /* C-64 M-80 Y-4 K-0 */
+  --shapes-mustard:    #E0AA55;  /* C-7 M-37 Y-86 K-0 */
+
+  /* ---------------------------------------------------------
+     SUPPORTING NEUTRALS — for text hierarchy, borders, backgrounds.
+     Use as supporting colors only, not as primary brand expression.
+     --------------------------------------------------------- */
+  --sahaj-slate:       #434343;  /* Slate Grey */
+  --sahaj-light-grey:  #DDDDDD;  /* Light Grey */
+  --sahaj-black:       #000000;  /* Black (supporting only) */
+
+  /* Paper / soft whites (observed on editorial sections of sahaj.ai) */
+  --sahaj-paper:       #FAF7F2;
+  --sahaj-paper-2:     #F5F2EC;
+  --sahaj-white:       #FFFFFF;
+
+  /* Hairline border */
+  --sahaj-border:      #E4E4E4;
+
+  /* ---------------------------------------------------------
+     SEMANTIC COLOR ALIASES
+     Use these in product UI so swaps stay consistent.
+     --------------------------------------------------------- */
+  --fg-1: #141225;                           /* primary text (near-black tinted navy) */
+  --fg-2: var(--sahaj-slate);                /* secondary text */
+  --fg-3: #6B6B6B;                           /* tertiary / meta text */
+  --fg-on-navy: var(--sahaj-white);          /* text on Navy */
+  --fg-on-indigo: var(--sahaj-white);        /* text on Indigo */
+
+  --bg-1: var(--sahaj-white);                /* primary surface */
+  --bg-2: var(--sahaj-paper);                /* warm editorial surface */
+  --bg-3: var(--sahaj-paper-2);              /* second editorial tier */
+  --bg-inverse: var(--sahaj-navy);           /* dark hero / footer */
+
+  --border-1: var(--sahaj-border);
+  --border-2: var(--sahaj-light-grey);
+
+  --accent-1: var(--sahaj-orange);           /* primary accent (chevrons, inline highlights) */
+  --accent-2: var(--sahaj-mustard);
+  --accent-3: var(--sahaj-eggplant);
+  --accent-4: var(--sahaj-teal);
+
+  --link: var(--sahaj-indigo);
+  --link-hover: var(--sahaj-navy);
+
+  --focus-ring: 0 0 0 2px var(--sahaj-indigo);
+
+  /* ---------------------------------------------------------
+     SHADOWS — tinted toward Navy, never neutral black.
+     --------------------------------------------------------- */
+  --shadow-1: 0 1px 2px rgba(39, 35, 70, 0.06);
+  --shadow-2: 0 6px 16px rgba(39, 35, 70, 0.08);
+  --shadow-3: 0 18px 40px rgba(39, 35, 70, 0.12);
+
+  /* ---------------------------------------------------------
+     RADII
+     --------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* ---------------------------------------------------------
+     SPACING — 4pt base, 8pt rhythm dominates
+     --------------------------------------------------------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ---------------------------------------------------------
+     TYPOGRAPHY — stacks
+     Zilla Slab = display / headings / pull quotes / ALL CAPS
+     Mulish     = body / UI / sub-heads
+     --------------------------------------------------------- */
+  --font-display: 'Zilla Slab', 'Roboto Slab', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Type scale (display : 1920-optimized, scales down fluidly) */
+  --fs-display:  clamp(2.75rem, 5vw + 1rem, 4.5rem);   /* 44–72px */
+  --fs-h1:       clamp(2.25rem, 3vw + 1rem, 3.25rem);  /* 36–52px */
+  --fs-h2:       clamp(1.75rem, 2vw + 0.75rem, 2.25rem); /* 28–36px */
+  --fs-h3:       1.5rem;     /* 24 */
+  --fs-h4:       1.25rem;    /* 20 */
+  --fs-body-lg:  1.125rem;   /* 18 */
+  --fs-body:     1rem;       /* 16 */
+  --fs-small:    0.875rem;   /* 14 */
+  --fs-micro:    0.75rem;    /* 12 */
+
+  --lh-display: 1.08;
+  --lh-heading: 1.18;
+  --lh-body:    1.55;
+
+  --tracking-caps:   0.08em;
+  --tracking-label:  0.04em;
+  --tracking-normal: 0;
+}
+
+/* ============================================================
+   SEMANTIC TYPOGRAPHY — drop-in classes
+   ============================================================ */
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body,
+.s-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  text-rendering: optimizeLegibility;
+}
+
+.s-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+
+.s-display--caps {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+}
+
+h1, .s-h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.005em;
+  color: var(--fg-1);
+  margin: 0 0 var(--space-5);
+}
+
+h2, .s-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-4);
+}
+
+h3, .s-h3 {
+  font-family: var(--font-sans);
+  font-weight: 800; /* Mulish ExtraBold */
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  color: var(--fg-1);
+  margin: 0 0 var(--space-3);
+}
+
+h4, .s-h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: var(--fg-1);
+  margin: 0 0 var(--space-3);
+}
+
+p, .s-p {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  margin: 0 0 var(--space-4);
+  text-wrap: pretty;
+}
+
+.s-lead {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body-lg);
+  line-height: 1.6;
+  color: var(--fg-1);
+}
+
+.s-eyebrow,
+.s-label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--accent-1);
+}
+
+.s-quote {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: var(--fs-h2);
+  line-height: 1.3;
+  color: var(--fg-1);
+}
+
+.s-tagline {
+  font-family: var(--font-sans);
+  font-weight: 300; /* Mulish Light */
+  font-size: var(--fs-body);
+  letter-spacing: 0.5em; /* 50x tracking per brand guidelines */
+  text-transform: none;
+  color: var(--fg-1);
+}
+
+a, .s-link {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .18s cubic-bezier(0.2,0.8,0.2,1), border-color .18s cubic-bezier(0.2,0.8,0.2,1);
+}
+a:hover, .s-link:hover {
+  color: var(--link-hover);
+  border-bottom-color: currentColor;
+}
+
+code, .s-code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-3);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  color: var(--sahaj-navy);
+}
+
+/* ============================================================
+   MOTION — Sahaj house easing & durations
+   ============================================================ */
+:root {
+  --ease-sahaj: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-fast:   140ms;
+  --dur-base:   200ms;
+  --dur-slow:   400ms;
+}
+
+/* ============================================================
+   PRINTABLE FALLBACKS
+   ============================================================ */
+@media print {
+  body { background: #fff; color: #000; }
+}
