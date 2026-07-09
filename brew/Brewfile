@@ -32,6 +32,8 @@ brew "cairo"
 brew "graphite2"
 # OpenType text shaping engine
 brew "harfbuzz"
+# TIFF library and utilities
+brew "libtiff"
 # Engine for large-scale data processing
 brew "apache-spark"
 # Powerful, clean, object-oriented scripting language
@@ -382,8 +384,8 @@ cask "zen"
 cask "zoom"
 mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
 mas "Keynote", id: 361285480
+mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 361304891
@@ -403,9 +405,10 @@ vscode "tintinweb.graphviz-interactive-preview"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
 uv "aider-chat"
-uv "bodha"
+uv "bodha", source: "file:///Users/karun/projects/personal/bodha"
 uv "claude-monitor"
-npm "@browsermcp/mcp"
 npm "@earendil-works/pi-coding-agent"
-npm "@gsong/ccmcp"
-npm "ajv-formats"
+npm "@googleworkspace/cli"
+npm "corepack"
+npm "pnpm"
+npm "pptxgenjs"
