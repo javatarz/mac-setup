@@ -37,7 +37,7 @@ brew "libtiff"
 # Engine for large-scale data processing
 brew "apache-spark"
 # Powerful, clean, object-oriented scripting language
-brew "ruby", link: false
+brew "ruby"
 # Text processor and publishing toolchain for AsciiDoc
 brew "asciidoctor"
 # Automatic configure script builder
