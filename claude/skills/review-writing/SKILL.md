@@ -39,6 +39,7 @@ Flag these AI-generated content patterns:
 - Overly parallel/poetic structures ("Not X. Not Y. Z." for dramatic effect)
 - Triple constructions ("extend your reach, accelerate your ideas, and surface possibilities")
 - Blockquote overuse for emphasis
+- Empty setup/announcement lines: a sentence that names the *category* of what's coming ("the caveat," "the gap," "the point") instead of just stating the content. E.g. "Name the gaps this does not close, because they are real. MCP servers talk over stdio..." → cut to "MCP servers talk over stdio..."; "Here is the honest caveat: I could not find documentation stating..." → cut to "I could not find documentation stating...". Test: if deleting the sentence loses zero information because the next sentence already carries it, cut it. Common shapes: "Here is/Here's [the point/the caveat/the thing]:", "Note that...", "Name the gap(s):", "Worth noting...", "It's worth mentioning...", "The point is this:". Do not flag genuine signposting for a real enumeration that follows (e.g. "Three layers, in this order:" right before a First/Second/Third list) — that helps the reader parse structure rather than padding.
 
 **Language tells**:
 - Buzzword soup ("curiosity, continuous improvement, and lightweight experimentation")
