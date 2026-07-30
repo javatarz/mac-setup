@@ -387,11 +387,10 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
-mas "Microsoft PowerPoint", id: 462062816
-mas "Numbers", id: 361304891
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+mas "Numbers", id: 361304891
 mas "Pages", id: 361309726
+mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
@@ -404,11 +403,6 @@ vscode "phplasma.csv-to-table"
 vscode "tintinweb.graphviz-interactive-preview"
 go "golang.org/x/tools/gopls"
 go "honnef.co/go/tools/cmd/staticcheck"
-uv "aider-chat"
 uv "bodha", source: "file:///Users/karun/projects/personal/bodha"
 uv "claude-monitor"
-npm "@earendil-works/pi-coding-agent"
-npm "@googleworkspace/cli"
 npm "corepack"
-npm "pnpm"
-npm "pptxgenjs"
