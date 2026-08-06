@@ -1,5 +1,11 @@
-fish_add_path (brew --prefix)"/opt/curl/bin"
-fish_add_path (brew --prefix)"/sbin"
+if test -d /opt/homebrew
+    set -l brew_prefix /opt/homebrew
+else
+    set -l brew_prefix /usr/local
+end
+
+fish_add_path $brew_prefix/opt/curl/bin
+fish_add_path $brew_prefix/sbin
 
 set LANG english
 
