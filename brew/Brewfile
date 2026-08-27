@@ -342,8 +342,6 @@ cask "istat-menus"
 cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
-# Free cross-platform office suite, fresh version
-cask "libreoffice"
 # Software for Logitech devices
 cask "logitech-options"
 # Provides updates to various Microsoft products
