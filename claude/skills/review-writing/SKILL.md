@@ -1,12 +1,31 @@
 ---
 name: review-writing
 description: >
-  Review writing for tone, clarity, and authenticity against my personal style.
-  Use when asked to review, edit, or give feedback on writing — blog posts,
-  articles, LinkedIn posts, or any written content.
+  Automatically review AND revise any prose I write against my personal style
+  — blog posts, articles, LinkedIn posts, docs, README prose, long-form
+  messages. Run this immediately after drafting or editing such content, even
+  if I didn't ask for a review. Applies fixes directly by default instead of
+  just listing them.
 ---
 
-Review the provided content against my writing style and suggest improvements.
+TRIGGER — run this every time, without being asked, right after you (Claude)
+finish drafting or editing prose content for me: a blog post, article,
+LinkedIn/social post, doc section, README prose, or any other written piece
+meant for a reader. This includes content you write inline in the
+conversation and content you write to a file.
+
+SKIP for: code, commit messages, PR descriptions, commands/config, this
+SKILL.md itself, or short factual replies with no real prose to critique.
+
+Default behavior: **review, then apply the fixes yourself** using Edit/Write
+on the actual file (or by revising the message before sending it, if it's
+inline content with no file). Do not stop at a list of suggestions and wait
+for approval. Only skip auto-apply if I explicitly say "just review",
+"don't change anything", or "show me the list first" for that request.
+
+Review the content against my writing style below, fix what the review
+finds, then report back per the "Final Response" section — a short summary,
+not the full section-by-section report.
 
 ## My Writing Style
 
@@ -97,15 +116,15 @@ Apply Elements of Style principles:
 - Negative statements that could be positive
 - Weak sentence structure
 
-### 5. Specific Suggestions
-Provide 3–5 targeted improvements using this format:
+### 5. Identify & Apply Fixes
+Work out the 3–5 most impactful fixes (internal working list, not the final
+response):
 
 **For each issue**:
-- **Location**: Quote the problematic text (with line/paragraph reference if applicable)
+- **Location**: The problematic text
 - **Issue**: Which rule is violated (ChatGPT pattern, style mismatch, or Elements of Style rule)
-- **Problem**: Explain what's wrong
-- **Suggestion**: Provide improved version
-- **Why**: Explain why the revision is better
+- **Problem**: What's wrong
+- **Fix**: The improved version
 
 **Prioritize**:
 - Cutting ChatGPT-isms
@@ -115,6 +134,11 @@ Provide 3–5 targeted improvements using this format:
 - Converting passive to active voice
 - Removing needless words
 
+Then **apply these fixes directly** to the content (Edit/Write the file, or
+revise the draft before sending it) — see "Default behavior" above. Don't
+present this list to me and wait; that list is your own working notes for
+what to change.
+
 ### 6. Positive Elements
 Highlight what works well:
 - Authentic personal voice where present
@@ -123,5 +147,17 @@ Highlight what works well:
 - Good Elements of Style adherence
 - Strong technical clarity
 
-### 7. Summary
-State whether the piece passes or needs revision. If revision needed, indicate severity (minor polish vs significant rewrite).
+### 7. Summary (internal)
+Work out whether the piece passed clean or needed revision, and how much
+(minor polish vs significant rewrite). Feeds the Final Response below —
+don't print the full 7-section report by default.
+
+## Final Response
+
+After applying fixes, reply with a short summary, not the full report:
+- One line: passed clean, or needed revision (minor polish / significant rewrite)
+- The fixes actually made, as a compact bullet list (issue → what changed)
+- Skip sections that found nothing — don't pad with "no issues in Authenticity Check" filler
+
+Give the full section-by-section report only if I explicitly ask for it
+("full review", "walk me through the review", "show all sections").
