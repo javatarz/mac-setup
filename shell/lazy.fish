@@ -11,12 +11,24 @@ function weather
 end
 
 function coffee
-    echo "> Check and generate pre-files"
-    brew bundle check --file=~/projects/personal/mac-setup/brew/Brewfile
     echo "> Update brew formulae"
-    brew update
+    brew update; or return 1
     echo "> Upgrade brew apps"
-    brew upgrade --yes
+    brew upgrade --yes; or return 1
+
+    echo "> Pull latest Brewfile from git"
+    set mac_setup_repo ~/projects/personal/mac-setup/
+    if not git -C $mac_setup_repo diff --quiet; or not git -C $mac_setup_repo diff --cached --quiet
+        echo "! Uncommitted changes in $mac_setup_repo, skipping Brewfile sync. Commit or stash them and re-run to sync."
+    else if not git -C $mac_setup_repo pull
+        echo "! git pull failed, skipping Brewfile sync"
+    else
+        echo "> Installing anything this machine is missing from the Brewfile"
+        brew bundle install --file={$mac_setup_repo}brew/Brewfile
+    end
+
+    echo "> Remove orphaned dependencies"
+    brew autoremove -q
     echo "> Cleanup brew downloads"
     brew cleanup
     echo "> Update all apps from the Mac App store"
@@ -28,9 +40,14 @@ function coffee
 
     echo "> Creating Brewfile and pushing it to git"
     brewfile
-    git -C ~/projects/personal/mac-setup/ add brew/Brewfile
-    git -C ~/projects/personal/mac-setup/ commit -m "Updated brewfile on $hostname"
-    git -C ~/projects/personal/mac-setup/ push
+    if not git -C $mac_setup_repo diff --quiet -- brew/Brewfile
+        echo "> Brewfile changed, committing and pushing"
+        git -C $mac_setup_repo add brew/Brewfile
+        git -C $mac_setup_repo commit -m "Updated brewfile on $hostname"
+        git -C $mac_setup_repo push
+    else
+        echo ">Brewfile unchanged, skipping commit"
+    end
 end
 
 function notebook
