@@ -9,7 +9,7 @@ shouldn't.
 ```
 evals/
   EVALS.md          this file
-  samples/          8 synthetic writing samples, each with frontmatter:
+  samples/          12 synthetic writing samples, each with frontmatter:
                      id, purpose, expected_flags, expected_verdict, notes
 ```
 
@@ -25,6 +25,10 @@ Samples map directly to `SKILL.md` sections:
 | `06_authentic_voice_control` | Authenticity Check + narrow em-dash flag only |
 | `07_signposting_false_positive_check` | Regression check for the genuine-signposting carve-out (SKILL.md ~line 42) |
 | `08_mixed_realistic` | Precision test — realistic draft, 3 planted issues, rest should read clean |
+| `09_new_rules_triggers` | 2026-09 rules: rigor boast, compressed aphorism, term-of-art, "anyone can X", stock idiom, abstract-clever heading, list-then-possessive-punchline, scoped-claim, code-sample literalism |
+| `10_new_rules_counterexamples` | False-positive baseline for the same 9 rules — each sample's documented "kept" counter-example |
+| `11_social_register_triggers` | New "Register tells (LinkedIn/X)" subsection — dash-joined qualifier, spelled-out number, softening "but" |
+| `12_social_register_control` | False-positive baseline for the register subsection — correct short-form register, should read clean |
 
 ## Running the eval
 
@@ -75,6 +79,6 @@ change.
 - This is an LLM-judged eval, not a deterministic test — expect some
   run-to-run variance. Treat a single sample failure as noise; treat the
   same sample failing 2+ runs in a row as signal.
-- 8 samples is coverage of each rule category, not exhaustive. Add a
+- 12 samples is coverage of each rule category, not exhaustive. Add a
   sample whenever a real review surfaces a false positive/negative worth
   locking in as a regression check.
