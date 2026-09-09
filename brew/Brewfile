@@ -68,6 +68,8 @@ brew "colima"
 brew "coreutils"
 # Suite of command-line tools for converting to and working with CSV
 brew "csvkit"
+# Diff that understands syntax
+brew "difftastic"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Pack, ship and run any application as a lightweight container
@@ -272,12 +274,12 @@ cask "whatsapp"
 cask "zoom"
 mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
-mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
+mas "Keynote", id: 361285480
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
-mas "Numbers", id: 361304891
 mas "Numbers", id: 409203825
+mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
 mas "Pages", id: 361309726
 mas "Pixelmator Pro", id: 1289583905
