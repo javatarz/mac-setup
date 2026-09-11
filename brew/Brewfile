@@ -140,6 +140,8 @@ brew "jnv"
 brew "jq"
 # Handy way to save and run project-specific commands
 brew "just"
+# Modern load testing tool, using Go and JavaScript
+brew "k6"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
 # Lazier way to manage everything docker
@@ -272,6 +274,7 @@ cask "vlc"
 cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Dato", id: 1470584107
 mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
