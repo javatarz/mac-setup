@@ -275,7 +275,6 @@ cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Dato", id: 1470584107
-mas "Dato 2", id: 1470584107
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Keynote", id: 361285480
@@ -283,8 +282,8 @@ mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 409203825
 mas "Numbers", id: 361304891
-mas "Pages", id: 361309726
 mas "Pages", id: 409201541
+mas "Pages", id: 361309726
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
