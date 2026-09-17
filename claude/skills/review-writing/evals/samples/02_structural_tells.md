@@ -1,6 +1,6 @@
 ---
 id: 02_structural_tells
-purpose: Trigger the "ChatGPT Tells Check → Structural tells" category.
+purpose: Trigger the "AI Tells Check → Structural tells" category.
 expected_flags:
   - abstract_wisdom_no_specifics
   - missing_i_voice_abstract_we

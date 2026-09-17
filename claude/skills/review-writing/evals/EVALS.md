@@ -18,12 +18,12 @@ Samples map directly to `SKILL.md` sections:
 | Sample | Section under test |
 |---|---|
 | `01_clean_control` | False-positive baseline — clean writing, expect ~0 flags |
-| `02_structural_tells` | ChatGPT Tells Check → Structural tells |
-| `03_language_tells` | ChatGPT Tells Check → Language tells |
-| `04_content_tells` | ChatGPT Tells Check → Content tells |
+| `02_structural_tells` | AI Tells Check → Structural tells |
+| `03_language_tells` | AI Tells Check → Language tells |
+| `04_content_tells` | AI Tells Check → Content tells |
 | `05_clarity_violations` | Clarity & Concision Review (Elements of Style) |
 | `06_authentic_voice_control` | Authenticity Check + narrow em-dash flag only |
-| `07_signposting_false_positive_check` | Regression check for the genuine-signposting carve-out (SKILL.md ~line 42) |
+| `07_signposting_false_positive_check` | Regression check for the genuine-signposting carve-out (SKILL.md, "Empty setup/announcement lines" bullet) |
 | `08_mixed_realistic` | Precision test — realistic draft, 3 planted issues, rest should read clean |
 | `09_new_rules_triggers` | 2026-09 rules: rigor boast, compressed aphorism, term-of-art, "anyone can X", stock idiom, abstract-clever heading, list-then-possessive-punchline, scoped-claim, code-sample literalism |
 | `10_new_rules_counterexamples` | False-positive baseline for the same 9 rules — each sample's documented "kept" counter-example |
@@ -48,7 +48,7 @@ For each sample:
      near-zero flags. Any flag raised there is a false positive — note it
      specifically, since those two samples exist only to catch
      over-triggering.
-   - **Verdict match**: does section 7 (Summary) land on something
+   - **Verdict match**: does section 5 (Summary) land on something
      consistent with `expected_verdict`?
 
 4. Record pass/fail per sample in a run log (date, SKILL.md git hash,
@@ -82,3 +82,25 @@ change.
 - 12 samples is coverage of each rule category, not exhaustive. Add a
   sample whenever a real review surfaces a false positive/negative worth
   locking in as a regression check.
+
+## Deterministic pre-check
+
+`../tools/score_review.py` covers the mechanical/lexical subset of
+`SKILL.md` (banned vocabulary, AI construction shapes, dash tells,
+repeated-qualifier lists, invented proof, stock idioms) with regex, no LLM
+call. It's fast and exact where it applies, but it can't judge anything
+contextual — boast framing, scoped claims, negation setups, heading
+consistency, Elements of Style. Run it as a cheap first pass; it does not
+replace the LLM-judged samples above, which cover the rules a regex can't.
+
+```bash
+python3 ../tools/score_review.py path/to/draft.md
+python3 ../tools/score_review.py --text "paste a draft"
+```
+
+Sanity-checked against the existing samples: scores 5/5 (clean) on `01`
+and `04`, correctly isolates the em-dash-only flag on `06` and `07`
+(both documented as narrow-flag samples), and catches real hits on `03`
+(vocabulary/dash tells). Samples `02`/most of `04`'s content are
+structural/content tells this script can't see — expected to stay 5/5
+there; that gap is what the LLM eval above is for.
