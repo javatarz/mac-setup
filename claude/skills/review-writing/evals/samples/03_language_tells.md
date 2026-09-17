@@ -1,6 +1,6 @@
 ---
 id: 03_language_tells
-purpose: Trigger the "ChatGPT Tells Check → Language tells" category.
+purpose: Trigger the "AI Tells Check → Language tells" category.
 expected_flags:
   - buzzword_soup
   - generic_thought_leadership

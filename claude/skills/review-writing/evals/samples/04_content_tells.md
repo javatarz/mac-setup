@@ -1,6 +1,6 @@
 ---
 id: 04_content_tells
-purpose: Trigger the "ChatGPT Tells Check → Content tells" category.
+purpose: Trigger the "AI Tells Check → Content tells" category.
 expected_flags:
   - no_friction_settled_truth
   - no_personal_anecdotes
