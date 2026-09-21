@@ -2,6 +2,7 @@ tap "alajmo/mani"
 tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git", trusted: { formulae: ["beads"] }
 tap "homebrew/bundle"
 tap "homebrew/services"
+tap "theopenco/tap"
 # Search tool like grep, but optimized for programmers
 brew "ack"
 # GNU multiple precision arithmetic library
@@ -214,6 +215,8 @@ brew "yamllint"
 brew "yarn"
 # CLI tool to help you manage multiple repositories
 brew "alajmo/mani/mani", trusted: true
+# DevPass Code — the LLM Gateway coding agent for the terminal.
+brew "theopenco/tap/devpass-code", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -293,6 +296,7 @@ vscode "ms-python.vscode-python-envs"
 vscode "phplasma.csv-to-table"
 vscode "tintinweb.graphviz-interactive-preview"
 uv "bodha"
+uv "casparser"
 uv "claude-monitor"
 uv "skillspector", source: "git+https://github.com/NVIDIA/skillspector.git"
 npm "@wordpress/env"
