@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>giovanni.xkcd</string>
+	<key>category</key>
+	<string>Internet</string>
 	<key>connections</key>
 	<dict>
 		<key>11C547C1-700D-4254-BEF4-5BB71FE439EE</key>
@@ -1041,6 +1043,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -1215,6 +1221,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -1424,6 +1434,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -1468,6 +1482,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -1534,10 +1552,10 @@ If you are an xkcd fan and have ever tried to remember or find a particular comi
 
 
 # Usage
-- Search (default keyword: `xkcd`) or hotkey: list and search xkcd comics. `❤️` will denote favorite, `•` unread comics. 
-- Favorite (default keyword: `xk::favs`) or hotkey: favorite xkcd comics in grid view. 
-- Random (default keyword: `xk::random`) or hotkey: one random unread xkcd comic. 
-- Recent (default keyword: `xk::recent`) or hotkey: recently viewed xkcd comics in grid view. 
+- Search (default keyword: `xxkcd`) or hotkey: list and search xkcd comics. `❤️` will denote favorite, `•` unread comics. 
+- Favorite (default keyword: `xxk::favs`) or hotkey: favorite xkcd comics in grid view. 
+- Random (default keyword: `xxk::random`) or hotkey: one random unread xkcd comic. 
+- Recent (default keyword: `xxk::recent`) or hotkey: recently viewed xkcd comics in grid view. 
  
 
 ## On a selected comic:
@@ -2048,17 +2066,13 @@ https://github.com/giovannicoppola/alfred-xkcd/issues</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>defaultvalue</key>
-				<integer>3</integer>
-				<key>markercount</key>
-				<integer>10</integer>
-				<key>maxvalue</key>
-				<integer>30</integer>
-				<key>minvalue</key>
-				<integer>0</integer>
-				<key>onlystoponmarkers</key>
-				<false/>
-				<key>showmarkers</key>
+				<key>default</key>
+				<string>3</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
@@ -2066,7 +2080,7 @@ https://github.com/giovannicoppola/alfred-xkcd/issues</string>
 			<key>label</key>
 			<string>Refresh Rate (days)</string>
 			<key>type</key>
-			<string>slider</string>
+			<string>textfield</string>
 			<key>variable</key>
 			<string>REFRESH_RATE</string>
 		</dict>
@@ -2074,7 +2088,7 @@ https://github.com/giovannicoppola/alfred-xkcd/issues</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0</string>
+	<string>1.0.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/giovannicoppola/alfred-xkcd/</string>
 </dict>
