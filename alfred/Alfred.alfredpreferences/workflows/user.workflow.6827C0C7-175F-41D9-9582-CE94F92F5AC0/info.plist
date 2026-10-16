@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>mo.com.sleeplessmind.airpods-pro-connector</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>6EB7D5B0-E02F-4DA2-9AFE-BD02E81F15B5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F0F0DF22-8D94-4A6F-89A2-ACEC737045C1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E0CD2902-7EF6-4532-A8FE-0AC104F66CB2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6EB7D5B0-E02F-4DA2-9AFE-BD02E81F15B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F0F0DF22-8D94-4A6F-89A2-ACEC737045C1</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Guillaume Leclerc</string>
+	<key>description</key>
+	<string>Quickly connect your AirPods Pro!</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>AirPods Pro Connector</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>E0CD2902-7EF6-4532-A8FE-0AC104F66CB2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>if [[ $(arch) == 'arm64' ]]; then
+  ./resources/binaries/blueutil_arm64 {query}
+else
+  ./resources/binaries/blueutil_i386 {query}
+fi</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F0F0DF22-8D94-4A6F-89A2-ACEC737045C1</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:workflow_keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>sniffing around...</string>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>./resources/scripts/connector.sh</string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>AirPods Pro Connector</string>
+				<key>type</key>
+				<integer>8</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6EB7D5B0-E02F-4DA2-9AFE-BD02E81F15B5</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>## ⚠️ macOS 14 ⚠️
+
+since somewhere along the macOS 14 release Apple requires Alfred 5 to have the Bluetooth permissions enabled in order to connect and disconnect bluetooth devices. you can paste this: `open "x-apple.systempreferences:com.apple.preference.security?Privacy_Bluetooth"` in your terminal to access the UI and add Alfred manually.
+
+## Connect / Disconnect
+
+once your AirPods Pro(s) have been paired with your Mac just type `apc` to list them and connect or disconnect them at whim.
+
+![apc](resources/images/apc.png)
+
+## Need More info?
+
+go check out to the [GitHub repo](https://github.com/godbout/alfred-airpodspro-connector)!</string>
+	<key>uidata</key>
+	<dict>
+		<key>6EB7D5B0-E02F-4DA2-9AFE-BD02E81F15B5</key>
+		<dict>
+			<key>note</key>
+			<string>⚠️ make sure Alfred 5 has Bluetooth permissions ⚠️</string>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+		<key>E0CD2902-7EF6-4532-A8FE-0AC104F66CB2</key>
+		<dict>
+			<key>xpos</key>
+			<real>30</real>
+			<key>ypos</key>
+			<real>15</real>
+		</dict>
+		<key>F0F0DF22-8D94-4A6F-89A2-ACEC737045C1</key>
+		<dict>
+			<key>xpos</key>
+			<real>270</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>apc</string>
+				<key>placeholder</key>
+				<string>apc</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>List paired AirPods Pro with</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>workflow_keyword</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>5.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/godbout/alfred-airpodspro-connector</string>
+</dict>
+</plist>

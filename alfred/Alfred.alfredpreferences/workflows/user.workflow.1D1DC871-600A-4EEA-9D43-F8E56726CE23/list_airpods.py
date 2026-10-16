@@ -8,14 +8,17 @@ import sys
 # [ProductID]:"[icon file base name]"
 AIRPD_PRODUCT_INDX = {
     8194: "AirPods OG",
+#   8195: "Powerbeats 3",
+    8202: "AirPods Max",
+    8203: "Powerbeats Pro",
+    8206: "AirPods Pro",
     8207: "AirPods 2",
     8211: "AirPods 3",
-    8219: "AirPods 4",
-    8202: "AirPods Max",
-    8206: "AirPods Pro",
     8212: "AirPods Pro 2",
+    8219: "AirPods 4",
+    8223: "AirPods Max (USB-C)",
     8228: "AirPods Pro 2 with MagSafe Charging Case (USB-C)",
-    8203: "Powerbeats Pro",
+    8231: "AirPods Pro 3",
 }
 
 
@@ -93,14 +96,14 @@ def main():
             adr: str = status.get('address')
             ap_type: str = status.get('prod_label')
             is_connected: bool = True if status.get('connected') == 'Yes' else False
-            con_str: str = "\u23CE to disconnect." if is_connected else "\u23CE to connect."
+            con_str: str = "↩ to disconnect." if is_connected else "↩ to connect."
             ico: str = f"icons_for_earphones/{ap_type}.png" if is_connected else f"icons_for_earphones/{ap_type} Case.png"
             con_switch: str = "1" if is_connected else "0"
             if query == "" or query.lower() in ap_name.lower():
                 item = {
                     "title": f"{ap_name} {'✅️' if is_connected else '🚫'}",
                     "subtitle": f"{con_str}",
-                    "arg": f"{adr};{con_switch};{ap_name}",
+                    "arg": f"{adr};{con_switch}",
                     "icon": {
                         "path": ico,
                         "type": "image"
@@ -110,7 +113,7 @@ def main():
     else:
         item = {
             "title": "The workflow requires ‘blueutil’",
-            "subtitle": "Press ↵ to let Alfred resolve dependencies...",
+            "subtitle": "Press ↩ to let Alfred resolve dependencies...",
             "valid": True,
             "arg": "blueutil"
         }
