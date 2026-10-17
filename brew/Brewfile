@@ -131,8 +131,8 @@ brew "libtool"
 brew "graphviz"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Agent multiplexer that lives in your terminal
-brew "herdr"
+# Kubernetes package manager
+brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # Manage your Java environment
@@ -143,6 +143,8 @@ brew "jnv"
 brew "jq"
 # Handy way to save and run project-specific commands
 brew "just"
+# Little helper to run CNCF's k3s in Docker
+brew "k3d"
 # Modern load testing tool, using Go and JavaScript
 brew "k6"
 # Kubernetes command-line interface
@@ -248,6 +250,8 @@ cask "font-alegreya-sans"
 cask "font-alegreya-sans-sc"
 cask "font-eb-garamond"
 cask "font-fira-code"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
 cask "font-open-sans"
 cask "font-powerline-symbols"
 cask "font-source-code-pro"
@@ -289,8 +293,8 @@ mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 409203825
 mas "Numbers", id: 361304891
-mas "Pages", id: 361309726
 mas "Pages", id: 409201541
+mas "Pages", id: 361309726
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
