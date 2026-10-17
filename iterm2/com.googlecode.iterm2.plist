@@ -27,7 +27,7 @@
 	<key>BracketedPasteMode</key>
 	<true/>
 	<key>ClaudeCodeTriggersInstalled</key>
-	<true/>
+	<false/>
 	<key>CodeReviewSavedPrompts</key>
 	<data>
 	W3sidGV4dCI6IlJldmlldyB0aGUgcGVuZGluZyBjaGFuZ2VzIGluIHRoaXMgcmVwby4g
@@ -64,12 +64,12 @@
 	<key>Default Browser Profile Guid</key>
 	<string>EB71FE6E-EE4C-4594-A7B8-93D9DD27C38C</string>
 	<key>EnableAPIServer</key>
-	<true/>
+	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0xd-0x20000-0x24</key>
+		<key>0xd-0x20000-0x24-0x1</key>
 		<dict>
 			<key>Action</key>
 			<integer>12</integer>
@@ -1162,7 +1162,7 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>FiraCodeRoman-Regular 11</string>
+			<string>JetBrainsMonoNFM-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Non-ASCII Ligatures</key>
@@ -1258,52 +1258,7 @@
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
-			<array>
-				<dict>
-					<key>action</key>
-					<string>iTermEnterWorkgroupTrigger</string>
-					<key>contentregex</key>
-					<string></string>
-					<key>disabled</key>
-					<false/>
-					<key>eventParams</key>
-					<dict>
-						<key>jobName</key>
-						<string>claude</string>
-					</dict>
-					<key>matchType</key>
-					<integer>113</integer>
-					<key>parameter</key>
-					<string>builtin.claudeCode</string>
-					<key>partial</key>
-					<false/>
-					<key>regex</key>
-					<string></string>
-				</dict>
-				<dict>
-					<key>action</key>
-					<string>iTermExitWorkgroupTrigger</string>
-					<key>contentregex</key>
-					<string></string>
-					<key>disabled</key>
-					<false/>
-					<key>eventParams</key>
-					<dict>
-						<key>jobName</key>
-						<string>claude</string>
-						<key>leaderOnly</key>
-						<true/>
-					</dict>
-					<key>matchType</key>
-					<integer>114</integer>
-					<key>parameter</key>
-					<string></string>
-					<key>partial</key>
-					<false/>
-					<key>regex</key>
-					<string></string>
-				</dict>
-			</array>
+			<array/>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1393,34 +1348,7 @@
 	<dict/>
 	<key>Workgroups</key>
 	<data>
-	W3sic2Vzc2lvbnMiOlt7InVuaXF1ZUlkZW50aWZpZXIiOiJidWlsdGluLmNsYXVkZUNv
-	ZGUubWFpbiIsIm1vZGUiOiJyZWd1bGFyIiwiZGlzcGxheU5hbWUiOiJDaGF0Iiwia2lu
-	ZCI6eyJraW5kIjoicm9vdCJ9LCJjb21tYW5kIjoiIiwidXJsU3RyaW5nIjoiIiwidG9v
-	bGJhckl0ZW1zIjpbeyJraW5kIjoibW9kZVN3aXRjaGVyIn0seyJraW5kIjoiZ2l0U3Rh
-	dHVzIn0seyJraW5kIjoiYXV0b1JlcXVlc3RSZXZpZXdXaGVuSWRsZSJ9XSwicGVyRmls
-	ZUNvbW1hbmQiOiIifSx7InBlckZpbGVDb21tYW5kIjoiZ2l0IGRpZmZ0b29sIC15IC14
-	IHZpbWRpZmYgXFwoZ2l0QmFzZSkgLS0gXFwoZmlsZSkiLCJ1bmlxdWVJZGVudGlmaWVy
-	IjoiYnVpbHRpbi5jbGF1ZGVDb2RlLmRpZmYiLCJtb2RlIjoiZGlmZiIsImRpc3BsYXlO
-	YW1lIjoiRGlmZiIsImtpbmQiOnsia2luZCI6InBlZXIifSwiY29tbWFuZCI6ImdpdCBk
-	aWZmdG9vbCAteSAteCB2aW1kaWZmIFxcKGdpdEJhc2UpIiwidXJsU3RyaW5nIjoiIiwi
-	dG9vbGJhckl0ZW1zIjpbeyJraW5kIjoibW9kZVN3aXRjaGVyIn0seyJraW5kIjoiY2hh
-	bmdlZEZpbGVTZWxlY3RvciJ9LHsia2luZCI6ImdpdEJhc2VTZWxlY3RvciJ9LHsiYmFj
-	a1Nob3J0Y3V0Ijp7InNlcmlhbGl6ZWQiOiIweGY3MDItMHgzNDAwMDAtMHg3YiJ9LCJr
-	aW5kIjoibmF2aWdhdGlvbiIsInJlbG9hZFNob3J0Y3V0Ijp7InNlcmlhbGl6ZWQiOiIw
-	eDcyLTB4MTAwMDAwLTB4ZiJ9LCJmb3J3YXJkU2hvcnRjdXQiOnsic2VyaWFsaXplZCI6
-	IjB4ZjcwMy0weDM0MDAwMC0weDdjIn19XSwicGFyZW50SUQiOiJidWlsdGluLmNsYXVk
-	ZUNvZGUubWFpbiJ9LHsicGVyRmlsZUNvbW1hbmQiOiIiLCJ1bmlxdWVJZGVudGlmaWVy
-	IjoiYnVpbHRpbi5jbGF1ZGVDb2RlLnJldmlldyIsIm1vZGUiOiJjb2RlUmV2aWV3Iiwi
-	ZGlzcGxheU5hbWUiOiJDb2RlIFJldmlldyIsImtpbmQiOnsia2luZCI6InBlZXIifSwi
-	Y29tbWFuZCI6ImNsYXVkZSBcXChjb2RlUmV2aWV3UHJvbXB0KSAtLWFwcGVuZC1zeXN0
-	ZW0tcHJvbXB0LWZpbGUgJ1xcKGNvZGVSZXZpZXdTeXN0ZW1Qcm9tcHRGaWxlKScgLS1z
-	ZXR0aW5ncyAnXFwoaXRlcm0yLmFwcEJ1bmRsZVBhdGgpXC9Db250ZW50c1wvUmVzb3Vy
-	Y2VzXC9jb2RlLXJldmlldy1zZXR0aW5ncy50eHQnIiwidXJsU3RyaW5nIjoiIiwidG9v
-	bGJhckl0ZW1zIjpbeyJraW5kIjoibW9kZVN3aXRjaGVyIn0seyJzaG9ydGN1dCI6eyJz
-	ZXJpYWxpemVkIjoiMHg3Mi0weDEwMDAwMC0weGYifSwia2luZCI6InJlbG9hZCJ9LHsi
-	a2luZCI6ImF1dG9TZW5kQ2xpcHBpbmdzV2hlbklkbGUifV0sInBhcmVudElEIjoiYnVp
-	bHRpbi5jbGF1ZGVDb2RlLm1haW4ifV0sInVuaXF1ZUlkZW50aWZpZXIiOiJidWlsdGlu
-	LmNsYXVkZUNvZGUiLCJuYW1lIjoiQ2xhdWRlIENvZGUifV0=
+	W10=
 	</data>
 	<key>com.apple.WebPrivacy.ResourceMonitorURLsVersion</key>
 	<string>qrsAAAGXnXBrwGxMO6s=</string>
@@ -1429,6 +1357,8 @@
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>3</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
+	<key>kTurnOffSlowTriggersOfferUserDefaultsKey</key>
 	<false/>
 </dict>
 </plist>
