@@ -271,6 +271,8 @@ cask "microsoft-teams"
 cask "obsidian"
 # Local-first alternative to Logitech Options+ for HID++ devices
 cask "openlogi"
+# IDE for professional Python development
+cask "pycharm"
 # Catalogue of hi-res music for streaming and download
 cask "qobuz"
 # Move and resize windows using keyboard shortcuts or snap areas
