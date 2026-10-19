@@ -229,16 +229,10 @@ else
   report_failure "claude command NOT found."
 fi
 
-if [ -L "$HOME/.claude/statusline.fish" ]; then
-  report_success "~/.claude/statusline.fish is a symlink."
+if [ -L "$HOME/.claude/statusline.sh" ]; then
+  report_success "~/.claude/statusline.sh is a symlink."
 else
-  report_failure "~/.claude/statusline.fish is NOT a symlink."
-fi
-
-if [ -L "$HOME/.claude/commands" ]; then
-  report_success "~/.claude/commands is a symlink."
-else
-  report_failure "~/.claude/commands is NOT a symlink."
+  report_failure "~/.claude/statusline.sh is NOT a symlink."
 fi
 
 # 10. iTerm2
