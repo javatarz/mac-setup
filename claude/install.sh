@@ -15,7 +15,7 @@ mkdir -p ~/.claude
 
 # Symlink statusline script
 echo ">> Linking statusline script"
-ln -sf "$pos/statusline.fish" ~/.claude/statusline.fish
+ln -sf "$pos/statusline.sh" ~/.claude/statusline.sh
 
 # Remove legacy commands symlink (commands migrated to skills)
 echo ">> Removing legacy commands symlink"
