@@ -1,7 +1,5 @@
 tap "alajmo/mani"
 tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git", trusted: { formulae: ["beads"] }
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "theopenco/tap"
 # Search tool like grep, but optimized for programmers
 brew "ack"
