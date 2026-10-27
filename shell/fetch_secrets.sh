@@ -9,19 +9,19 @@ if ! command -v op > /dev/null; then
   exit 1
 fi
 
-# Check if the user is already signed in
-op account get > /dev/null 2>&1
-if [ $? -eq 0 ]; then
+# Check if the user is signed in. `op account get` succeeds as soon as an
+# account is added, even when signed out, so use `op whoami` instead.
+if op whoami > /dev/null 2>&1; then
   echo ">> Already signed in to 1Password."
 else
   echo ">> Not signed in to 1Password. Please sign in."
-  read -p "Enter your 1Password email address: " email
-  read -p "Enter your 1Password secret key: " secret_key
-  read -s -p "Enter your 1Password master password: " master_password
-  echo
-
-  # Sign in to 1Password
-  op signin --account my --email "$email" --secret-key "$secret_key" <<< "$master_password"
+  # Add the account if none is configured (prompts for address, email, secret key)
+  if ! op account list 2> /dev/null | grep -q .; then
+    op account add || exit 1
+  fi
+  # Prompts for the master password (or uses desktop app integration)
+  eval "$(op signin)" || exit 1
+  op whoami > /dev/null 2>&1 || { echo ">> 1Password sign-in failed."; exit 1; }
 fi
 
 # --- SSH Configuration ---
