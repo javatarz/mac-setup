@@ -109,7 +109,7 @@ fi
 
 # 4. Secrets Verification
 echo -e "\n--- Checking for secrets ---"
-FILES_TO_CHECK=("~/.ssh/config" "~/.ssh/emr_dev" "~/.config/fish/conf.d/secrets.fish")
+FILES_TO_CHECK=("~/.ssh/config" "~/.config/fish/conf.d/secrets.fish")
 for file_path in "${FILES_TO_CHECK[@]}"; do
   expanded_path=$(eval echo "$file_path")
   if [ -e "$expanded_path" ];
