@@ -37,19 +37,16 @@ mkdir -p "$ENVS_DIR"
 # Fetch the main config file
 op read "op://Personal/dotfiles/ssh_config" > "$SSH_DIR/config"
 
-# Fetch the emr_dev file
-op read "op://Personal/dotfiles/emr_dev" > "$SSH_DIR/emr_dev"
-
 # Fetch the envs/*.config files
-# NOTE: This assumes that the names of the items in 1Password are the same as the filenames.
+# NOTE: Items are Documents tagged "ssh_env"; titles are the filenames.
 for item in $(op item list --vault "Personal" --categories "Document" --tags "ssh_env" --format=json | jq -r '.[].title'); do
-  op read "op://Personal/$item/document" > "$ENVS_DIR/$item"
+  op document get "$item" --vault "Personal" --out-file "$ENVS_DIR/$item" --force
 done
 
 # Fetch the private keys
-# NOTE: This assumes that the names of the items in 1Password are the same as the filenames.
-for item in $(op item list --vault "Personal" --categories "SSH Key" --tags "ssh_key" --format=json | jq -r '.[].title'); do
-  op read "op://Personal/$item/private key" > "$KEYS_DIR/$item"
+# NOTE: Items are Documents tagged "ssh_key"; titles are the filenames.
+for item in $(op item list --vault "Personal" --categories "Document" --tags "ssh_key" --format=json | jq -r '.[].title'); do
+  op document get "$item" --vault "Personal" --out-file "$KEYS_DIR/$item" --force
   chmod 600 "$KEYS_DIR/$item"
 done
 
