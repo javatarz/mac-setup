@@ -38,6 +38,9 @@ function coffee
     echo "> Update all omf installations"
     omf update
 
+    echo "> Backing up SSH and GPG setup to 1Password"
+    bash {$mac_setup_repo}shell/backup_secrets.sh; or echo "! 1Password backup failed, continuing"
+
     echo "> Creating Brewfile and pushing it to git"
     brewfile
     if not git -C $mac_setup_repo diff --quiet -- brew/Brewfile
