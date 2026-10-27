@@ -279,8 +279,6 @@ cask "rectangle"
 cask "slack"
 # Open-source code editor
 cask "visual-studio-code"
-# Multimedia player
-cask "vlc"
 # Native desktop client for WhatsApp
 cask "whatsapp"
 # Video communication and virtual meeting platform
