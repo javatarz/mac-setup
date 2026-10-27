@@ -3,6 +3,8 @@ set -e
 
 source "$(dirname "$0")/../../common/defaults.sh"
 
+ensure_op_signin || exit 1
+
 echo
 echo "> Setting up git signing identities"
 

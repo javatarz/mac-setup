@@ -70,6 +70,12 @@ if should_run "shell"; then
   sh shell/install.sh
 fi
 
+if should_run "secrets" || should_run "signing"; then
+  # Sign in here so fetch_secrets.sh and signing.sh inherit the session token
+  . common/functions.sh
+  ensure_op_signin
+fi
+
 if should_run "secrets"; then
   sh shell/fetch_secrets.sh
 fi

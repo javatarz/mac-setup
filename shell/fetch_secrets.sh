@@ -9,20 +9,8 @@ if ! command -v op > /dev/null; then
   exit 1
 fi
 
-# Check if the user is signed in. `op account get` succeeds as soon as an
-# account is added, even when signed out, so use `op whoami` instead.
-if op whoami > /dev/null 2>&1; then
-  echo ">> Already signed in to 1Password."
-else
-  echo ">> Not signed in to 1Password. Please sign in."
-  # Add the account if none is configured (prompts for address, email, secret key)
-  if ! op account list 2> /dev/null | grep -q .; then
-    op account add || exit 1
-  fi
-  # Prompts for the master password (or uses desktop app integration)
-  eval "$(op signin)" || exit 1
-  op whoami > /dev/null 2>&1 || { echo ">> 1Password sign-in failed."; exit 1; }
-fi
+. "$(dirname "$0")/../common/functions.sh"
+ensure_op_signin || exit 1
 
 # --- SSH Configuration ---
 echo ">> Fetching SSH configuration from 1Password..."
@@ -57,3 +45,17 @@ SECRETS_DIR="$HOME/.config/fish/conf.d"
 mkdir -p "$SECRETS_DIR"
 
 op read "op://Personal/dotfiles/secrets.fish" > "$SECRETS_DIR/secrets.fish"
+
+# --- GPG Keys ---
+echo ">> Importing GPG keys from 1Password..."
+if command -v gpg > /dev/null; then
+  # Imported keys keep their original passphrase protection
+  for item in $(op item list --vault "Personal" --categories "Document" --tags "gpg_key" --format=json | jq -r '.[].title'); do
+    op document get "$item" --vault "Personal" | gpg --batch --import
+  done
+  if op item get gpg-ownertrust --vault "Personal" > /dev/null 2>&1; then
+    op document get gpg-ownertrust --vault "Personal" | gpg --import-ownertrust
+  fi
+else
+  echo ">> gpg not installed, skipping GPG import"
+fi
