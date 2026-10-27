@@ -25,8 +25,22 @@ fi
 echo ">> Switching off analytics"
 brew analytics off
 
+# Casks are optional: run with SKIP_CASKS=1 to install only formulae, taps and App Store apps.
+# Installed casks are left untouched in that mode.
+BREWFILE=brew/Brewfile
+if test "${SKIP_CASKS:-0}" = "1"; then
+  echo ">> SKIP_CASKS=1: skipping cask installs"
+  BREWFILE_DIR=$(mktemp -d)
+  BREWFILE="$BREWFILE_DIR/Brewfile"
+  grep -v '^cask ' brew/Brewfile > "$BREWFILE"
+  CLEANUP_SCOPE="--formula"
+else
+  CLEANUP_SCOPE=""
+fi
+
 echo ">> Remove any apps not on the Brewfile"
-brew bundle cleanup --file=brew/Brewfile --force
+# shellcheck disable=SC2086
+brew bundle cleanup --file=brew/Brewfile $CLEANUP_SCOPE --force
 
 # brew bundle installs one package at a time (downloading serially), so pre-fetch
 # everything that is missing in parallel first. Installs then hit the cache.
@@ -43,10 +57,11 @@ if test -n "$missing_formulae"; then
   # shellcheck disable=SC2086
   brew fetch --formula $missing_formulae || echo ">> Some formula downloads failed; brew bundle will retry"
 fi
-if test -n "$missing_casks"; then
+if test "${SKIP_CASKS:-0}" != "1" && test -n "$missing_casks"; then
   # shellcheck disable=SC2086
   brew fetch --cask $missing_casks || echo ">> Some cask downloads failed; brew bundle will retry"
 fi
 
 echo ">> Installing brew and cask apps"
-brew bundle --verbose --file=brew/Brewfile
+brew bundle --verbose --file="$BREWFILE"
+test -n "$BREWFILE_DIR" && rm -rf "$BREWFILE_DIR"

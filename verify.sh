@@ -62,6 +62,10 @@ if command_exists brew; then
           fi
       done
 
+      if [ "${SKIP_CASKS:-0}" = "1" ]; then
+        CASK_PACKAGES=""
+      fi
+
       for pkg in $CASK_PACKAGES;
         do
           if echo "$INSTALLED_CASKS" | grep -q "^$pkg$";
