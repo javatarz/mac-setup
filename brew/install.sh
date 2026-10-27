@@ -27,14 +27,17 @@ brew analytics off
 
 # Casks are optional: run with SKIP_CASKS=1 to install only formulae, taps and App Store apps.
 # Installed casks are left untouched in that mode.
-BREWFILE=brew/Brewfile
+# npm packages are installed separately below, once mise has provided node.
+BREWFILE_DIR=$(mktemp -d)
+BREWFILE="$BREWFILE_DIR/Brewfile"
+NPM_BREWFILE="$BREWFILE_DIR/Brewfile.npm"
+grep '^npm ' brew/Brewfile > "$NPM_BREWFILE"
 if test "${SKIP_CASKS:-0}" = "1"; then
   echo ">> SKIP_CASKS=1: skipping cask installs"
-  BREWFILE_DIR=$(mktemp -d)
-  BREWFILE="$BREWFILE_DIR/Brewfile"
-  grep -v '^cask ' brew/Brewfile > "$BREWFILE"
+  grep -v '^cask \|^npm ' brew/Brewfile > "$BREWFILE"
   CLEANUP_SCOPE="--formula"
 else
+  grep -v '^npm ' brew/Brewfile > "$BREWFILE"
   CLEANUP_SCOPE=""
 fi
 
@@ -64,4 +67,11 @@ fi
 
 echo ">> Installing brew and cask apps"
 brew bundle --verbose --file="$BREWFILE"
-test -n "$BREWFILE_DIR" && rm -rf "$BREWFILE_DIR"
+
+# A new machine has no node until mise installs it, so npm entries can't go through the main bundle.
+if test -s "$NPM_BREWFILE"; then
+  echo ">> Installing npm packages with node from mise"
+  mise use --global node@lts
+  mise exec node@lts -- brew bundle --verbose --file="$NPM_BREWFILE"
+fi
+rm -rf "$BREWFILE_DIR"
