@@ -52,7 +52,7 @@ end
 
 # Explicit on purpose: uploads private keys and may prompt for a GPG passphrase
 function backup_secrets
-    bash ~/projects/personal/mac-setup/shell/backup_secrets.sh
+    bash ~/projects/personal/mac-setup/shell/backup_secrets.sh $argv
 end
 
 function notebook

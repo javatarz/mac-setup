@@ -4,6 +4,24 @@
 # Idempotent: only uploads what is new or changed. Prints names only, never contents.
 set -u
 
+# Sections: git, ssh (config, env configs, keys), fish, gpg
+ONLY=""
+usage() {
+  echo "Usage: $0 [--only section1,section2]"
+  echo "Sections: git, ssh, fish, gpg (default: all)"
+  exit 1
+}
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --only) [ -n "${2:-}" ] || usage; ONLY="$2"; shift 2 ;;
+    -h|--help) usage ;;
+    *) echo "Unknown option: $1"; usage ;;
+  esac
+done
+should_run() {
+  [ -z "$ONLY" ] || case ",$ONLY," in *",$1,"*) return 0 ;; *) return 1 ;; esac
+}
+
 VAULT="Personal"
 SSH_DIR="$HOME/.ssh"
 FISH_SECRETS="$HOME/.config/fish/conf.d/secrets.fish"
@@ -57,49 +75,61 @@ sync_field() {
     && echo ">> updated dotfiles/$field" || echo ">> FAILED  dotfiles/$field"
 }
 
-echo ">> SSH config and fish secrets"
-[ -f "$SSH_DIR/config" ] && sync_field ssh_config "$SSH_DIR/config"
-[ -f "$FISH_SECRETS" ] && sync_field secrets.fish "$FISH_SECRETS"
+if should_run ssh; then
+  echo ">> SSH config"
+  [ -f "$SSH_DIR/config" ] && sync_field ssh_config "$SSH_DIR/config"
+fi
 
-echo ">> Git config"
-[ -f "$HOME/.gitconfig" ] && sync_field gitconfig "$HOME/.gitconfig"
-for f in "$GIT_DIR"/*; do
-  [ -f "$f" ] && sync_document "$f" "$(basename "$f")" git_config
-done
+if should_run fish; then
+  echo ">> Fish secrets"
+  [ -f "$FISH_SECRETS" ] && sync_field secrets.fish "$FISH_SECRETS"
+fi
 
-echo ">> SSH env configs"
-for f in "$SSH_DIR"/envs/*.config; do
-  [ -f "$f" ] && sync_document "$f" "$(basename "$f")" ssh_env
-done
-
-echo ">> SSH private keys"
-for f in "$SSH_DIR"/keys/*; do
-  [ -f "$f" ] || continue
-  case "$f" in *.pub | */.DS_Store) continue ;; esac
-  grep -q "PRIVATE KEY" "$f" 2> /dev/null && sync_document "$f" "$(basename "$f")" ssh_key
-done
-
-echo ">> GPG secret keys"
-if command -v gpg > /dev/null; then
-  # Keys are exported only when missing from 1Password, since exporting prompts for the passphrase.
-  gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {want=1; next} want && /^fpr/ {print $10; want=0}' | while read -r fpr; do
-    title="gpg-$fpr"
-    if op item get "$title" --vault "$VAULT" > /dev/null 2>&1; then
-      echo "   unchanged $title"
-      continue
-    fi
-    echo ">> exporting $title"
-    if gpg --batch --export-secret-keys --armor "$fpr" > "$tmp/$title.asc" 2> /dev/null && [ -s "$tmp/$title.asc" ]; then
-      op document create "$tmp/$title.asc" --vault "$VAULT" --title "$title" --tags gpg_key > /dev/null \
-        && echo ">> added   $title" || echo ">> FAILED  $title"
-    else
-      echo ">> FAILED  $title (could not export, unlock the key and retry)"
-    fi
+if should_run git; then
+  echo ">> Git config"
+  [ -f "$HOME/.gitconfig" ] && sync_field gitconfig "$HOME/.gitconfig"
+  for f in "$GIT_DIR"/*; do
+    [ -f "$f" ] && sync_document "$f" "$(basename "$f")" git_config
   done
-  gpg --export-ownertrust > "$tmp/gpg-ownertrust"
-  sync_document "$tmp/gpg-ownertrust" gpg-ownertrust gpg_ownertrust
-else
-  echo ">> gpg not found, skipping"
+fi
+
+if should_run ssh; then
+  echo ">> SSH env configs"
+  for f in "$SSH_DIR"/envs/*.config; do
+    [ -f "$f" ] && sync_document "$f" "$(basename "$f")" ssh_env
+  done
+
+  echo ">> SSH private keys"
+  for f in "$SSH_DIR"/keys/*; do
+    [ -f "$f" ] || continue
+    case "$f" in *.pub | */.DS_Store) continue ;; esac
+    grep -q "PRIVATE KEY" "$f" 2> /dev/null && sync_document "$f" "$(basename "$f")" ssh_key
+  done
+fi
+
+if should_run gpg; then
+  echo ">> GPG secret keys"
+  if command -v gpg > /dev/null; then
+    # Keys are exported only when missing from 1Password, since exporting prompts for the passphrase.
+    gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {want=1; next} want && /^fpr/ {print $10; want=0}' | while read -r fpr; do
+      title="gpg-$fpr"
+      if op item get "$title" --vault "$VAULT" > /dev/null 2>&1; then
+        echo "   unchanged $title"
+        continue
+      fi
+      echo ">> exporting $title"
+      if gpg --batch --export-secret-keys --armor "$fpr" > "$tmp/$title.asc" 2> /dev/null && [ -s "$tmp/$title.asc" ]; then
+        op document create "$tmp/$title.asc" --vault "$VAULT" --title "$title" --tags gpg_key > /dev/null \
+          && echo ">> added   $title" || echo ">> FAILED  $title"
+      else
+        echo ">> FAILED  $title (could not export, unlock the key and retry)"
+      fi
+    done
+    gpg --export-ownertrust > "$tmp/gpg-ownertrust"
+    sync_document "$tmp/gpg-ownertrust" gpg-ownertrust gpg_ownertrust
+  else
+    echo ">> gpg not found, skipping"
+  fi
 fi
 
 echo ">> Backup complete."
