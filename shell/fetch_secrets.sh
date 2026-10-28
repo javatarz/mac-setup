@@ -12,6 +12,24 @@ fi
 . "$(dirname "$0")/../common/functions.sh"
 ensure_op_signin || exit 1
 
+# --- Git Configuration ---
+echo ">> Fetching git config from 1Password..."
+
+GIT_DIR="$HOME/.gitconfig.d"
+mkdir -p "$GIT_DIR"
+
+if op read "op://Personal/dotfiles/gitconfig" > "$HOME/.gitconfig.tmp" 2> /dev/null; then
+  mv "$HOME/.gitconfig.tmp" "$HOME/.gitconfig"
+else
+  rm -f "$HOME/.gitconfig.tmp"
+  echo ">> No gitconfig in 1Password yet, keeping local ~/.gitconfig"
+fi
+
+# NOTE: Items are Documents tagged "git_config"; titles are the filenames.
+for item in $(op item list --vault "Personal" --categories "Document" --tags "git_config" --format=json | jq -r '.[].title'); do
+  op document get "$item" --vault "Personal" --out-file "$GIT_DIR/$item" --force
+done
+
 # --- SSH Configuration ---
 echo ">> Fetching SSH configuration from 1Password..."
 
