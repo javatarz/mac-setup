@@ -2,14 +2,14 @@
 set -e # Exit immediately if a command exits with a non-zero status
 
 # --- Module system ---
-# Module names: xcode, brew, shell, secrets, signing, iterm2, alfred, claude, osx, verify
+# Module names: xcode, brew, shell, secrets, iterm2, alfred, claude, osx, verify
 SKIP_MODULES=""
 ONLY_MODULES=""
 
 usage() {
   echo "Usage: $0 [--skip module1,module2] [--only module1,module2]"
   echo ""
-  echo "Modules: xcode, brew, shell, secrets, signing, iterm2, alfred, claude, osx, verify"
+  echo "Modules: xcode, brew, shell, secrets, iterm2, alfred, claude, osx, verify"
   echo ""
   echo "  --skip   Skip the listed modules (run everything else)"
   echo "  --only   Run only the listed modules (skip everything else)"
@@ -70,18 +70,14 @@ if should_run "shell"; then
   sh shell/install.sh
 fi
 
-if should_run "secrets" || should_run "signing"; then
-  # Sign in here so fetch_secrets.sh and signing.sh inherit the session token
+if should_run "secrets"; then
+  # Sign in here so fetch_secrets.sh inherits the session token
   . common/functions.sh
   ensure_op_signin
 fi
 
 if should_run "secrets"; then
   sh shell/fetch_secrets.sh
-fi
-
-if should_run "signing"; then
-  bash shell/git/signing.sh
 fi
 
 if should_run "iterm2"; then

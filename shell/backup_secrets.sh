@@ -1,5 +1,5 @@
 #!/bin/bash
-# Backs up SSH config, SSH env configs, SSH private keys, fish secrets and GPG
+# Backs up git config, SSH config, SSH env configs, SSH private keys, fish secrets and GPG
 # secret keys into the 1Password "Personal" vault. Counterpart of fetch_secrets.sh.
 # Idempotent: only uploads what is new or changed. Prints names only, never contents.
 set -u
@@ -7,6 +7,7 @@ set -u
 VAULT="Personal"
 SSH_DIR="$HOME/.ssh"
 FISH_SECRETS="$HOME/.config/fish/conf.d/secrets.fish"
+GIT_DIR="$HOME/.gitconfig.d"
 
 echo
 echo "> Backing up SSH and GPG setup to 1Password"
@@ -55,6 +56,12 @@ sync_field() {
 echo ">> SSH config and fish secrets"
 [ -f "$SSH_DIR/config" ] && sync_field ssh_config "$SSH_DIR/config"
 [ -f "$FISH_SECRETS" ] && sync_field secrets.fish "$FISH_SECRETS"
+
+echo ">> Git config"
+[ -f "$HOME/.gitconfig" ] && sync_field gitconfig "$HOME/.gitconfig"
+for f in "$GIT_DIR"/*; do
+  [ -f "$f" ] && sync_document "$f" "$(basename "$f")" git_config
+done
 
 echo ">> SSH env configs"
 for f in "$SSH_DIR"/envs/*.config; do
