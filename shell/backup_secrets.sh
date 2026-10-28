@@ -28,6 +28,7 @@ trap 'rm -rf "$tmp"' EXIT
 # usage: sync_document <file> <title> <tag>
 sync_document() {
   local file="$1" title="$2" tag="$3"
+  echo ">> checking $title"
   if ! op item get "$title" --vault "$VAULT" > /dev/null 2>&1; then
     op document create "$file" --vault "$VAULT" --title "$title" --tags "$tag" > /dev/null \
       && echo ">> added   $title" || echo ">> FAILED  $title"
@@ -35,6 +36,7 @@ sync_document() {
   fi
   if op document get "$title" --vault "$VAULT" --out-file "$tmp/current" --force > /dev/null 2>&1 \
     && cmp -s "$tmp/current" "$file"; then
+    echo "   unchanged $title"
     return
   fi
   op document edit "$title" "$file" --vault "$VAULT" > /dev/null \
@@ -45,7 +47,9 @@ sync_document() {
 # usage: sync_field <field> <file>
 sync_field() {
   local field="$1" file="$2"
+  echo ">> checking dotfiles/$field"
   if [ "$(op read "op://$VAULT/dotfiles/$field" 2> /dev/null)" = "$(cat "$file")" ]; then
+    echo "   unchanged dotfiles/$field"
     return
   fi
   # Dots in field names must be escaped in assignment statements
@@ -81,8 +85,10 @@ if command -v gpg > /dev/null; then
   gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {want=1; next} want && /^fpr/ {print $10; want=0}' | while read -r fpr; do
     title="gpg-$fpr"
     if op item get "$title" --vault "$VAULT" > /dev/null 2>&1; then
+      echo "   unchanged $title"
       continue
     fi
+    echo ">> exporting $title"
     if gpg --batch --export-secret-keys --armor "$fpr" > "$tmp/$title.asc" 2> /dev/null && [ -s "$tmp/$title.asc" ]; then
       op document create "$tmp/$title.asc" --vault "$VAULT" --title "$title" --tags gpg_key > /dev/null \
         && echo ">> added   $title" || echo ">> FAILED  $title"
