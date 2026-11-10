@@ -243,7 +243,6 @@ cask "caffeine"
 cask "crest-browser"
 # Disk space visualiser
 cask "daisydisk"
-# Agentic IDE with AI agent command center
 # Web browser
 cask "firefox"
 # Screen colour temperature controller
