@@ -25,6 +25,8 @@ brew "autossh"
 brew "lz4"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Developer CLI that provides commands for working with Azure resources
+brew "azure-dev"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -233,8 +235,12 @@ cask "alfred"
 cask "arc"
 # Securely stores and accesses AWS credentials in a development environment
 cask "aws-vault-binary"
+# Microsoft Azure CLI 2.0
+cask "azure-cli"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
+# Open-source web browser
+cask "crest-browser"
 # Disk space visualiser
 cask "daisydisk"
 # Agentic IDE with AI agent command center
@@ -289,10 +295,10 @@ mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
-mas "Numbers", id: 409203825
 mas "Numbers", id: 361304891
-mas "Pages", id: 409201541
+mas "Numbers", id: 409203825
 mas "Pages", id: 361309726
+mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
 mas "Toggl Track", id: 1291898086
 mas "Xcode", id: 497799835
@@ -303,6 +309,12 @@ vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
 vscode "phplasma.csv-to-table"
 vscode "tintinweb.graphviz-interactive-preview"
+go "cmd/go"
+go "cmd/gofmt"
+uv "bodha"
+uv "casparser"
+uv "claude-monitor"
+uv "skillspector", source: "git+https://github.com/NVIDIA/skillspector.git"
 npm "@wordpress/env"
 npm "corepack"
 npm "markdownlint-cli"
