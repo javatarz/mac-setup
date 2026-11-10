@@ -16,15 +16,12 @@ function coffee
     echo "> Upgrade brew apps"
     brew upgrade --yes; or return 1
 
-    echo "> Pull latest Brewfile from git"
+    echo "> Pull latest changes from git"
     set mac_setup_repo ~/projects/personal/mac-setup/
     if not git -C $mac_setup_repo diff --quiet; or not git -C $mac_setup_repo diff --cached --quiet
-        echo "! Uncommitted changes in $mac_setup_repo, skipping Brewfile sync. Commit or stash them and re-run to sync."
+        echo "! Uncommitted changes in $mac_setup_repo, skipping pull. Commit or stash them and re-run to sync."
     else if not git -C $mac_setup_repo pull
-        echo "! git pull failed, skipping Brewfile sync"
-    else
-        echo "> Installing anything this machine is missing from the Brewfile"
-        brew bundle install --file={$mac_setup_repo}brew/Brewfile
+        echo "! git pull failed"
     end
 
     echo "> Remove orphaned dependencies"
