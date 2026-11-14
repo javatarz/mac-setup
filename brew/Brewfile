@@ -111,6 +111,8 @@ brew "git-secrets"
 brew "git-sizer"
 # Audit git repos for secrets
 brew "gitleaks"
+# Open-source GitLab command-line tool
+brew "glab"
 # Command-line option parsing utility
 brew "gnu-getopt"
 # International domain name library (IDNA2008, Punycode and TR46)
