@@ -235,6 +235,8 @@ cask "1password-cli"
 cask "alfred"
 # Chromium based browser
 cask "arc"
+# Chromium-based web browser with a vertical tab sidebar
+cask "ardia"
 # Securely stores and accesses AWS credentials in a development environment
 cask "aws-vault-binary"
 # Microsoft Azure CLI 2.0
