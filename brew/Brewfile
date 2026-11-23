@@ -243,8 +243,6 @@ cask "aws-vault-binary"
 cask "azure-cli"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
-# Open-source web browser
-cask "crest-browser"
 # Disk space visualiser
 cask "daisydisk"
 # Web browser
@@ -293,8 +291,8 @@ cask "whatsapp"
 cask "zoom"
 mas "Dato", id: 1470584107
 mas "iMovie", id: 408981434
-mas "Keynote", id: 361285480
 mas "Keynote", id: 409183694
+mas "Keynote", id: 361285480
 mas "Meeter", id: 1510445899
 mas "Microsoft PowerPoint", id: 462062816
 mas "Numbers", id: 361304891
