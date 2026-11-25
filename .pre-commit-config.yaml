@@ -1,0 +1,12 @@
+# Install once per clone: pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: skill-tests
+        name: skill tests
+        # Runs <skill>/tests/run.sh for each changed skill that has one
+        entry: claude/scripts/run-skill-tests.sh
+        language: script
+        files: ^claude/skills/
+        pass_filenames: true
+        require_serial: true
