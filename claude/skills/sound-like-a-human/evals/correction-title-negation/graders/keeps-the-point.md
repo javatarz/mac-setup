@@ -1,5 +1,5 @@
 ---
 type: regex
-pattern: 'build your (own )?understanding'
+pattern: 'understand|learn'
 flags: i
 ---
