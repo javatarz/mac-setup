@@ -1,5 +1,5 @@
 ---
 type: regex
-pattern: 'illustrative, not runnable'
+pattern: 'illustrative|not runnable'
 flags: i
 ---

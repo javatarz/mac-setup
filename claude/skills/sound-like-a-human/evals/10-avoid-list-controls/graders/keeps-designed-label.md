@@ -1,5 +1,5 @@
 ---
 type: regex
-pattern: 'designed, not yet run against the payments path'
+pattern: 'designed.{0,60}(not|n.t) (yet )?(been )?run'
 flags: i
 ---
