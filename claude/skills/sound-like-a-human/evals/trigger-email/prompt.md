@@ -1,6 +1,6 @@
 ---
 description: 'Should trigger: asked to draft an email.'
-tags: [trigger, free]
+tags: [trigger, free, smoke]
 max_turns: 12
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

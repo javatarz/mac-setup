@@ -1,6 +1,6 @@
 ---
 description: 'LinkedIn post with a dash, spelled-out numbers, and softening ''but''. Social register fixes apply.'
-tags: [review, ported, social, free]
+tags: [review, ported, social, free, smoke]
 max_turns: 20
 timeout_seconds: 240
 allowed_tools: [Skill, Read, Glob, Grep]

@@ -1,6 +1,6 @@
 ---
 description: 'Dashes, buzzwords, thought leadership, passive corporate lines, saying it twice.'
-tags: [review, ported, free]
+tags: [review, ported, free, smoke]
 max_turns: 20
 timeout_seconds: 240
 allowed_tools: [Skill, Read, Glob, Grep]

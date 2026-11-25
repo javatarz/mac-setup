@@ -1,6 +1,6 @@
 ---
 description: 'Control. A real enumeration with an honest lead-in is not an empty setup line.'
-tags: [review, ported, control]
+tags: [review, ported, control, smoke]
 max_turns: 20
 timeout_seconds: 240
 allowed_tools: [Skill, Read, Glob, Grep]
