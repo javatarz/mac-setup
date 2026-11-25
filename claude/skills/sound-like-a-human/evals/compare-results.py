@@ -11,7 +11,7 @@ cost, and one row per case. Scores are the with-skill arm, 0 to 1.
 
 Reads these fields of the result document (schemaVersion 1): aggregates.overallScore,
 aggregates.casesPassed, aggregates.casesTotal, cases[].name,
-cases[].aggregates.score, costUsd, durationSeconds, partial, partialReason.
+cases[].aggregates.score, cases[].arms.with[].error, aggregates.meanDelta, costUsd, durationSeconds, partial, partialReason.
 Unknown or missing fields are skipped, not treated as errors.
 """
 
@@ -21,13 +21,25 @@ import sys
 
 
 def load(path):
-    with open(path) as f:
-        data = json.load(f)
+    try:
+        with open(path) as f:
+            data = json.load(f)
+    except (OSError, ValueError) as err:
+        print(f"warning: skipping {path}: {err}", file=sys.stderr)
+        return None
     label = os.path.splitext(os.path.basename(path))[0]
     scores = {}
+    errored_cases = set()
+    errored_runs = 0
     for c in data.get("cases") or []:
-        score = (c.get("aggregates") or {}).get("score")
-        scores[c.get("name", "?")] = score
+        name = c.get("name", "?")
+        scores[name] = (c.get("aggregates") or {}).get("score")
+        # A run that ended on an API error scores 0 without grading. Count it
+        # so a rate limit does not read as a bad model.
+        n = sum(1 for a in ((c.get("arms") or {}).get("with") or []) if a.get("error"))
+        if n:
+            errored_runs += n
+            errored_cases.add(name)
     agg = data.get("aggregates") or {}
     return {
         "label": label,
@@ -38,6 +50,9 @@ def load(path):
         "seconds": data.get("durationSeconds"),
         "partial": data.get("partialReason") if data.get("partial") else None,
         "scores": scores,
+        "errored_cases": errored_cases,
+        "errored_runs": errored_runs,
+        "delta": agg.get("meanDelta"),
     }
 
 
@@ -67,13 +82,19 @@ def main():
         print(__doc__)
         return 2
 
-    runs = [load(p) for p in paths]
+    runs = [r for r in (load(p) for p in paths) if r]
+    if not runs:
+        print("No readable result files.", file=sys.stderr)
+        return 1
     labels = [r["label"] for r in runs]
 
     summary = [["", *labels]]
     summary.append(["overall score", *(fmt(r["overall"], ".2f") for r in runs)])
     summary.append(["cases passed", *(
         "-" if r["passed"] is None else f"{r['passed']}/{r['total']}" for r in runs)])
+    summary.append(["errored runs", *(str(r["errored_runs"]) for r in runs)])
+    if any(r["delta"] is not None for r in runs):
+        summary.append(["mean delta vs no skill", *(fmt(r["delta"], ".2f") for r in runs)])
     summary.append(["cost (USD)", *(fmt(r["cost"], ".2f") for r in runs)])
     summary.append(["seconds", *(fmt(r["seconds"], ".0f") for r in runs)])
     print(table(summary))
@@ -91,10 +112,13 @@ def main():
     per_case = [["case", *labels, "spread"]]
     for n in names:
         vals = [r["scores"].get(n) for r in runs]
-        known = [v for v in vals if v is not None]
-        spread = max(known) - min(known) if len(known) > 1 else None
-        per_case.append([n, *(fmt(v, ".2f") for v in vals), fmt(spread, ".2f")])
-    print("\nPer case (spread = best minus worst model; a big spread marks a model-sensitive case):")
+        # Cases with an errored run are marked and left out of the spread.
+        clean = [v for v, r in zip(vals, runs) if v is not None and n not in r["errored_cases"]]
+        spread = max(clean) - min(clean) if len(clean) > 1 else None
+        cells = [fmt(v, ".2f") + ("*" if n in r["errored_cases"] else "") for v, r in zip(vals, runs)]
+        per_case.append([n, *cells, fmt(spread, ".2f")])
+    print("\nPer case (spread = best minus worst model; a big spread marks a model-sensitive case).")
+    print("* = at least one run ended on an API error, so the score is not trustworthy and is left out of the spread.")
     print(table(per_case))
     return 0
 

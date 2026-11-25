@@ -18,7 +18,11 @@
 #   --judge <model>   Judge model for llm graders (default: claude-sonnet-5-5).
 #   --out <dir>       Results directory (default: evals/results/models-<time>).
 #   --with-baseline   Also run each case without the skill (doubles the cost).
-#   --trust           Pass --trust-plugin (skips the first-run trust prompt).
+#   --trust           Pass --trust-plugin. Needed on the first run: --json runs
+#                     cannot prompt, so an untrusted directory is refused.
+#                     Trusting a folder inside a git repo trusts the whole repo.
+#   --max-cost <usd>  Pass --max-cost-usd to each model's run.
+#   --concurrency <n> Pass --concurrency to each model's run.
 #   -h, --help        Show this help.
 #
 # With no model arguments the default list is used:
@@ -52,6 +56,8 @@ while [ $# -gt 0 ]; do
     --out)           OUT="${2:?--out needs a value}"; shift 2 ;;
     --with-baseline) ABLATION="with-without"; shift ;;
     --trust)         TRUST=(--trust-plugin); shift ;;
+    --max-cost)      FILTERS+=(--max-cost-usd "${2:?--max-cost needs a value}"); shift 2 ;;
+    --concurrency)   FILTERS+=(--concurrency "${2:?--concurrency needs a value}"); shift 2 ;;
     -h|--help)       usage; exit 0 ;;
     -*)              echo "Unknown option: $1" >&2; usage >&2; exit 2 ;;
     *)               MODELS+=("$1"); shift ;;
@@ -88,6 +94,8 @@ for model in "${MODELS[@]}"; do
   # The plugin path goes first: --tag and --json read a following argument as
   # their own value.
   rc=0
+  # Remove a stale file so a failed run cannot pick up an older result.
+  rm -f "$json"
   claude plugin eval "$PLUGIN_DIR" \
     --model "$model" \
     --judge-model "$JUDGE" \
@@ -103,6 +111,11 @@ for model in "${MODELS[@]}"; do
   fi
   if [ "$rc" -ne 0 ]; then
     echo "claude plugin eval exited $rc for $model" >&2
+    if [ ! -s "$json" ] && [ ${#TRUST[@]} -eq 0 ]; then
+      echo "If the plugin directory is not trusted yet, run once interactively:" >&2
+      echo "  claude plugin eval \"$PLUGIN_DIR\" --case <one case> --runs 1 --ablation none" >&2
+      echo "or pass --trust to this script." >&2
+    fi
     FAILED=1
   fi
 done

@@ -61,6 +61,10 @@ claude plugin eval . --tag review --tag honesty --runs 1 --ablation none
 
 ## Compare models
 
+**Trust the plugin directory once first.** `run-models.sh` writes `--json`, and `--json` runs cannot prompt, so an untrusted directory is refused and no model produces results. Either run one case interactively (the command under "Run one case") and confirm, or pass `--trust` to the script. Trusting a directory inside a git repository trusts the whole repository, so only do it for a checkout you control.
+
+The comparison table has an "errored runs" row. A run that ends on an API error (rate limit, usage limit, bad model id) scores 0 without grading. Cases with an errored run show a `*` and are left out of the spread, so a limit hit halfway does not read as a bad model. Corrupt result files are skipped with a warning. With `--with-baseline`, the table also shows the mean delta against the no-skill arm.
+
 `claude plugin eval` has no multi-model flag, so `run-models.sh` runs the suite once per model:
 
 ```bash
@@ -68,6 +72,7 @@ claude plugin eval . --tag review --tag honesty --runs 1 --ablation none
 ./evals/run-models.sh claude-sonnet-5-5 claude-haiku-5-5
 ./evals/run-models.sh --tag trigger --tag honesty  # subset
 ./evals/run-models.sh --runs 1 --tag pairs         # cheap smoke run
+./evals/run-models.sh --max-cost 20 --concurrency 4  # cost ceiling and parallel runs per model
 ```
 
 Each model gets `--model <model>` and `--json`. The script pins one `--judge-model` (default `claude-sonnet-5-5`, change it with `--judge`) for all runs, so scores differ because of the model under test and not the grader. Keep the judge the same between runs you want to compare over time.
