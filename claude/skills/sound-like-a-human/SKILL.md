@@ -65,7 +65,7 @@ Run `python3 ${CLAUDE_SKILL_DIR}/scripts/lint.py --type <type> <file>` on every 
 
 In review mode, pass the text from before your edits: `--before <old-file>`. It flags any of the user's keep-words that your edits removed.
 
-Spelling, punctuation, word lists, and length limits live in the linter. Don't re-check them by reading.
+Spelling, punctuation, word lists, and length limits live in the Vale rules under `vale/styles/Voice`, which the linter runs. Don't re-check them by reading. If the linter says Vale is missing, stop and give the user its install command.
 
 ## 5. When the user corrects your wording
 
