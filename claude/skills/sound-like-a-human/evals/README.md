@@ -4,7 +4,7 @@ These evals check that the skill still works as models change, and show how well
 
 ## Cost
 
-Every agent run and every `llm` grader is a real model call on your account. The suite has 30 cases and each case runs 3 times by default. With the default models (Opus, Sonnet, Haiku) that is 3 full suite runs, so about 270 agent runs plus judge calls. Ways to spend less:
+Every agent run and every `llm` grader is a real model call on your account. The suite has 34 cases and each case runs 3 times by default. With the default models (Opus, Sonnet, Haiku) that is 3 full suite runs, so about 306 agent runs plus judge calls. Ways to spend less:
 
 - Run a subset with `--tag` or `--case`.
 - Use `--runs 1` while iterating, then confirm at 3 runs before you trust a change.
@@ -16,11 +16,12 @@ Every agent run and every `llm` grader is a real model call on your account. The
 
 | Tag | Cases | What they check |
 |---|---|---|
-| `review` | `01` to `12` | Ported from the old review-writing samples. Planted problems get fixed, controls stay unchanged. |
+| `review` | `01` to `12`, `review-just-review` | Ported from the old review-writing samples. Planted problems get fixed, controls stay unchanged. |
 | `control` | `01`, `06`, `07`, `10`, `12` | Text that is already right comes back mostly unchanged (false-positive checks). |
+| `draft` | `draft-*`, `pair-*`, `honesty-*` | The model drafts from notes. `draft-serial-comma` checks the serial comma. |
 | `pairs` | `pair-*` | One case per judgement pair in `pairs.md`. The result moves toward the `<fix>` and drops the flagged shape. |
 | `corrections` | `correction-*` | Built from the user's private corrections log. |
-| `trigger` | `trigger-*`, `no-trigger-*` | The skill fires for a LinkedIn post, an email, a blog section, and a prose review. It stays quiet for a commit message, a code change, and a factual chat answer. |
+| `trigger` | `trigger-*`, `no-trigger-*` | The skill fires for a LinkedIn post, an email, a blog section, slide text, and a prose review. It stays quiet for a commit message, a pull request description, a code change, and a factual chat answer. |
 | `honesty` | `honesty-*`, `04`, `pair-keep-the-size` | No invented numbers, stories, or results. Notes without a figure give `[needs number]` or no figure. Designed-only work is not called production. |
 | `social` | `11`, `12`, `honesty-no-number`, `honesty-no-invented-story` | LinkedIn or X register. |
 
@@ -28,7 +29,7 @@ The old samples were rewritten to match the current skill. Rules that were dropp
 
 Graders are deterministic where they can be: `regex` for flagged phrases, kept phrases, dashes, digits, and length, and `tool_used` for whether the skill fired. `llm` graders are used only where judgement is needed, such as "is this a plain topic label" or "no invented story".
 
-Prompts ask for "only the revised text" so the graders can check the result without the review report. This differs from the skill's own step 6 (a short report), and the cases don't test the report.
+Prompts ask for "only the revised text" so the graders can check the result without the review report. This differs from the skill's own step 6 (a short report). If a model reports anyway, a `not_contains` grader can see the report text and fail a fixed answer, which hits small models most. If results look noisy, ask for the text inside `<revised>` tags and anchor the patterns inside it. The `review-just-review` case tests the opt-out: list the fixes and leave the text alone.
 
 ## Tools in the runs
 
