@@ -3,7 +3,8 @@ import os
 import sys
 import unittest
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scripts"))
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.normpath(os.path.join(HERE, "..", "scripts")))
 import lint  # noqa: E402
 
 # (test name, text, expected rule id, or None when the text must be clean)
@@ -56,18 +57,35 @@ class LintRuleCases(unittest.TestCase):
     pass
 
 
-def _make(text, want):
+def _case_line(name):
+    """Line of the CASES entry in this file, so failures can point at it."""
+    with open(__file__, encoding="utf-8") as f:
+        for n, line in enumerate(f, 1):
+            if line.lstrip().startswith(f'("{name}",'):
+                return n
+    return 0
+
+
+def _make(name, text, want):
     def test(self):
-        got = {h[2] for h in lint.check(text, "social")}
-        if want:
-            self.assertIn(want, got, f"{text!r}: got {sorted(got)}")
-        else:
-            self.assertEqual(got, set(), f"{text!r} should be clean")
+        got = sorted({h[2] for h in lint.check(text, "social")})
+        if (want in got) if want else not got:
+            return
+        expected = f"rule {want}" if want else "no alerts"
+        self.fail(
+            f"LINT CASE BROKE: {name}\n"
+            f"  where: tests/test_lint.py:{_case_line(name)} (CASES entry); rules are in scripts/lint.py\n"
+            f"  text:  {text!r}\n"
+            f"  expected {expected}, got {got or 'no alerts'}\n"
+            "  why:   the linter no longer behaves as this case specifies.\n"
+            "  fix:   if the rule change was a mistake, restore the rule in scripts/lint.py;\n"
+            "         if the new behavior is intended, edit the case in tests/test_lint.py."
+        )
     return test
 
 
 for _name, _text, _want in CASES:
-    setattr(LintRuleCases, f"test_{_name}", _make(_text, _want))
+    setattr(LintRuleCases, f"test_{_name}", _make(_name, _text, _want))
 
 
 class LintShapeRules(unittest.TestCase):

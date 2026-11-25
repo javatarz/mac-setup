@@ -5,7 +5,7 @@ Run everything with `tests/run.sh` from any directory. It takes a few seconds an
 ## What runs
 
 - `test_lint.py`: one unit test per linter rule case (41 cases) plus shape and keep-word checks, against `scripts/lint.py`.
-- `test_corpus.py`: lints every post in `fixtures/corpus-pre-2022/` (the user's own pre-2022 posts from karun.me) and compares alert counts per rule against `corpus_baseline.json`. The test fails if any rule's count goes up, because that means a new false positive on human writing. A count going down only prints a note.
+- `test_corpus.py`: lints every post in `fixtures/corpus-pre-2022/` (the user's own pre-2022 posts from karun.me) and compares alert counts per file and rule against `corpus_baseline.json`. The test fails if any file's count for a rule goes up, because that means a new false positive on human writing. A count going down only prints a note.
 
 The posts predate some newer rules (serial comma, no one-sentence paragraphs), so the baseline has non-zero counts. This is a regression guard, not a zero-alerts check.
 
