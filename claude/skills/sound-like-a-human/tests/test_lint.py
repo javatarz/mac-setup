@@ -3,9 +3,12 @@ import os
 import sys
 import unittest
 
+sys.dont_write_bytecode = True  # never leave __pycache__ in the repo
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.normpath(os.path.join(HERE, "..", "scripts")))
 import lint  # noqa: E402
+from runner import rel  # noqa: E402
 
 # (test name, text, expected rule id, or None when the text must be clean)
 CASES = [
@@ -74,7 +77,7 @@ def _make(name, text, want):
         expected = f"rule {want}" if want else "no alerts"
         self.fail(
             f"LINT CASE BROKE: {name}\n"
-            f"  where: tests/test_lint.py:{_case_line(name)} (CASES entry); rules are in scripts/lint.py\n"
+            f"  where: {rel(__file__)}:{_case_line(name)} (CASES entry); rules are in {rel(lint.__file__)}\n"
             f"  text:  {text!r}\n"
             f"  expected {expected}, got {got or 'no alerts'}\n"
             "  why:   the linter no longer behaves as this case specifies.\n"

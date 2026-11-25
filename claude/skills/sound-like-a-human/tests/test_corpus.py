@@ -17,9 +17,12 @@ import os
 import sys
 import unittest
 
+sys.dont_write_bytecode = True  # never leave __pycache__ in the repo
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.normpath(os.path.join(HERE, "..", "scripts")))
 import lint  # noqa: E402
+from runner import rel  # noqa: E402
 
 CORPUS = os.path.join(HERE, "fixtures", "corpus-pre-2022")
 BASELINE = os.path.join(HERE, "corpus_baseline.json")
@@ -45,11 +48,6 @@ def count_by_file(results):
     return counts
 
 
-def _rel(path):
-    # run.sh cds into the tests dir, so use the caller's cwd when it passed one
-    return os.path.relpath(path, os.environ.get("TESTS_CALLER_CWD", os.getcwd()))
-
-
 class CorpusRegression(unittest.TestCase):
     def test_no_file_alerts_more_than_baseline(self):
         with open(BASELINE, encoding="utf-8") as f:
@@ -58,25 +56,32 @@ class CorpusRegression(unittest.TestCase):
         results = lint_corpus()
         current = count_by_file(results)
 
-        problems, drops = [], []
+        problems, drops, unknown = [], [], set()
         for name, rules in current.items():
             for rule, n in rules.items():
                 was = baseline.get(name, {}).get(rule, 0)
                 if n > was:
                     shown = [h for h in results[name] if h[2] == rule][:MAX_LINES_SHOWN]
-                    lines = "".join(
-                        f"\n      {name}:{h[0]}  {h[4][:50]!r}" for h in shown
-                    )
-                    new_rule = "" if rule in known_rules else "  [rule not in baseline: new or renamed rule?]"
-                    problems.append(f"  {rule}: {was} -> {n} in {name}{new_rule}{lines}")
+                    lines = "".join(f"\n      {name}:{h[0]}  {h[4][:50]!r}" for h in shown)
+                    if rule not in known_rules:
+                        unknown.add(rule)
+                    problems.append(f"  {rule}: {was} -> {n} in {name}{lines}")
         for name, rules in baseline.items():
             for rule, was in rules.items():
                 if current.get(name, {}).get(rule, 0) < was:
                     drops.append(f"{rule} in {name}")
-        if drops:
-            print(f"note: {len(drops)} baseline entries dropped (e.g. {drops[0]}); "
-                  f"consider running --update to lock in the improvement", file=sys.stderr)
 
+        update_cmd = f"python3 {rel(os.path.abspath(__file__))} --update"
+        if unknown:
+            gone = sorted(known_rules - {r for rules in current.values() for r in rules})
+            self.fail(
+                "CORPUS BASELINE OUT OF DATE: rule id(s) not in the baseline: " + ", ".join(sorted(unknown)) + "\n"
+                + (f"  rule id(s) in the baseline that no longer fire anywhere: {', '.join(gone)}\n" if gone else "")
+                + "  why:   a rule was added or renamed in scripts/lint.py, so its alerts have no baseline.\n"
+                "  fix:   if the rename or addition was NOT intended, restore the rule id in scripts/lint.py.\n"
+                "         If it was, regenerate the baseline and review its diff:\n"
+                f"           {update_cmd}"
+            )
         if problems:
             self.fail(
                 "CORPUS REGRESSION: rules now flag the author's own pre-2022 posts more than the baseline\n"
@@ -84,8 +89,11 @@ class CorpusRegression(unittest.TestCase):
                 + "\n  why:   these posts are human writing; extra alerts are most likely false positives in scripts/lint.py.\n"
                 "  fix:   narrow the rule in scripts/lint.py and re-run. If the new alerts are correct\n"
                 "         (the posts really break the rule), regenerate the baseline and review its diff:\n"
-                f"           python3 {_rel(os.path.abspath(__file__))} --update"
+                f"           {update_cmd}"
             )
+        if drops:
+            print(f"note: {len(drops)} baseline entries dropped (e.g. {drops[0]}); "
+                  f"run {update_cmd} to lock in the improvement", file=sys.stderr)
 
 
 if __name__ == "__main__":
@@ -95,6 +103,6 @@ if __name__ == "__main__":
             json.dump(counts, f, indent=1, sort_keys=True)
             f.write("\n")
         total = sum(n for r in counts.values() for n in r.values())
-        print(f"Wrote {_rel(BASELINE)}: {total} alerts in {len(counts)} files")
+        print(f"Wrote {rel(BASELINE)}: {total} alerts in {len(counts)} files")
     else:
         unittest.main()
