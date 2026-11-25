@@ -46,7 +46,8 @@ def count_by_file(results):
 
 
 def _rel(path):
-    return os.path.relpath(path)
+    # run.sh cds into the tests dir, so use the caller's cwd when it passed one
+    return os.path.relpath(path, os.environ.get("TESTS_CALLER_CWD", os.getcwd()))
 
 
 class CorpusRegression(unittest.TestCase):
