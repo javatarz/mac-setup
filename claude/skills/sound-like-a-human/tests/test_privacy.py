@@ -28,7 +28,11 @@ CORPUS = os.path.join(HERE, "fixtures", "corpus-pre-2022")
 sys.path.insert(0, HERE)
 from runner import rel  # noqa: E402
 
-TEXT_EXTENSIONS = {".md", ".py", ".sh", ".json", ".txt", ".yml", ".yaml", ".toml"}
+TEXT_EXTENSIONS = {".md", ".py", ".sh", ".json", ".txt", ".yml", ".yaml", ".toml", ".ini"}
+# Under vale/styles, only our own style and config are scanned. Anything else is a
+# package written by `vale sync` (gitignored, other people's text with their own links).
+VALE_STYLES = os.path.join(SKILL, "vale", "styles")
+OWN_VALE_DIRS = {"Voice", "config"}
 ALLOWED_HOSTS = ("karun.me", "code.claude.com", "github.com")
 DEFAULT_TERMS_FILE = os.path.expanduser("~/.config/sound-like-a-human/private-terms.txt")
 
@@ -84,9 +88,15 @@ def scan_text(text, terms=(), urls=True):
     return hits
 
 
+def skip_dir(root, name):
+    if name in {".git", "__pycache__"}:
+        return True
+    return root == VALE_STYLES and name not in OWN_VALE_DIRS
+
+
 def skill_files():
     for root, dirs, files in os.walk(SKILL):
-        dirs[:] = sorted(d for d in dirs if d not in {".git", "__pycache__"})
+        dirs[:] = sorted(d for d in dirs if not skip_dir(root, d))
         for name in sorted(files):
             if os.path.splitext(name)[1].lower() in TEXT_EXTENSIONS:
                 yield os.path.join(root, name)
@@ -136,6 +146,16 @@ class TestPrivacyScanner(unittest.TestCase):
     def test_denylist_failure_does_not_echo_the_term(self):
         hit = scan_text("x " + "SecretName" + " y", ["SecretName"])[0]
         self.assertNotIn("secretname", hit[2].lower())
+
+    def test_vale_config_and_rules_are_scanned_but_synced_packages_are_not(self):
+        scanned = [rel(p) for p in skill_files()]
+        self.assertTrue(any(p.endswith(os.path.join("vale", "vale.ini")) for p in scanned), "vale.ini must be scanned")
+        self.assertTrue(any(os.path.join("styles", "Voice") in p and p.endswith(".yml") for p in scanned),
+                        "Voice rule files must be scanned")
+        self.assertTrue(skip_dir(VALE_STYLES, "ai-tells"))
+        self.assertTrue(skip_dir(VALE_STYLES, ".vale-config"))
+        self.assertFalse(skip_dir(VALE_STYLES, "Voice"))
+        self.assertFalse(skip_dir(os.path.join(SKILL, "tests"), "ai-tells"))
 
     def test_corpus_mode_skips_urls(self):
         self.assertEqual(scan_text("see " + "https" + "://anything.example/x", urls=False), [])
