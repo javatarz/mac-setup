@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: 'we have all'
+pattern: 'we(?: have|[''’]ve)\s+all'
 flags: i
 match: not_contains
 ---

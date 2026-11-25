@@ -1,6 +1,6 @@
 ---
 description: 'corrections log: a title must not use an ''X, Not Y'' negation setup.'
-tags: [corrections, draft]
+tags: [corrections, draft, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

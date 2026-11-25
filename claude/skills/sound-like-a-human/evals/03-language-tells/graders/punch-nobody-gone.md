@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: 'nobody talks about'
+pattern: '(?:nobody|no one) talks about'
 flags: i
 match: not_contains
 ---

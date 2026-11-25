@@ -1,6 +1,6 @@
 ---
 description: 'pairs.md: a claim the reader can apply is in the present tense.'
-tags: [pairs, draft]
+tags: [pairs, draft, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

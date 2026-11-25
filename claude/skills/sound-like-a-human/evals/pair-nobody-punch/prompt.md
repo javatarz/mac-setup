@@ -1,6 +1,6 @@
 ---
 description: 'pairs.md: name the literal thing instead of ''nobody'' for punch.'
-tags: [pairs, draft]
+tags: [pairs, draft, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

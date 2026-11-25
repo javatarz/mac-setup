@@ -1,6 +1,6 @@
 ---
 description: 'pairs.md: a number says more than an ''X, not Y'' contrast.'
-tags: [pairs, draft]
+tags: [pairs, draft, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

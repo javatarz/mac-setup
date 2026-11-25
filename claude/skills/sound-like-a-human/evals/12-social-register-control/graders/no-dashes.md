@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: '[-–—]\s|\s[-–—]'
+pattern: ' [-–—] |[–—]'
 flags: i
 match: not_contains
 ---

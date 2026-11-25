@@ -1,4 +1,4 @@
 ---
 type: regex
-pattern: '^[\s\S]{0,700}$'
+pattern: '^[\s\S]{0,450}$'
 ---

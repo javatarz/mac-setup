@@ -1,6 +1,6 @@
 # Evals for sound-like-a-human
 
-These evals check that the skill still works as models change, and show how well each model follows it. They use `claude plugin eval` (Claude Code v2.1.269 or later). The skill folder is a skills-directory plugin (`.claude-plugin/plugin.json`), so the eval loads it on its own, with nothing else from your setup.
+These evals check that the skill still works as models change, and show how well each model follows it. They use `claude plugin eval` (Claude Code v2.1.299 or later). The skill folder is a skills-directory plugin (`.claude-plugin/plugin.json`), so the eval loads it on its own, with nothing else from your setup.
 
 ## Cost
 
@@ -9,7 +9,7 @@ Every agent run and every `llm` grader is a real model call on your account. The
 - Run a subset with `--tag` or `--case`.
 - Use `--runs 1` while iterating, then confirm at 3 runs before you trust a change.
 - Skip the no-skill baseline (the default in `run-models.sh`; add `--with-baseline` to include it).
-- Cases tagged `free` use only deterministic graders, so they make no judge calls.
+- Cases tagged `free` use only deterministic graders, so they make no judge calls. They still pay for the agent runs.
 - Set `--max-cost-usd` on a single `claude plugin eval` run as a hard ceiling.
 
 ## What the cases cover

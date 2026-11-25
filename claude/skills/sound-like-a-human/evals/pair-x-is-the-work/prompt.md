@@ -1,6 +1,6 @@
 ---
 description: 'pairs.md: say the action, not ''X is the work''.'
-tags: [pairs, draft]
+tags: [pairs, draft, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]

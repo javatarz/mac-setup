@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: '5/5|result:'
+pattern: '\d+ ?(?:/|of) ?\d+|result:'
 flags: i
 match: not_contains
 ---

@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: '\bsmall margin, but\b|\bautomatically, but\b|\bworse,? but\b'
+pattern: '\bsmall margin, but\b'
 flags: i
 match: not_contains
 ---

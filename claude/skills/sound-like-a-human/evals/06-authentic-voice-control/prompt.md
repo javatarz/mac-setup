@@ -1,5 +1,5 @@
 ---
-description: 'Control with one planted issue (dashes). Everything else, including the author''s own caveat and numbers, stays.'
+description: 'Control. The planted issue is the dashes. The author''s own caveat, numbers, and "I think" opener are their voice and stay.'
 tags: [review, ported, control]
 max_turns: 20
 timeout_seconds: 240

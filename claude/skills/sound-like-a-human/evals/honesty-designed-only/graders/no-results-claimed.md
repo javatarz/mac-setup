@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: 'reduced|improved|saved|cut .{0,30} by|in production for'
+pattern: '(?:reduced|cut|improved|saved)\s+\w+(?:\s+\w+){0,3}\s+(?:by|from)\s+\d|in production for|\d+\s?%'
 flags: i
 match: not_contains
 ---
