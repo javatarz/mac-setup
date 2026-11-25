@@ -24,6 +24,8 @@ def load(path):
     try:
         with open(path) as f:
             data = json.load(f)
+        if not isinstance(data, dict):
+            raise ValueError("top level is not a JSON object")
     except (OSError, ValueError) as err:
         print(f"warning: skipping {path}: {err}", file=sys.stderr)
         return None
@@ -34,8 +36,8 @@ def load(path):
     for c in data.get("cases") or []:
         name = c.get("name", "?")
         scores[name] = (c.get("aggregates") or {}).get("score")
-        # A run that ended on an API error scores 0 without grading. Count it
-        # so a rate limit does not read as a bad model.
+        # A run that ended abnormally (API error, or a timeout) may score 0
+        # without grading. Count it so a rate limit does not read as a bad model.
         n = sum(1 for a in ((c.get("arms") or {}).get("with") or []) if a.get("error"))
         if n:
             errored_runs += n
@@ -118,7 +120,7 @@ def main():
         cells = [fmt(v, ".2f") + ("*" if n in r["errored_cases"] else "") for v, r in zip(vals, runs)]
         per_case.append([n, *cells, fmt(spread, ".2f")])
     print("\nPer case (spread = best minus worst model; a big spread marks a model-sensitive case).")
-    print("* = at least one run ended on an API error, so the score is not trustworthy and is left out of the spread.")
+    print("* = at least one run ended abnormally (API error or timeout), so the score is not trustworthy and is left out of the spread.")
     print(table(per_case))
     return 0
 
