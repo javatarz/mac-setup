@@ -10,3 +10,10 @@ repos:
         files: ^claude/skills/
         pass_filenames: true
         require_serial: true
+      - id: block-corrections-log
+        name: block corrections log
+        # The raw corrections log can hold client names; it must stay out of this public repo
+        entry: claude/scripts/block-corrections-log.sh
+        language: script
+        files: (^|/)corrections\.md$
+        pass_filenames: true

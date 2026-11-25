@@ -4,3 +4,6 @@
 
 # Skills synced from claude.ai
 claude/skills/synced/
+
+# Private corrections logs live in ~/.config/sound-like-a-human/, never here
+claude/skills/**/corrections.md
