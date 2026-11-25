@@ -6,8 +6,8 @@ Five excerpts from the user's own posts (2015 to 2021). They show rhythm and mov
 Java is a verbose language. No one disputes it. Despite the clunky nature of the language syntax, it still is the language of choice in most enterprises. If you work in the services industry or are a technology consultant, chances are that you have to work with Java on a regular basis.
 </example>
 
-<example label="Opinion, said plainly, landing on a contrast" source="2015, troubled startups">
-Everyone wants to be the "next big thing". Everyone thinks they are the next Microsoft, Google, Facebook or Flipkart. Once in a while they are right. Usually they are wrong. Wanting to be great isn't a problem. Walking around thinking you are is.
+<example label="Opinion, said plainly, landing on a contrast" source="2015, troubled startups" edits="serial comma added">
+Everyone wants to be the "next big thing". Everyone thinks they are the next Microsoft, Google, Facebook, or Flipkart. Once in a while they are right. Usually they are wrong. Wanting to be great isn't a problem. Walking around thinking you are is.
 </example>
 
 <example label="Technical explanation with a worked example and exact numbers" source="2016, unit testing" edits="die for dice, Its for It's, emoticon dropped">
@@ -30,4 +30,4 @@ When you have large volumes of data, we have found it useful to separate the dat
 If your team can answer yes to all of the above, you should use Lombok. I must admit, most large teams can't answer yes to all of the questions. Have you considered using Kotlin instead?
 </example>
 
-Note: these predate the user's newer choices. They have no serial comma and some one-sentence paragraphs. Follow `voice.md` and the linter on those points, not the examples.
+Note: these predate the user's newer choices. Some have one-sentence paragraphs. Follow `voice.md` and the linter on that point, not the examples.

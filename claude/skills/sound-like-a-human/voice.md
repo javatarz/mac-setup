@@ -29,6 +29,7 @@ This applies to every kind of writing: posts, slides, documents, emails, and soc
 - Join a short contrast with "but": "The agent could read the whole repo in minutes but I couldn't." Don't write a fragment for drama ("I couldn't.").
 - Use parentheses for asides and qualifiers.
 - Use contractions.
+- **Serial comma.** In a list of three or more, put a comma before the final "and" or "or": "timeouts, rate limits, and connection resets".
 - Prefer the active voice, the positive form, concrete words, and the fewest words that keep the meaning.
 
 ## Words
