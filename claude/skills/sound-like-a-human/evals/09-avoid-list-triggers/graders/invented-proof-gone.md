@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: '\d+ ?(?:/|of) ?\d+|result:'
-flags: i
+pattern: '^[^\s#`][^\n]*(\d+ ?(?:/|of) ?\d+|result:)'
+flags: im
 match: not_contains
 ---
