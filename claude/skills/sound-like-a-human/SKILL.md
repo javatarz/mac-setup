@@ -52,7 +52,7 @@ AI habits the linter can't catch. Each needs judgement. If you see one, rewrite 
 7. **Triples and parallel lists for rhythm.** Three items because three sounds good. Keep the items that are true and needed.
 8. **List-then-punchline.** "...the failures, the practices, and the reviews are all theirs." Say it as a plain sentence.
 9. **Boasting about rigour or narrating the process.** "We didn't just eyeball it. We measured it." Give the measurement.
-10. **Buzzwords, thought leadership, and sales lines.** "AI is reshaping how we think." Say what changed, for whom, by how much.
+10. **Buzzwords, thought leadership, and sales lines.** "AI is reshaping how we think.", "continuous improvement", "lightweight experimentation", "mindset shift", "pillars". Say what changed, for whom, by how much.
 11. **Passive corporate sentences.** "Intentional adoption prevents dependencies being created." Say who does what.
 12. **Saying it twice.** Redundant emphasis ("hallucinated APIs that do not exist") or a clause that repeats the sentence before.
 13. **Aspirational framing.** "The engineers I admire most..." Use what they saw: "The engineers I've seen do this well...".

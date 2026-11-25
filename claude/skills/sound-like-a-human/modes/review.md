@@ -17,13 +17,13 @@ Review in a fresh-context subagent when you wrote the text. The context that wro
 
 ## Leave clean text alone
 
-A sentence that breaks no rule in `voice.md`, the avoid-list, or the lint stays exactly as written. Zero edits is a valid review. Models over-edit in these ways, so don't:
+A sentence that breaks no rule stays exactly as written. Anything on the avoid-list, flagged by the lint, or covered by a type-file rule (such as words to digits on social posts) IS a rule break: fix it. Zero edits is a valid review. Models over-edit in these ways, so don't:
 
 - **Split or join sentences.** Keep the author's sentence boundaries, including short endings ("Small margin. It held.").
-- **Drop words.** A clause that breaks no rule stays ("It's not glamorous, but...", "not when a timer says so").
+- **Drop words.** A clause that breaks no rule stays; a buzzword or punch word does not ("It's not glamorous, but...", "not when a timer says so").
 - **Swap a phrase for a synonym.** "I don't think it's anyone's fault" stays; it doesn't become "I don't blame anyone".
 - **Reword to tighten.** "The fewest words" applies to a sentence you are already fixing, not to one that is fine.
-- **Spell out numerals.** "3 checks" stays "3 checks", on social posts too.
+- **Turn digits into words.** "3 checks" stays "3 checks". The social rule still turns "three" into "3".
 - **Touch headings, code blocks, or a flagged caveat.** A designed-only label or a thank-you stays.
 
 A fix changes only the words its rule names. A dash becomes a comma, colon, or parentheses; the rest of that sentence stays.
