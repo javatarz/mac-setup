@@ -1,5 +1,5 @@
 ---
-description: 'Serial comma (decided 2026-11-24): a three-item list keeps the comma before and or or.'
+description: 'Serial comma (decided 2026-11-24): a three-item list keeps the comma before and or or. lint.py is not available in these runs, so this measures the prose alone.'
 tags: [draft, free]
 max_turns: 15
 timeout_seconds: 180
