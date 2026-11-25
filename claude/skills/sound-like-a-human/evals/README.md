@@ -23,6 +23,7 @@ Every agent run and every `llm` grader is a real model call on your account. The
 | `corrections` | `correction-*` | Built from the user's private corrections log. |
 | `trigger` | `trigger-*`, `no-trigger-*` | The skill fires for a LinkedIn post, an email, a blog section, slide text, and a prose review. It stays quiet for a commit message, a pull request description, a code change, and a factual chat answer. |
 | `honesty` | `honesty-*`, `04`, `pair-keep-the-size` | No invented numbers, stories, or results. Notes without a figure give `[needs number]` or no figure. Designed-only work is not called production. |
+| `smoke` | `03`, `07`, `11`, `trigger-email`, `honesty-designed-only`, `pair-nobody-punch` | One case per main tag, all passing 3/3 on Sonnet in the baseline. Run by the pre-commit hook (see Smoke eval). |
 | `social` | `11`, `12`, `honesty-no-number`, `honesty-no-invented-story` | LinkedIn or X register. |
 
 The old samples were rewritten to match the current skill. Rules that were dropped (the "Here's what I'm exploring" opener, splitting sentences for punch, "no uncertainty is a tell", the Strunk list, and the topic list) are not tested. Case `05` now tests only the kept clarity rules: active voice, positive form, concrete words, and fewer words.
@@ -30,6 +31,20 @@ The old samples were rewritten to match the current skill. Rules that were dropp
 Graders are deterministic where they can be: `regex` for flagged phrases, kept phrases, dashes, digits, and length, and `tool_used` for whether the skill fired. `llm` graders are used only where judgement is needed, such as "is this a plain topic label" or "no invented story".
 
 Prompts ask for "only the revised text" so the graders can check the result without the review report. This differs from the skill's own step 6 (a short report). If a model reports anyway, a `not_contains` grader can see the report text and fail a fixed answer, which hits small models most. If results look noisy, ask for the text inside `<revised>` tags and anchor the patterns inside it. The `review-just-review` case tests the opt-out: list the fixes and leave the text alone.
+
+## Smoke eval (pre-commit)
+
+`evals/smoke.sh` runs the six cases tagged `smoke` once each, on one model. It is the last step of `tests/run.sh`, so the pre-commit hook runs it only when a file under this skill is staged, and only after the deterministic tests pass.
+
+| | |
+|---|---|
+| Cases | `03-language-tells` (review), `pair-nobody-punch` (draft, pairs), `07-signposting-control` (control), `trigger-email` (trigger), `honesty-designed-only` (honesty), `11-social-register-triggers` (social) |
+| Model | `SMOKE_MODEL` at the top of `smoke.sh`, now `claude-sonnet-5-5`. Change that one line to `claude-haiku-5-5` for a cheaper run. |
+| Cost and time | About $0.40 and 15 seconds for the eval (about 17 seconds for the whole hook). Capped at `MAX_COST_USD` ($1.00). |
+| Skip | `SKIP_SKILL_EVALS=1 git commit ...` prints `SKIPPED` and does not call the model. |
+| Needs | The `claude` CLI, logged in, and the plugin directory trusted once (see "Run one case"). Otherwise it fails and says how to fix it or skip. |
+
+On a failure it prints the case, the grader, why it failed, the grader file, and the command to re-run that case. One failing run can be noise, so re-run the case before you change anything. To add a case to the smoke set, add `smoke` to its tags, and only pick a case that passed 3/3 on the model above.
 
 ## Tools in the runs
 
