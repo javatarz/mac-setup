@@ -70,3 +70,5 @@ Spelling, punctuation, word lists, and length limits live in the linter. Don't r
 ## 5. When the user corrects your wording
 
 Append the correction to `~/.config/sound-like-a-human/corrections.md` (create the folder and file if missing) the moment it happens: before, after, and the reason in one line. The log stays on this machine, never in this repo, because the repo is public. Every repo writes to the same log. A correction becomes public only when the user approves turning it into a pair or lint rule. If it's a new kind of fix, propose a pair for `pairs.md` or a rule for `scripts/lint.py`. Prefer the lint rule when a regex or word list can catch it.
+
+Before you write a pair or rule, strip client and company names, people's names, email addresses, and client details that aren't in the user's published posts, and keep only the wording lesson. If you're unsure whether a detail is private, ask the user first.
