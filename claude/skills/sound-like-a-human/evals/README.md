@@ -6,7 +6,7 @@ These evals check that the skill still works as models change, and show how well
 
 Every agent run and every `llm` grader is a real model call on your account. The suite has 34 cases and each case runs 3 times by default. With the default models (Opus, Sonnet, Haiku) that is 3 full suite runs, so about 306 agent runs plus judge calls. Ways to spend less:
 
-- Run a subset with `--tag` or `--case`.
+- Run a subset with `--tag` or `--case`. `claude plugin eval` keeps only the last `--case` and its glob has no `{a,b}` or `[ab]`, so to run several cases use `run-models.sh --case`, which accepts it repeatedly (below).
 - Use `--runs 1` while iterating, then confirm at 3 runs before you trust a change.
 - Skip the no-skill baseline (the default in `run-models.sh`; add `--with-baseline` to include it).
 - Cases tagged `free` use only deterministic graders, so they make no judge calls. They still pay for the agent runs.
@@ -88,16 +88,21 @@ The comparison table has an "errored runs" row. A run that ends on an API error 
 ./evals/run-models.sh claude-sonnet-5-5 claude-haiku-5-5
 ./evals/run-models.sh --tag trigger --tag honesty  # subset
 ./evals/run-models.sh --runs 1 --tag pairs         # cheap smoke run
+./evals/run-models.sh --case '01-*' --case '06-*'  # several cases (repeat --case)
 ./evals/run-models.sh --max-cost 20 --concurrency 4  # cost ceiling and parallel runs per model
 ```
 
 Each model gets `--model <model>` and `--json`. The script pins one `--judge-model` (default `claude-sonnet-5-5`, change it with `--judge`) for all runs, so scores differ because of the model under test and not the grader. Keep the judge the same between runs you want to compare over time.
+
+With several `--case` globs the script runs each glob as its own eval per model and merges the results into one JSON per model, so the cost is the same but the globs run one after another, and `--max-cost` applies to each glob's run. The per-glob HTML reports are kept as `<model>.part<N>.html`.
 
 Output goes to `evals/results/models-<timestamp>/`: a JSON file and an HTML report per model, and `comparison.txt` with the overall score, cases passed, cost, and a per-case table with a spread column. Run `compare-results.py` on any set of result files to print the table again:
 
 ```bash
 python3 evals/compare-results.py evals/results/models-<timestamp>/
 ```
+
+To see what a run produced: for every `llm` grader the JSON keeps the judge's votes and the reply it judged (`evidence`), and the HTML report shows both. The judge's written reasoning is not stored, and run traces (`tracePath`) sit under the system temp directory and are deleted after the run. `KEEP_TEMP=1 ./evals/run-models.sh ...` passes `--keep-temp` to keep each run's sandbox directory.
 
 `--json` makes each model's run quiet, so nothing prints until it finishes. Results are gitignored.
 
