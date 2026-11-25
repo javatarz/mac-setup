@@ -17,3 +17,11 @@ if ! python3 "$here/runner.py"; then
   echo "Re-run with: $rerun" >&2
   exit 1
 fi
+
+# Smoke eval: real model calls, so it runs last and only after the tests above
+# pass. SKIP_SKILL_EVALS=1 skips it. See evals/README.md.
+if ! "$here/../evals/smoke.sh"; then
+  echo "FAILED: sound-like-a-human smoke eval. The messages above say which case and grader failed and how to re-run it." >&2
+  echo "Skip it with: SKIP_SKILL_EVALS=1 (see evals/README.md)." >&2
+  exit 1
+fi
