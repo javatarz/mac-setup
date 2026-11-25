@@ -25,9 +25,21 @@ done
 status=0
 # sort -u so each skill runs once even if many of its files changed
 while IFS= read -r skill; do
-  [[ -x "$skill/tests/run.sh" ]] || continue
+  script="$skill/tests/run.sh"
+  # No tests/run.sh: skip silently. Present but not executable: fail loudly,
+  # otherwise a skill's tests would silently never run.
+  [[ -f "$script" ]] || continue
+  if [[ ! -x "$script" ]]; then
+    echo "ERROR: $script is not executable, so its tests were not run." >&2
+    echo "Fix: chmod +x \"$script\" && git add --chmod=+x \"$script\"" >&2
+    status=1
+    continue
+  fi
   echo ">> Testing $skill"
-  "$skill/tests/run.sh" || status=1
+  if ! "$script"; then
+    echo "COMMIT BLOCKED: tests for $skill failed. Fix, re-stage, and commit again." >&2
+    status=1
+  fi
 done < <(printf '%s\n' "${skills[@]}" | sort -u)
 
 exit "$status"
