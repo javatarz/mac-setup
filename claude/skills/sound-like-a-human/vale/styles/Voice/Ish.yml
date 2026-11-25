@@ -1,0 +1,13 @@
+extends: existence
+message: 'Avoid "-ish". Give the number or say "about" once.'
+level: error
+ignorecase: true
+raw:
+  - '\b\d+ish\b|\b\w+-ish\b|\b(?:late|early|soon|ok|okay|maybe|sort)ish\b'
+tests:
+  - name: 'number'
+    input: "We merged 800ish PRs."
+    contains: 'Voice.Ish'
+  - name: 'words'
+    input: "This is English and we finish and publish."
+    absent: 'Voice.Ish'

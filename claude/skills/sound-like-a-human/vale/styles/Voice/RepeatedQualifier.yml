@@ -1,0 +1,10 @@
+extends: existence
+message: 'State the qualifier once.'
+level: warning
+ignorecase: true
+raw:
+  - '\b(the same|every|each)\b(?:\s+\S+){0,3},\s*\1\b'
+tests:
+  - name: 'flags'
+    input: "the same guardrails, the same review gates"
+    contains: 'Voice.RepeatedQualifier'

@@ -1,0 +1,13 @@
+extends: substitution
+message: 'Use "%s" instead of "%s".'
+level: error
+ignorecase: true
+swap:
+  'it''s own': 'its own'
+tests:
+  - name: 'flags'
+    input: "The tool has it's own cache."
+    contains: 'Voice.ItsOwn'
+  - name: 'clean'
+    input: "The tool has its own cache."
+    absent: 'Voice.ItsOwn'

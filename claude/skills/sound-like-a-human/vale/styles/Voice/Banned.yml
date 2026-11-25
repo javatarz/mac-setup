@@ -1,0 +1,46 @@
+extends: existence
+message: 'Banned word "%s". Use a plain word.'
+level: error
+ignorecase: true
+tokens:
+  - 'delve'
+  - 'tapestry'
+  - 'testament to'
+  - 'underscores'
+  - 'seamless'
+  - 'seamlessly'
+  - 'robust'
+  - 'navigate the landscape'
+  - 'in today''s fast-paced world'
+  - 'it''s important to note'
+  - 'it''s worth noting'
+  - 'that being said'
+  - 'at the end of the day'
+  - 'unlock'
+  - 'supercharge'
+  - 'elevate'
+  - 'game-changing'
+  - 'revolutionise'
+  - 'revolutionize'
+  - 'harness the power of'
+  - 'dive deep'
+  - 'myriad'
+  - 'plethora'
+  - 'realm'
+  - 'ever-evolving'
+  - 'cutting-edge'
+  - 'transformative'
+  - 'paradigm shift'
+  - 'synergy'
+  - 'holistic'
+  - 'embark'
+tests:
+  - name: 'flags'
+    input: "We delve into it."
+    contains: 'Voice.Banned'
+  - name: 'phrase'
+    input: "At the end of the day, it works."
+    contains: 'Voice.Banned'
+  - name: 'harness is a keep-word'
+    input: "We harness agents with a harness."
+    absent: 'Voice.Banned'

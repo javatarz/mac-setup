@@ -1,0 +1,14 @@
+extends: existence
+message: 'No em or en dashes. Use a full stop, comma, colon or parentheses.'
+level: error
+ignorecase: false
+nonword: true
+raw:
+  - '[–—]'
+tests:
+  - name: 'em dash'
+    input: "Checks run fast — really fast."
+    contains: 'Voice.Dash'
+  - name: 'en dash'
+    input: "Pages 3–5 matter."
+    contains: 'Voice.Dash'

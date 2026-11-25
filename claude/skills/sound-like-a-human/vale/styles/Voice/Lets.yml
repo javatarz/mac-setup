@@ -1,0 +1,13 @@
+extends: existence
+message: 'Use "Let''s".'
+level: error
+ignorecase: false
+raw:
+  - '\bLets\b(?! (?:you|us|them|me|him|her|it|the|a|an)\b)'
+tests:
+  - name: 'flags'
+    input: "Lets take a step back."
+    contains: 'Voice.Lets'
+  - name: 'verb is clean'
+    input: "It lets you move fast. Lets you know."
+    absent: 'Voice.Lets'

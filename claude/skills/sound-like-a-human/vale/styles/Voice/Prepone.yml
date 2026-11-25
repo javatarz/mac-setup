@@ -1,0 +1,10 @@
+extends: substitution
+message: 'Use "%s" instead of "%s".'
+level: error
+ignorecase: true
+swap:
+  'prepon\w*': 'bring forward'
+tests:
+  - name: 'flags'
+    input: "Can we prepone the call?"
+    contains: 'Voice.Prepone'

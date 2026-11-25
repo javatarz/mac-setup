@@ -1,0 +1,13 @@
+extends: substitution
+message: 'Use "%s" instead of "%s".'
+level: warning
+ignorecase: true
+swap:
+  'groom(?:ing|ed)?': 'refine / refinement'
+tests:
+  - name: 'flags'
+    input: "We groom the backlog."
+    contains: 'Voice.Groom'
+  - name: 'clean'
+    input: "We refine the backlog."
+    absent: 'Voice.Groom'

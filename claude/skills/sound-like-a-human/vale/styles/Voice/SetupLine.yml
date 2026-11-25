@@ -1,0 +1,10 @@
+extends: existence
+message: 'Empty setup line. Delete it if the next sentence carries the content.'
+level: warning
+ignorecase: true
+raw:
+  - '\b(?:Here''?s|Here is) (?:the|my|an?) (?:thing|point|caveat|catch|gap|truth|kicker)\b|\b(?:Worth noting|It''?s worth mentioning|Note that|The point is this)\b'
+tests:
+  - name: 'flags'
+    input: "Here's the caveat: it breaks."
+    contains: 'Voice.SetupLine'

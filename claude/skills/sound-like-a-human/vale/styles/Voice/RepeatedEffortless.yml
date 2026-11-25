@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"effortless" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:effortless)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One effortless here.\n\nAnother effortless there."
+    contains: 'Voice.RepeatedEffortless'
+  - name: 'one use is fine'
+    input: "One effortless here."
+    absent: 'Voice.RepeatedEffortless'

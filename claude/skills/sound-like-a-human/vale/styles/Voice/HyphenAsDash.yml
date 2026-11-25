@@ -1,0 +1,14 @@
+extends: existence
+message: 'Hyphen used as a dash. Use a full stop, comma or colon.'
+level: error
+ignorecase: false
+nonword: true
+raw:
+  - '(?<=\S)[ \t]-[ \t]'
+tests:
+  - name: 'flags'
+    input: "Coverage is theatre - we measured it."
+    contains: 'Voice.HyphenAsDash'
+  - name: 'compound'
+    input: "A well-known cross-post."
+    absent: 'Voice.HyphenAsDash'

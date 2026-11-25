@@ -1,0 +1,14 @@
+extends: existence
+message: 'No emoticons in drafts.'
+level: error
+ignorecase: false
+nonword: true
+raw:
+  - '(?<![\w(])(?::-?\)|:-?D\b|:-?P\b|;-?\)|:-?\()'
+tests:
+  - name: 'flags'
+    input: "Not surprising :)"
+    contains: 'Voice.Emoticon'
+  - name: 'parens'
+    input: "Call f(x) and see (a) and (b)."
+    absent: 'Voice.Emoticon'

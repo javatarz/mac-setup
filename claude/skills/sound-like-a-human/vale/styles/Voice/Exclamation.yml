@@ -1,0 +1,14 @@
+extends: existence
+message: 'No "!" in drafts. The user adds one if they want it.'
+level: error
+ignorecase: false
+nonword: true
+raw:
+  - '(?<=\w)!(?=\s|$|\))'
+tests:
+  - name: 'flags'
+    input: "This is great!"
+    contains: 'Voice.Exclamation'
+  - name: 'clean'
+    input: "This is great."
+    absent: 'Voice.Exclamation'

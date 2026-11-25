@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"journey" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:journey)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One journey here.\n\nAnother journey there."
+    contains: 'Voice.RepeatedJourney'
+  - name: 'one use is fine'
+    input: "One journey here."
+    absent: 'Voice.RepeatedJourney'

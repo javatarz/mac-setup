@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"crucial" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:crucial)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One crucial here.\n\nAnother crucial there."
+    contains: 'Voice.RepeatedCrucial'
+  - name: 'one use is fine'
+    input: "One crucial here."
+    absent: 'Voice.RepeatedCrucial'

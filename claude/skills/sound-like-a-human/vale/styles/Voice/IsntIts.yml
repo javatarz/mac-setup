@@ -1,0 +1,10 @@
+extends: existence
+message: 'Negation setup. Say the real point.'
+level: warning
+ignorecase: true
+raw:
+  - '\bisn''?t (?:just |about )?[\w'' ]{1,30}[.,;] (?:it''?s|it is)\b'
+tests:
+  - name: 'flags'
+    input: "It isn't about speed. It's about trust."
+    contains: 'Voice.IsntIts'

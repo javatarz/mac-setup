@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"solution" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:solution)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One solution here.\n\nAnother solution there."
+    contains: 'Voice.RepeatedSolution'
+  - name: 'one use is fine'
+    input: "One solution here."
+    absent: 'Voice.RepeatedSolution'

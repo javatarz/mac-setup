@@ -1,0 +1,10 @@
+extends: existence
+message: 'If this is the event series, write "emerge" (lowercase).'
+level: suggestion
+ignorecase: false
+raw:
+  - '\bEmerge\b'
+tests:
+  - name: 'flags'
+    input: "We spoke at Emerge."
+    contains: 'Voice.BrandEmerge'

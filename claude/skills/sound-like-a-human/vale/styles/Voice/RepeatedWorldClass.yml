@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"world-class" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:world-class)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One world-class here.\n\nAnother world-class there."
+    contains: 'Voice.RepeatedWorldClass'
+  - name: 'one use is fine'
+    input: "One world-class here."
+    absent: 'Voice.RepeatedWorldClass'

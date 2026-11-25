@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"boost" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:boost)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One boost here.\n\nAnother boost there."
+    contains: 'Voice.RepeatedBoost'
+  - name: 'one use is fine'
+    input: "One boost here."
+    absent: 'Voice.RepeatedBoost'

@@ -1,0 +1,10 @@
+extends: existence
+message: 'Name what replaces it.'
+level: error
+ignorecase: true
+raw:
+  - '\bsay goodbye to\b'
+tests:
+  - name: 'flags'
+    input: "Say goodbye to flaky tests."
+    contains: 'Voice.SayGoodbye'

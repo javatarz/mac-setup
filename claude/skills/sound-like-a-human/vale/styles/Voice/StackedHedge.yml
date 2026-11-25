@@ -1,0 +1,10 @@
+extends: existence
+message: 'One hedge at most.'
+level: error
+ignorecase: true
+raw:
+  - '\b(?:may potentially|could possibly|might possibly)\b'
+tests:
+  - name: 'flags'
+    input: "It may potentially fail."
+    contains: 'Voice.StackedHedge'

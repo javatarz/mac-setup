@@ -1,0 +1,10 @@
+extends: existence
+message: 'State the stance plainly. Scope it with probably/might/chances are if needed.'
+level: error
+ignorecase: true
+raw:
+  - '\b(?:I feel|I think|IMO|IMHO|in my opinion|I believe)\b'
+tests:
+  - name: 'flags'
+    input: "I think this works."
+    contains: 'Voice.Hedge'

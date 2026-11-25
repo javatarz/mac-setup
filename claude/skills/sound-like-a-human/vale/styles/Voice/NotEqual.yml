@@ -1,0 +1,11 @@
+extends: existence
+message: 'Symbolic aphorism. Say the literal claim.'
+level: error
+ignorecase: false
+nonword: true
+raw:
+  - '≠'
+tests:
+  - name: 'flags'
+    input: "Coverage ≠ quality."
+    contains: 'Voice.NotEqual'

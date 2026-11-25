@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"curated" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:curated)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One curated here.\n\nAnother curated there."
+    contains: 'Voice.RepeatedCurated'
+  - name: 'one use is fine'
+    input: "One curated here."
+    absent: 'Voice.RepeatedCurated'

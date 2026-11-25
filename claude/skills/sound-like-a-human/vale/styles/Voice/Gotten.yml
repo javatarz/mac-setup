@@ -1,0 +1,13 @@
+extends: substitution
+message: 'Use "%s" instead of "%s".'
+level: error
+ignorecase: true
+swap:
+  'gotten': 'got'
+tests:
+  - name: 'flags'
+    input: "It has gotten worse."
+    contains: 'Voice.Gotten'
+  - name: 'clean'
+    input: "It has got worse."
+    absent: 'Voice.Gotten'

@@ -1,0 +1,10 @@
+extends: existence
+message: 'Name the one reader you''re writing for.'
+level: error
+ignorecase: true
+raw:
+  - '\bwhether you''?re\b.{0,30}\bor\b'
+tests:
+  - name: 'flags'
+    input: "Whether you're a dev or a lead, read on."
+    contains: 'Voice.WhetherYoure'

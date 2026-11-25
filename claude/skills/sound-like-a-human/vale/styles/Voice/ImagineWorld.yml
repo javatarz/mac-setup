@@ -1,0 +1,10 @@
+extends: existence
+message: 'Show the thing instead of staging it.'
+level: error
+ignorecase: true
+raw:
+  - '\bimagine a world\b'
+tests:
+  - name: 'flags'
+    input: "Imagine a world without flaky tests."
+    contains: 'Voice.ImagineWorld'

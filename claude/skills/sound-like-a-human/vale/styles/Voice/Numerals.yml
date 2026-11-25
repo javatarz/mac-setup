@@ -1,0 +1,14 @@
+# Social type only: vale.ini enables it under [social/*.md].
+extends: existence
+message: 'Social posts use numerals for numbers: write "%s" as a digit.'
+level: warning
+ignorecase: true
+raw:
+  - '\b(?:two|three|four|five|six|seven|eight|nine|ten)\b'
+tests:
+  - name: 'flags'
+    input: "We ran three tests."
+    contains: 'Voice.Numerals'
+  - name: 'digit'
+    input: "We ran 3 tests."
+    absent: 'Voice.Numerals'

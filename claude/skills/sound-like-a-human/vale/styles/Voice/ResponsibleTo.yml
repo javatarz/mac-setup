@@ -1,0 +1,13 @@
+extends: existence
+message: 'Use "responsible for" + -ing ("responsible for keeping time").'
+level: warning
+ignorecase: true
+raw:
+  - '\bresponsible to (?!(?:the|a|an|your|our|their|my|his|her|its|whoever|whom)\b)\w+'
+tests:
+  - name: 'verb'
+    input: "The team is responsible to keep time."
+    contains: 'Voice.ResponsibleTo'
+  - name: 'noun'
+    input: "The team is responsible to the board."
+    absent: 'Voice.ResponsibleTo'

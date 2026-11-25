@@ -1,0 +1,14 @@
+# Applies to post and doc only: vale.ini turns it off for social, email and slides.
+extends: metric
+message: 'One-sentence paragraph. Fold it into a neighbour, unless it is a lead-in ending in a colon.'
+level: suggestion
+scope: paragraph
+formula: sentences
+condition: '< 2.0'
+tests:
+  - name: 'flags'
+    input: "One sentence alone.\n\nTwo here. And another."
+    contains: 'Voice.OneSentenceParagraph'
+  - name: 'two is fine'
+    input: "Two here. And another."
+    absent: 'Voice.OneSentenceParagraph'

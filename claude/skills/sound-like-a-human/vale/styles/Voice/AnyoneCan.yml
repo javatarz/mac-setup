@@ -1,0 +1,10 @@
+extends: existence
+message: 'Say the easy part plainly ("X is the easy part").'
+level: error
+ignorecase: true
+raw:
+  - '\banyone can\b'
+tests:
+  - name: 'flags'
+    input: "Anyone can wire the pipeline."
+    contains: 'Voice.AnyoneCan'

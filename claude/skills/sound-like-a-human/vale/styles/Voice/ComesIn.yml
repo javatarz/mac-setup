@@ -1,0 +1,10 @@
+extends: existence
+message: 'Say what X does.'
+level: error
+ignorecase: true
+raw:
+  - '\bthat''?s where\b.{0,30}\bcomes? in\b'
+tests:
+  - name: 'flags'
+    input: "That's where the linter comes in."
+    contains: 'Voice.ComesIn'

@@ -1,0 +1,10 @@
+extends: existence
+message: 'Give the exact number if you have it.'
+level: suggestion
+ignorecase: true
+raw:
+  - '\b(?:about|around|roughly|approximately|~) ?\$?\d'
+tests:
+  - name: 'flags'
+    input: "It took about 15 seconds."
+    contains: 'Voice.About'

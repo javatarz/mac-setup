@@ -1,0 +1,10 @@
+extends: existence
+message: 'Use one direct verb.'
+level: error
+ignorecase: true
+raw:
+  - '\b(?:helps? you to|can help you)\b'
+tests:
+  - name: 'flags'
+    input: "This helps you to ship."
+    contains: 'Voice.HedgedBenefit'

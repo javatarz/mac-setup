@@ -1,0 +1,13 @@
+extends: metric
+message: 'Sentence over 30 words. Split it.'
+level: warning
+scope: sentence
+formula: words
+condition: '> 30.0'
+tests:
+  - name: 'flags'
+    input: "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word. Short one."
+    contains: 'Voice.LongSentence'
+  - name: 'thirty is fine'
+    input: "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word."
+    absent: 'Voice.LongSentence'

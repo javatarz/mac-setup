@@ -1,0 +1,13 @@
+extends: existence
+message: 'If this means "perhaps", write "maybe".'
+level: suggestion
+ignorecase: false
+raw:
+  - '(?:^|(?<=[.!?]\s))May be\b|\bmay be even\b'
+tests:
+  - name: 'flags'
+    input: "May be even AJAX."
+    contains: 'Voice.MayBe'
+  - name: 'verb'
+    input: "It may be true."
+    absent: 'Voice.MayBe'

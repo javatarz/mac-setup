@@ -1,0 +1,4 @@
+# `vale sync` writes packages and its own state under styles/. Keep only what we write.
+styles/*
+!styles/Voice/
+!styles/config/

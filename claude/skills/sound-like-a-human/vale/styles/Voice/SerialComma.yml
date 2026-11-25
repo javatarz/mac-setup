@@ -1,0 +1,13 @@
+extends: existence
+message: 'Serial comma: "tests, lint, and review".'
+level: warning
+ignorecase: true
+raw:
+  - '\b[\w''-]+, [\w''-]+(?: [\w''-]+)?, (?:[\w''-]+ ){0,2}[\w''-]+ (?:and|or) [\w''-]+'
+tests:
+  - name: 'four items'
+    input: "Run unit, contract, integration and e2e tests."
+    contains: 'Voice.SerialComma'
+  - name: 'present'
+    input: "Run unit, contract, integration, and e2e tests."
+    absent: 'Voice.SerialComma'

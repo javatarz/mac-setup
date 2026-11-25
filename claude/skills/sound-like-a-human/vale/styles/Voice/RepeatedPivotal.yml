@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"pivotal" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:pivotal)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One pivotal here.\n\nAnother pivotal there."
+    contains: 'Voice.RepeatedPivotal'
+  - name: 'one use is fine'
+    input: "One pivotal here."
+    absent: 'Voice.RepeatedPivotal'

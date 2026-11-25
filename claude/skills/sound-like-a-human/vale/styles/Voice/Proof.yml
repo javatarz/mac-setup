@@ -1,0 +1,10 @@
+extends: existence
+message: 'Proof claim. Keep only if true and checkable; else mark [needs number].'
+level: error
+ignorecase: true
+raw:
+  - '\b(?:trusted by|rated \d|\d[\d,]*\+?\s+(?:teams|users|customers|companies|developers)\b)'
+tests:
+  - name: 'flags'
+    input: "Trusted by 500 teams."
+    contains: 'Voice.Proof'

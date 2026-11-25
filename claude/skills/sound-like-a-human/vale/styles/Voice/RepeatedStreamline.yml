@@ -1,0 +1,14 @@
+extends: occurrence
+message: '"streamline" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:streamline)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One streamline here.\n\nAnother streamline there."
+    contains: 'Voice.RepeatedStreamline'
+  - name: 'one use is fine'
+    input: "One streamline here."
+    absent: 'Voice.RepeatedStreamline'
