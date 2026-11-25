@@ -1,5 +1,5 @@
 ---
 type: regex
-pattern: 'thanks to priya'
+pattern: 'thanks to a teammate'
 flags: i
 ---
