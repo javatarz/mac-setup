@@ -52,7 +52,8 @@ STOCK_IDIOMS = [
 ]
 
 PROOF_PATTERN = re.compile(
-    r"\b(trusted by|rated \d|[\d,]+\+?\s+(teams|users|customers|companies|developers)\b)",
+    # Count must start with a digit; "[\d,]+" alone matched a bare comma (", developers").
+    r"\b(trusted by|rated \d|\d[\d,]*\+?\s+(teams|users|customers|companies|developers)\b)",
     re.IGNORECASE,
 )
 
@@ -63,7 +64,9 @@ REPEATED_QUALIFIER = re.compile(
 )
 
 DASH_CHARS = re.compile(r"[–—]")  # en dash, em dash
-HYPHEN_AS_DASH = re.compile(r"\s-\s")  # " - " joining clauses, not a hyphenated word
+# " - " joining clauses, not a hyphenated word. Requires a non-space character
+# earlier on the same line, so markdown bullets ("- item", "  - item") don't match.
+HYPHEN_AS_DASH = re.compile(r"(?<=\S)[ \t]-[ \t]")
 SYMBOLIC_APHORISM = re.compile(r"≠")  # ≠
 
 
