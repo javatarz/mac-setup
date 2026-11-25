@@ -1,639 +1,650 @@
 {
  "2006-11-27-new-beginnings.md": {
-  "numbers.about": 1,
-  "punct.emoticon": 1,
-  "stance.hedge": 1
+  "Voice.About": 1,
+  "Voice.Emoticon": 1,
+  "Voice.Hedge": 1
  },
  "2006-12-16-uptime-challenge.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2006-12-27-the-vista-experience.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 2,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 1,
-  "stance.hedge": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 2,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 4,
+  "Voice.OneSentenceParagraph": 3
  },
  "2007-01-25-the-undeletables.md": {
-  "ai.setup-line": 1,
-  "punct.dash": 1,
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 3
+  "Voice.Dash": 1,
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 3,
+  "Voice.SetupLine": 1
  },
  "2007-03-04-uac-false.md": {
-  "punct.emoticon": 2,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 3,
-  "vocab.banned": 1
+  "Voice.Banned": 1,
+  "Voice.BritishWords": 3,
+  "Voice.Emoticon": 2,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2007-03-29-hard-resetting-the-wizard.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2007-09-16-ppc-reviver.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 1,
-  "shape.one-sentence-paragraph": 2,
-  "stance.hedge": 1
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 1,
+  "Voice.Hedge": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2007-10-29-command-line-e-mailing.md": {
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Exclamation": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2008-02-02-whatpulse-data-parse-class.md": {
-  "numbers.about": 1,
-  "punct.emoticon": 4,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 5,
-  "shape.one-sentence-paragraph": 2
+  "Voice.About": 1,
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 1
  },
  "2008-04-09-new-home.md": {
-  "punct.emoticon": 7,
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 4,
-  "usage.lets": 1,
-  "usage.may-be": 1
+  "Voice.Emoticon": 7,
+  "Voice.Exclamation": 2,
+  "Voice.Lets": 1,
+  "Voice.MayBe": 1,
+  "Voice.OneSentenceParagraph": 4
  },
  "2008-08-21-team-skan-enpower.md": {
-  "punct.emoticon": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2008-08-30-customising-your-ipod.md": {
-  "punct.emoticon": 8,
-  "punct.exclamation": 4,
-  "punct.serial-comma-maybe": 2,
-  "shape.long-sentence": 11
+  "Voice.Emoticon": 8,
+  "Voice.Exclamation": 4,
+  "Voice.LongSentence": 11,
+  "Voice.SerialCommaMaybe": 2
  },
  "2008-09-07-browser-tryouts-google-chrome.md": {
-  "punct.emoticon": 10,
-  "punct.exclamation": 2,
-  "shape.long-sentence": 5,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 10,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 7,
+  "Voice.OneSentenceParagraph": 1
  },
  "2008-09-07-chrome-tips.md": {
-  "punct.emoticon": 14,
-  "punct.exclamation": 7,
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 2,
-  "shape.long-sentence": 7,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1,
-  "stance.hedge": 1,
-  "usage.lets": 1
+  "Voice.BritishWords": 1,
+  "Voice.Emoticon": 14,
+  "Voice.Exclamation": 7,
+  "Voice.Hedge": 1,
+  "Voice.Lets": 1,
+  "Voice.LongSentence": 8,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 2
  },
  "2009-01-10-windows-7-public-beta-serial-key-fiasco.md": {
-  "numbers.about": 2,
-  "punct.emoticon": 7,
-  "punct.hyphen-as-dash": 4,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 1
+  "Voice.About": 2,
+  "Voice.Emoticon": 7,
+  "Voice.HyphenAsDash": 4,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 1
  },
  "2009-02-22-apple-wheel-is-this-meant-to-be-a-joke.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 3,
-  "shape.one-sentence-paragraph": 3,
-  "stance.hedge": 1
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 3,
+  "Voice.Hedge": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2009-03-15-release-rswc-100.md": {
-  "punct.emoticon": 2,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 1,
-  "stance.hedge": 1
+  "Voice.BritishWords": 1,
+  "Voice.Emoticon": 2,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 3
  },
  "2009-04-10-dell-studio-xps-1640-issues.md": {
-  "ai.setup-line": 1,
-  "content.proof": 2,
-  "numbers.about": 3,
-  "punct.emoticon": 12,
-  "punct.exclamation": 5,
-  "shape.long-sentence": 17,
-  "shape.one-sentence-paragraph": 5,
-  "spelling.british": 3,
-  "stance.hedge": 1,
-  "usage.lets": 1,
-  "usage.may-be": 1
+  "Voice.About": 3,
+  "Voice.BritishStems": 3,
+  "Voice.Emoticon": 12,
+  "Voice.Exclamation": 5,
+  "Voice.Hedge": 1,
+  "Voice.Lets": 1,
+  "Voice.LongSentence": 17,
+  "Voice.MayBe": 1,
+  "Voice.OneSentenceParagraph": 5,
+  "Voice.Proof": 2,
+  "Voice.SetupLine": 1
  },
  "2009-04-20-checking-out-windows-7-build-7077.md": {
-  "punct.emoticon": 11,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 7,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 4,
-  "stance.hedge": 1
+  "Voice.BritishStems": 4,
+  "Voice.Emoticon": 11,
+  "Voice.Exclamation": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 8,
+  "Voice.OneSentenceParagraph": 1
  },
  "2009-05-16-windows-7-a-second-look.md": {
-  "punct.emoticon": 14,
-  "punct.exclamation": 4,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 9,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 2,
-  "stance.hedge": 1
+  "Voice.BritishStems": 2,
+  "Voice.Emoticon": 14,
+  "Voice.Exclamation": 4,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 10,
+  "Voice.OneSentenceParagraph": 2,
+  "Voice.SerialCommaMaybe": 1
  },
  "2009-05-16-wolframalpha-up-for-official-public-release.md": {
-  "numbers.about": 1,
-  "punct.emoticon": 4,
-  "punct.exclamation": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 2,
-  "spelling.british": 1,
-  "stance.hedge": 1
+  "Voice.About": 1,
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2009-05-17-small-platform-development.md": {
-  "punct.emoticon": 4,
-  "punct.serial-comma-maybe": 2,
-  "shape.long-sentence": 12,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 4,
+  "Voice.LongSentence": 13,
+  "Voice.SerialCommaMaybe": 2
  },
  "2009-05-21-is-microsoft-delaying-vista-sp2-launch.md": {
-  "punct.emoticon": 3,
-  "punct.hyphen-as-dash": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 3,
+  "Voice.HyphenAsDash": 1,
+  "Voice.LongSentence": 3,
+  "Voice.MayBe": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2009-05-21-visual-studio-2010-net-40-beta-1-released.md": {
-  "punct.emoticon": 4,
-  "punct.exclamation": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 8,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 8,
+  "Voice.SerialCommaMaybe": 1
  },
  "2009-05-21-vs-2010-beta-1-user-interface.md": {
-  "punct.emoticon": 7,
-  "punct.exclamation": 3,
-  "shape.one-sentence-paragraph": 1,
-  "stance.hedge": 1,
-  "usage.gotten": 1
+  "Voice.Emoticon": 7,
+  "Voice.Exclamation": 3,
+  "Voice.Gotten": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 1
  },
  "2009-05-23-the-power-of-the-windows-key.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 3,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 22,
-  "spelling.british": 9
+  "Voice.BritishStems": 8,
+  "Voice.BritishWords": 1,
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 3,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 22
  },
  "2009-05-24-first-hand-at-f.md": {
-  "punct.emoticon": 4,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1
+  "Voice.BritishWords": 1,
+  "Voice.Emoticon": 4,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 1
  },
  "2009-06-29-visit-to-microsoft-redmond.md": {
-  "ai.say-goodbye": 1,
-  "numbers.about": 7,
-  "punct.emoticon": 44,
-  "punct.exclamation": 24,
-  "punct.serial-comma": 4,
-  "punct.serial-comma-maybe": 7,
-  "shape.long-sentence": 41,
-  "shape.one-sentence-paragraph": 3,
-  "spelling.british": 14,
-  "stance.hedge": 4,
-  "usage.ish": 1,
-  "usage.lets": 1
+  "Voice.About": 7,
+  "Voice.BritishStems": 4,
+  "Voice.BritishWords": 10,
+  "Voice.Emoticon": 44,
+  "Voice.Exclamation": 24,
+  "Voice.Hedge": 4,
+  "Voice.Ish": 1,
+  "Voice.Lets": 1,
+  "Voice.LongSentence": 38,
+  "Voice.OneSentenceParagraph": 3,
+  "Voice.SayGoodbye": 1,
+  "Voice.SerialComma": 4,
+  "Voice.SerialCommaMaybe": 7
  },
  "2009-07-01-sensible-visions-fastaccess-on-windows-7.md": {
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1,
-  "stance.hedge": 1
+  "Voice.BritishStems": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 1
  },
  "2009-09-11-building-a-home-server-part-1.md": {
-  "numbers.about": 1,
-  "punct.emoticon": 5,
-  "punct.exclamation": 3,
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 3,
-  "shape.long-sentence": 4,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1,
-  "stance.hedge": 1,
-  "usage.lets": 2
+  "Voice.About": 1,
+  "Voice.BritishWords": 1,
+  "Voice.Emoticon": 5,
+  "Voice.Exclamation": 3,
+  "Voice.Hedge": 1,
+  "Voice.Lets": 2,
+  "Voice.LongSentence": 5,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 3
  },
  "2009-09-13-dell-win7-x64-sound-driver-updates-cause-system-freeze.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 2,
-  "stance.hedge": 1
+  "Voice.Emoticon": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 1
  },
  "2009-09-14-anonymous-microsoft-developer-opens-ama-discussion-on-reddit.md": {
-  "punct.emoticon": 4,
-  "punct.exclamation": 2,
-  "shape.long-sentence": 1,
-  "stance.hedge": 1
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 2,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 2
  },
  "2009-10-02-windows-7-launch-party.md": {
-  "punct.emoticon": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.one-sentence-paragraph": 6,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 2,
+  "Voice.OneSentenceParagraph": 7,
+  "Voice.SerialCommaMaybe": 1
  },
  "2009-10-28-mpl-forum.md": {
-  "content.proof": 1,
-  "punct.exclamation": 8,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 3,
-  "spelling.british": 1
+  "Voice.BritishWords": 1,
+  "Voice.Exclamation": 8,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 2,
+  "Voice.Proof": 1
  },
  "2009-11-03-trying-minefield-3-7a1pre.md": {
-  "punct.emoticon": 6,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 6,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2009-12-06-clean-file-list-generation-with-powershell-script.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2010-02-14-file-list-generator-v1-1.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2010-02-21-torrenting-on-linux.md": {
-  "ai.setup-line": 1,
-  "punct.dash": 1,
-  "punct.emoticon": 6,
-  "punct.exclamation": 1,
-  "punct.serial-comma-maybe": 2,
-  "shape.long-sentence": 5,
-  "shape.one-sentence-paragraph": 6,
-  "spelling.british": 1,
-  "vocab.banned": 1
+  "Voice.Banned": 1,
+  "Voice.BritishWords": 1,
+  "Voice.Dash": 1,
+  "Voice.Emoticon": 6,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 6,
+  "Voice.OneSentenceParagraph": 8,
+  "Voice.SerialCommaMaybe": 2,
+  "Voice.SetupLine": 1
  },
  "2010-07-04-windows-file-sharing-addremove-folders-via-command-line.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 3
  },
  "2010-10-02-free-wifi-antenna-booster.md": {
-  "punct.emoticon": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 2,
+  "Voice.OneSentenceParagraph": 1
  },
  "2010-10-03-vaio-webcam-ubuntu-10-10.md": {
-  "ai.setup-line": 1,
-  "punct.emoticon": 6,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 6,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 4,
+  "Voice.OneSentenceParagraph": 2,
+  "Voice.SetupLine": 1
  },
  "2011-06-24-htc-incredible-s-from-stock-to-custom-roms-with-root-and-customizations.md": {
-  "punct.emoticon": 4,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 4,
-  "spelling.british": 2
+  "Voice.BritishStems": 2,
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 4
  },
  "2011-07-09-removing-file-extensions.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 2
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1
  },
  "2011-07-14-reloading-unixlinux-profiles.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2011-07-16-creating-your-spotify-account-in-a-blocked-country.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 3,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 3,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2011-07-16-eclipse-github.md": {
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2011-07-16-free-spotify-premium-for-a-month.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 2
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 2
  },
  "2011-07-26-recursively-delete-files-from-a-folder-in-windows.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2011-07-31-android-terminologies.md": {
-  "punct.emoticon": 1,
-  "punct.hyphen-as-dash": 1,
-  "shape.long-sentence": 4,
-  "shape.one-sentence-paragraph": 3,
-  "spelling.british": 2
+  "Voice.BritishStems": 2,
+  "Voice.Emoticon": 1,
+  "Voice.HyphenAsDash": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 3
  },
  "2011-08-15-rooting-htc-incredible-s-with-revolutionary.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 8
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 8
  },
  "2011-08-16-fix-for-chrome-redirecting-to-url-when-opening-a-new-tab.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2011-08-16-htc-incredible-s-fix-for-bootloader-saying-security-warning.md": {
-  "punct.emoticon": 1,
-  "punct.hyphen-as-dash": 1
+  "Voice.Emoticon": 1,
+  "Voice.HyphenAsDash": 1,
+  "Voice.LongSentence": 1
  },
  "2011-10-06-make-a-bootable-universal-flash-drive.md": {
-  "punct.emoticon": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.one-sentence-paragraph": 9
+  "Voice.Emoticon": 2,
+  "Voice.OneSentenceParagraph": 9,
+  "Voice.SerialCommaMaybe": 1
  },
  "2012-07-16-movement-to-bumblebee.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 2,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1
  },
  "2012-10-06-unable-to-buy-anything-on-xbox-360-and-login-to-xbox-com.md": {
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 2
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2013-04-05-back-to-blogging.md": {
-  "punct.exclamation": 2,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 2
+  "Voice.BritishStems": 2,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2013-04-06-file-list-generator-v1-3.md": {
-  "punct.emoticon": 4,
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 3
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2013-04-06-soccer-scraper-v1-source-on-github.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 1
  },
  "2013-04-29-terracopy-copying-files-the-way-its-meant-to-be-copied.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 2,
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 2,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2013-05-01-google-io-2013-easter-eggs.md": {
-  "ai.setup-line": 1,
-  "punct.emoticon": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 13
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 14,
+  "Voice.SetupLine": 1
  },
  "2013-05-14-glassfish-jndi-custom-resource-reading-primitives.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 4,
+  "Voice.OneSentenceParagraph": 4
  },
  "2013-07-18-webdevelopment-gotcha-browsers-with-adblock-plus.md": {
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2013-10-08-eclipse-plugin-development-attaching-sources.md": {
-  "punct.exclamation": 4,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 9
+  "Voice.Exclamation": 4,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 9
  },
  "2013-10-08-windows-7-unable-to-delete-files-access-is-denied-error-messages.md": {
-  "punct.emoticon": 3,
-  "punct.exclamation": 2,
-  "punct.hyphen-as-dash": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 3
+  "Voice.Emoticon": 3,
+  "Voice.Exclamation": 2,
+  "Voice.HyphenAsDash": 1,
+  "Voice.LongSentence": 2
  },
  "2013-12-03-eclipse-plugin-development-project-icon-overlay.md": {
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 2
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2014-03-11-atlassian-bamboo-downloading-code-from-atlassian-stash.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 5,
-  "shape.one-sentence-paragraph": 20,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 5,
+  "Voice.OneSentenceParagraph": 22
  },
  "2014-03-13-wildfly-server-side-variablesjndi-custom-resources.md": {
-  "punct.emoticon": 2,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 5
+  "Voice.Emoticon": 2,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 5
  },
  "2014-04-24-cloud-to-butt-on-safari-update.md": {
-  "punct.emoticon": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-04-24-karun-ab-thats-me.md": {
-  "punct.emoticon": 4,
-  "punct.exclamation": 2,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 4,
+  "Voice.Exclamation": 2,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2014-06-13-java-8-generic-method-returns-with-lambdas-and-strategy-design-pattern-implementation.md": {
-  "punct.exclamation": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 7
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 6
  },
  "2014-06-16-set-java-home-to-a-specific-version-on-mac.md": {
-  "shape.one-sentence-paragraph": 1
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-07-08-project-euler-79-passcode-derrivation-using-lambdas.md": {
-  "ai.setup-line": 1,
-  "shape.long-sentence": 4,
-  "shape.one-sentence-paragraph": 9,
-  "vocab.repeated": 1
+  "Voice.LongSentence": 6,
+  "Voice.OneSentenceParagraph": 9,
+  "Voice.RepeatedSolution": 1,
+  "Voice.SetupLine": 1
  },
  "2014-09-12-thoughtworks-welcome-video.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 2,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 2
  },
  "2014-10-01-twitter-images-not-loading.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-10-02-desktoppr-downloader.md": {
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 5,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 6
  },
  "2014-10-21-developers-beware-of-os-x-yosemite.md": {
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1
  },
  "2014-10-30-expandregion-on-sublime-text.md": {
-  "punct.serial-comma-maybe": 1
+  "Voice.SerialCommaMaybe": 1
  },
  "2014-11-06-use-spotify-internationally-again.md": {
-  "punct.emoticon": 1,
-  "shape.one-sentence-paragraph": 2
+  "Voice.Emoticon": 1,
+  "Voice.OneSentenceParagraph": 2
  },
  "2014-11-07-idea-intellij-14-is-out.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 3,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 3,
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-11-13-net-has-been-open-sourced.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 2
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 2,
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-11-14-mass-downloading-google-drive-files.md": {
-  "punct.exclamation": 1,
-  "punct.hyphen-as-dash": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Exclamation": 1,
+  "Voice.HyphenAsDash": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2014-11-30-mass-renaming-file-extensions-with-powershell.md": {
-  "shape.one-sentence-paragraph": 3,
-  "stance.hedge": 1
+  "Voice.Hedge": 1,
+  "Voice.OneSentenceParagraph": 3
  },
  "2014-11-30-removing-utorrent-ads.md": {
-  "punct.serial-comma": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.OneSentenceParagraph": 3,
+  "Voice.SerialComma": 1
  },
  "2014-12-10-mac-camera-not-available.md": {
-  "punct.emoticon": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2014-12-29-net-neutrality-why-should-i-care.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 2,
-  "punct.hyphen-as-dash": 6,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 13,
-  "usage.gotten": 1,
-  "usage.lets": 3
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 2,
+  "Voice.Gotten": 1,
+  "Voice.HyphenAsDash": 6,
+  "Voice.Lets": 3,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 13
  },
  "2015-01-31-signs-of-a-troubled-startup.md": {
-  "punct.exclamation": 1,
-  "punct.serial-comma": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 1,
-  "stance.hedge": 2
+  "Voice.BritishStems": 1,
+  "Voice.Exclamation": 1,
+  "Voice.Hedge": 2,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 2,
+  "Voice.SerialComma": 2,
+  "Voice.SerialCommaMaybe": 1
  },
  "2015-02-01-forced-https-on-your-website-with-cloudflare.md": {
-  "ai.setup-line": 1,
-  "punct.emoticon": 2,
-  "punct.exclamation": 2,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 5,
-  "shape.one-sentence-paragraph": 5,
-  "usage.lets": 1
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 2,
+  "Voice.Lets": 1,
+  "Voice.LongSentence": 5,
+  "Voice.OneSentenceParagraph": 6,
+  "Voice.SerialCommaMaybe": 1,
+  "Voice.SetupLine": 1
  },
  "2015-07-11-maven-compilation-in-ram-drive.md": {
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 6
+  "Voice.LongSentence": 2,
+  "Voice.OneSentenceParagraph": 6,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2015-07-11-reducing-maven-package-times-due-to-resource-copying.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2015-10-03-modern-operating-systems-phoning-home.md": {
-  "numbers.about": 1,
-  "punct.emoticon": 1,
-  "punct.exclamation": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 1
+  "Voice.About": 1,
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2015-11-28-movement-to-cybershark.md": {
-  "punct.emoticon": 2,
-  "punct.exclamation": 1,
-  "shape.one-sentence-paragraph": 1,
-  "spelling.british": 1,
-  "stance.hedge": 1
+  "Voice.BritishStems": 1,
+  "Voice.Emoticon": 2,
+  "Voice.Exclamation": 1,
+  "Voice.Hedge": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 1
  },
  "2016-02-28-commonly-made-mistakes-in-unit-testing.md": {
-  "punct.emoticon": 1,
-  "punct.exclamation": 2,
-  "shape.one-sentence-paragraph": 12
+  "Voice.Emoticon": 1,
+  "Voice.Exclamation": 2,
+  "Voice.OneSentenceParagraph": 11
  },
  "2016-12-05-hosting-blogs-for-1-cent-a-month.md": {
-  "punct.exclamation": 4,
-  "shape.one-sentence-paragraph": 1
+  "Voice.Exclamation": 4,
+  "Voice.OneSentenceParagraph": 2
  },
  "2017-08-13-lombok-usage-in-large-enterprises.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 8,
-  "spelling.british": 4
+  "Voice.BritishStems": 2,
+  "Voice.BritishWords": 2,
+  "Voice.Emoticon": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 8
  },
  "2017-10-19-upgrade-everything-in-brew.md": {
-  "shape.one-sentence-paragraph": 2
+  "Voice.OneSentenceParagraph": 2
  },
  "2018-07-03-the-science-in-the-art-of-the-showcase-for-distributed-teams.md": {
-  "shape.one-sentence-paragraph": 2,
-  "spelling.british": 2,
-  "stance.hedge": 1,
-  "usage.groom": 1,
-  "usage.responsible-to": 5,
-  "vocab.repeated": 1
+  "Voice.BritishStems": 2,
+  "Voice.Groom": 1,
+  "Voice.Hedge": 1,
+  "Voice.OneSentenceParagraph": 2,
+  "Voice.RepeatedShowcase": 1,
+  "Voice.ResponsibleTo": 5
  },
  "2018-11-01-efficient-logback-logging-on-jvm.md": {
-  "punct.emoticon": 1,
-  "shape.long-sentence": 3,
-  "shape.one-sentence-paragraph": 5,
-  "stance.hedge": 1,
-  "usage.ish": 1
+  "Voice.Emoticon": 1,
+  "Voice.Hedge": 1,
+  "Voice.Ish": 1,
+  "Voice.LongSentence": 3,
+  "Voice.OneSentenceParagraph": 7
  },
  "2018-11-10-the-untold-guide-to-troubleshoot-phillips-hue-and-google-assistant-integration.md": {
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 3,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 3,
+  "Voice.SerialCommaMaybe": 1
  },
  "2019-04-16-fixing-broken-social-logins-on-your-browser.md": {
-  "shape.one-sentence-paragraph": 3
+  "Voice.OneSentenceParagraph": 3
  },
  "2019-06-11-managing-multiple-signatures-for-git-repositories.md": {
-  "shape.one-sentence-paragraph": 2
+  "Voice.OneSentenceParagraph": 2
  },
  "2019-08-26-version-controlled-configuration-and-secrets-management-for-terraform.md": {
-  "ai.setup-line": 1,
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 1,
-  "shape.long-sentence": 1,
-  "shape.one-sentence-paragraph": 17,
-  "spelling.british": 1
+  "Voice.BritishStems": 1,
+  "Voice.LongSentence": 1,
+  "Voice.OneSentenceParagraph": 17,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1,
+  "Voice.SetupLine": 1
  },
  "2021-05-09-data-storage-patterns-versioning-and-partitions.md": {
-  "punct.serial-comma": 1,
-  "punct.serial-comma-maybe": 5,
-  "shape.long-sentence": 8,
-  "shape.one-sentence-paragraph": 5,
-  "spelling.british": 3
+  "Voice.BritishStems": 3,
+  "Voice.LongSentence": 10,
+  "Voice.OneSentenceParagraph": 5,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 5
  },
  "2021-08-02-mlops-building-a-healthy-data-platform.md": {
-  "punct.dash": 1,
-  "punct.exclamation": 1,
-  "punct.serial-comma": 2,
-  "punct.serial-comma-maybe": 7,
-  "shape.long-sentence": 7,
-  "shape.one-sentence-paragraph": 5,
-  "vocab.banned": 2
+  "Voice.Banned": 2,
+  "Voice.Dash": 1,
+  "Voice.Exclamation": 1,
+  "Voice.LongSentence": 9,
+  "Voice.OneSentenceParagraph": 5,
+  "Voice.SerialComma": 2,
+  "Voice.SerialCommaMaybe": 7
  }
 }

@@ -1,4 +1,6 @@
-"""Unit tests for scripts/lint.py. Run: python3 -m unittest discover tests"""
+"""Tests for scripts/lint.py, the wrapper that runs the Vale rules.
+
+Each case runs the real wrapper (and so Vale). Run: tests/run.sh"""
 import os
 import sys
 import unittest
@@ -12,47 +14,47 @@ from runner import rel  # noqa: E402
 
 # (test name, text, expected rule id, or None when the text must be clean)
 CASES = [
-    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "punct.serial-comma-maybe"),
+    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "Voice.SerialCommaMaybe"),
     ("serial_comma_present_is_clean", "We use tests, lint, and review on every card.", None),
-    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "punct.serial-comma"),
+    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "Voice.SerialComma"),
     ("however_comma_is_clean", "However, it made things harder and harder.", None),
-    ("off_of", "I'm going off of memory.", "usage.off-of"),
-    ("lets_as_contraction", "Lets take a step back.", "usage.lets"),
+    ("off_of", "I'm going off of memory.", "Voice.OffOf"),
+    ("lets_as_contraction", "Lets take a step back.", "Voice.Lets"),
     ("lets_as_verb_is_clean", "It lets you move fast. Lets you know.", None),
-    ("responsible_to_verb", "The team is responsible to keep time.", "usage.responsible-to"),
+    ("responsible_to_verb", "The team is responsible to keep time.", "Voice.ResponsibleTo"),
     ("responsible_to_noun_is_clean", "The team is responsible to the board.", None),
     ("may_be_as_verb_is_clean", "It may be true.", None),
-    ("may_be_as_maybe", "May be even AJAX.", "usage.may-be"),
-    ("ish_suffix", "We merged 800ish PRs.", "usage.ish"),
+    ("may_be_as_maybe", "May be even AJAX.", "Voice.MayBe"),
+    ("ish_suffix", "We merged 800ish PRs.", "Voice.Ish"),
     ("ish_inside_words_is_clean", "This is English and we finish and publish.", None),
-    ("gotten", "It has gotten worse.", "usage.gotten"),
-    ("prepone", "Can we prepone the call?", "usage.prepone"),
+    ("gotten", "It has gotten worse.", "Voice.Gotten"),
+    ("prepone", "Can we prepone the call?", "Voice.Prepone"),
     ("till_folks_learnt_are_clean", "I'll wait till Monday, folks. Quite a few learnt it.", None),
-    ("meetup_as_noun", "Meet at the meet-up.", "usage.meetup"),
-    ("groom_backlog", "We groom the backlog.", "usage.groom"),
-    ("em_dash", "Checks run fast — really fast.", "punct.dash"),
-    ("hyphen_as_dash", "Coverage is theatre - we measured it.", "punct.hyphen-as-dash"),
+    ("meetup_as_noun", "Meet at the meet-up.", "Voice.Meetup"),
+    ("groom_backlog", "We groom the backlog.", "Voice.Groom"),
+    ("em_dash", "Checks run fast — really fast.", "Voice.Dash"),
+    ("hyphen_as_dash", "Coverage is theatre - we measured it.", "Voice.HyphenAsDash"),
     ("compound_hyphens_are_clean", "A well-known cross-post.", None),
-    ("exclamation", "This is great!", "punct.exclamation"),
-    ("emoticon", "Not surprising :)", "punct.emoticon"),
+    ("exclamation", "This is great!", "Voice.Exclamation"),
+    ("emoticon", "Not surprising :)", "Voice.Emoticon"),
     ("parentheses_are_clean", "Call f(x) and see (a) and (b).", None),
-    ("american_spelling_flagged", "We optimized the build.", "spelling.british"),
+    ("american_spelling_flagged", "We optimized the build.", "Voice.BritishStems"),
     ("british_spelling_is_clean", "We optimised the build and resized it.", None),
-    ("brand_ie_lowercase_i", "iE is our framework.", "brand.ie"),
-    ("brand_intelligent_engineering_capitalized", "Intelligent Engineering helps.", "brand.intelligent-engineering"),
+    ("brand_ie_lowercase_i", "iE is our framework.", "Voice.BrandIe"),
+    ("brand_intelligent_engineering_capitalized", "Intelligent Engineering helps.", "Voice.BrandIntelligentEngineering"),
     ("brand_intelligent_engineering_lowercase_i_is_clean", "intelligent Engineering helps.", None),
-    ("hedge_i_think", "I think this works.", "stance.hedge"),
-    ("about_with_number", "It took about 15 seconds.", "numbers.about"),
-    ("not_just_but", "It's not just a tool, but a workflow.", "ai.not-just"),
-    ("hedged_benefit", "This helps you to ship.", "ai.hedged-benefit"),
-    ("anyone_can", "Anyone can wire the pipeline.", "ai.anyone-can"),
-    ("self_answered_question", "The result? Faster shipping.", "ai.self-answer"),
-    ("setup_line", "Here's the caveat: it breaks.", "ai.setup-line"),
-    ("banned_vocab_delve", "We delve into it.", "vocab.banned"),
+    ("hedge_i_think", "I think this works.", "Voice.Hedge"),
+    ("about_with_number", "It took about 15 seconds.", "Voice.About"),
+    ("not_just_but", "It's not just a tool, but a workflow.", "Voice.NotJust"),
+    ("hedged_benefit", "This helps you to ship.", "Voice.HedgedBenefit"),
+    ("anyone_can", "Anyone can wire the pipeline.", "Voice.AnyoneCan"),
+    ("self_answered_question", "The result? Faster shipping.", "Voice.SelfAnswer"),
+    ("setup_line", "Here's the caveat: it breaks.", "Voice.SetupLine"),
+    ("banned_vocab_delve", "We delve into it.", "Voice.Banned"),
     ("harness_is_clean", "We harness agents with a harness.", None),
-    ("social_proof", "Trusted by 500 teams.", "content.proof"),
-    ("stock_idiom", "These war stories matter.", "vocab.idiom"),
-    ("repeated_qualifier", "the same guardrails, the same review gates", "ai.repeated-qualifier"),
+    ("social_proof", "Trusted by 500 teams.", "Voice.Proof"),
+    ("stock_idiom", "These war stories matter.", "Voice.Idiom"),
+    ("repeated_qualifier", "the same guardrails, the same review gates", "Voice.RepeatedQualifier"),
 ]
 
 
@@ -77,11 +79,11 @@ def _make(name, text, want):
         expected = f"rule {want}" if want else "no alerts"
         self.fail(
             f"LINT CASE BROKE: {name}\n"
-            f"  where: {rel(__file__)}:{_case_line(name)} (CASES entry); rules are in {rel(lint.__file__)}\n"
+            f"  where: {rel(__file__)}:{_case_line(name)} (CASES entry); the rules are the .yml files in vale/styles/Voice\n"
             f"  text:  {text!r}\n"
             f"  expected {expected}, got {got or 'no alerts'}\n"
             "  why:   the linter no longer behaves as this case specifies.\n"
-            "  fix:   if the rule change was a mistake, restore the rule in scripts/lint.py;\n"
+            "  fix:   if the rule change was a mistake, restore the rule in vale/styles/Voice;\n"
             "         if the new behavior is intended, edit the case in tests/test_lint.py."
         )
     return test
@@ -94,11 +96,11 @@ for _name, _text, _want in CASES:
 class LintShapeRules(unittest.TestCase):
     def test_one_sentence_paragraph_flagged_in_post(self):
         hits = lint.check("One sentence alone.\n\nTwo here. And another.\n", "post")
-        self.assertIn("shape.one-sentence-paragraph", [h[2] for h in hits])
+        self.assertIn("Voice.OneSentenceParagraph", [h[2] for h in hits])
 
     def test_long_sentence_flagged(self):
         hits = lint.check(" ".join(["word"] * 31) + ". Short one.", "post")
-        self.assertIn("shape.long-sentence", [h[2] for h in hits])
+        self.assertIn("Voice.LongSentence", [h[2] for h in hits])
 
     def test_keep_word_removed_is_reported(self):
         hits = lint.check_keep_words("Run the tests and checks.", "Run the suite.")

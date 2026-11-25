@@ -1,4 +1,4 @@
-"""Regression guard: lint the user's own pre-2022 posts and compare alerts
+"""Regression guard: lint (through the Vale wrapper) the user's own pre-2022 posts and compare alerts
 per file and rule against tests/corpus_baseline.json.
 
 Human writing should not trigger new alerts. The test fails if any file has
@@ -77,8 +77,8 @@ class CorpusRegression(unittest.TestCase):
             self.fail(
                 "CORPUS BASELINE OUT OF DATE: rule id(s) not in the baseline: " + ", ".join(sorted(unknown)) + "\n"
                 + (f"  rule id(s) in the baseline that no longer fire anywhere: {', '.join(gone)}\n" if gone else "")
-                + "  why:   a rule was added or renamed in scripts/lint.py, so its alerts have no baseline.\n"
-                "  fix:   if the rename or addition was NOT intended, restore the rule id in scripts/lint.py.\n"
+                + "  why:   a rule was added or renamed in vale/styles/Voice, so its alerts have no baseline.\n"
+                "  fix:   if the rename or addition was NOT intended, restore the rule name in vale/styles/Voice.\n"
                 "         If it was, regenerate the baseline and review its diff:\n"
                 f"           {update_cmd}"
             )
@@ -86,8 +86,8 @@ class CorpusRegression(unittest.TestCase):
             self.fail(
                 "CORPUS REGRESSION: rules now flag the author's own pre-2022 posts more than the baseline\n"
                 + "\n".join(problems)
-                + "\n  why:   these posts are human writing; extra alerts are most likely false positives in scripts/lint.py.\n"
-                "  fix:   narrow the rule in scripts/lint.py and re-run. If the new alerts are correct\n"
+                + "\n  why:   these posts are human writing; extra alerts are most likely false positives in vale/styles/Voice.\n"
+                "  fix:   narrow the rule in vale/styles/Voice and re-run. If the new alerts are correct\n"
                 "         (the posts really break the rule), regenerate the baseline and review its diff:\n"
                 f"           {update_cmd}"
             )
