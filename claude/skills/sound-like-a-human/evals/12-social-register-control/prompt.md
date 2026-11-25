@@ -1,6 +1,6 @@
 ---
 description: 'Control. A short post already in the social register stays as written.'
-tags: [review, ported, control, social]
+tags: [review, ported, control, social, free]
 max_turns: 20
 timeout_seconds: 240
 allowed_tools: [Skill, Read, Glob, Grep]

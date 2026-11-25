@@ -1,6 +1,6 @@
 ---
 description: 'Realistic draft with 3 planted issues (empty setup line, passive fix, buzzword list). The rest stays.'
-tags: [review, ported]
+tags: [review, ported, free]
 max_turns: 20
 timeout_seconds: 240
 allowed_tools: [Skill, Read, Glob, Grep]

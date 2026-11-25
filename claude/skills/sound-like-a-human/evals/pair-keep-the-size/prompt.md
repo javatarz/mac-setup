@@ -1,6 +1,6 @@
 ---
 description: 'pairs.md: keep the real size of what happened.'
-tags: [pairs, draft, honesty]
+tags: [pairs, draft, honesty, free]
 max_turns: 15
 timeout_seconds: 180
 allowed_tools: [Skill, Read, Glob, Grep]
