@@ -33,7 +33,7 @@ Prompts ask for "only the revised text" so the graders can check the result with
 
 ## Tools in the runs
 
-Runs allow only `Skill`, `Read`, `Glob`, and `Grep`, and `Agent` is removed. So the skill's linter (needs `Bash`) and its fresh-context review subagent don't run in these evals. They test what the skill's prose does to a model's writing, not the linter. To let runs use the linter, pass `--allow-tools "Bash(python3 *)"` to a direct `claude plugin eval` call. It needs the OS sandbox, and `run-models.sh` doesn't pass it.
+Runs allow only `Skill`, `Read`, `Glob`, and `Grep`, and `Agent` is removed. So the skill's linter (needs `Bash`) and its fresh-context review subagent don't run in these evals. They test what the skill's prose does to a model's writing, not the linter. To let runs use the linter, pass `--allow-tools "Bash(python3 *)"` to a direct `claude plugin eval` call, or pass `--lint` to `run-models.sh`, which adds it. It needs the OS sandbox. Scores with `--lint` are not comparable with scores without it, so use one setting for a whole comparison.
 
 ## Run one case
 

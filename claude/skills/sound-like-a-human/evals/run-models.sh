@@ -21,6 +21,8 @@
 #   --trust           Pass --trust-plugin. Needed on the first run: --json runs
 #                     cannot prompt, so an untrusted directory is refused.
 #                     Trusting a folder inside a git repo trusts the whole repo.
+#   --lint            Pass --allow-tools "Bash(python3 *)" so runs can use the
+#                     skill's lint.py. Needs the OS sandbox.
 #   --max-cost <usd>  Pass --max-cost-usd to each model's run.
 #   --concurrency <n> Pass --concurrency to each model's run.
 #   -h, --help        Show this help.
@@ -56,6 +58,7 @@ while [ $# -gt 0 ]; do
     --out)           OUT="${2:?--out needs a value}"; shift 2 ;;
     --with-baseline) ABLATION="with-without"; shift ;;
     --trust)         TRUST=(--trust-plugin); shift ;;
+    --lint)          FILTERS+=(--allow-tools "Bash(python3 *)"); shift ;;
     --max-cost)      FILTERS+=(--max-cost-usd "${2:?--max-cost needs a value}"); shift 2 ;;
     --concurrency)   FILTERS+=(--concurrency "${2:?--concurrency needs a value}"); shift 2 ;;
     -h|--help)       usage; exit 0 ;;
