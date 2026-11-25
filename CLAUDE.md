@@ -75,6 +75,8 @@ Use `bef` and `aft` aliases (after setup) to capture `defaults read` output befo
 
 **Machine-specific variations:** Not currently handled. All machines get identical setup.
 
-**Testing:** No automated testing strategy yet. `verify.sh` catches some issues. OSX `defaults` can be flaky across macOS versions.
+**Testing:** Setup scripts have no automated tests. `verify.sh` catches some issues. OSX `defaults` can be flaky across macOS versions.
+
+**Skill tests:** A skill with a `tests/run.sh` gets its tests run on commit whenever a file under `claude/skills/<name>/` is staged (`.pre-commit-config.yaml` calls `claude/scripts/run-skill-tests.sh`). Skills without `tests/run.sh` are skipped. Run `pre-commit install` once per clone to enable it. `install.sh` does not do this.
 
 **Issue tracking:** GitHub Issues is the source of truth for backlog items.

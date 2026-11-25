@@ -91,6 +91,16 @@ After running the installation, you can verify that everything is set up correct
 
 This script will check for installed tools, shell configurations, and the presence of your transferred files. It will report any discrepancies.
 
+## 🧪 Skill Tests
+
+Skills under `claude/skills/` can ship tests as `<skill>/tests/run.sh`. A pre-commit hook runs them on commit, only for skills with staged changes. Enable it once per clone:
+
+```bash
+pre-commit install
+```
+
+Run it by hand with `pre-commit run --files claude/skills/<skill>/SKILL.md`, or run a skill's tests directly with `claude/skills/<skill>/tests/run.sh`.
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see our `CONTRIBUTING.md` file for guidelines on how to contribute to this project.
