@@ -1,0 +1,36 @@
+# Derived from no-ai-slop (https://github.com/petergyang/no-ai-slop),
+# Copyright (c) 2026 Peter Yang, licensed under the MIT License. See NOTICE.
+#
+# The first clause is anything up to the comma except a line break, so a
+# hyphenated or possessive phrase still matches and a match never runs from
+# one line into the next.
+extends: existence
+message: "Binary contrast: '%s'. State the second half directly."
+level: error
+ignorecase: true
+nonword: true
+tokens:
+  - '\b(?:is|are|it.s|that.s) not (?:just )?[^\n,.;]{1,30}?[,.;] (?:it.s|but|they.re)\b'
+  - '\b(?:isn.t|aren.t) (?:just )?[^\n,.;]{1,30}?[,.;] (?:it.s|but|they.re)\b'
+  - '\bthe question is(?:n.t| not) [^\n,.;]{1,30}?[,.] it.s\b'
+
+tests:
+  - name: fires
+    input: |
+      This is not just a bug, it's a design flaw.
+    want: |
+      1:6:Voices.BinaryContrast:Binary contrast: 'is not just a bug, it's'. State the second half directly.
+  - name: fires on a hyphenated phrase
+    input: |
+      This is not just a user-facing bug, it's a design flaw.
+    want: |
+      1:6:Voices.BinaryContrast:Binary contrast: 'is not just a user-facing bug, it's'. State the second half directly.
+  - name: clean
+    input: |
+      This is a design flaw.
+    want: ""
+  - name: does not cross a line break
+    input: |
+      This is not the end
+      of the list, but it's close.
+    want: ""

@@ -1,0 +1,28 @@
+# Derived from no-ai-slop (https://github.com/petergyang/no-ai-slop),
+# Copyright (c) 2026 Peter Yang, licensed under the MIT License. See NOTICE.
+#
+extends: existence
+message: "Throat-clearing: '%s'. Cut it and state the point."
+level: error
+ignorecase: true
+tokens:
+  - "here's the thing"
+  - "here's what I mean"
+  - let me be clear
+  - I'll be honest
+  - the uncomfortable truth is
+  - what most people get wrong
+  - "here's what nobody tells you"
+  - the part everyone misses
+  - this is the part most people skip
+
+tests:
+  - name: fires
+    input: |
+      Here's the thing: it works.
+    want: |
+      1:1:Voices.ThroatClearing:Throat-clearing: 'Here's the thing'. Cut it and state the point.
+  - name: clean
+    input: |
+      It works.
+    want: ""

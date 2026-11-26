@@ -117,6 +117,19 @@ class PerTypeSwitches(unittest.TestCase):
         self.check_type("Run `a — b` now. Then stop.\n\n```\nx - y — z\n```\n", "post", "Voice.Dash", False)
 
 
+class VendoredPackages(unittest.TestCase):
+    def test_config_never_fetches_and_vendored_styles_exist(self):
+        ini = open(lint.VALE_INI, encoding="utf-8").read()
+        active = [ln for ln in ini.splitlines() if not ln.lstrip().startswith("#")]
+        self.assertFalse(any(ln.strip().lower().startswith("packages") for ln in active),
+                         "vale.ini must not have a Packages line: packages are vendored by vale/vendor.sh, never synced.")
+        styles = os.path.join(lint.SKILL, "vale", "styles")
+        for part in ("ai-tells", "Voices", "Direct", "Human", "Std", "config/dictionaries/en_GB.dic",
+                     "config/vocabularies/Skill/accept.txt"):
+            self.assertTrue(os.path.exists(os.path.join(styles, part)),
+                            f"missing vendored file vale/styles/{part}. Fix: run vale/vendor.sh.")
+
+
 class WrapperFailureMessages(unittest.TestCase):
     def test_missing_vale_stops_with_install_command(self):
         with tempfile.TemporaryDirectory() as empty:

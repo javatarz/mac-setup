@@ -1,0 +1,15 @@
+# ai-tells.OverusedVocabulary, minus the words the user writes in ordinary engineering prose.
+# Fired on the 2016-2021 posts: significant, significantly, dynamic. See vale-tuning.md.
+extends: ai-tells.OverusedVocabulary
+tokens-:
+  - significant
+  - significantly
+  - dynamic
+  - dynamically
+tests:
+  - name: 'flags'
+    input: "We delve into a robust, holistic plan."
+    contains: 'Voice.OverusedVocabulary'
+  - name: 'ordinary words kept'
+    input: "A significant, dynamic change."
+    absent: 'Voice.OverusedVocabulary'

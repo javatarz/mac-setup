@@ -33,7 +33,7 @@ TEXT_EXTENSIONS = {".md", ".py", ".sh", ".json", ".txt", ".yml", ".yaml", ".toml
 # package written by `vale sync` (gitignored, other people's text with their own links).
 VALE_STYLES = os.path.join(SKILL, "vale", "styles")
 OWN_VALE_DIRS = {"Voice", "config"}
-ALLOWED_HOSTS = ("karun.me", "code.claude.com", "github.com")
+ALLOWED_HOSTS = ("karun.me", "code.claude.com", "github.com", "raw.githubusercontent.com")
 DEFAULT_TERMS_FILE = os.path.expanduser("~/.config/sound-like-a-human/private-terms.txt")
 
 EMAIL = re.compile(r"[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9-]{1,63}(?:\.[A-Za-z0-9-]{1,63})*\.[A-Za-z]{2,}")
@@ -91,6 +91,8 @@ def scan_text(text, terms=(), urls=True):
 def skip_dir(root, name):
     if name in {".git", "__pycache__"}:
         return True
+    if root == os.path.join(VALE_STYLES, "config") and name == "dictionaries":
+        return True  # the vendored en_GB dictionary and its README are third-party; the Skill vocabulary is scanned
     return root == VALE_STYLES and name not in OWN_VALE_DIRS
 
 
@@ -154,6 +156,10 @@ class TestPrivacyScanner(unittest.TestCase):
                         "Voice rule files must be scanned")
         self.assertTrue(skip_dir(VALE_STYLES, "ai-tells"))
         self.assertTrue(skip_dir(VALE_STYLES, ".vale-config"))
+        for vendored in ("Voices", "Direct", "Human", "Std"):
+            self.assertTrue(skip_dir(VALE_STYLES, vendored))
+        self.assertTrue(skip_dir(os.path.join(VALE_STYLES, "config"), "dictionaries"))
+        self.assertFalse(skip_dir(os.path.join(VALE_STYLES, "config"), "vocabularies"))
         self.assertFalse(skip_dir(VALE_STYLES, "Voice"))
         self.assertFalse(skip_dir(os.path.join(SKILL, "tests"), "ai-tells"))
 

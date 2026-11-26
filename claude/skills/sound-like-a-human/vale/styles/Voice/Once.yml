@@ -1,0 +1,16 @@
+# One of these per piece. A second one is flagged. Replaces the Repeated* rules for the seven words
+# no vendored rule covers, plus showcase (the user writes it as a topic); the other thirteen are now banned outright by the vendored rules.
+extends: occurrence
+message: 'Second use of boost, compelling, curated, effortless, intuitive, journey, solution or showcase. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:boost|compelling|curated|effortless|intuitive|journey|solution|showcase|showcases|showcased)\b'
+tests:
+  - name: 'second is flagged'
+    input: "One boost here.\n\nA solution there."
+    contains: 'Voice.Once'
+  - name: 'one is fine'
+    input: "One boost here."
+    absent: 'Voice.Once'

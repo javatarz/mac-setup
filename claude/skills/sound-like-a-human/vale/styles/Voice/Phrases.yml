@@ -1,0 +1,52 @@
+# Stock phrases no vendored rule catches. Replaces Idiom and covers the gaps found when the
+# Banned, SetupLine and ImagineWorld rules were retired (see docs/wip/writing-system/vale-tuning.md).
+extends: existence
+message: 'Stock phrase "%s". Name the actual thing.'
+level: error
+ignorecase: true
+tokens:
+  - 'war stories'
+  - 'low-hanging fruit'
+  - 'boil the ocean'
+  - 'think outside the box'
+  - 'paint a (?:clear )?picture'
+  - 'dive deep'
+  - 'harness the power of'
+  - 'revolutioni[sz](?:e|es|ed|ing)'
+  - 'myriad'
+  - 'that being said'
+  - 'imagine a world'
+  - 'mindset shift'
+  - 'pillars?'
+  - 'continuous improvement'
+  - 'lightweight experimentation'
+  - 'here''?s the (?:thing|point|caveat|catch|gap|truth|kicker)'
+  - 'worth noting'
+  - 'it''?s worth mentioning'
+  - 'note that'
+  - 'the point is this'
+tests:
+  - name: 'idiom'
+    input: "These war stories matter."
+    contains: 'Voice.Phrases'
+  - name: 'picture'
+    input: "Let me paint a clear picture."
+    contains: 'Voice.Phrases'
+  - name: 'dive deep'
+    input: "We dive deep into it."
+    contains: 'Voice.Phrases'
+  - name: 'avoid-list buzzword'
+    input: "It needs a mindset shift and three pillars."
+    contains: 'Voice.Phrases'
+  - name: 'setup line'
+    input: "Here's the caveat: it breaks."
+    contains: 'Voice.Phrases'
+  - name: 'imagine'
+    input: "Imagine a world without flaky tests."
+    contains: 'Voice.Phrases'
+  - name: 'harness the power of'
+    input: "Harness the power of agents."
+    contains: 'Voice.Phrases'
+  - name: 'clean'
+    input: "We fixed the flaky test."
+    absent: 'Voice.Phrases'

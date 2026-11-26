@@ -14,11 +14,11 @@ from runner import rel  # noqa: E402
 
 # (test name, text, expected rule id, or None when the text must be clean)
 CASES = [
-    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "Voice.SerialCommaMaybe"),
+    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "Std.Punctuation.OxfordComma"),
     ("serial_comma_present_is_clean", "We use tests, lint, and review on every card.", None),
-    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "Voice.SerialComma"),
+    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "Std.Punctuation.OxfordComma"),
     ("however_comma_is_clean", "However, it made things harder and harder.", None),
-    ("off_of", "I'm going off of memory.", "Voice.OffOf"),
+    ("off_of", "I'm going off of memory.", "Voice.Prefer"),
     ("lets_as_contraction", "Lets take a step back.", "Voice.Lets"),
     ("lets_as_verb_is_clean", "It lets you move fast. Lets you know.", None),
     ("responsible_to_verb", "The team is responsible to keep time.", "Voice.ResponsibleTo"),
@@ -27,33 +27,37 @@ CASES = [
     ("may_be_as_maybe", "May be even AJAX.", "Voice.MayBe"),
     ("ish_suffix", "We merged 800ish PRs.", "Voice.Ish"),
     ("ish_inside_words_is_clean", "This is English and we finish and publish.", None),
-    ("gotten", "It has gotten worse.", "Voice.Gotten"),
-    ("prepone", "Can we prepone the call?", "Voice.Prepone"),
+    ("gotten", "It has gotten worse.", "Voice.Prefer"),
+    ("prepone", "Can we prepone the call?", "Vale.Avoid"),
     ("till_folks_learnt_are_clean", "I'll wait till Monday, folks. Quite a few learnt it.", None),
-    ("meetup_as_noun", "Meet at the meet-up.", "Voice.Meetup"),
-    ("groom_backlog", "We groom the backlog.", "Voice.Groom"),
-    ("em_dash", "Checks run fast — really fast.", "Voice.Dash"),
+    ("meetup_as_noun", "Meet at the meet-up.", "Voice.Prefer"),
+    ("groom_backlog", "We groom the backlog.", "Voice.Prefer"),
+    ("em_dash", "Checks run fast — really fast.", "ai-tells.EmDashUsage"),
     ("hyphen_as_dash", "Coverage is theatre - we measured it.", "Voice.HyphenAsDash"),
     ("compound_hyphens_are_clean", "A well-known cross-post.", None),
     ("exclamation", "This is great!", "Voice.Exclamation"),
     ("emoticon", "Not surprising :)", "Voice.Emoticon"),
     ("parentheses_are_clean", "Call f(x) and see (a) and (b).", None),
-    ("american_spelling_flagged", "We optimized the build.", "Voice.BritishStems"),
+    ("american_spelling_flagged", "We optimized the build.", "Voice.Spelling"),
     ("british_spelling_is_clean", "We optimised the build and resized it.", None),
-    ("brand_ie_lowercase_i", "iE is our framework.", "Voice.BrandIe"),
-    ("brand_intelligent_engineering_capitalized", "Intelligent Engineering helps.", "Voice.BrandIntelligentEngineering"),
+    ("brand_ie_lowercase_i", "iE is our framework.", "Vale.Avoid"),
+    ("brand_intelligent_engineering_capitalized", "Intelligent Engineering helps.", "Vale.Terms"),
     ("brand_intelligent_engineering_lowercase_i_is_clean", "intelligent Engineering helps.", None),
     ("hedge_i_think", "I think this works.", "Voice.Hedge"),
     ("about_with_number", "It took about 15 seconds.", "Voice.About"),
-    ("not_just_but", "It's not just a tool, but a workflow.", "Voice.NotJust"),
+    ("not_just_but", "It's not just a tool, but a workflow.", "Voices.BinaryContrast"),
     ("hedged_benefit", "This helps you to ship.", "Voice.HedgedBenefit"),
     ("anyone_can", "Anyone can wire the pipeline.", "Voice.AnyoneCan"),
-    ("self_answered_question", "The result? Faster shipping.", "Voice.SelfAnswer"),
-    ("setup_line", "Here's the caveat: it breaks.", "Voice.SetupLine"),
+    ("self_answered_question", "The result? Faster shipping.", "ai-tells.RhetoricalSelfAnswer"),
+    ("setup_line", "Here's the caveat: it breaks.", "Voice.Phrases"),
     ("banned_vocab_delve", "We delve into it.", "Voice.Banned"),
     ("harness_is_clean", "We harness agents with a harness.", None),
     ("social_proof", "Trusted by 500 teams.", "Voice.Proof"),
-    ("stock_idiom", "These war stories matter.", "Voice.Idiom"),
+    ("stock_idiom", "These war stories matter.", "Voice.Phrases"),
+    ("second_boost_flagged", "One boost here. A boost there.", "Voice.Once"),
+    ("one_boost_is_clean", "One boost here.", None),
+    ("accepted_words_are_clean", "The backend costs 2 lakh.", None),
+    ("spelling_word_swap_gray", "A gray box.", "Voice.Prefer"),
     ("repeated_qualifier", "the same guardrails, the same review gates", "Voice.RepeatedQualifier"),
 ]
 
@@ -79,7 +83,7 @@ def _make(name, text, want):
         expected = f"rule {want}" if want else "no alerts"
         self.fail(
             f"LINT CASE BROKE: {name}\n"
-            f"  where: {rel(__file__)}:{_case_line(name)} (CASES entry); the rules are the .yml files in vale/styles/Voice\n"
+            f"  where: {rel(__file__)}:{_case_line(name)} (CASES entry); the rules are the .yml files in vale/styles/Voice, the vendored packages and vale.ini\n"
             f"  text:  {text!r}\n"
             f"  expected {expected}, got {got or 'no alerts'}\n"
             "  why:   the linter no longer behaves as this case specifies.\n"

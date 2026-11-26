@@ -1,0 +1,13 @@
+# ai-tells.OpeningCliches, minus "Chances are", which the voice guide allows and the user writes.
+extends: ai-tells.OpeningCliches
+tokens-:
+  - Chances are
+  - Chances are you've
+  - Chances are you're
+tests:
+  - name: 'flags'
+    input: "Whether you're a dev or a lead, read on."
+    contains: 'Voice.OpeningCliches'
+  - name: 'chances are is allowed'
+    input: "Chances are that it is a bug."
+    absent: 'Voice.OpeningCliches'

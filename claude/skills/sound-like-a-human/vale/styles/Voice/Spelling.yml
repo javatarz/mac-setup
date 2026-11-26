@@ -1,0 +1,14 @@
+# British (-ise) spelling from the vendored en_GB dictionary. Words the user keeps go in
+# styles/config/vocabularies/Skill/accept.txt. Replaces BritishStems and BritishWords.
+extends: spelling
+message: "Did you really mean '%s'? Spelling is British (-ise, -our), and a word you keep goes in vocabularies/Skill/accept.txt."
+level: warning
+dictionaries:
+  - en_GB
+tests:
+  - name: 'american stems'
+    input: "We optimized and organized the build and the behavior."
+    contains: 'Voice.Spelling'
+  - name: 'british'
+    input: "We optimised and organised the build and the behaviour."
+    absent: 'Voice.Spelling'

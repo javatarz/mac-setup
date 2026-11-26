@@ -1,4 +1,2 @@
-# `vale sync` writes packages and its own state under styles/. Keep only what we write.
-styles/*
-!styles/Voice/
-!styles/config/
+# Vale writes its own state here when asked to sync. The skill never syncs: packages are vendored by vendor.sh.
+styles/.vale-config/

@@ -1,0 +1,46 @@
+# Derived from no-ai-slop (https://github.com/petergyang/no-ai-slop),
+# Copyright (c) 2026 Peter Yang, licensed under the MIT License. See NOTICE.
+#
+# Each inflection carries its own replacement, so the fix agrees in tense and
+# number: "make a decision" becomes "decide", not "decided". "was able to" is
+# left alone; it often marks a single achieved outcome, where "could" would
+# change the meaning.
+extends: substitution
+message: "Weak verb phrase: use '%s' instead of '%s'."
+level: error
+ignorecase: true
+capitalize: true
+action:
+  name: replace
+swap:
+  make a decision: decide
+  makes a decision: decides
+  made a decision: decided
+  making a decision: deciding
+  has the ability to: can
+  have the ability to: can
+  had the ability to: could
+  is able to: can
+  are able to: can
+  in order to: to
+
+tests:
+  - name: fires
+    input: |
+      We made a decision to ship.
+    want: |
+      1:4:Voices.WeakVerbs:Weak verb phrase: use 'decided' instead of 'made a decision'.
+  - name: agrees in tense
+    input: |
+      We make a decision each week.
+    want: |
+      1:4:Voices.WeakVerbs:Weak verb phrase: use 'decide' instead of 'make a decision'.
+  - name: keeps the case
+    input: |
+      Making a decision takes time.
+    want: |
+      1:1:Voices.WeakVerbs:Weak verb phrase: use 'Deciding' instead of 'Making a decision'.
+  - name: clean
+    input: |
+      We decided to ship.
+    want: ""

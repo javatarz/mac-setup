@@ -1,9 +1,7 @@
-extends: metric
-message: 'Sentence over 30 words. Split it.'
+# Direct.Length with the limit at 30 words (the package default is 25).
+extends: Direct.Length
 level: warning
-scope: sentence
-formula: words
-condition: '> 30.0'
+max: 30
 tests:
   - name: 'flags'
     input: "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word. Short one."

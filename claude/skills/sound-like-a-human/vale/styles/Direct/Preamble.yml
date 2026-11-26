@@ -1,0 +1,19 @@
+extends: existence
+message: "Preamble: '%s'. Lead with the finding."
+level: error
+ignorecase: true
+tokens:
+  - 'the reason (?:that |why )?[\w\s]{0,20} is'
+  - what this means is
+  - "in this (?:article|post|section)"
+
+tests:
+  - name: fires
+    input: |
+      What this means is that it works.
+    want: |
+      1:1:Direct.Preamble:Preamble: 'What this means is'. Lead with the finding.
+  - name: clean
+    input: |
+      It works.
+    want: ""
