@@ -28,13 +28,14 @@ This applies to every kind of writing: posts, slides, documents, emails, and soc
 - Short sentences, one idea each. Paragraphs of 2 to 4 sentences.
 - Join a short contrast with "but" when the second half would otherwise be a dramatic fragment: "The agent could read the whole repo in minutes but I couldn't." Don't write the fragment ("I couldn't."). Two complete sentences stay as two.
 - Use parentheses for asides and qualifiers.
-- Use contractions.
+- Use contractions. No lint rule checks this: the user's own 2016-2021 posts write "do not" and "it is" about 9 times per 1,000 words.
 - **Serial comma.** In a list of three or more, put a comma before the final "and" or "or": "timeouts, rate limits, and connection resets".
 - Prefer the active voice, the positive form, concrete words, and the fewest words that keep the meaning.
 
 ## Words
 
+- **Digits for numbers,** not words, from 2 to 10 and in most uses of 1: "3 steps", not "three steps". Spell one out where it reads better ("one of", "one at a time", "no one"). A number that starts a sentence stays as a word outside social posts. The linter suggests; the user decides.
 - **"Tests" by default; "checks" only when the point covers more than tests** (lint, type checks, review gates).
 - **For a word or usage not on the lint lists, Oxford Learner's Dictionary decides:** fix what it calls non-standard, keep what it calls informal or regional (Indian English included). Tell the user, so the result can go on a list.
 
-Spelling, punctuation, word lists, and length limits live in `scripts/lint.py`, not here. Run it on every draft. See `examples.md` for how this sounds and `pairs.md` for what the user fixes and why.
+Spelling, punctuation, word lists, and length limits live in the Vale rules (`vale/`, run through `scripts/lint.py`), not here. Run it on every draft. See `examples.md` for how this sounds and `pairs.md` for what the user fixes and why.

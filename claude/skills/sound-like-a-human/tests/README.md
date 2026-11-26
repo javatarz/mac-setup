@@ -4,7 +4,7 @@ Run everything with `tests/run.sh` from any directory. It needs Vale (`brew inst
 
 ## What runs
 
-- `test_vale.py`: runs `vale test --coverage` on `vale/styles/Voice`, which executes the `tests:` cases kept inside each rule file and fails if a rule has none. It also checks the per-type switches in `vale/vale.ini` (numerals only on social, no paragraph-count rule on social, email or slides) and the wrapper's failure messages.
+- `test_vale.py`: runs `vale test --coverage` on `vale/styles/Voice`, which executes the `tests:` cases kept inside each rule file and fails if a rule has none. It also checks the per-type switches in `vale/vale.ini` (numerals at warning on social and at suggestion elsewhere, no paragraph-count rule on social, email or slides, and the social-, slides- and doc-only rules) and the wrapper's failure messages.
 - `test_lint.py`: one test per rule case (41 cases) through the real wrapper `scripts/lint.py`, plus shape and keep-word checks.
 - `test_corpus.py`: lints every post in `fixtures/corpus-pre-2022/` (the user's own pre-2022 posts from karun.me) and compares alert counts per file and rule against `corpus_baseline.json`. The test fails if any file's count for a rule goes up, because that means a new false positive on human writing. A count going down only prints a note.
 

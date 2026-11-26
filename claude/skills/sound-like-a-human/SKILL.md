@@ -41,7 +41,7 @@ If the type is unclear, ask. Then read, in this order: `voice.md`, `examples.md`
 
 ## 3. Avoid-list
 
-AI habits the linter can't catch. Each needs judgement. If you see one, rewrite it plainly.
+AI habits. Each needs judgement. The linter catches only the fixed phrasings of some (items 2 to 5, 7, 9, 10, 12 and 13), as suggestions or, for headings, warnings; passive voice and dramatic fragments are not linted because they fire constantly on the user's own posts (see `vale/README.md`). If you see one, rewrite it plainly.
 
 1. **Abstract wisdom with no specifics.** "Better thinking in produces better thinking out." Give the case or cut it.
 2. **Contrast setups for punch.** "X, not Y", "isn't X, it's Y", "Not X. Not Y. Z." State the X. Keep a negation only when it rules out a likely misreading.
@@ -65,7 +65,7 @@ Run `python3 ${CLAUDE_SKILL_DIR}/scripts/lint.py --type <type> <file>` on every 
 
 In review mode, pass the text from before your edits: `--before <old-file>`. It flags any of the user's keep-words that your edits removed.
 
-Spelling, punctuation, word lists, and length limits live in the Vale rules under `vale/styles/Voice`, which the linter runs. Don't re-check them by reading. If the linter says Vale is missing, stop and give the user its install command.
+Spelling, punctuation, word lists, and length limits live in the Vale rules under `vale/styles/Voice`, which the linter runs. Headings of 9 words or more in an h2 or below get a warning, a soft limit: keep the heading if it reads best, and mark that with `<!-- vale Voice.HeadingLength = NO -->` on the line before it. Don't re-check linted rules by reading. If the linter says Vale is missing, stop and give the user its install command.
 
 ## 5. When the user corrects your wording
 
