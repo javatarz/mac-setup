@@ -1,0 +1,27 @@
+# "one" as a number ("ran one check"), not as a pronoun or in a fixed expression. Suggestion by
+# default, warning on social (vale.ini). Needs a word before it, so the start of a sentence is left
+# alone. Not flagged: "no one", "the one", "which one", "one of", "one at a time", "one by one",
+# "from one", "one day", "one can". A regex, not the part-of-speech tagger: the tagger did not tell number from
+# pronoun reliably in tests.
+extends: existence
+message: 'Prefer a digit: write "one" as a numeral, unless it reads better spelled out.'
+level: suggestion
+ignorecase: true
+raw:
+  - '(?<=[\w,;)]\s)(?<!\b(?:the|no|which|this|that|any|each|every|another|not|only|just|from)\s)\bone\s+(?!(?:of|at|by|on|can|could|would|will|should|may|might|must|is|was|has|had|does|did|who|that|which|and|or|but|to|in|for|with|from|as|than|another|else|up|out|off|day)\b)[a-z]'
+tests:
+  - name: 'flags'
+    input: "We ran one check."
+    contains: 'Voice.NumeralOne'
+  - name: 'flags one more'
+    input: "Then we did one more run."
+    contains: 'Voice.NumeralOne'
+  - name: 'digit'
+    input: "We ran 1 check."
+    absent: 'Voice.NumeralOne'
+  - name: 'pronoun and fixed expressions'
+    input: "No one knows. One of them broke. The one thing that matters. Which one? Do it one at a time. Do it one by one. Move from one to another. One day it broke. Then one can try."
+    absent: 'Voice.NumeralOne'
+  - name: 'sentence start'
+    input: "It broke! One test failed. Another test passed."
+    absent: 'Voice.NumeralOne'

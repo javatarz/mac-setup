@@ -1,14 +1,23 @@
-# Social type only: vale.ini enables it under [social/*.md].
+# Digits over spelled-out numbers, two to ten. Every type except social (vale.ini turns it off there,
+# where NumeralsSocial and NumeralOne run at warning). Suggestion, because spelling a number out
+# is sometimes right. Not flagged: the start of a sentence, "zero" (zero-sum, zero trust), ordinals.
+# "one" is in NumeralOne, which tells the number from the pronoun.
 extends: existence
-message: 'Social posts use numerals for numbers: write "%s" as a digit.'
-level: warning
+message: 'Prefer a digit: write "%s" as a numeral, unless spelling it out reads better.'
+level: suggestion
 ignorecase: true
 raw:
-  - '\b(?:two|three|four|five|six|seven|eight|nine|ten)\b'
+  - '(?<=[\w,;:)]\s)(?:two|three|four|five|six|seven|eight|nine|ten)\b(?!-on-)'
 tests:
   - name: 'flags'
     input: "We ran three tests."
     contains: 'Voice.Numerals'
   - name: 'digit'
     input: "We ran 3 tests."
+    absent: 'Voice.Numerals'
+  - name: 'sentence start is left alone'
+    input: "Three tests failed. Two of them were slow."
+    absent: 'Voice.Numerals'
+  - name: 'ordinals and zero'
+    input: "The second try took a zero-sum view of the third."
     absent: 'Voice.Numerals'

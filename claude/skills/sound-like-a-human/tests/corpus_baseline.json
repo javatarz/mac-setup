@@ -16,6 +16,7 @@
   "Voice.Exclamation": 2,
   "Voice.Hedge": 1,
   "Voice.LongSentence": 4,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 3
  },
  "2007-01-25-the-undeletables.md": {
@@ -23,6 +24,7 @@
   "Voice.Emoticon": 1,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 1,
+  "Voice.Numerals": 3,
   "Voice.OneSentenceParagraph": 3,
   "Voice.SetupLine": 1
  },
@@ -62,6 +64,7 @@
   "Voice.Exclamation": 2,
   "Voice.Lets": 1,
   "Voice.MayBe": 1,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 4
  },
  "2008-08-21-team-skan-enpower.md": {
@@ -74,6 +77,7 @@
   "Voice.Emoticon": 8,
   "Voice.Exclamation": 4,
   "Voice.LongSentence": 11,
+  "Voice.NumeralOne": 1,
   "Voice.SerialCommaMaybe": 2
  },
  "2008-09-07-browser-tryouts-google-chrome.md": {
@@ -91,6 +95,7 @@
   "Voice.Hedge": 1,
   "Voice.Lets": 1,
   "Voice.LongSentence": 8,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 1,
   "Voice.SerialComma": 1,
   "Voice.SerialCommaMaybe": 2
@@ -124,6 +129,8 @@
   "Voice.Lets": 1,
   "Voice.LongSentence": 17,
   "Voice.MayBe": 1,
+  "Voice.NumeralOne": 2,
+  "Voice.Numerals": 2,
   "Voice.OneSentenceParagraph": 5,
   "Voice.Proof": 2,
   "Voice.SetupLine": 1
@@ -134,6 +141,7 @@
   "Voice.Exclamation": 1,
   "Voice.Hedge": 1,
   "Voice.LongSentence": 8,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 1
  },
  "2009-05-16-windows-7-a-second-look.md": {
@@ -142,6 +150,7 @@
   "Voice.Exclamation": 4,
   "Voice.Hedge": 1,
   "Voice.LongSentence": 10,
+  "Voice.Numerals": 3,
   "Voice.OneSentenceParagraph": 2,
   "Voice.SerialCommaMaybe": 1
  },
@@ -159,6 +168,7 @@
   "Voice.BritishStems": 1,
   "Voice.Emoticon": 4,
   "Voice.LongSentence": 13,
+  "Voice.NumeralOne": 3,
   "Voice.SerialCommaMaybe": 2
  },
  "2009-05-21-is-microsoft-delaying-vista-sp2-launch.md": {
@@ -167,6 +177,7 @@
   "Voice.HyphenAsDash": 1,
   "Voice.LongSentence": 3,
   "Voice.MayBe": 1,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 1
  },
  "2009-05-21-visual-studio-2010-net-40-beta-1-released.md": {
@@ -174,6 +185,7 @@
   "Voice.Emoticon": 4,
   "Voice.Exclamation": 2,
   "Voice.LongSentence": 2,
+  "Voice.Numerals": 2,
   "Voice.OneSentenceParagraph": 8,
   "Voice.SerialCommaMaybe": 1
  },
@@ -196,6 +208,7 @@
   "Voice.BritishWords": 1,
   "Voice.Emoticon": 4,
   "Voice.LongSentence": 2,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 1
  },
  "2009-06-29-visit-to-microsoft-redmond.md": {
@@ -209,6 +222,8 @@
   "Voice.Ish": 1,
   "Voice.Lets": 1,
   "Voice.LongSentence": 38,
+  "Voice.NumeralOne": 6,
+  "Voice.Numerals": 4,
   "Voice.OneSentenceParagraph": 3,
   "Voice.SayGoodbye": 1,
   "Voice.SerialComma": 4,
@@ -228,6 +243,7 @@
   "Voice.Hedge": 1,
   "Voice.Lets": 2,
   "Voice.LongSentence": 5,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 1,
   "Voice.SerialComma": 1,
   "Voice.SerialCommaMaybe": 3
@@ -241,7 +257,8 @@
   "Voice.Emoticon": 4,
   "Voice.Exclamation": 2,
   "Voice.Hedge": 1,
-  "Voice.LongSentence": 2
+  "Voice.LongSentence": 2,
+  "Voice.NumeralOne": 1
  },
  "2009-10-02-windows-7-launch-party.md": {
   "Voice.BritishStems": 1,
@@ -259,6 +276,7 @@
  "2009-11-03-trying-minefield-3-7a1pre.md": {
   "Voice.Emoticon": 6,
   "Voice.LongSentence": 3,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 1,
   "Voice.SerialCommaMaybe": 1
  },
@@ -283,6 +301,7 @@
   "Voice.Emoticon": 6,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 6,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 8,
   "Voice.SerialCommaMaybe": 2,
   "Voice.SetupLine": 1
@@ -397,6 +416,9 @@
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 1
  },
+ "2013-04-29-converting-fat32-disks-to-ntfs.md": {
+  "Voice.NumeralOne": 2
+ },
  "2013-04-29-terracopy-copying-files-the-way-its-meant-to-be-copied.md": {
   "Voice.Emoticon": 1,
   "Voice.Exclamation": 2,
@@ -428,7 +450,8 @@
   "Voice.Emoticon": 3,
   "Voice.Exclamation": 2,
   "Voice.HyphenAsDash": 1,
-  "Voice.LongSentence": 2
+  "Voice.LongSentence": 2,
+  "Voice.NumeralOne": 2
  },
  "2013-12-03-eclipse-plugin-development-project-icon-overlay.md": {
   "Voice.LongSentence": 2,
@@ -439,6 +462,7 @@
   "Voice.Emoticon": 1,
   "Voice.HeadingRepeat": 1,
   "Voice.LongSentence": 5,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 22
  },
  "2014-03-13-wildfly-server-side-variablesjndi-custom-resources.md": {
@@ -468,6 +492,8 @@
  },
  "2014-07-08-project-euler-79-passcode-derrivation-using-lambdas.md": {
   "Voice.LongSentence": 6,
+  "Voice.NumeralOne": 2,
+  "Voice.Numerals": 2,
   "Voice.OneSentenceParagraph": 9,
   "Voice.RepeatedSolution": 1,
   "Voice.SetupLine": 1
@@ -518,6 +544,8 @@
  },
  "2014-11-30-mass-renaming-file-extensions-with-powershell.md": {
   "Voice.Hedge": 1,
+  "Voice.NumeralOne": 1,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 3
  },
  "2014-11-30-removing-utorrent-ads.md": {
@@ -538,6 +566,8 @@
   "Voice.HyphenAsDash": 6,
   "Voice.Lets": 3,
   "Voice.LongSentence": 3,
+  "Voice.NumeralOne": 1,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 13
  },
  "2015-01-31-signs-of-a-troubled-startup.md": {
@@ -546,6 +576,7 @@
   "Voice.HeadingLength": 2,
   "Voice.Hedge": 2,
   "Voice.LongSentence": 3,
+  "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 2,
   "Voice.SerialComma": 2,
   "Voice.SerialCommaMaybe": 1
@@ -589,6 +620,7 @@
  "2016-02-28-commonly-made-mistakes-in-unit-testing.md": {
   "Voice.Emoticon": 1,
   "Voice.Exclamation": 2,
+  "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 11
  },
  "2016-12-05-hosting-blogs-for-1-cent-a-month.md": {

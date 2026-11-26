@@ -1,0 +1,18 @@
+# Social only: vale.ini enables it under [social/*.md]. Characters count, so this is a warning
+# and it also covers the start of a sentence. "one" is in NumeralOne.
+extends: existence
+message: 'Social posts use numerals: write "%s" as a digit.'
+level: warning
+ignorecase: true
+raw:
+  - '\b(?:two|three|four|five|six|seven|eight|nine|ten)\b(?!-on-)'
+tests:
+  - name: 'flags'
+    input: "We ran three tests."
+    contains: 'Voice.NumeralsSocial'
+  - name: 'flags at sentence start'
+    input: "Two of them fired late."
+    contains: 'Voice.NumeralsSocial'
+  - name: 'digit'
+    input: "We ran 3 tests."
+    absent: 'Voice.NumeralsSocial'

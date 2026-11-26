@@ -54,15 +54,33 @@ class PerTypeSwitches(unittest.TestCase):
                 "  fix:   restore the override in vale/vale.ini, or edit this test if the change was meant."
             )
 
-    def test_numerals_flagged_on_social_only(self):
-        self.check_type("We ran three tests.", "social", "Voice.Numerals", True)
+    def test_numerals_warn_on_social_and_suggest_elsewhere(self):
+        text = "We ran three tests."
+        self.check_type(text, "social", "Voice.NumeralsSocial", True)
+        self.check_type(text, "social", "Voice.Numerals", False)
         for t in ("post", "doc", "email", "slides"):
-            self.check_type("We ran three tests.", t, "Voice.Numerals", False)
+            self.check_type(text, t, "Voice.Numerals", True)
+            self.check_type(text, t, "Voice.NumeralsSocial", False)
+        levels = {h[2]: h[1] for t in ("social", "post") for h in lint.check(text, t)}
+        self.assertEqual(levels["Voice.NumeralsSocial"], "warning")
+        self.assertEqual(levels["Voice.Numerals"], "suggestion")
+
+    def test_sentence_initial_numbers_flagged_on_social_only(self):
+        self.check_type("Three tests failed.", "social", "Voice.NumeralsSocial", True)
+        for t in ("post", "doc", "email", "slides"):
+            self.check_type("Three tests failed.", t, "Voice.Numerals", False)
 
     def test_numerals_leave_digits_and_pronoun_one_alone(self):
         for text in ("We ran 3 tests and 10 checks.", "No one knows. One of them broke.", "The one thing that matters.",
-                     "Which one? The one I wrote.", "Ran 1 check."):
-            self.check_type(text, "social", "Voice.Numerals", False)
+                     "Which one? The one I wrote.", "Ran 1 check.", "A zero-sum, one-on-one talk about the second try."):
+            for t in ("social", "post"):
+                for rule in ("Voice.Numerals", "Voice.NumeralsSocial", "Voice.NumeralOne"):
+                    self.check_type(text, t, rule, False)
+
+    def test_one_as_a_number_is_a_warning_on_social_and_a_suggestion_elsewhere(self):
+        text = "We ran one check."
+        got = {t: {h[2]: h[1] for h in lint.check(text, t)}.get("Voice.NumeralOne") for t in ("social", "post")}
+        self.assertEqual(got, {"social": "warning", "post": "suggestion"})
 
     def test_heading_length_is_soft_and_skips_the_title(self):
         nine = "One two three four five six seven eight nine"
