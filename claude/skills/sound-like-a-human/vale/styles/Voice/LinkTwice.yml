@@ -1,0 +1,14 @@
+# Social only (vale.ini): link once, at the end. Markdown link targets and bare URLs both count.
+extends: occurrence
+message: 'More than one link. Link once, at the end.'
+level: suggestion
+scope: raw
+max: 1
+token: '\]\(https?://|(?<!\()https?://\S+'
+tests:
+  - name: 'flags'
+    input: "Read https://karun.me/a and https://karun.me/b now."
+    contains: 'Voice.LinkTwice'
+  - name: 'one link'
+    input: "Read https://karun.me/a now."
+    absent: 'Voice.LinkTwice'

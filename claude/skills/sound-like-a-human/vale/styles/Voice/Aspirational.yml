@@ -1,0 +1,19 @@
+# Aspirational framing: praise of unnamed engineers or teams.
+extends: existence
+message: 'Aspirational framing "%s". Say what you did or saw.'
+level: suggestion
+ignorecase: true
+tokens:
+  - 'the engineers I admire'
+  - 'the teams I admire'
+  - 'the best (?:engineers|teams|developers)'
+  - 'great (?:engineers|teams|developers)'
+  - 'high-performing teams?'
+  - 'world-class teams?'
+tests:
+  - name: 'flags'
+    input: "The best engineers write tests first."
+    contains: 'Voice.Aspirational'
+  - name: 'plain'
+    input: "One team I worked with wrote tests first."
+    absent: 'Voice.Aspirational'

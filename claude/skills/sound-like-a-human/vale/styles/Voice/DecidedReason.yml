@@ -1,0 +1,13 @@
+# Doc type only (vale.ini): a decision keeps its reason. Looks for "because" later in the same paragraph.
+extends: existence
+message: 'Decision with no reason. Add "because ..." in the same paragraph.'
+level: suggestion
+raw:
+  - '\bDecided\b(?![\s\S]*?\bbecause\b)'
+tests:
+  - name: 'flags'
+    input: "Decided 2026-11-24: use Vale."
+    contains: 'Voice.DecidedReason'
+  - name: 'with reason'
+    input: "Decided 2026-11-24: use Vale because it runs offline."
+    absent: 'Voice.DecidedReason'

@@ -1,0 +1,21 @@
+# Buzzwords the skill's avoid-list names, plus close relatives.
+extends: existence
+message: 'Buzzword "%s". Say the specific thing.'
+level: suggestion
+ignorecase: true
+tokens:
+  - 'mindset shift'
+  - 'pillars?'
+  - 'continuous improvement'
+  - 'lightweight experimentation'
+  - 'reshap(?:e|es|ed|ing)'
+  - 'game[- ]chang(?:er|ing)'
+  - 'paradigm'
+  - 'synerg(?:y|ies)'
+tests:
+  - name: 'flags'
+    input: "This is a mindset shift."
+    contains: 'Voice.BuzzWords'
+  - name: 'plain'
+    input: "This changes how we plan."
+    absent: 'Voice.BuzzWords'

@@ -1,0 +1,20 @@
+# One spelling per document, for the pairs the skill lists.
+extends: consistency
+message: 'Use one spelling: "%s".'
+level: suggestion
+ignorecase: true
+scope: text
+either:
+  'e-mail': 'email'
+  'log-in': 'login'
+  'web site': 'website'
+  'back-end': 'backend'
+  'front-end': 'frontend'
+  'set-up': 'setup'
+tests:
+  - name: 'flags'
+    input: "Send an e-mail. Then send an email."
+    contains: 'Voice.Consistent'
+  - name: 'one spelling'
+    input: "Send an email. Then send another email."
+    absent: 'Voice.Consistent'

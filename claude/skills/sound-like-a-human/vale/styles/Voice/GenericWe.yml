@@ -1,0 +1,19 @@
+# "We all know" says nothing about who. "I" and "we" mean real people.
+extends: existence
+message: 'Generic "we": "%s". Say who.'
+level: suggestion
+ignorecase: true
+tokens:
+  - 'we all know'
+  - 'we all'
+  - 'as we know'
+  - 'we know that'
+  - 'we have all'
+  - 'we''ve all'
+tests:
+  - name: 'flags'
+    input: "We all know tests matter."
+    contains: 'Voice.GenericWe'
+  - name: 'real we'
+    input: "We shipped the fix on Monday."
+    absent: 'Voice.GenericWe'

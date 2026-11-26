@@ -1,0 +1,13 @@
+# Slides only (vale.ini): speaker notes are words to say, not instructions to the speaker.
+extends: existence
+message: 'Stage direction "%s". Speaker notes are words to say.'
+level: suggestion
+raw:
+  - '(?i)\b(?:put|pull|bring|show|switch to|click|advance|flip to|go to|move to) (?:up )?(?:to )?(?:the )?(?:next )?(?:slide|code|diagram|screen|demo|terminal|chart)\b|\[pause\]|\bpause here\b|\bland the (?:title|point)\b|\bnext slide\b'
+tests:
+  - name: 'flags'
+    input: "Put the code up on the screen."
+    contains: 'Voice.StageDirection'
+  - name: 'plain'
+    input: "The code is on the screen."
+    absent: 'Voice.StageDirection'

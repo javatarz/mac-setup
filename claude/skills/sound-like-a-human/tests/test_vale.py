@@ -93,6 +93,18 @@ class PerTypeSwitches(unittest.TestCase):
         self.assertEqual([h[0] for h in lint.check(two, "post") if h[2] == "Voice.HeadingLength"], [7])
         self.assertEqual(next(h[1] for h in lint.check(f"## {nine}\n\nText here.", "post") if h[2] == "Voice.HeadingLength"), "warning")
 
+    def test_type_specific_rules(self):
+        cases = [
+            ("Put the code up on the screen.", "Voice.StageDirection", {"slides"}),
+            ("Decided: use Vale.", "Voice.DecidedReason", {"doc"}),
+            ("Decided: use Vale.", "Voice.DecidedDate", {"doc"}),
+            ("It works, but it is slow.", "Voice.SoftBut", {"social"}),
+            ("Read https://karun.me/a and https://karun.me/b now.", "Voice.LinkTwice", {"social"}),
+        ]
+        for text, rule, on in cases:
+            for t in ("post", "doc", "slides", "email", "social"):
+                self.check_type(text, t, rule, t in on)
+
     def test_one_sentence_paragraph_only_on_long_form(self):
         text = "One alone.\n\nTwo here. And another."
         for t in ("post", "doc"):

@@ -1,0 +1,14 @@
+# Two or more three-item lists in one paragraph read as rhythm, not content.
+extends: occurrence
+message: 'Two or more three-item lists in one paragraph. Keep only the ones the reader needs.'
+level: suggestion
+scope: paragraph
+max: 1
+token: '\b[\w''-]+(?: [\w''-]+)?, [\w''-]+(?: [\w''-]+)?,? (?:and|or) [\w''-]+'
+tests:
+  - name: 'flags'
+    input: "We use tests, lint, and review. We also use cards, stories, and spikes."
+    contains: 'Voice.Triples'
+  - name: 'one list is fine'
+    input: "We use tests, lint, and review. Then we ship."
+    absent: 'Voice.Triples'

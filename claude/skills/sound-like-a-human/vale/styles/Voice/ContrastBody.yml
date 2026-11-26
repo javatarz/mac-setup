@@ -1,0 +1,16 @@
+# Body-text contrast setups. Suggestion only: a negation that rules out a real misreading can stay.
+extends: existence
+message: 'Contrast setup "%s". Say what it is. Keep the negation only if it rules out a real misreading.'
+level: suggestion
+raw:
+  - '(?i)(?:, not (?:a|an|the|just|only|merely|about|because|to|so|for|how|what|that)\b|(?:^|\. )Not [^.]{1,60}\. Not [^.]{1,60}\.)'
+tests:
+  - name: 'flags comma-not'
+    input: "We fix the cause, not the symptom."
+    contains: 'Voice.ContrastBody'
+  - name: 'flags not-not'
+    input: "Not fast. Not slow. Just right."
+    contains: 'Voice.ContrastBody'
+  - name: 'plain'
+    input: "We fix the cause. The symptom goes away."
+    absent: 'Voice.ContrastBody'

@@ -1,0 +1,13 @@
+# Doc type only (vale.ini): a decision keeps its date. "Decided 2026-11-24: ... because ..."
+extends: existence
+message: 'Decision with no date. Write "Decided YYYY-MM-DD: ..." and give the reason.'
+level: suggestion
+raw:
+  - '\bDecided\b(?!:? ?\d{4}-\d{2}-\d{2})'
+tests:
+  - name: 'flags'
+    input: "Decided: use Vale."
+    contains: 'Voice.DecidedDate'
+  - name: 'dated'
+    input: "Decided 2026-11-24: use Vale because it runs offline."
+    absent: 'Voice.DecidedDate'

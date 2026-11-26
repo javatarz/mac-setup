@@ -1,0 +1,13 @@
+# Compressed aphorisms: "X is the work", "X is the product".
+extends: existence
+message: 'Compressed aphorism "%s". Say the plain claim.'
+level: suggestion
+raw:
+  - '(?i)\b\w+ is the (?:work|job|product|point|whole point|real work|real job|hard part|real product)\b'
+tests:
+  - name: 'flags'
+    input: "Review is the work."
+    contains: 'Voice.Aphorism'
+  - name: 'plain'
+    input: "Review takes most of the time."
+    absent: 'Voice.Aphorism'

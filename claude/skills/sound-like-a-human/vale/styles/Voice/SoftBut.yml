@@ -1,0 +1,13 @@
+# Social only (vale.ini): a short statement softened by "but".
+extends: existence
+message: 'Softening "but" in a short statement: "%s". Say the second half as its own sentence.'
+level: suggestion
+raw:
+  - '(?i)(?:^|[.!?] )[^.!?,]{3,50}, but [^.!?]{1,30}[.!?]'
+tests:
+  - name: 'flags'
+    input: "It works, but it is slow."
+    contains: 'Voice.SoftBut'
+  - name: 'long sentence'
+    input: "We rewrote the whole retry layer over three weeks and the tests now pass on every run, but it was a lot of work and I would not do it again."
+    absent: 'Voice.SoftBut'

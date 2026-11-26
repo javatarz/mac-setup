@@ -1,0 +1,19 @@
+# Boasting about rigour, or narrating the process.
+extends: existence
+message: 'Boasting about rigour or narrating the process: "%s". Show the result.'
+level: suggestion
+ignorecase: true
+tokens:
+  - 'we didn''t just'
+  - 'I didn''t just'
+  - 'let me break'
+  - 'let''s break'
+  - 'let me walk you'
+  - 'we took a step back'
+tests:
+  - name: 'flags'
+    input: "We didn't just fix it."
+    contains: 'Voice.BoastRigour'
+  - name: 'plain'
+    input: "We fixed it."
+    absent: 'Voice.BoastRigour'

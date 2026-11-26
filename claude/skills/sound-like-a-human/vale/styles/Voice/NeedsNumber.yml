@@ -1,0 +1,14 @@
+# A leftover [needs number] means a claim has no number behind it yet.
+extends: existence
+message: 'Leftover placeholder "%s". Replace it with the real number or cut the claim.'
+level: warning
+nonword: true
+tokens:
+  - '\[needs number\]'
+tests:
+  - name: 'flags'
+    input: "Latency dropped by [needs number] percent."
+    contains: 'Voice.NeedsNumber'
+  - name: 'no placeholder'
+    input: "Latency dropped by 40 percent."
+    absent: 'Voice.NeedsNumber'
