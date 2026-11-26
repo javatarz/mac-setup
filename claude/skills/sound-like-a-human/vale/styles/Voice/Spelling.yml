@@ -5,10 +5,18 @@ message: "Did you really mean '%s'? Spelling is British (-ise, -our), and a word
 level: warning
 dictionaries:
   - en_GB
+# Vale drops the full stop before the spell check, so "etc." reaches it as "etc". Skip it here;
+# Voice.EtcStop flags "etc" without the full stop. It can't go in accept.txt, because accepted
+# words are exempt from every rule, which would switch off EtcStop.
+filters:
+  - '^etc$'
 tests:
   - name: 'american stems'
     input: "We optimized and organized the build and the behavior."
     contains: 'Voice.Spelling'
   - name: 'british'
     input: "We optimised and organised the build and the behaviour."
+    absent: 'Voice.Spelling'
+  - name: 'etc with full stop'
+    input: "Apples, pears, etc. are fruit."
     absent: 'Voice.Spelling'

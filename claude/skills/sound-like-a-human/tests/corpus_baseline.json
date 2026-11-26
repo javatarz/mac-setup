@@ -372,6 +372,7 @@
  },
  "2010-02-21-torrenting-on-linux.md": {
   "Voice.Emoticon": 6,
+  "Voice.EtcStop": 2,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 6,
   "Voice.NumeralOne": 1,
@@ -511,6 +512,7 @@
   "ai-tells.FigurativeWorth": 1
  },
  "2013-04-06-soccer-scraper-v1-source-on-github.md": {
+  "Vale.Terms": 1,
   "Voice.Emoticon": 1,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 2,
@@ -631,6 +633,7 @@
   "Voice.Spelling": 4
  },
  "2014-10-02-desktoppr-downloader.md": {
+  "Vale.Terms": 1,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 6,
@@ -721,6 +724,7 @@
   "ai-tells.FigurativeWorth": 1
  },
  "2015-02-01-forced-https-on-your-website-with-cloudflare.md": {
+  "Vale.Terms": 25,
   "Voice.Emoticon": 2,
   "Voice.Exclamation": 2,
   "Voice.Lets": 1,
@@ -774,12 +778,14 @@
   "ai-tells.FillerPhrases": 4
  },
  "2016-12-05-hosting-blogs-for-1-cent-a-month.md": {
+  "Vale.Terms": 2,
   "Voice.Exclamation": 4,
   "Voice.OneSentenceParagraph": 2,
   "Voice.OpeningCliches": 1,
   "Voice.Spelling": 1
  },
  "2017-08-13-lombok-usage-in-large-enterprises.md": {
+  "Vale.Terms": 4,
   "Voice.Emoticon": 1,
   "Voice.LongSentence": 3,
   "Voice.OneSentenceParagraph": 8,
@@ -790,6 +796,8 @@
   "Voice.OneSentenceParagraph": 2
  },
  "2018-07-03-the-science-in-the-art-of-the-showcase-for-distributed-teams.md": {
+  "Vale.Terms": 1,
+  "Voice.EtcStop": 1,
   "Voice.Hedge": 1,
   "Voice.Once": 1,
   "Voice.OneSentenceParagraph": 2,
@@ -800,6 +808,7 @@
   "ai-tells.MarketingHeadings": 1
  },
  "2018-11-01-efficient-logback-logging-on-jvm.md": {
+  "Vale.Terms": 4,
   "Voice.Emoticon": 1,
   "Voice.Hedge": 1,
   "Voice.Ish": 1,
@@ -819,9 +828,11 @@
   "ai-tells.AbsoluteAssertions": 1
  },
  "2019-06-11-managing-multiple-signatures-for-git-repositories.md": {
+  "Vale.Terms": 1,
   "Voice.OneSentenceParagraph": 2
  },
  "2019-08-26-version-controlled-configuration-and-secrets-management-for-terraform.md": {
+  "Vale.Terms": 6,
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 17,
   "Voice.Phrases": 1,

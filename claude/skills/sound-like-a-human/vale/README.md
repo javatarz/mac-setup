@@ -2,7 +2,7 @@
 
 The rules we wrote live in `styles/Voice`, one `.yml` per rule with its own `tests:` cases. Third-party rules are vendored (copied, not synced) into `styles/ai-tells`, `styles/Voices`, `styles/Direct`, `styles/Human` and `styles/Std`, with each package's licence. Do not edit them: `vendor.sh` replaces them from a pinned tag (`./vendor.sh`, or `./vendor.sh ai-tells v1.38.0`), and `git diff` shows what changed. `vale.ini` has no `Packages` line, so Vale never fetches anything. Each package is switched off as a whole and single rules are switched on in `vale.ini`; where a package rule fired on the user's own posts, `Voice/` holds a derived rule (`extends:` plus `tokens-`) that drops the offending words.
 
-Spelling is the vendored en_GB dictionary (`Voice.Spelling`). The user's exceptions are in `styles/config/vocabularies/Skill/`: `accept.txt` (words en_GB flags that are right, and brand terms in their exact case) and `reject.txt` (`iE`). `scripts/lint.py` runs them with `vale.ini`. Run `vale --no-global --config vale/vale.ini test --coverage vale/styles/Voice` to test them.
+Spelling is the vendored en_GB dictionary (`Voice.Spelling`). The user's exceptions are in `styles/config/vocabularies/Skill/`: `accept.txt` (words en_GB flags that are right, and brand terms in their exact case) and `reject.txt` (`iE`). An accepted word is exempt from every rule, not just spelling, so `etc` is not in `accept.txt`: `Voice.Spelling` skips it with a filter and `Voice.EtcStop` flags it without a full stop. `scripts/lint.py` runs them with `vale.ini`. Run `vale --no-global --config vale/vale.ini test --coverage vale/styles/Voice` to test them.
 
 ## Where a rule applies
 

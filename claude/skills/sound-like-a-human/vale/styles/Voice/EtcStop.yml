@@ -1,0 +1,12 @@
+extends: existence
+message: 'Write "etc." with a full stop.'
+level: warning
+raw:
+  - '\betc\b(?!\.)'
+tests:
+  - name: 'no full stop'
+    input: "Apples, pears etc are fruit."
+    contains: 'Voice.EtcStop'
+  - name: 'full stop'
+    input: "Apples, pears, etc. are fruit."
+    absent: 'Voice.EtcStop'
