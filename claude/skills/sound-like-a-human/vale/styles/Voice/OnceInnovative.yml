@@ -1,0 +1,16 @@
+# "innovative" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"innovative" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:innovative(?:ly)?)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One innovative here.\n\nAnother innovative there."
+    contains: 'Voice.OnceInnovative'
+  - name: 'one use is fine'
+    input: "One innovative here."
+    absent: 'Voice.OnceInnovative'

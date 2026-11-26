@@ -1,0 +1,16 @@
+# "world-class" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"world-class" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:world-class)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One world-class here.\n\nAnother world-class there."
+    contains: 'Voice.OnceWorldClass'
+  - name: 'one use is fine'
+    input: "One world-class here."
+    absent: 'Voice.OnceWorldClass'

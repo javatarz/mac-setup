@@ -14,9 +14,9 @@ from runner import rel  # noqa: E402
 
 # (test name, text, expected rule id, or None when the text must be clean)
 CASES = [
-    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "Std.Punctuation.OxfordComma"),
+    ("serial_comma_maybe_flagged", "We use tests, lint and review on every card.", "Voice.SerialCommaMaybe"),
     ("serial_comma_present_is_clean", "We use tests, lint, and review on every card.", None),
-    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "Std.Punctuation.OxfordComma"),
+    ("serial_comma_missing_in_list_of_four", "Run unit, contract, integration and e2e tests.", "Voice.SerialComma"),
     ("however_comma_is_clean", "However, it made things harder and harder.", None),
     ("off_of", "I'm going off of memory.", "Voice.Prefer"),
     ("lets_as_contraction", "Lets take a step back.", "Voice.Lets"),
@@ -28,7 +28,7 @@ CASES = [
     ("ish_suffix", "We merged 800ish PRs.", "Voice.Ish"),
     ("ish_inside_words_is_clean", "This is English and we finish and publish.", None),
     ("gotten", "It has gotten worse.", "Voice.Prefer"),
-    ("prepone", "Can we prepone the call?", "Vale.Avoid"),
+    ("prepone", "Can we prepone the call?", "Voice.Prefer"),
     ("till_folks_learnt_are_clean", "I'll wait till Monday, folks. Quite a few learnt it.", None),
     ("meetup_as_noun", "Meet at the meet-up.", "Voice.Prefer"),
     ("groom_backlog", "We groom the backlog.", "Voice.Prefer"),
@@ -54,6 +54,12 @@ CASES = [
     ("harness_is_clean", "We harness agents with a harness.", None),
     ("social_proof", "Trusted by 500 teams.", "Voice.Proof"),
     ("stock_idiom", "These war stories matter.", "Voice.Phrases"),
+    ("serial_comma_one_word_items", "We store configurations, secrets and keys.", "Voice.SerialCommaMaybe"),
+    ("serial_comma_one_word_items_price", "Look at availability, price and stability.", "Voice.SerialCommaMaybe"),
+    ("serial_comma_multi_word_items", "It runs on cloud, non cloud providers and bare metal servers.", "Std.Punctuation.OxfordComma"),
+    ("fine_once_word_clean", "This is a crucial step.", None),
+    ("fine_once_word_second_use", "A crucial step.\n\nAnother crucial step.", "Voice.OnceCrucial"),
+    ("fine_once_leverage_second_use", "We leverage it. We leveraged it again.", "Voice.OnceLeverage"),
     ("second_boost_flagged", "One boost here. A boost there.", "Voice.Once"),
     ("one_boost_is_clean", "One boost here.", None),
     ("accepted_words_are_clean", "The backend costs 2 lakh.", None),

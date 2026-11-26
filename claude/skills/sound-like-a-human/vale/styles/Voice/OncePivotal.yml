@@ -1,0 +1,16 @@
+# "pivotal" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"pivotal" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:pivotal)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One pivotal here.\n\nAnother pivotal there."
+    contains: 'Voice.OncePivotal'
+  - name: 'one use is fine'
+    input: "One pivotal here."
+    absent: 'Voice.OncePivotal'

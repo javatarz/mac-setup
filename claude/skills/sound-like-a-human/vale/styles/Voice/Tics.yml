@@ -1,10 +1,15 @@
 # Human.Tics, minus "showcase": Human.Tics flagged it 15 times in the user's 2016-2021 posts, one of which
-# is about showcases. "showcase" is allowed once per piece (see Once).
+# is about showcases. "showcase" is allowed once per piece (see Once). Crucial, pivotal, unleash and
+# comprehensive are also allowed once (see the Once* rules).
 extends: Human.Tics
 tokens-:
   - showcase
   - showcases
   - showcased
+  - crucial
+  - pivotal
+  - unleash
+  - comprehensive
 tests:
   - name: 'flags'
     input: "It is a testament to seamless work."

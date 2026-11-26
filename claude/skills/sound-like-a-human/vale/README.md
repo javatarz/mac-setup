@@ -2,7 +2,7 @@
 
 The rules we wrote live in `styles/Voice`, one `.yml` per rule with its own `tests:` cases. Third-party rules are vendored (copied, not synced) into `styles/ai-tells`, `styles/Voices`, `styles/Direct`, `styles/Human` and `styles/Std`, with each package's licence. Do not edit them: `vendor.sh` replaces them from a pinned tag (`./vendor.sh`, or `./vendor.sh ai-tells v1.38.0`), and `git diff` shows what changed. `vale.ini` has no `Packages` line, so Vale never fetches anything. Each package is switched off as a whole and single rules are switched on in `vale.ini`; where a package rule fired on the user's own posts, `Voice/` holds a derived rule (`extends:` plus `tokens-`) that drops the offending words.
 
-Spelling is the vendored en_GB dictionary (`Voice.Spelling`). The user's exceptions are in `styles/config/vocabularies/Skill/`: `accept.txt` (words en_GB flags that are right, and brand terms in their exact case) and `reject.txt` (`iE`, `prepone`). `scripts/lint.py` runs them with `vale.ini`. Run `vale --no-global --config vale/vale.ini test --coverage vale/styles/Voice` to test them.
+Spelling is the vendored en_GB dictionary (`Voice.Spelling`). The user's exceptions are in `styles/config/vocabularies/Skill/`: `accept.txt` (words en_GB flags that are right, and brand terms in their exact case) and `reject.txt` (`iE`). `scripts/lint.py` runs them with `vale.ini`. Run `vale --no-global --config vale/vale.ini test --coverage vale/styles/Voice` to test them.
 
 ## Where a rule applies
 
@@ -27,9 +27,9 @@ Why each is on or off, with noise counts: `docs/wip/writing-system/vale-tuning.m
 - `Voices`: Banned (derived as `Voice.Banned`), InflatedWords, BinaryContrast, ThroatClearing.
 - `Direct`: Hedging; Length is `Voice.LongSentence` (limit 30).
 - `Human`: Tics (derived as `Voice.Tics`, without "showcase").
-- `Std`: Punctuation.OxfordComma.
+- `Std`: Punctuation.OxfordComma (it also catches lists with multi-word items; `Voice.SerialComma` and `SerialCommaMaybe` are our own, restored because Std missed 7 of the user's lists).
 - `ai-tells`: 45 rules, listed in `vale.ini`. `OverusedVocabulary`, `OverusedVocabularyVerbs` and `OpeningCliches` are the derived `Voice.*` versions.
-- `Voice.Phrases`, `Voice.Once` and `Voice.Prefer` are the small custom word lists.
+- `Voice.Phrases`, `Voice.Once` and `Voice.Prefer` are the small custom word lists. `Voice.Once<Word>` (12 files) allows innovative, leverage, pivotal, empower, world-class, foster, meticulous, crucial, best-in-class, comprehensive, streamline and unleash once per piece and flags the second use. The vendored rules that flag every use of them are derived in `Voice/` without them.
 
 ## How the judgement rules were set
 
@@ -39,4 +39,4 @@ Each "partly checkable" rule was run over the user's 12 posts from 2016 to 2021 
 - 0.5 to 2 alerts per 1,000 words and at least half real: suggestion.
 - Under 0.5 per 1,000 words: suggestion, or warning for headings, numerals on social and a leftover `[needs number]`, where the fix is mechanical.
 - Rules for social posts, slides and docs have no matching posts in that corpus, so they ship as suggestions and were checked on test cases only.
-- `OneSentenceParagraph` fires often on those posts (8.5 per 1,000 words) because it enforces a choice the user made after 2021. It is judged on precision only and stays. The serial comma is now `Std.Punctuation.OxfordComma`.
+- `OneSentenceParagraph` fires often on those posts (8.5 per 1,000 words) because it enforces a choice the user made after 2021. It is judged on precision only and stays. The serial comma is `SerialComma`, `SerialCommaMaybe` and `Std.Punctuation.OxfordComma`.

@@ -1,0 +1,16 @@
+# "streamline" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"streamline" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:streamline[sd]?|streamlining)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One streamline here.\n\nAnother streamline there."
+    contains: 'Voice.OnceStreamline'
+  - name: 'one use is fine'
+    input: "One streamline here."
+    absent: 'Voice.OnceStreamline'

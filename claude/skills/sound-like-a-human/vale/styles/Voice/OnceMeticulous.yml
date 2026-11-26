@@ -1,0 +1,16 @@
+# "meticulous" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"meticulous" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:meticulous(?:ly)?)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One meticulous here.\n\nAnother meticulous there."
+    contains: 'Voice.OnceMeticulous'
+  - name: 'one use is fine'
+    input: "One meticulous here."
+    absent: 'Voice.OnceMeticulous'

@@ -1,5 +1,5 @@
 # The user's own swaps, with the fix in the message. Replaces Gotten, Groom, Meetup, OffOf, ItsOwn, WhereAs
-# and the gray entry of BritishWords. "prepone" and "iE" are in vocabularies/Skill/reject.txt.
+# and the gray entry of BritishWords, plus prepone (the old Prepone rule). "iE" is in vocabularies/Skill/reject.txt.
 extends: substitution
 message: 'Use "%s" instead of "%s".'
 level: error
@@ -12,6 +12,7 @@ swap:
   'it''s own': 'its own'
   'where as': 'whereas'
   'grays?': 'grey'
+  'prepon\w*': 'bring forward'
 tests:
   - name: 'gotten'
     input: "It has gotten worse."
@@ -33,6 +34,9 @@ tests:
     contains: 'Voice.Prefer'
   - name: 'grey'
     input: "The gray box."
+    contains: 'Voice.Prefer'
+  - name: 'prepone'
+    input: "Can we prepone the call?"
     contains: 'Voice.Prefer'
   - name: 'clean'
     input: "It has got worse, and its own cache is off."

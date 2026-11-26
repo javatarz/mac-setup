@@ -1,13 +1,13 @@
-# ai-tells.OverusedVocabularyVerbs, minus "harness" (a word the user keeps) and "showcase" (see Once).
+# ai-tells.OverusedVocabularyVerbs, minus "harness" (a word the user keeps), "showcase" and the other words allowed once per piece (see Once*).
 # `tokens` replaces the package list, so re-check this list when vendor.sh bumps ai-tells.
 extends: ai-tells.OverusedVocabularyVerbs
 tokens:
-  - pattern: leverage|leveraging|leverages|navigate|navigates|navigating|navigated|showcasing|embark|embarks|embarking|foster|fosters|fostering|spearhead|spearheads|spearheading
+  - pattern: navigate|navigates|navigating|navigated|embark|embarks|embarking|spearhead|spearheads|spearheading
     tag: VB|VBZ|VBG|VBP|VBD
 tests:
   - name: 'flags'
-    input: "We leverage the tool and embark on it."
+    input: "We navigate the tool and embark on it."
     contains: 'Voice.OverusedVocabularyVerbs'
   - name: 'harness and showcase are left alone'
-    input: "We harness agents and showcase the work."
+    input: "We harness agents, leverage tools and showcase the work."
     absent: 'Voice.OverusedVocabularyVerbs'

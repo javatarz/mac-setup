@@ -1,0 +1,20 @@
+# Voices.InflatedWords, minus leverage, streamline and meticulous: those twelve words are allowed once
+# per piece (see the Once* rules), as the old Repeated* rules did.
+extends: Voices.InflatedWords
+swap-:
+  - leverage
+  - leverages
+  - leveraged
+  - leveraging
+  - streamline
+  - streamlines
+  - streamlined
+  - streamlining
+  - meticulous
+tests:
+  - name: 'flags'
+    input: "We utilize caching."
+    contains: 'Voice.InflatedWords'
+  - name: 'fine-once words are left to Once'
+    input: "We leverage a meticulous plan to streamline it."
+    absent: 'Voice.InflatedWords'

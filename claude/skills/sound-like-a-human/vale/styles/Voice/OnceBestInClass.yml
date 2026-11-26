@@ -1,0 +1,16 @@
+# "best-in-class" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"best-in-class" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:best-in-class)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One best-in-class here.\n\nAnother best-in-class there."
+    contains: 'Voice.OnceBestInClass'
+  - name: 'one use is fine'
+    input: "One best-in-class here."
+    absent: 'Voice.OnceBestInClass'

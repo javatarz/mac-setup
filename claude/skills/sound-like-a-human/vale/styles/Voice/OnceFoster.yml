@@ -1,0 +1,16 @@
+# "foster" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"foster" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:foster(?:s|ed|ing)?)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One foster here.\n\nAnother foster there."
+    contains: 'Voice.OnceFoster'
+  - name: 'one use is fine'
+    input: "One foster here."
+    absent: 'Voice.OnceFoster'

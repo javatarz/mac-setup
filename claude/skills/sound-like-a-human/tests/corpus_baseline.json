@@ -3,13 +3,14 @@
   "Voice.About": 1,
   "Voice.Emoticon": 1,
   "Voice.Hedge": 1,
-  "Voice.Spelling": 4,
-  "Voices.InflatedWords": 1
+  "Voice.Spelling": 4
  },
  "2006-12-16-uptime-challenge.md": {
   "Std.Punctuation.OxfordComma": 2,
   "Voice.Emoticon": 1,
   "Voice.Exclamation": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 1
  },
  "2006-12-27-the-vista-experience.md": {
@@ -33,10 +34,10 @@
  },
  "2007-03-04-uac-false.md": {
   "Voice.Emoticon": 2,
+  "Voice.InflatedWords": 1,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 2,
   "Voice.Spelling": 1,
-  "Voices.InflatedWords": 1,
   "ai-tells.FillerPhrases": 1
  },
  "2007-03-29-hard-resetting-the-wizard.md": {
@@ -44,6 +45,7 @@
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2,
   "ai-tells.FillerPhrases": 1
  },
@@ -85,6 +87,7 @@
   "Voice.Emoticon": 1,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 3
  },
  "2008-08-30-customising-your-ipod.md": {
@@ -93,6 +96,7 @@
   "Voice.Exclamation": 4,
   "Voice.LongSentence": 11,
   "Voice.NumeralOne": 1,
+  "Voice.SerialCommaMaybe": 2,
   "Voice.Spelling": 12,
   "ai-tells.ContrastiveFormulas": 2,
   "ai-tells.FigurativeIdioms": 1,
@@ -118,6 +122,8 @@
   "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 1,
   "Voice.Prefer": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 2,
   "Voice.Spelling": 15,
   "Voice.Triples": 1
  },
@@ -152,6 +158,7 @@
   "Voice.Emoticon": 12,
   "Voice.Exclamation": 5,
   "Voice.Hedge": 1,
+  "Voice.InflatedWords": 1,
   "Voice.Lets": 1,
   "Voice.LongSentence": 17,
   "Voice.MayBe": 1,
@@ -161,7 +168,6 @@
   "Voice.Phrases": 1,
   "Voice.Proof": 2,
   "Voice.Spelling": 19,
-  "Voices.InflatedWords": 1,
   "ai-tells.ClosingPleasantries": 1,
   "ai-tells.ConclusionMarkers": 1,
   "ai-tells.FigurativeIdioms": 1,
@@ -191,6 +197,7 @@
   "Voice.OneSentenceParagraph": 2,
   "Voice.OpeningCliches": 1,
   "Voice.OverusedVocabulary": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 14,
   "Voice.Triples": 1
  },
@@ -202,6 +209,7 @@
   "Voice.LongSentence": 3,
   "Voice.OneSentenceParagraph": 1,
   "Voice.OverusedVocabulary": 2,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 5,
   "Voice.Triples": 1,
   "ai-tells.ConclusionMarkers": 1,
@@ -212,9 +220,9 @@
   "Voice.Emoticon": 4,
   "Voice.LongSentence": 13,
   "Voice.NumeralOne": 3,
-  "Voice.OverusedVocabulary": 2,
+  "Voice.OverusedVocabulary": 1,
+  "Voice.SerialCommaMaybe": 2,
   "Voice.Spelling": 4,
-  "Voice.Tics": 1,
   "Voice.Triples": 1
  },
  "2009-05-21-is-microsoft-delaying-vista-sp2-launch.md": {
@@ -233,6 +241,7 @@
   "Voice.LongSentence": 2,
   "Voice.Numerals": 2,
   "Voice.OneSentenceParagraph": 8,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2
  },
  "2009-05-21-vs-2010-beta-1-user-interface.md": {
@@ -274,6 +283,8 @@
   "Voice.Numerals": 4,
   "Voice.OneSentenceParagraph": 3,
   "Voice.SayGoodbye": 1,
+  "Voice.SerialComma": 4,
+  "Voice.SerialCommaMaybe": 7,
   "Voice.Spelling": 73,
   "Voice.Triples": 1,
   "ai-tells.ContrastiveFormulas": 3,
@@ -297,6 +308,8 @@
   "Voice.LongSentence": 5,
   "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 3,
   "Voice.Spelling": 5,
   "Voice.Triples": 1,
   "ai-tells.ContrastiveFormulas": 1,
@@ -319,6 +332,7 @@
  "2009-10-02-windows-7-launch-party.md": {
   "Voice.Emoticon": 2,
   "Voice.OneSentenceParagraph": 7,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2
  },
  "2009-10-28-mpl-forum.md": {
@@ -335,6 +349,7 @@
   "Voice.LongSentence": 3,
   "Voice.NumeralOne": 1,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2
  },
  "2009-12-06-clean-file-list-generation-with-powershell-script.md": {
@@ -352,6 +367,7 @@
   "Voice.Exclamation": 2,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 4
  },
  "2010-02-21-torrenting-on-linux.md": {
@@ -362,6 +378,7 @@
   "Voice.OneSentenceParagraph": 8,
   "Voice.OverusedVocabulary": 1,
   "Voice.Phrases": 1,
+  "Voice.SerialCommaMaybe": 2,
   "Voice.Spelling": 51,
   "Voice.Tics": 1,
   "ai-tells.EmDashUsage": 1,
@@ -370,9 +387,9 @@
  "2010-07-04-windows-file-sharing-addremove-folders-via-command-line.md": {
   "Voice.Emoticon": 3,
   "Voice.Exclamation": 1,
+  "Voice.InflatedWords": 3,
   "Voice.LongSentence": 1,
-  "Voice.OneSentenceParagraph": 3,
-  "Voices.InflatedWords": 3
+  "Voice.OneSentenceParagraph": 3
  },
  "2010-10-02-free-wifi-antenna-booster.md": {
   "Voice.Emoticon": 2,
@@ -451,6 +468,7 @@
   "Voice.Emoticon": 2,
   "Voice.Exclamation": 1,
   "Voice.LongSentence": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 3
  },
  "2011-08-16-htc-incredible-s-fix-for-bootloader-saying-security-warning.md": {
@@ -463,6 +481,7 @@
   "Std.Punctuation.OxfordComma": 1,
   "Voice.Emoticon": 2,
   "Voice.OneSentenceParagraph": 9,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2
  },
  "2012-07-16-movement-to-bumblebee.md": {
@@ -503,7 +522,9 @@
  },
  "2013-04-29-terracopy-copying-files-the-way-its-meant-to-be-copied.md": {
   "Voice.Emoticon": 1,
-  "Voice.Exclamation": 2
+  "Voice.Exclamation": 2,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1
  },
  "2013-05-01-google-io-2013-easter-eggs.md": {
   "Voice.Emoticon": 1,
@@ -622,6 +643,7 @@
  },
  "2014-10-30-expandregion-on-sublime-text.md": {
   "Std.Punctuation.OxfordComma": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 2
  },
  "2014-11-06-use-spotify-internationally-again.md": {
@@ -645,6 +667,7 @@
   "Voice.HyphenAsDash": 1,
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 1
  },
  "2014-11-30-mass-renaming-file-extensions-with-powershell.md": {
@@ -656,6 +679,7 @@
  "2014-11-30-removing-utorrent-ads.md": {
   "Voice.HeadingLength": 1,
   "Voice.OneSentenceParagraph": 3,
+  "Voice.SerialComma": 1,
   "Voice.Spelling": 1
  },
  "2014-12-10-mac-camera-not-available.md": {
@@ -689,6 +713,8 @@
   "Voice.Numerals": 1,
   "Voice.OneSentenceParagraph": 2,
   "Voice.OpeningCliches": 2,
+  "Voice.SerialComma": 2,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 10,
   "Voices.BinaryContrast": 1,
   "ai-tells.FigurativeIdioms": 1,
@@ -701,6 +727,7 @@
   "Voice.LongSentence": 5,
   "Voice.OneSentenceParagraph": 6,
   "Voice.Phrases": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 7,
   "ai-tells.AbsoluteAssertions": 1,
   "ai-tells.FigurativeWins": 1,
@@ -710,6 +737,8 @@
   "Voice.HeadingLength": 2,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 6,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 7
  },
  "2015-07-11-reducing-maven-package-times-due-to-resource-copying.md": {
@@ -767,7 +796,6 @@
   "Voice.Prefer": 1,
   "Voice.ResponsibleTo": 5,
   "Voice.Spelling": 3,
-  "Voices.InflatedWords": 1,
   "ai-tells.FigurativeRuns": 1,
   "ai-tells.MarketingHeadings": 1
  },
@@ -782,6 +810,7 @@
  "2018-11-10-the-untold-guide-to-troubleshoot-phillips-hue-and-google-assistant-integration.md": {
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 3,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 1
  },
  "2019-04-16-fixing-broken-social-logins-on-your-browser.md": {
@@ -796,6 +825,8 @@
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 17,
   "Voice.Phrases": 1,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 1,
   "Voice.Spelling": 1,
   "ai-tells.FigurativeWorth": 1
  },
@@ -804,17 +835,21 @@
   "Voice.LongSentence": 10,
   "Voice.Once": 1,
   "Voice.OneSentenceParagraph": 5,
+  "Voice.SerialComma": 1,
+  "Voice.SerialCommaMaybe": 5,
   "Voice.Spelling": 8
  },
  "2021-08-02-mlops-building-a-healthy-data-platform.md": {
   "Std.Punctuation.OxfordComma": 1,
   "Voice.Exclamation": 1,
   "Voice.HeadingLength": 1,
+  "Voice.InflatedWords": 2,
   "Voice.LongSentence": 9,
   "Voice.OneSentenceParagraph": 5,
   "Voice.OverusedVocabulary": 2,
+  "Voice.SerialComma": 2,
+  "Voice.SerialCommaMaybe": 7,
   "Voice.Spelling": 7,
-  "Voices.InflatedWords": 2,
   "ai-tells.EmDashUsage": 1
  }
 }

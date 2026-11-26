@@ -1,0 +1,16 @@
+# "crucial" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"crucial" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:crucial(?:ly)?)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One crucial here.\n\nAnother crucial there."
+    contains: 'Voice.OnceCrucial'
+  - name: 'one use is fine'
+    input: "One crucial here."
+    absent: 'Voice.OnceCrucial'

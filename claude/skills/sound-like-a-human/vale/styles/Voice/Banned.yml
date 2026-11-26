@@ -1,7 +1,10 @@
-# Voices.Banned, minus "harness" (a word the user keeps; only "harness the power of" is banned, in Phrases).
+# Voices.Banned, minus "harness" (a word the user keeps; only "harness the power of" is banned, in Phrases)
+# and foster and empower (allowed once per piece, see the Once* rules).
 extends: Voices.Banned
 tokens-:
   - 'harness(?:es|ed|ing)?'
+  - foster
+  - 'empower(?:s|ed|ing)?'
 tests:
   - name: 'flags'
     input: "The realm of tapestry."

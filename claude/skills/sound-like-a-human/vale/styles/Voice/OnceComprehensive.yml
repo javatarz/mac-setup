@@ -1,0 +1,16 @@
+# "comprehensive" is allowed once per piece. From the second use it is flagged. The vendored rules that flag
+# every use of it are derived in Voice/ without it.
+extends: occurrence
+message: '"comprehensive" used more than once. Fine once.'
+level: warning
+scope: summary
+max: 1
+ignorecase: true
+token: '\b(?:comprehensive(?:ly)?)\b'
+tests:
+  - name: 'second use is flagged'
+    input: "One comprehensive here.\n\nAnother comprehensive there."
+    contains: 'Voice.OnceComprehensive'
+  - name: 'one use is fine'
+    input: "One comprehensive here."
+    absent: 'Voice.OnceComprehensive'

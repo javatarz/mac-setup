@@ -1,11 +1,34 @@
 # ai-tells.OverusedVocabulary, minus the words the user writes in ordinary engineering prose.
 # Fired on the 2016-2021 posts: significant, significantly, dynamic. See vale-tuning.md.
+# Also minus the words that are allowed once per piece (see the Once* rules).
 extends: ai-tells.OverusedVocabulary
 tokens-:
   - significant
   - significantly
   - dynamic
   - dynamically
+  - best-in-class
+  - comprehensive
+  - comprehensively
+  - crucial
+  - crucially
+  - empower
+  - empowers
+  - empowering
+  - empowered
+  - empowerment
+  - innovative
+  - innovatively
+  - meticulous
+  - meticulously
+  - streamline
+  - streamlines
+  - streamlining
+  - unleash
+  - unleashes
+  - unleashing
+  - unleashed
+  - world-class
 tests:
   - name: 'flags'
     input: "We delve into a robust, holistic plan."

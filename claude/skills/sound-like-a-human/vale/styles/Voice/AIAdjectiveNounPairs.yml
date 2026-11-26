@@ -1,0 +1,14 @@
+# ai-tells.AIAdjectiveNounPairs, minus pivotal, innovative and comprehensive (allowed once per piece, see Once*).
+# `tokens` replaces the package list, so re-check this list when vendor.sh bumps ai-tells.
+extends: ai-tells.AIAdjectiveNounPairs
+tokens:
+  - pattern: multifaceted|intricate|holistic|transformative|groundbreaking|unparalleled|unprecedented|seamless|sophisticated
+    tag: JJ
+  - tag: NN|NNS
+tests:
+  - name: 'flags'
+    input: "A seamless experience."
+    contains: 'Voice.AIAdjectiveNounPairs'
+  - name: 'fine-once words are left to Once'
+    input: "A pivotal moment and an innovative plan and a comprehensive guide."
+    absent: 'Voice.AIAdjectiveNounPairs'
