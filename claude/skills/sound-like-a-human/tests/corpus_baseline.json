@@ -795,7 +795,7 @@
   "Voice.OneSentenceParagraph": 2,
   "Voice.Prefer": 1,
   "Voice.ResponsibleTo": 5,
-  "Voice.Spelling": 3,
+  "Voice.Spelling": 4,
   "ai-tells.FigurativeRuns": 1,
   "ai-tells.MarketingHeadings": 1
  },
@@ -811,7 +811,7 @@
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 3,
   "Voice.SerialCommaMaybe": 1,
-  "Voice.Spelling": 1
+  "Voice.Spelling": 2
  },
  "2019-04-16-fixing-broken-social-logins-on-your-browser.md": {
   "Voice.OneSentenceParagraph": 3,
@@ -837,7 +837,7 @@
   "Voice.OneSentenceParagraph": 5,
   "Voice.SerialComma": 1,
   "Voice.SerialCommaMaybe": 5,
-  "Voice.Spelling": 8
+  "Voice.Spelling": 10
  },
  "2021-08-02-mlops-building-a-healthy-data-platform.md": {
   "Std.Punctuation.OxfordComma": 1,
@@ -849,7 +849,7 @@
   "Voice.OverusedVocabulary": 2,
   "Voice.SerialComma": 2,
   "Voice.SerialCommaMaybe": 7,
-  "Voice.Spelling": 7,
+  "Voice.Spelling": 8,
   "ai-tells.EmDashUsage": 1
  }
 }

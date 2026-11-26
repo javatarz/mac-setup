@@ -1,8 +1,6 @@
 lakh
 crore
 backend
-cleanups?
-followup
 plugins
 etc
 intelligent Engineering
