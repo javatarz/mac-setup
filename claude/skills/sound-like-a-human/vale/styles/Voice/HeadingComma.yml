@@ -1,0 +1,14 @@
+# A heading that joins two clauses with a comma reads like a slogan.
+extends: existence
+message: 'Heading joins two clauses with a comma ("%s"). Name what the section is.'
+level: suggestion
+scope: heading
+raw:
+  - '^[^,]+, (?:and |but |so |not |yet )?(?:you|we|it|they|this|that|there|i|the|a)\b'
+tests:
+  - name: 'flags'
+    input: "## Fast, and you should know it\n\nText here."
+    contains: 'Voice.HeadingComma'
+  - name: 'list in heading'
+    input: "## Tests, lint and review\n\nText here."
+    absent: 'Voice.HeadingComma'

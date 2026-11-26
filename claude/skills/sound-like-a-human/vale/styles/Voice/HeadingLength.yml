@@ -1,0 +1,28 @@
+# Soft limit: 9 words or more in an h2 or below. The post title (h1) is not covered.
+# Switch it off for one heading with an HTML comment on the line before it:
+#   <!-- vale Voice.HeadingLength = NO -->
+#   ## A long heading you want to keep as it is
+extends: existence
+message: 'Heading over 8 words. Consider a shorter wording. To keep it, put <!-- vale Voice.HeadingLength = NO --> on the line before it.'
+level: warning
+scope:
+  - heading.h2
+  - heading.h3
+  - heading.h4
+  - heading.h5
+  - heading.h6
+raw:
+  - '^\s*(?:\S+\s+){8}\S+'
+tests:
+  - name: 'nine words flag'
+    input: "## One two three four five six seven eight nine\n\nText here."
+    contains: 'Voice.HeadingLength'
+  - name: 'eight words are fine'
+    input: "## One two three four five six seven eight\n\nText here."
+    absent: 'Voice.HeadingLength'
+  - name: 'h1 title is not covered'
+    input: "# One two three four five six seven eight nine ten\n\nText here."
+    absent: 'Voice.HeadingLength'
+  - name: 'inline comment switches it off'
+    input: "<!-- vale Voice.HeadingLength = NO -->\n## One two three four five six seven eight nine\n\nText here."
+    absent: 'Voice.HeadingLength'

@@ -86,6 +86,8 @@
   "Voice.BritishWords": 1,
   "Voice.Emoticon": 14,
   "Voice.Exclamation": 7,
+  "Voice.HeadingLength": 1,
+  "Voice.HeadingRepeat": 1,
   "Voice.Hedge": 1,
   "Voice.Lets": 1,
   "Voice.LongSentence": 8,
@@ -202,6 +204,7 @@
   "Voice.BritishWords": 10,
   "Voice.Emoticon": 44,
   "Voice.Exclamation": 24,
+  "Voice.HeadingLength": 1,
   "Voice.Hedge": 4,
   "Voice.Ish": 1,
   "Voice.Lets": 1,
@@ -434,6 +437,7 @@
  "2014-03-11-atlassian-bamboo-downloading-code-from-atlassian-stash.md": {
   "Voice.BritishStems": 1,
   "Voice.Emoticon": 1,
+  "Voice.HeadingRepeat": 1,
   "Voice.LongSentence": 5,
   "Voice.OneSentenceParagraph": 22
  },
@@ -450,6 +454,7 @@
   "Voice.BritishStems": 1,
   "Voice.Emoticon": 4,
   "Voice.Exclamation": 2,
+  "Voice.HeadingComma": 1,
   "Voice.LongSentence": 1,
   "Voice.OneSentenceParagraph": 2
  },
@@ -516,6 +521,7 @@
   "Voice.OneSentenceParagraph": 3
  },
  "2014-11-30-removing-utorrent-ads.md": {
+  "Voice.HeadingLength": 1,
   "Voice.OneSentenceParagraph": 3,
   "Voice.SerialComma": 1
  },
@@ -528,6 +534,7 @@
   "Voice.Emoticon": 2,
   "Voice.Exclamation": 2,
   "Voice.Gotten": 1,
+  "Voice.HeadingLength": 5,
   "Voice.HyphenAsDash": 6,
   "Voice.Lets": 3,
   "Voice.LongSentence": 3,
@@ -536,6 +543,7 @@
  "2015-01-31-signs-of-a-troubled-startup.md": {
   "Voice.BritishStems": 1,
   "Voice.Exclamation": 1,
+  "Voice.HeadingLength": 2,
   "Voice.Hedge": 2,
   "Voice.LongSentence": 3,
   "Voice.OneSentenceParagraph": 2,
@@ -552,6 +560,7 @@
   "Voice.SetupLine": 1
  },
  "2015-07-11-maven-compilation-in-ram-drive.md": {
+  "Voice.HeadingLength": 2,
   "Voice.LongSentence": 2,
   "Voice.OneSentenceParagraph": 6,
   "Voice.SerialComma": 1,
@@ -642,6 +651,7 @@
   "Voice.Banned": 2,
   "Voice.Dash": 1,
   "Voice.Exclamation": 1,
+  "Voice.HeadingLength": 1,
   "Voice.LongSentence": 9,
   "Voice.OneSentenceParagraph": 5,
   "Voice.SerialComma": 2,

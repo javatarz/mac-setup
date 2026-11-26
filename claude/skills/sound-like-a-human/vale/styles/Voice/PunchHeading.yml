@@ -1,0 +1,23 @@
+# Punch words in a heading. In body text they are often literal, so there is no body-text rule.
+extends: existence
+message: 'Punch word "%s" in a heading. Name what the section is.'
+level: warning
+scope: heading
+ignorecase: true
+tokens:
+  - 'nobody'
+  - 'everybody'
+  - 'everyone'
+  - 'beats'
+  - 'the real'
+  - 'actually'
+tests:
+  - name: 'flags'
+    input: "## Nobody reads the logs\n\nText here."
+    contains: 'Voice.PunchHeading'
+  - name: 'body text is fine'
+    input: "Nobody reads the logs."
+    absent: 'Voice.PunchHeading'
+  - name: 'plain heading'
+    input: "## Reading the logs\n\nText here."
+    absent: 'Voice.PunchHeading'

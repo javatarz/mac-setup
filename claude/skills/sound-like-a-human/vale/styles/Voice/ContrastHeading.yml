@@ -1,0 +1,17 @@
+# Headings of the shape "X, not Y" or "not just X". Tuned on the 2016-2021 posts: 0 alerts.
+extends: existence
+message: 'Contrast heading "%s". Name what the section is.'
+level: warning
+scope: heading
+raw:
+  - ', not\b|\bnot (?:just|only) \w+'
+tests:
+  - name: 'flags'
+    input: "## Use the agent to build understanding, not replace it\n\nText here."
+    contains: 'Voice.ContrastHeading'
+  - name: 'label heading'
+    input: "## Using the agent to build understanding\n\nText here."
+    absent: 'Voice.ContrastHeading'
+  - name: 'body text is not a heading'
+    input: "We fix the cause, not the symptom."
+    absent: 'Voice.ContrastHeading'

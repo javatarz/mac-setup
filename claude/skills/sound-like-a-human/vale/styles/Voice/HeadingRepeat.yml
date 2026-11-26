@@ -1,0 +1,16 @@
+# A heading that repeats a content word says it twice. Body sentences are not checked:
+# the same test fired 52 times in 7,900 words of the user's own prose, mostly on honest repeats.
+extends: existence
+message: 'Heading repeats "%s".'
+level: suggestion
+scope: heading
+ignorecase: true
+raw:
+  - '\b([A-Za-z]{5,})\b.*\b\1\b'
+tests:
+  - name: 'flags'
+    input: "## Testing tests for testing\n\nText here."
+    contains: 'Voice.HeadingRepeat'
+  - name: 'plain'
+    input: "## Testing the retry policy\n\nText here."
+    absent: 'Voice.HeadingRepeat'

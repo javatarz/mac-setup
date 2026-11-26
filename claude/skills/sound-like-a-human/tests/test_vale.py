@@ -64,6 +64,17 @@ class PerTypeSwitches(unittest.TestCase):
                      "Which one? The one I wrote.", "Ran 1 check."):
             self.check_type(text, "social", "Voice.Numerals", False)
 
+    def test_heading_length_is_soft_and_skips_the_title(self):
+        nine = "One two three four five six seven eight nine"
+        self.check_type(f"## {nine}\n\nText here.", "post", "Voice.HeadingLength", True)
+        self.check_type("## One two three four five six seven eight\n\nText here.", "post", "Voice.HeadingLength", False)
+        self.check_type(f"# {nine}\n\nText here.", "post", "Voice.HeadingLength", False)
+        self.check_type(f"<!-- vale Voice.HeadingLength = NO -->\n## {nine}\n\nText here.", "post", "Voice.HeadingLength", False)
+        # the comment switches it off for that heading only
+        two = f"<!-- vale Voice.HeadingLength = NO -->\n## {nine}\n\nText here.\n\n<!-- vale Voice.HeadingLength = YES -->\n## {nine}\n\nText here."
+        self.assertEqual([h[0] for h in lint.check(two, "post") if h[2] == "Voice.HeadingLength"], [7])
+        self.assertEqual(next(h[1] for h in lint.check(f"## {nine}\n\nText here.", "post") if h[2] == "Voice.HeadingLength"), "warning")
+
     def test_one_sentence_paragraph_only_on_long_form(self):
         text = "One alone.\n\nTwo here. And another."
         for t in ("post", "doc"):
