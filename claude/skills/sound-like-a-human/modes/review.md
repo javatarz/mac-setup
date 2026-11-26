@@ -22,6 +22,7 @@ A sentence that breaks no rule stays exactly as written. Anything on the avoid-l
 - **Split or join sentences.** Keep the author's sentence boundaries, including short endings ("Small margin. It held.").
 - **Drop words.** A clause that breaks no rule stays; a buzzword or punch word does not ("It's not glamorous, but...", "not when a timer says so").
 - **Swap a phrase for a synonym.** "I don't think it's anyone's fault" stays; it doesn't become "I don't blame anyone".
+- **Contract a full form.** "does not prove" stays; the writer chose it for stress or style.
 - **Reword to tighten.** "The fewest words" applies to a sentence you are already fixing, not to one that is fine.
 - **Turn digits into words.** "3 checks" stays "3 checks". The social rule still turns "three" into "3".
 - **Touch headings, code blocks, or a flagged caveat.** A designed-only label or a thank-you stays.

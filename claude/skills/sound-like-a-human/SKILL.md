@@ -37,7 +37,7 @@ If the type is unclear, ask. Then read, in this order: `voice.md`, `examples.md`
 4. **Never invent proof.** No numbers, counts, quotes, or results that aren't in the notes or sources. If a claim needs a number you don't have, write `[needs number]`.
 5. **Never present designed-only work as production practice.** Label it where the claim is made, once.
 6. **Caveats come only from the brief.** Add a limit or caveat only for a claim the brief marks as uncertain.
-7. **Keep the user's wording.** Where their notes already say it, use their words and shape around them. Model-written text is what flattens the voice. In review, text that breaks no rule stays untouched: don't split or join sentences, drop words, swap synonyms, or spell out numerals (see `modes/review.md`).
+7. **Keep the user's wording.** Where their notes already say it, use their words and shape around them. Model-written text is what flattens the voice. In review, text that breaks no rule stays untouched: don't split or join sentences, drop words, swap synonyms, contract a full form, or spell out numerals (see `modes/review.md`).
 
 ## 3. Avoid-list
 

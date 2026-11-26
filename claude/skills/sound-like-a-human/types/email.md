@@ -9,6 +9,6 @@ The reader is busy and reads it once. Skip the brief and both gates; ask only th
 - **Close with the next step** and who owns it, with a date if there is one.
 - **Keep it short:** a few short paragraphs. Use a list only for steps or separate asks.
 
-Voice applies in full: plain words, exact numbers, contractions, and no sales lines. Match the register of the thread when replying.
+Voice applies in full: plain words, exact numbers, contractions where they fit, and no sales lines. Match the register of the thread when replying.
 
 Never send. Show the final text to the user; they send it.

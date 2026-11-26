@@ -28,7 +28,7 @@ This applies to every kind of writing: posts, slides, documents, emails, and soc
 - Short sentences, one idea each. Paragraphs of 2 to 4 sentences.
 - Join a short contrast with "but" when the second half would otherwise be a dramatic fragment: "The agent could read the whole repo in minutes but I couldn't." Don't write the fragment ("I couldn't."). Two complete sentences stay as two.
 - Use parentheses for asides and qualifiers.
-- Use contractions. No lint rule checks this: the user's own 2016-2021 posts write "do not" and "it is" about 9 times per 1,000 words.
+- Prefer contractions. Keep the full form ("does not prove") where the writer chose it for stress or style. In review, never contract a full form: that is the writer's choice. No lint rule checks this: the user's own 2016-2021 posts write "do not" and "it is" about 9 times per 1,000 words.
 - **Serial comma.** In a list of three or more, put a comma before the final "and" or "or": "timeouts, rate limits, and connection resets".
 - Prefer the active voice, the positive form, concrete words, and the fewest words that keep the meaning.
 
